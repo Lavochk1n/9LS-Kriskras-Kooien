@@ -6,6 +6,7 @@ public class RotationButton : MonoBehaviour
 {
 
     [SerializeField] private GameObject Target;
+    [SerializeField] private GameObject Trash;
     [SerializeField] private float Roatationspeed; 
 
     public void Rotate()
