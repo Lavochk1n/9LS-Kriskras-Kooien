@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 140685394}
   - component: {fileID: 140685393}
   m_Layer: 0
-  m_Name: TrashPatientZero (2)
+  m_Name: 'Black Trash '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -543,7 +543,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 587045875}
   - component: {fileID: 587045874}
   m_Layer: 0
-  m_Name: TrashPatientZero (1)
+  m_Name: Pink Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1571,7 +1571,7 @@ GameObject:
   - component: {fileID: 1538394377}
   - component: {fileID: 1538394376}
   m_Layer: 0
-  m_Name: TrashPatientZero (4)
+  m_Name: Black Trash 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1704,7 +1704,7 @@ GameObject:
   - component: {fileID: 1544616062}
   - component: {fileID: 1544616061}
   m_Layer: 0
-  m_Name: TrashPatientZero (3)
+  m_Name: Green Trash 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1929,7 +1929,7 @@ GameObject:
   - component: {fileID: 1726032161}
   - component: {fileID: 1726032160}
   m_Layer: 0
-  m_Name: TrashPatientZero
+  m_Name: Green Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2135,7 +2135,7 @@ GameObject:
   - component: {fileID: 2122348217}
   - component: {fileID: 2122348216}
   m_Layer: 0
-  m_Name: TrashPatientZero (5)
+  m_Name: Pink Trash 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2410,8 +2410,8 @@ SceneRoots:
   - {fileID: 1645613137}
   - {fileID: 869890632}
   - {fileID: 567055670}
+  - {fileID: 804213391}
   - {fileID: 680103767}
   - {fileID: 618856686}
   - {fileID: 1100905922}
   - {fileID: 1321191707}
-  - {fileID: 804213391}
