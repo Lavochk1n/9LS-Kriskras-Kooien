@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CageBehaviour : MonoBehaviour
@@ -15,22 +17,6 @@ public class CageBehaviour : MonoBehaviour
 
     [SerializeField] private GameObject progressbar, sickIcon; 
 
-    private enum animalTypes
-    {
-        dog,
-        crow,
-        parrot,
-        Empty,
-        closed
-    }
-
-    private enum sickState
-    {
-        healthy,
-        sickening,
-        sick 
-    }
-
     [SerializeField] private animalTypes myAnimal;
     [SerializeField] private sickState myState;
 
@@ -39,9 +25,6 @@ public class CageBehaviour : MonoBehaviour
         InitializeCages();
         UpdateCage();
         spreadSpeed = QuarentineManager.Instance.spreadSpeed;
-
-
-        
     }
 
     private void Update()
@@ -49,9 +32,10 @@ public class CageBehaviour : MonoBehaviour
         CheckSpread();
     }
 
-
     private void InitializeCages()
     {
+        UpdateCage();
+
         AdjCages = new CageBehaviour[4];
 
         RaycastHit hit;
@@ -80,10 +64,17 @@ public class CageBehaviour : MonoBehaviour
         if (myState == sickState.sick)
         {
             sickIcon.SetActive(true);
-
         }
+    }
 
 
+    public void ChangeOccupation(animalTypes animal)
+    {
+        myAnimal = animal;
+    }
+    public void ChangeSickstate(sickState sick)
+    {
+        myState = sick;
     }
 
 
@@ -130,7 +121,8 @@ public class CageBehaviour : MonoBehaviour
 
                 break;
             case animalTypes.closed:
-                renderer.material = QuarentineManager.Instance.closed;
+                Destroy(gameObject);
+                //renderer.material = QuarentineManager.Instance.closed;
 
                 break;
         }
@@ -145,11 +137,9 @@ public class CageBehaviour : MonoBehaviour
 
         if (adjDisease())
         {
-                
             ProgressSickness();
         }
     }
-
 
     private void ProgressSickness()
     {
@@ -162,15 +152,12 @@ public class CageBehaviour : MonoBehaviour
 
         progressbar.GetComponent<Renderer>().material.SetFloat("_progressionRate", sickProgression);
 
-
         if(progressbar.GetComponent<Renderer>().material.GetFloat("_progressBorder") < sickProgression)
         {
             myState = sickState.sick;
             progressbar.SetActive(false);
             sickIcon.SetActive(true);
-
         }
-
     }
 
     private bool adjDisease()
@@ -226,7 +213,6 @@ public class CageBehaviour : MonoBehaviour
                 return true; 
             }
         }
-
 
         return false; 
     }
