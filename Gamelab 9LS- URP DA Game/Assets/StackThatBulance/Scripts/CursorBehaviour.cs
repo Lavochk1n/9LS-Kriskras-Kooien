@@ -10,11 +10,11 @@ namespace StackThatBulance
         public Vector3 moveVector = Vector3.zero;
         private Rigidbody rb;
 
-        [SerializeField] private float movespeed = 10f, cooldownTime = .01f;
+        [SerializeField] private float movespeed = 10f;
 
-        private float currentCooldown = 0f; 
+        private GameObject grabTarget;
 
-        private GameObject GrapTarget;
+        [SerializeField] private Transform grapPoint; 
 
         private void Awake()
         {
@@ -22,61 +22,30 @@ namespace StackThatBulance
 
         }
 
-
-
         private void FixedUpdate()
         {
             rb.velocity = moveVector * movespeed;
 
-            if (GrapTarget != null)
+            if (grabTarget != null)
             {
-                GrapTarget.transform.position = this.transform.position;
+                grabTarget.transform.position = grapPoint.transform.position;
             }
-
-            if (currentCooldown > 0)
-            {
-                currentCooldown -= Time.deltaTime;
-                if (currentCooldown < 0)
-                {
-                    currentCooldown = 0; 
-                }
-            }
-        
-
         }
 
-
-        public void AttemptGrab()
+        public void GrabTarget(GameObject target)
         {
-            if(currentCooldown > 0)
+            if (grabTarget == null) 
             {
-                return;
-            }
-
-            currentCooldown = cooldownTime;
-
-            if (GrapTarget == null)
-            {
-                RaycastHit hit;
-
-                if (Physics.Raycast(transform.position, Vector3.down, out hit))
-                {
-                    Debug.Log(hit.transform.gameObject);
-                    GrapTarget = hit.transform.gameObject;
-
-                    if (GrapTarget.GetComponent<Rigidbody>() == null) { GrapTarget = null; return; }
-
-                    GrapTarget.GetComponent<Rigidbody>().useGravity = false;
-                }
+                grabTarget = target;
             }
             else
             {
-                Debug.Log("Let Go");
-                GrapTarget.GetComponent<Rigidbody>().useGravity = true;
-                GrapTarget = null;
-
+                grabTarget.GetComponent<Rigidbody>().useGravity = true;
+                grabTarget = null;
             }
+
         }
+
 
     }
 }

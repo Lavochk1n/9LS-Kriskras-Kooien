@@ -15,9 +15,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Grab",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "193ba0fe-c70a-4ca5-8774-43fa434222de",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Return",
+                    "type": "Button",
+                    "id": "fd23e3bf-c388-4062-b775-b4063d48fe9c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -25,17 +34,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "7b1e79d6-f3bb-46fb-a0c9-aa2c0bb5108c",
-                    "path": "<Joystick>/stick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "8868b691-54f5-4acb-80bc-11484fdee3e6",
@@ -48,13 +46,101 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "2D Vector",
+                    "id": "cca62660-eb42-4ad5-a256-fa4befe8e4e0",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "1413093e-ddb1-4ab2-906e-f0b391625c37",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Left Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "2b7cd0fb-6204-445f-8860-5a5fe3cb8b5c",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Left Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "043875f0-fc5f-4f10-b9de-80917c4851ec",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Left Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "5ea2b959-8de8-45bd-8a9b-01ef1680137b",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Left Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "2c093258-f9fe-47ef-959d-274fef1b6578",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Grab",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4733eccd-cbaa-41e8-a98d-ca0e7b111b5f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Left Keyboard",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "164c702f-de22-4f1e-8885-90e95c1bc086",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Return",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa6442d1-ffd4-484c-8e69-6eea5afcdb5e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Left Keyboard",
+                    "action": "Return",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -63,22 +149,22 @@
     ],
     "controlSchemes": [
         {
-            "name": "Joystick",
-            "bindingGroup": "Joystick",
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
             "devices": [
                 {
-                    "devicePath": "<Joystick>",
+                    "devicePath": "<Gamepad>",
                     "isOptional": false,
                     "isOR": false
                 }
             ]
         },
         {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
+            "name": "Left Keyboard",
+            "bindingGroup": "Left Keyboard",
             "devices": [
                 {
-                    "devicePath": "<Gamepad>",
+                    "devicePath": "<Keyboard>",
                     "isOptional": false,
                     "isOR": false
                 }

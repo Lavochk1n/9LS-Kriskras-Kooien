@@ -79,8 +79,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7453500438793669285}
         m_TargetAssemblyTypeName: StackThatBulance.PlayerBehaviour, Assembly-CSharp
-        m_MethodName: OnGrab
-        m_Mode: 1
+        m_MethodName: OnInteract
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -91,6 +91,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 193ba0fe-c70a-4ca5-8774-43fa434222de
     m_ActionName: Player/Grab[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fd23e3bf-c388-4062-b775-b4063d48fe9c
+    m_ActionName: Player/Return[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

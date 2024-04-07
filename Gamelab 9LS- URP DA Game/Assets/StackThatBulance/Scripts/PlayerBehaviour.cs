@@ -1,22 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace StackThatBulance
 {
-    public class PlayerBehaviour : MonoBehaviour
+    public class PlayerBehaviour : Interactor
     {
-
-
         private CursorBehaviour CursorMovement;
-
         public bool playerOne;
+
+        // private bool 
 
         private void Awake()
         {
-
             CursorMovement = GameObject.FindWithTag("Cursor").GetComponent<CursorBehaviour>();
             
             if(!GameManager.Instance.playerOneSpawned)
@@ -31,10 +26,13 @@ namespace StackThatBulance
         }
 
 
+        private void Update()
+        {
+            ScanInteractable(CursorMovement.gameObject, Vector3.down, 10f); 
+        }
 
         public void OnMovement(InputAction.CallbackContext value)
         {
-
             if (!playerOne)
             {
                 CursorMovement.moveVector.x = value.ReadValue<Vector2>().x;
@@ -42,16 +40,18 @@ namespace StackThatBulance
             else
             {
                 CursorMovement.moveVector.z = value.ReadValue<Vector2>().y;
-
             }
         }
 
-
-        public void OnGrab()
+        public void OnInteract(InputAction.CallbackContext context)
         {
-            CursorMovement.AttemptGrab();
+            if (context.started)
+            {
+                
+                RequestInteraction();
+            }
         }
-    }
 
-    
+        
+    }
 }
