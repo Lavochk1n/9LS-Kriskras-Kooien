@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace StackThatBulance
 {
-    public class item : MonoBehaviour
+    public class ItemSlot : MonoBehaviour
     {
 
         [SerializeField] private GameObject requiredSlot;

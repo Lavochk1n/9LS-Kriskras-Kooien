@@ -2,22 +2,22 @@
     "name": "SharedCursor",
     "maps": [
         {
-            "name": "PlayerOne",
-            "id": "96c46164-6a8f-4756-b4de-0da7edff9ce9",
+            "name": "Player",
+            "id": "fc99f93d-9f80-4c63-a441-2b1bf9532b55",
             "actions": [
                 {
-                    "name": "HotizontalMovement",
-                    "type": "Value",
-                    "id": "7202ffd9-950c-4bf1-9a7f-29a08dea94d6",
-                    "expectedControlType": "Button",
+                    "name": "Movement",
+                    "type": "PassThrough",
+                    "id": "25828c04-e4ef-4a58-8521-a464814e7432",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "Grap",
+                    "name": "Grab",
                     "type": "Button",
-                    "id": "ca5f335b-5eaa-41f4-9aa1-7f7517338242",
+                    "id": "193ba0fe-c70a-4ca5-8774-43fa434222de",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -26,176 +26,63 @@
             ],
             "bindings": [
                 {
-                    "name": "LeftKeyboard",
-                    "id": "e7c293e0-4a38-444b-ace4-6495bf48580e",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "7b1e79d6-f3bb-46fb-a0c9-aa2c0bb5108c",
+                    "path": "<Joystick>/stick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "HotizontalMovement",
-                    "isComposite": true,
+                    "groups": "Joystick",
+                    "action": "Movement",
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "ca4224de-e3de-42d5-bf0e-9b950ea21a11",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HotizontalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "a901ebb1-e0a0-4f01-86f6-832e1eb3df4a",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HotizontalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "6041ec30-d57c-4895-833e-d008a214dd83",
-                    "path": "<Keyboard>/space",
+                    "id": "8868b691-54f5-4acb-80bc-11484fdee3e6",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Grap",
+                    "groups": "Gamepad",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "D-Pad",
-                    "id": "c9b479de-2e5b-4fbc-ab76-28a2dd76969e",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HotizontalMovement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "391533ce-52cb-4df7-9c86-03755b121796",
-                    "path": "<Gamepad>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HotizontalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "0c77a75a-1176-4511-812a-0930aa8dab5f",
-                    "path": "<Gamepad>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HotizontalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "f1753200-b87a-4158-afc9-158096405ac5",
+                    "id": "2c093258-f9fe-47ef-959d-274fef1b6578",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Grap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "PlayerTwo",
-            "id": "17876003-69ae-4b7b-a1c0-c67503c5c186",
-            "actions": [
-                {
-                    "name": "VerticalMovement",
-                    "type": "Value",
-                    "id": "9eef5370-f4ab-4d56-9846-50d79cc27871",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Grap",
-                    "type": "Button",
-                    "id": "6466567e-63e2-4bb7-9c6b-7e83fdc959dd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "rightKeyboard",
-                    "id": "0756644f-4455-4a34-bfda-f925fb0e51ac",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "VerticalMovement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "133442a8-9d2e-468f-af11-5cf48adb01db",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "VerticalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "1f38c17b-e9bf-49d8-a7fa-82f054dbb52a",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "VerticalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "6099649b-9fc6-4963-89eb-bf8f0641945a",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Grap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e1ccc9ab-007a-40d3-852b-cf4ccc236e56",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Grap",
+                    "groups": "Gamepad",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Joystick",
+            "bindingGroup": "Joystick",
+            "devices": [
+                {
+                    "devicePath": "<Joystick>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

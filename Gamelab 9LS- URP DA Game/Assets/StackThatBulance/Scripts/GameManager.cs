@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace StackThatBulance
 {
 
-    public class StackThatBulanceManager : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
-        public static StackThatBulanceManager Instance { get; private set; }
-        public bool playerOneSpawned; 
+        public static GameManager Instance { get; private set; }
+        public bool playerOneSpawned  = false;
+
 
         private void Awake()
         {
@@ -22,6 +25,7 @@ namespace StackThatBulance
             {
                 Instance = this;
             }
+
         }
 
     }
