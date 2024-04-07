@@ -7,7 +7,7 @@ public class Interactor : MonoBehaviour
     private bool requestInteract = false;
 
     /// <summary>
-    /// Put this in Update with the right parameters 
+    /// ScanInteractable looks for objects with an Interactable class on it and sets its Interact() availible.   
     /// </summary>
     /// <param name="origin"></param>
     /// <param name="direction"></param>
@@ -23,7 +23,6 @@ public class Interactor : MonoBehaviour
 
         if (Physics.Raycast(origin.transform.position, direction, out hit, raycastRange))
         {
-
             Interactable interactable = hit.collider.GetComponent<Interactable>();
 
             if (interactable != null)
@@ -35,7 +34,7 @@ public class Interactor : MonoBehaviour
 
     private void HandleInteraction(Interactable interactable)
     {
-        if (requestInteract)
+        if (requestInteract /*|| holding*/)
         {
             switch (interactable.interactionType)
             {
@@ -48,9 +47,6 @@ public class Interactor : MonoBehaviour
                     throw new System.Exception("Unsupported type of interactable");
             }
         }
-
-
-            
     }
 
     public void RequestInteraction()
@@ -58,6 +54,11 @@ public class Interactor : MonoBehaviour
         requestInteract = true;
     }
 
+    private void LateUpdate()
+    {
+        if (!requestInteract) { return; }
+        requestInteract = false ;
+    }
 }
 
     
