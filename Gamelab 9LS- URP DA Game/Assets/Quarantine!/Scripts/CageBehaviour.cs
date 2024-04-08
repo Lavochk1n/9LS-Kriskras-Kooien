@@ -20,14 +20,15 @@ namespace Quarantine
 
         [SerializeField] private GameObject progressbar, sickIcon; 
 
-        [SerializeField] private animalTypes myAnimal;
-        [SerializeField] private sickState myState;
+        public Animal myAnimal = new Animal();
+
 
         private void Start()
         {
             InitializeCages();
             UpdateCage();
             spreadSpeed = QuarentineManager.Instance.spreadSpeed;
+            myAnimal.sickProgression = sickProgression;
         }
 
         private void Update()
@@ -38,21 +39,16 @@ namespace Quarantine
         public override void Interact(Interactor interactor)
         {
 
-            PlayerMovement playerBehaviour = interactor.GetComponent<PlayerMovement>();
+            PlayerBehaviour playerBehaviour = interactor.GetComponent<PlayerBehaviour>();
 
-            animalTypes animal = playerBehaviour.heldAnimal;
-            sickState animalState = playerBehaviour.heldSickState;
+            Animal heldAnimal = playerBehaviour.heldAnimal;
 
-            animalTypes cageAnimal = myAnimal;
-            sickState cageState = myState; 
-
-            if (animal == animalTypes.Empty || myAnimal == animalTypes.Empty)
+            if (heldAnimal.type == animalTypes.Empty || myAnimal.type == animalTypes.Empty)
             {
-                playerBehaviour.heldAnimal = cageAnimal;
-                playerBehaviour.heldSickState = cageState;
+                playerBehaviour.heldAnimal = myAnimal;
 
-                ChangeOccupation(animal);
-                ChangeSickstate(animalState);
+                myAnimal = heldAnimal;
+
                 UpdateCage();
 
             }
@@ -93,7 +89,7 @@ namespace Quarantine
                 AdjCages[3] = cage;
             }
 
-            if (myState == sickState.sick)
+            if (myAnimal.state == sickState.sick)
             {
                 sickIcon.SetActive(true);
             }
@@ -101,23 +97,21 @@ namespace Quarantine
 
         public void ChangeOccupation(animalTypes animal)
         {
-            myAnimal = animal;
+            myAnimal.type = animal;
         }
         public void ChangeSickstate(sickState sick)
         {
-            myState = sick;
+            myAnimal.state = sick;
         }
 
         private void handleSickState()
         {
-            switch(myState)
+            switch(myAnimal.state)
             {
                 case sickState.healthy:
 
                     break;
-                case sickState.sickening:
 
-                    break;
                 case sickState.sick:
 
                     break;
@@ -134,9 +128,8 @@ namespace Quarantine
             progressbar.SetActive(false);
             sickIcon.SetActive(false);
 
-            if (myState == sickState.healthy)
+            if (myAnimal.state == sickState.healthy)
             {
-                sickProgression = -.5f; 
                 progressbar.SetActive(false);
                 sickIcon.SetActive(false);
             }
@@ -146,7 +139,7 @@ namespace Quarantine
 
             }
 
-            switch (myAnimal)
+            switch (myAnimal.type)
             {
                 case animalTypes.dog:
                     renderer.material = QuarentineManager.Instance.dog;
@@ -174,54 +167,62 @@ namespace Quarantine
 
         private void CheckSpread()
         {
-            if(myState == sickState.sick)
+            if(myAnimal.state == sickState.sick)
             {
                 return;
             } 
 
-            if (AdjDisease())
-            {
-                ProgressSickness();
-            }
+            
+            ProgressSickness();
+            
         }
 
         private void ProgressSickness()
         {
-            if (progressbar.activeInHierarchy == false)
+            if (AdjDisease())
             {
-                progressbar.SetActive(true);
-            }
+                if (progressbar.activeInHierarchy == false)
+                {
+                    progressbar.SetActive(true);
+                }
 
-            sickProgression += spreadSpeed;
+                myAnimal.sickProgression += spreadSpeed;
 
-            progressbar.GetComponent<Renderer>().material.SetFloat("_progressionRate", sickProgression);
+                progressbar.GetComponent<Renderer>().material.SetFloat("_progressionRate", myAnimal.sickProgression);
 
-            if(progressbar.GetComponent<Renderer>().material.GetFloat("_progressBorder") < sickProgression)
-            {
-                myState = sickState.sick;
-                progressbar.SetActive(false);
-                sickIcon.SetActive(true);
+                if (progressbar.GetComponent<Renderer>().material.GetFloat("_progressBorder") < myAnimal.sickProgression)
+                {
+                    myAnimal.state = sickState.sick;
+                    progressbar.SetActive(false);
+                    sickIcon.SetActive(true);
+                }
+
+                else if (myAnimal.sickProgression > 0)
+                {
+                    myAnimal.sickProgression -= spreadSpeed;
+
+                }
             }
         }
 
         private bool AdjDisease()
         {
-            if (AdjCages[0] != null && AdjCages[0].IsContagious(myAnimal))
+            if (AdjCages[0] != null && AdjCages[0].IsContagious(myAnimal.type))
             {
                 return true;
             }
 
-            if (AdjCages[1] != null && AdjCages[1].IsContagious(myAnimal))
+            if (AdjCages[1] != null && AdjCages[1].IsContagious(myAnimal.type))
             {
                 return true;
             }
 
-            if (AdjCages[2] != null && AdjCages[2].IsContagious(myAnimal))
+            if (AdjCages[2] != null && AdjCages[2].IsContagious(myAnimal.type))
             {
                 return true;
             }
 
-            if (AdjCages[3] != null && AdjCages[3].IsContagious(myAnimal))
+            if (AdjCages[3] != null && AdjCages[3].IsContagious(myAnimal.type))
             {
                 return true;
             }
@@ -231,27 +232,27 @@ namespace Quarantine
 
         private bool IsContagious(animalTypes type)
         {
-            if(myAnimal == animalTypes.dog)
+            if(myAnimal.type == animalTypes.dog)
             {
-                if(type == animalTypes.dog && myState == sickState.sick)
+                if(type == animalTypes.dog && myAnimal.state == sickState.sick)
                 {
                     return true;
                 }
             }
 
 
-            if(myAnimal == animalTypes.parrot)
+            if(myAnimal.type == animalTypes.parrot)
             {
-                if ((type == animalTypes.parrot && myState == sickState.sick) || type == animalTypes.crow)
+                if ((type == animalTypes.parrot && myAnimal.state == sickState.sick) || type == animalTypes.crow)
                 {
                     return true;
                 }
             }
 
 
-            if (myAnimal == animalTypes.crow)
+            if (myAnimal.type == animalTypes.crow)
             {
-                if((type == animalTypes.crow || type == animalTypes.parrot) && myState == sickState.sick)
+                if((type == animalTypes.crow || type == animalTypes.parrot) && myAnimal.state == sickState.sick)
                 {
                     return true; 
                 }

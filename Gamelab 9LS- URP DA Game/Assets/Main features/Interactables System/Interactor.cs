@@ -39,7 +39,6 @@ public class Interactor : MonoBehaviour
             switch (interactable.interactionType)
             {
                 case Interactable.InteractionType.Click:
-                    Debug.Log("do interaction");
                     interactable.Interact(this);
                     requestInteract = false;
                     break;

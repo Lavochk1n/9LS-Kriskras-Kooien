@@ -21,9 +21,16 @@ namespace Quarantine
     public enum sickState
     {
         healthy,
-        sickening,
         sick
     }
+
+    public class Animal
+    {
+        public animalTypes type;
+        public sickState state;
+        public float sickProgression;
+    }
+
 
 
     public class AnimalWeight
