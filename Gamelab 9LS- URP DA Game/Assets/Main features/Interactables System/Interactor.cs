@@ -40,7 +40,7 @@ public class Interactor : MonoBehaviour
             {
                 case Interactable.InteractionType.Click:
                     Debug.Log("do interaction");
-                    interactable.Interact();
+                    interactable.Interact(this);
                     requestInteract = false;
                     break;
                 default:

@@ -153,7 +153,19 @@ MonoBehaviour:
     m_ActionId: 25828c04-e4ef-4a58-8521-a464814e7432
     m_ActionName: Player/Movement[/DualSenseGamepadHID/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -9117329620082115322}
+        m_TargetAssemblyTypeName: Quarantine.PlayerMovement, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 193ba0fe-c70a-4ca5-8774-43fa434222de
     m_ActionName: Player/Interact[/DualSenseGamepadHID/buttonSouth,/Keyboard/space]
   - m_PersistentCalls:
@@ -190,7 +202,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &-9117329620082115322
 MonoBehaviour:
@@ -204,5 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9499f7972c94ac47a0b3bee178a16aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 50
-  playerOne: 0
+  moveSpeed: 200
+  heldAnimal: 3
+  heldSickState: 0
