@@ -1,5 +1,5 @@
 {
-    "name": "SharedCursor",
+    "name": "Standard Player Input",
     "maps": [
         {
             "name": "Player",
@@ -46,7 +46,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "WASD",
                     "id": "cca62660-eb42-4ad5-a256-fa4befe8e4e0",
                     "path": "2DVector",
                     "interactions": "",
@@ -101,6 +101,61 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "Keyboard Right",
+                    "id": "a5857a0d-e2a8-41fc-88b5-9b07fd512648",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "e32d564a-c4e7-40f8-8b78-d297f833c2b3",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Right Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "c6de0d58-8cb3-4b6c-a010-17bc29ceef39",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Right Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "5f2a1367-8954-438c-b867-b304b5e8fea7",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Right Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "8b0226ef-22af-4a8f-b267-492dcc0364b9",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Right Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "2c093258-f9fe-47ef-959d-274fef1b6578",
                     "path": "<Gamepad>/buttonSouth",
@@ -124,6 +179,17 @@
                 },
                 {
                     "name": "",
+                    "id": "96abea5d-c17d-419c-8ed8-68d35d5c6caa",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Right Keyboard",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "164c702f-de22-4f1e-8885-90e95c1bc086",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
@@ -140,6 +206,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Left Keyboard",
+                    "action": "Return",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38fd2b80-7e9f-47cd-8f62-c075da7dc314",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Right Keyboard",
                     "action": "Return",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -169,6 +246,11 @@
                     "isOR": false
                 }
             ]
+        },
+        {
+            "name": "Right Keyboard",
+            "bindingGroup": "Right Keyboard",
+            "devices": []
         }
     ]
 }
