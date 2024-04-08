@@ -8,8 +8,6 @@ namespace StackThatBulance
         private CursorBehaviour CursorMovement;
         public bool playerOne;
 
-        // private bool 
-
         private void Awake()
         {
             CursorMovement = GameObject.FindWithTag("Cursor").GetComponent<CursorBehaviour>();
@@ -24,7 +22,6 @@ namespace StackThatBulance
                 playerOne = false;
             }
         }
-
 
         private void Update()
         {
@@ -47,11 +44,8 @@ namespace StackThatBulance
         {
             if (context.started)
             {
-                
                 RequestInteraction();
             }
-        }
-
-        
+        } 
     }
 }

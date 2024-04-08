@@ -1,25 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 namespace StackThatBulance
 {
     public class CursorBehaviour : MonoBehaviour
     {
-        public Vector3 moveVector = Vector3.zero;
-        private Rigidbody rb;
-
+        [SerializeField] private Transform grapPoint; 
         [SerializeField] private float movespeed = 10f;
 
-        private GameObject grabTarget;
+        public Vector3 moveVector = Vector3.zero;
 
-        [SerializeField] private Transform grapPoint; 
+        private GameObject grabTarget;
+        private Rigidbody rb;
+
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
-
         }
 
         private void FixedUpdate()
@@ -37,15 +33,13 @@ namespace StackThatBulance
             if (grabTarget == null) 
             {
                 grabTarget = target;
+                grabTarget.GetComponent<Rigidbody>().useGravity = false;
             }
             else
             {
                 grabTarget.GetComponent<Rigidbody>().useGravity = true;
                 grabTarget = null;
             }
-
         }
-
-
     }
 }
