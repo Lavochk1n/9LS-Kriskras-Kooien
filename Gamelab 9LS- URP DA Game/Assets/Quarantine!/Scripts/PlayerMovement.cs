@@ -17,11 +17,10 @@ namespace StackThatBulance
             {
                 rb = GetComponent<Rigidbody>();
 
-                
-                //movementInput = new InputAction(binding: "<Gamepad>/leftStick");
-                //movementInput.Enable();
-                // movementInput.performed += ctx => OnMovementPerformed(ctx);
-                // movementInput.canceled += ctx => OnMovementCancelled(ctx);
+                // Set up movement input action
+                movementInput = new InputAction(binding: "<Gamepad>/leftStick" + "<Keyboard>/WASD" + "<Keyboard>/Arrows");
+                movementInput.Enable();
+                movementInput.performed += ctx => OnMovementPerformed(ctx);
 
                 if (!GameManager.Instance.playerOneSpawned)
                 {
@@ -38,8 +37,6 @@ namespace StackThatBulance
             {
                 moveVector = context.ReadValue<Vector2>();
             }
-
-        
 
             private void FixedUpdate()
             {
