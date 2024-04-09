@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Quarantine
@@ -13,8 +15,8 @@ namespace Quarantine
         dog,
         crow,
         parrot,
-        Empty,
-        closed 
+        Empty
+         
     }
 
 
@@ -47,14 +49,14 @@ namespace Quarantine
 
         [Header("colours")]
         public Material dog;
-        public Material native,exotic,empty,closed;
+        public Material native,exotic,empty;
 
         [Header("cage Set-up")]
         [SerializeField] private GameObject CagePrefab;
         [SerializeField] private int rowCount, rowAmount;
         [SerializeField] private float cageOffset;
-        [SerializeField] private GameObject[] Cages;
-        [SerializeField] private int dogWeight, crowWeight, parrotWeight, emptyWeight, closedWeight, healthyWeight;
+        [SerializeField] private List<GameObject> Cages = new List<GameObject>();
+        [SerializeField] private int dogWeight, crowWeight, parrotWeight, emptyWeight, healthyWeight;
 
         private List<AnimalWeight> animalWeights;
 
@@ -67,7 +69,17 @@ namespace Quarantine
             if (Instance != null && Instance != this) { Destroy(this);}  
             else {Instance = this;}
             GetAnimalWeights();
-            SpawnCages();
+
+            foreach (Transform child  in transform) 
+            {
+                Cages.Add(child.gameObject);
+                CageBehaviour cage = child.GetComponent<CageBehaviour>();
+
+                cage.ChangeOccupation(GetWeightedRandomAnimal());
+                cage.ChangeSickstate(GetWeightedRandomState());
+            }
+
+            //SpawnCages();
         }
 
         private void GetAnimalWeights()
@@ -79,13 +91,12 @@ namespace Quarantine
                 new AnimalWeight {AnimalType = animalTypes.parrot, Weight = parrotWeight},
 
                 new AnimalWeight {AnimalType = animalTypes.Empty, Weight = emptyWeight},
-                new AnimalWeight {AnimalType = animalTypes.closed, Weight = closedWeight},
             };
         }
 
         private void SpawnCages()
         {
-            Cages = new GameObject[rowCount*rowAmount];
+            //Cages = new GameObject[rowCount*rowAmount];
 
             for (int i = 0; i < rowCount; i++)
             {

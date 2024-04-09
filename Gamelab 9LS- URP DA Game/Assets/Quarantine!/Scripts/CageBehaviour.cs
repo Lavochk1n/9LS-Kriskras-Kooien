@@ -157,11 +157,6 @@ namespace Quarantine
                     renderer.material = QuarentineManager.Instance.empty;
 
                     break;
-                case animalTypes.closed:
-                    Destroy(gameObject);
-                    //renderer.material = QuarentineManager.Instance.closed;
-
-                    break;
             }
         }
 
@@ -197,11 +192,11 @@ namespace Quarantine
                     sickIcon.SetActive(true);
                 }
 
-                else if (myAnimal.sickProgression > 0)
-                {
-                    myAnimal.sickProgression -= spreadSpeed;
+                //else if (myAnimal.sickProgression > 0)
+                //{
+                //    myAnimal.sickProgression -= spreadSpeed;
 
-                }
+                //}
             }
         }
 

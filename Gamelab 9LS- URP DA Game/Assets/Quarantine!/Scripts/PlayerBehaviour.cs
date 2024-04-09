@@ -33,6 +33,21 @@ namespace Quarantine
                 state = sickState.healthy, 
                 sickProgression = 0
             };
+
+            if (!GameManager.Instance.playerOneSpawned)
+            {
+                GameManager.Instance.playerOneSpawned = true;
+
+                transform.position = GameObject.FindGameObjectWithTag("spawn1").transform.position;
+
+            }
+            else
+            {
+                transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
+
+            }
+
+
         }
 
 

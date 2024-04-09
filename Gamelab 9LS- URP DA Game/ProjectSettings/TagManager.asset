@@ -6,6 +6,8 @@ TagManager:
   tags:
   - reset
   - Cursor
+  - spawn1
+  - spawn2
   layers:
   - Default
   - TransparentFX
