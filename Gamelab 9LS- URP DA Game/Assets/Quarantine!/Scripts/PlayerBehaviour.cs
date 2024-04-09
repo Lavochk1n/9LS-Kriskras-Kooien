@@ -46,7 +46,7 @@ namespace Quarantine
                 transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
 
             }
-
+            moveVector= Vector2.zero;
 
         }
 

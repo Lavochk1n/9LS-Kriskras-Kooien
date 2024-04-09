@@ -336,6 +336,6 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 1024
-  searchdistance: 5
+  searchDistance: 2.5
   progressbar: {fileID: 2096939504662760864}
   sickIcon: {fileID: 8064399265185315217}

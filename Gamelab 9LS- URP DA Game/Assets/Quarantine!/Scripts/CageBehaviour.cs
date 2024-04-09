@@ -10,10 +10,10 @@ namespace Quarantine
     public class CageBehaviour : Interactable
     {
 
-        [SerializeField] private CageBehaviour[] AdjCages;
+        [SerializeField] private List<CageBehaviour> AdjCages;
 
         [SerializeField] private LayerMask layer;
-        [SerializeField] private float searchdistance =5f;
+        [SerializeField] private float searchDistance =3f;
 
         private float sickProgression = -.5f; 
         private float spreadSpeed;
@@ -28,6 +28,9 @@ namespace Quarantine
             InitializeCages();
             UpdateCage();
             spreadSpeed = QuarentineManager.Instance.spreadSpeed;
+
+            spreadSpeed = spreadSpeed * UnityEngine.Random.Range(.8f, 1.2f); 
+
             myAnimal.sickProgression = sickProgression;
         }
 
@@ -64,35 +67,29 @@ namespace Quarantine
         {
             UpdateCage();
 
-            AdjCages = new CageBehaviour[4];
+            AdjCages = new List<CageBehaviour>();
 
-            RaycastHit hit;
+            Collider[] colliders = Physics.OverlapSphere(transform.position, searchDistance);
 
-            if (Physics.Raycast(transform.position, Vector3.right, out hit, searchdistance, layer))
+            foreach (Collider col in colliders)
             {
-                CageBehaviour cage = hit.transform.GetComponent<CageBehaviour>();
-                AdjCages[0] = cage;
-            }
-            if (Physics.Raycast(transform.position, Vector3.back, out hit, searchdistance, layer))
-            {
-                CageBehaviour cage = hit.transform.GetComponent<CageBehaviour>();
-                AdjCages[1] = cage;
-            }
-            if (Physics.Raycast(transform.position, Vector3.left, out hit, searchdistance, layer))
-            {
-                CageBehaviour cage = hit.transform.GetComponent<CageBehaviour>();
-                AdjCages[2] = cage;
-            }
-            if (Physics.Raycast(transform.position, Vector3.forward, out hit, searchdistance, layer))
-            {
-                CageBehaviour cage = hit.transform.GetComponent<CageBehaviour>();
-                AdjCages[3] = cage;
+                CageBehaviour cage = col.GetComponent<CageBehaviour>();
+                if (cage != null)
+                {
+                    AdjCages.Add(cage);
+                }
             }
 
             if (myAnimal.state == sickState.sick)
             {
                 sickIcon.SetActive(true);
             }
+        }
+
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, searchDistance);
         }
 
         public void ChangeOccupation(animalTypes animal)
@@ -102,23 +99,6 @@ namespace Quarantine
         public void ChangeSickstate(sickState sick)
         {
             myAnimal.state = sick;
-        }
-
-        private void handleSickState()
-        {
-            switch(myAnimal.state)
-            {
-                case sickState.healthy:
-
-                    break;
-
-                case sickState.sick:
-
-                    break;
-                default:
-                    Debug.Log("ERROR: unknown type");
-                    break;
-            }
         }
 
         private void UpdateCage()
@@ -202,27 +182,36 @@ namespace Quarantine
 
         private bool AdjDisease()
         {
-            if (AdjCages[0] != null && AdjCages[0].IsContagious(myAnimal.type))
+            foreach(CageBehaviour cage in AdjCages)
             {
-                return true;
+                if (cage.IsContagious(myAnimal.type))
+                {
+                    return true;
+                } 
             }
 
-            if (AdjCages[1] != null && AdjCages[1].IsContagious(myAnimal.type))
-            {
-                return true;
-            }
+            return false;
 
-            if (AdjCages[2] != null && AdjCages[2].IsContagious(myAnimal.type))
-            {
-                return true;
-            }
+            //if (AdjCages[0] != null && AdjCages[0].IsContagious(myAnimal.type))
+            //{
+            //    return true;
+            //}
 
-            if (AdjCages[3] != null && AdjCages[3].IsContagious(myAnimal.type))
-            {
-                return true;
-            }
+            //if (AdjCages[1] != null && AdjCages[1].IsContagious(myAnimal.type))
+            //{
+            //    return true;
+            //}
 
-            return false; 
+            //if (AdjCages[2] != null && AdjCages[2].IsContagious(myAnimal.type))
+            //{
+            //    return true;
+            //}
+
+            //if (AdjCages[3] != null && AdjCages[3].IsContagious(myAnimal.type))
+            //{
+            //    return true;
+            //}
+             
         }
 
         private bool IsContagious(animalTypes type)
