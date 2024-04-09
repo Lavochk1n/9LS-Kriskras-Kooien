@@ -9,7 +9,6 @@ using UnityEngine;
 
 namespace Quarantine
 {
-
     public enum animalTypes
     {
         dog,
@@ -18,7 +17,6 @@ namespace Quarantine
         Empty
          
     }
-
 
     public enum sickState
     {
@@ -33,18 +31,14 @@ namespace Quarantine
         public float sickProgression;
     }
 
-
-
     public class AnimalWeight
     {
         public animalTypes AnimalType { get; set; }
         public int Weight { get; set; }
     }
 
-
     public class QuarentineManager : MonoBehaviour
     {
-    
         public static QuarentineManager Instance { get; private set; }
 
         [Header("colours")]
@@ -55,14 +49,13 @@ namespace Quarantine
         [SerializeField] private GameObject CagePrefab;
         [SerializeField] private int rowCount, rowAmount;
         [SerializeField] private float cageOffset;
-        [SerializeField] private List<GameObject> Cages = new List<GameObject>();
-        [SerializeField] private int dogWeight, crowWeight, parrotWeight, emptyWeight, healthyWeight;
+        public List<GameObject> Cages = new List<GameObject>();
+        [SerializeField] private int dogWeight, crowWeight, parrotWeight,  healthyWeight;
 
         private List<AnimalWeight> animalWeights;
 
         [Header("Game Rules")]
         public float spreadSpeed;
-
 
         private void Awake()
         {
@@ -79,7 +72,7 @@ namespace Quarantine
                 cage.ChangeSickstate(GetWeightedRandomState());
             }
 
-            //SpawnCages();
+            GameManager.Instance.quarentineManager = this; 
         }
 
         private void GetAnimalWeights()
@@ -90,7 +83,6 @@ namespace Quarantine
                 new AnimalWeight {AnimalType = animalTypes.crow, Weight = crowWeight},
                 new AnimalWeight {AnimalType = animalTypes.parrot, Weight = parrotWeight},
 
-                new AnimalWeight {AnimalType = animalTypes.Empty, Weight = emptyWeight},
             };
         }
 
@@ -147,9 +139,6 @@ namespace Quarantine
                 return sickState.healthy;
             }
             return sickState.sick;
-
         }
-
     }
-
 }

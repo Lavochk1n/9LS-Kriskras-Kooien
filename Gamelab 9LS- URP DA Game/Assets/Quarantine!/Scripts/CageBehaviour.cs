@@ -172,15 +172,16 @@ namespace Quarantine
                     sickIcon.SetActive(true);
                 }
 
-                //else if (myAnimal.sickProgression > 0)
-                //{
-                //    myAnimal.sickProgression -= spreadSpeed;
-
-                //}
+                
             }
+            //else if (myAnimal.sickProgression > -0.5f)
+            //{
+            //    myAnimal.sickProgression -= spreadSpeed;
+
+            //}
         }
 
-        private bool AdjDisease()
+        public bool AdjDisease()
         {
             foreach(CageBehaviour cage in AdjCages)
             {
@@ -192,25 +193,7 @@ namespace Quarantine
 
             return false;
 
-            //if (AdjCages[0] != null && AdjCages[0].IsContagious(myAnimal.type))
-            //{
-            //    return true;
-            //}
-
-            //if (AdjCages[1] != null && AdjCages[1].IsContagious(myAnimal.type))
-            //{
-            //    return true;
-            //}
-
-            //if (AdjCages[2] != null && AdjCages[2].IsContagious(myAnimal.type))
-            //{
-            //    return true;
-            //}
-
-            //if (AdjCages[3] != null && AdjCages[3].IsContagious(myAnimal.type))
-            //{
-            //    return true;
-            //}
+   
              
         }
 
