@@ -54,8 +54,8 @@ namespace Quarantine
 
         private List<AnimalWeight> animalWeights;
 
-        [Header("Game Rules")]
-        public float spreadSpeed;
+        //[Header("Game Rules")]
+        //public float spreadSpeed;
 
         private void Awake()
         {

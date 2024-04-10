@@ -882,9 +882,8 @@ MonoBehaviour:
   dogWeight: 6
   crowWeight: 8
   parrotWeight: 4
-  emptyWeight: 0
   healthyWeight: 7
-  spreadSpeed: 0.0001
+  spreadSpeed: 0.1
 --- !u!1 &3371228092696271123
 GameObject:
   m_ObjectHideFlags: 0

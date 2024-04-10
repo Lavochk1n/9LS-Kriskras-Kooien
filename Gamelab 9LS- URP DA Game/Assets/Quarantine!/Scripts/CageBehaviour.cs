@@ -1,8 +1,11 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 namespace Quarantine
 {
@@ -15,23 +18,32 @@ namespace Quarantine
         [SerializeField] private LayerMask layer;
         [SerializeField] private float searchDistance =3f;
 
-        private float sickProgression = -.5f; 
+        private float sickProgression = 0f; 
         private float spreadSpeed;
 
-        [SerializeField] private GameObject progressbar, sickIcon; 
+        [SerializeField] private ProgressionUI progressUI;
+
 
         public Animal myAnimal = new Animal();
+
 
 
         private void Start()
         {
             InitializeCages();
             UpdateCage();
-            spreadSpeed = QuarentineManager.Instance.spreadSpeed;
+            spreadSpeed = GameManager.Instance.spreadSpeed;
 
-            spreadSpeed = spreadSpeed * UnityEngine.Random.Range(.8f, 1.2f); 
-
-            myAnimal.sickProgression = sickProgression;
+            spreadSpeed = spreadSpeed * UnityEngine.Random.Range(.8f, 1.2f);
+            if (myAnimal.state == sickState.sick)
+            {
+                myAnimal.sickProgression = 100f;
+            }
+            else
+            {
+                myAnimal.sickProgression = sickProgression;
+            }
+        
         }
 
         private void Update()
@@ -65,7 +77,6 @@ namespace Quarantine
 
         private void InitializeCages()
         {
-            UpdateCage();
 
             AdjCages = new List<CageBehaviour>();
 
@@ -79,11 +90,8 @@ namespace Quarantine
                     AdjCages.Add(cage);
                 }
             }
+            UpdateCage();
 
-            if (myAnimal.state == sickState.sick)
-            {
-                sickIcon.SetActive(true);
-            }
         }
 
         void OnDrawGizmosSelected()
@@ -103,82 +111,30 @@ namespace Quarantine
 
         private void UpdateCage()
         {
-            Renderer renderer = GetComponent<Renderer>();
 
-            progressbar.SetActive(false);
-            sickIcon.SetActive(false);
-
-            if (myAnimal.state == sickState.healthy)
-            {
-                progressbar.SetActive(false);
-                sickIcon.SetActive(false);
-            }
-            else
-            {
-                sickIcon.SetActive(true);
-
-            }
-
-            switch (myAnimal.type)
-            {
-                case animalTypes.dog:
-                    renderer.material = QuarentineManager.Instance.dog;
-
-                    break;
-                case animalTypes.crow:
-                    renderer.material = QuarentineManager.Instance.native;
-
-                    break;
-                case animalTypes.parrot:
-                    renderer.material = QuarentineManager.Instance.exotic;
-
-                    break;
-                case animalTypes.Empty:
-                    renderer.material = QuarentineManager.Instance.empty;
-
-                    break;
-            }
+            progressUI.UpdateVisuals(myAnimal); 
         }
+        
 
         private void CheckSpread()
         {
-            if(myAnimal.state == sickState.sick)
-            {
-                return;
-            } 
-
-            
-            ProgressSickness();
-            
-        }
-
-        private void ProgressSickness()
-        {
             if (AdjDisease())
             {
-                if (progressbar.activeInHierarchy == false)
-                {
-                    progressbar.SetActive(true);
-                }
-
                 myAnimal.sickProgression += spreadSpeed;
+                UpdateCage();
 
-                progressbar.GetComponent<Renderer>().material.SetFloat("_progressionRate", myAnimal.sickProgression);
-
-                if (progressbar.GetComponent<Renderer>().material.GetFloat("_progressBorder") < myAnimal.sickProgression)
+                if (myAnimal.sickProgression >= 100)
                 {
                     myAnimal.state = sickState.sick;
-                    progressbar.SetActive(false);
-                    sickIcon.SetActive(true);
+                    
                 }
-
-                
             }
-            //else if (myAnimal.sickProgression > -0.5f)
-            //{
-            //    myAnimal.sickProgression -= spreadSpeed;
+            else if(myAnimal.sickProgression > 0)
+            {
+                myAnimal.sickProgression -= spreadSpeed;
+                UpdateCage();
 
-            //}
+            }
         }
 
         public bool AdjDisease()
@@ -192,11 +148,8 @@ namespace Quarantine
             }
 
             return false;
-
-   
-             
+        
         }
-
         private bool IsContagious(animalTypes type)
         {
             if(myAnimal.type == animalTypes.dog)
@@ -227,9 +180,5 @@ namespace Quarantine
 
             return false; 
         }
-
-
     }
-
-
 }

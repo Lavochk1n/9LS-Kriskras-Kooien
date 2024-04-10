@@ -21,6 +21,8 @@ namespace Quarantine
         [SerializeField] private GameObject Winscreen;
         [SerializeField] private TextMeshProUGUI Wintext;
 
+        public float spreadSpeed = 0.01f; 
+
         
         private void Awake()
         {

@@ -347,6 +347,7 @@ MonoBehaviour:
   pointsPerCage: 10
   Winscreen: {fileID: 2057022129}
   Wintext: {fileID: 1156601034}
+  spreadSpeed: 0.005
 --- !u!4 &723393124
 Transform:
   m_ObjectHideFlags: 0
