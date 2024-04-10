@@ -4,18 +4,18 @@ namespace StackThatBulance
 {
     public class CursorBehaviour : MonoBehaviour
     {
-        [SerializeField] private Transform grapPoint; 
+        [SerializeField] private Transform grapPoint;
         [SerializeField] private float movespeed = 10f;
 
-        public Vector3 moveVector = Vector3.zero;
+        public Vector2 moveVector = Vector2.zero;
 
         private GameObject grabTarget;
-        private Rigidbody rb;
+        private Rigidbody2D rb;
 
 
         private void Awake()
         {
-            rb = GetComponent<Rigidbody>();
+            rb = GetComponent<Rigidbody2D>();
         }
 
         private void FixedUpdate()
@@ -30,16 +30,17 @@ namespace StackThatBulance
 
         public void GrabTarget(GameObject target)
         {
-            if (grabTarget == null) 
+            if (grabTarget == null)
             {
                 grabTarget = target;
-                grabTarget.GetComponent<Rigidbody>().useGravity = false;
+                grabTarget.GetComponent<Rigidbody2D>().gravityScale = 0;
             }
             else
             {
-                grabTarget.GetComponent<Rigidbody>().useGravity = true;
+                grabTarget.GetComponent<Rigidbody2D>().gravityScale = 1;
                 grabTarget = null;
             }
         }
     }
 }
+

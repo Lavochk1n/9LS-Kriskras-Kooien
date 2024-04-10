@@ -8,11 +8,13 @@ namespace StackThatBulance
         private CursorBehaviour CursorMovement;
         public bool playerOne;
 
+        private Vector2 previousMoveVector = Vector2.zero;
+
         private void Awake()
         {
             CursorMovement = GameObject.FindWithTag("Cursor").GetComponent<CursorBehaviour>();
-            
-            if(!GameManager.Instance.playerOneSpawned)
+
+            if (!GameManager.Instance.playerOneSpawned)
             {
                 playerOne = true;
                 GameManager.Instance.playerOneSpawned = true;
@@ -25,19 +27,32 @@ namespace StackThatBulance
 
         private void Update()
         {
-            ScanInteractable(CursorMovement.gameObject, Vector3.down, 10f); 
+            ScanInteractable(CursorMovement.gameObject, Vector3.down, 10f);
         }
 
         public void OnMovement(InputAction.CallbackContext value)
         {
-            if (!playerOne)
+            Vector2 moveVector = value.ReadValue<Vector2>();
+
+            if (playerOne)
             {
-                CursorMovement.moveVector.x = value.ReadValue<Vector2>().x;
+                // Player One can only move up and left
+                if (moveVector.x > 0 && previousMoveVector.x <= 0)
+                    moveVector.x = 0;
+                if (moveVector.y > 0 && previousMoveVector.y <= 0)
+                    moveVector.y = 0;
             }
             else
             {
-                CursorMovement.moveVector.z = value.ReadValue<Vector2>().y;
+                // Player Two can only move down and right
+                if (moveVector.x < 0 && previousMoveVector.x >= 0)
+                    moveVector.x = 0;
+                if (moveVector.y < 0 && previousMoveVector.y >= 0)
+                    moveVector.y = 0;
             }
+
+            CursorMovement.moveVector = moveVector;
+            previousMoveVector = moveVector;
         }
 
         public void OnInteract(InputAction.CallbackContext context)
@@ -46,6 +61,6 @@ namespace StackThatBulance
             {
                 RequestInteraction();
             }
-        } 
+        }
     }
 }
