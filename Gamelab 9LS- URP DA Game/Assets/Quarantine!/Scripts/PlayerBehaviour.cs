@@ -1,13 +1,13 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.UI.Image;
 
 
 namespace Quarantine
 {
     public class PlayerBehaviour : Interactor
     {
+        [SerializeField] private Color color1, color2; 
+
         private Vector2 moveVector;
         public float moveSpeed = 5f;
 
@@ -37,16 +37,26 @@ namespace Quarantine
             if (!GameManager.Instance.playerOneSpawned)
             {
                 GameManager.Instance.playerOneSpawned = true;
-
+                GetComponent<Renderer>().material.color = color1;
                 transform.position = GameObject.FindGameObjectWithTag("spawn1").transform.position;
+                GameManager.Instance.iventory1.player = this;
+                GameManager.Instance.iventory1.SetColour(color1);
+
+
 
             }
             else
             {
+                GetComponent<Renderer>().material.color = color2;
                 transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
+                GameManager.Instance.iventory2.player = this;
+                GameManager.Instance.iventory1.SetColour(color2);
+
 
             }
-            moveVector= Vector2.zero;
+            moveVector = Vector2.zero;
+
+
 
         }
 

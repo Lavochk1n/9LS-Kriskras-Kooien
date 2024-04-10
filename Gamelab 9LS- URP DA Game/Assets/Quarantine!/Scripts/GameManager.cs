@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -21,9 +20,12 @@ namespace Quarantine
         [SerializeField] private GameObject Winscreen;
         [SerializeField] private TextMeshProUGUI Wintext;
 
-        public float spreadSpeed = 0.01f; 
+        public float spreadSpeed = 0.01f;
 
-        
+
+        public InventoryUI iventory1, iventory2; 
+
+
         private void Awake()
         {
             if (Instance != null && Instance != this)

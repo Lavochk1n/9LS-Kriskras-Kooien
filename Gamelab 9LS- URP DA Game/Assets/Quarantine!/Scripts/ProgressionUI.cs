@@ -1,10 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
-//using UnityEngine.UIElements;
-using static UnityEngine.Rendering.DebugUI;
 
 
 namespace Quarantine { 
@@ -17,7 +13,7 @@ namespace Quarantine {
 
         [SerializeField] private Image panel, progressBar, background;
 
-        public Dictionary<string, Sprite> animalIcons;
+        //public Dictionary<string, Sprite> animalIcons;
 
         [SerializeField] private Sprite crow, sickCrow, parrot, sickParrot, dog, sickDog, empty;
 
