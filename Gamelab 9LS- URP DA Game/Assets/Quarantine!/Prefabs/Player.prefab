@@ -170,7 +170,19 @@ MonoBehaviour:
     m_ActionId: 193ba0fe-c70a-4ca5-8774-43fa434222de
     m_ActionName: Player/Interact[/DualSenseGamepadHID/buttonSouth,/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7172022684120667278}
+        m_TargetAssemblyTypeName: Quarantine.PlayerBehaviour, Assembly-CSharp
+        m_MethodName: OnReturn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: fd23e3bf-c388-4062-b775-b4063d48fe9c
     m_ActionName: Player/Return[/DualSenseGamepadHID/buttonEast,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
@@ -193,6 +205,7 @@ MonoBehaviour:
   color1: {r: 0.7693221, g: 0.8018868, b: 0.18534178, a: 0}
   color2: {r: 0.11792451, g: 0.12500164, b: 1, a: 0}
   moveSpeed: 5
+  sprintBonus: 3
   smoothtime: 0.1
   currentVeloctiy: 0
 --- !u!143 &7069526399887467738

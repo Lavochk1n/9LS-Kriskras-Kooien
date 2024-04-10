@@ -9,7 +9,11 @@ namespace Quarantine
         [SerializeField] private Color color1, color2; 
 
         private Vector2 moveVector;
+
         public float moveSpeed = 5f;
+
+        private float sprintSpeed = 1f;
+        [SerializeField] private float sprintBonus = 3f; 
 
         private CharacterController CC;
 
@@ -63,6 +67,13 @@ namespace Quarantine
 
         private void Update()
         {
+            if (sprintSpeed > 1f)
+            {
+                sprintSpeed -= Time.deltaTime * sprintBonus;
+            }
+            else if (sprintSpeed < 1f) { sprintSpeed = 1f; }
+
+
 
             ScanInteractable(gameObject, transform.forward, 3);
         }
@@ -80,6 +91,20 @@ namespace Quarantine
             }
         }
 
+        public void OnReturn(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                if (sprintSpeed <= 1f)
+                {
+                    sprintSpeed = sprintBonus;
+
+                }
+            }
+
+        }
+
+
 
         private void FixedUpdate()
         {
@@ -92,7 +117,7 @@ namespace Quarantine
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref currentVeloctiy, smoothtime);
             transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
 
-            CC.Move(movement * moveSpeed * Time.deltaTime);
+            CC.Move(movement * moveSpeed * sprintSpeed * Time.deltaTime);
 
 
 
