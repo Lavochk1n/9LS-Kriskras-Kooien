@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -360,7 +360,7 @@ MonoBehaviour:
   iventory1: {fileID: 456252771}
   iventory2: {fileID: 952945947}
   pointsPerCage: 10
-  spreadSpeed: 0.01
+  spreadSpeed: 2.1
   maps:
   - {fileID: 956357379441123067, guid: 4657c7243e23ac1459f7441663ce6c19, type: 3}
   - {fileID: 956357379441123067, guid: a2e0dcdfaff5bb742ba87f6266cb8314, type: 3}

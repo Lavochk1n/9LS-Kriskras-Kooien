@@ -115,18 +115,25 @@ namespace Quarantine
         {
             if (AdjDisease())
             {
-                myAnimal.sickProgression += spreadSpeed;
-                UpdateCage();
 
                 if (myAnimal.sickProgression >= 100)
                 {
                     myAnimal.state = sickState.sick;
-                    
+
                 }
+                else 
+                { 
+                    myAnimal.sickProgression += spreadSpeed * Time.deltaTime; 
+                }
+                UpdateCage();
+
+
+                
+                
             }
-            else if(myAnimal.sickProgression > 0)
+            else if(myAnimal.sickProgression > 0 && myAnimal.state != sickState.sick)
             {
-                myAnimal.sickProgression -= spreadSpeed;
+                myAnimal.sickProgression -= spreadSpeed * Time.deltaTime;
                 UpdateCage();
 
             }
@@ -147,31 +154,62 @@ namespace Quarantine
         }
         private bool IsContagious(animalTypes type)
         {
-            if(myAnimal.type == animalTypes.dog)
+
+            if (type == animalTypes.dog)
             {
-                if(type == animalTypes.dog && myAnimal.state == sickState.sick)
+                if (myAnimal.type == animalTypes.dog && myAnimal.state == sickState.sick)
                 {
                     return true;
                 }
             }
 
 
-            if(myAnimal.type == animalTypes.parrot)
+            if (type == animalTypes.parrot)
             {
-                if ((type == animalTypes.parrot && myAnimal.state == sickState.sick) || type == animalTypes.crow)
+                if (myAnimal.type == animalTypes.parrot && myAnimal.state == sickState.sick)
                 {
                     return true;
                 }
             }
 
 
-            if (myAnimal.type == animalTypes.crow)
+            if (type == animalTypes.crow)
             {
-                if((type == animalTypes.crow || type == animalTypes.parrot) && myAnimal.state == sickState.sick)
+                if(myAnimal.type == animalTypes.parrot || (myAnimal.type == animalTypes.crow && myAnimal.state == sickState.sick))
                 {
-                    return true; 
+                    return true;
                 }
             }
+
+
+
+            //if(myAnimal.type == animalTypes.dog)
+            //{
+            //    if(type == animalTypes.dog && myAnimal.state == sickState.sick)
+            //    {
+            //        return true;
+            //    }
+            //}
+
+
+            //if(myAnimal.type == animalTypes.parrot)
+            //{
+            //    if ((type == animalTypes.parrot && myAnimal.state == sickState.sick) || type == animalTypes.crow)
+            //    {
+            //        return true;
+            //    }
+            //}
+
+
+            //if (myAnimal.type == animalTypes.crow)
+            //{
+            //    if ((type == animalTypes.crow || type == animalTypes.parrot) && myAnimal.state == sickState.sick)
+            //    {
+            //        return true;
+            //    }
+            //}
+
+
 
             return false; 
         }

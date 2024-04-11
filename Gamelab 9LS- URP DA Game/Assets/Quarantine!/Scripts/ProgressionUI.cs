@@ -27,7 +27,7 @@ namespace Quarantine {
             {
                 //make it red 
                 progressBar.color = Color.red;
-                background.color = new Color(1,.5f,.5f,1);
+                background.color = new Color(1,.8f,.8f,1);
 
             }
             else if(progressBar.fillAmount <= 0f)
@@ -39,7 +39,7 @@ namespace Quarantine {
             }
             else
             {
-                progressBar.color = Color.green;
+                progressBar.color = Color.blue;
                 background.color = Color.white;
             }
 
