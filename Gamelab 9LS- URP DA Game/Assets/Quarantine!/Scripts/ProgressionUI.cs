@@ -43,6 +43,12 @@ namespace Quarantine {
                 background.color = Color.white;
             }
 
+
+            if (animal.state== sickState.sick)
+            {
+                background.color = Color.red;
+            }
+
             progressBar.fillAmount = 1f - animal.sickProgression/100f;
 
 

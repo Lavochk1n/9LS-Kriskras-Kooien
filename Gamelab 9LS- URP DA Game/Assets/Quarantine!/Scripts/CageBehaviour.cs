@@ -125,7 +125,6 @@ namespace Quarantine
                 { 
                     myAnimal.sickProgression += spreadSpeed * Time.deltaTime; 
                 }
-                UpdateCage();
 
 
                 
@@ -134,9 +133,10 @@ namespace Quarantine
             else if(myAnimal.sickProgression > 0 && myAnimal.state != sickState.sick)
             {
                 myAnimal.sickProgression -= spreadSpeed * Time.deltaTime;
-                UpdateCage();
 
             }
+            UpdateCage();
+
         }
 
         public bool AdjDisease()
