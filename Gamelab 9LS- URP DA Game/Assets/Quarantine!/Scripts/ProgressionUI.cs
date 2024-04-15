@@ -13,45 +13,29 @@ namespace Quarantine {
 
         [SerializeField] private Image panel, progressBar, background;
 
-        //public Dictionary<string, Sprite> animalIcons;
 
         [SerializeField] private Sprite crow, sickCrow, parrot, sickParrot, dog, sickDog, empty;
 
+        [SerializeField] private Gradient progressColour, backgroundColour;
 
 
+        private float progression; 
+
+        private void Start()
+        {
+            progression = progressBar.fillAmount;
+        }
 
         public void UpdateVisuals(Animal animal)
         {
+            UpdateProgressbar(animal);
 
-            if (progressBar.fillAmount > 1f - animal.sickProgression / 100f)
-            {
-                //make it red 
-                progressBar.color = Color.red;
-                background.color = new Color(1,.8f,.8f,1);
+            UpdateIcon(animal);
 
-            }
-            else if(progressBar.fillAmount <= 0f)
-            {
-                // everything red
-                progressBar.color = Color.red;
-                background.color = Color.red;
+        }
 
-            }
-            else
-            {
-                progressBar.color = Color.blue;
-                background.color = Color.white;
-            }
-
-
-            if (animal.state== sickState.sick)
-            {
-                background.color = Color.red;
-            }
-
-            progressBar.fillAmount = 1f - animal.sickProgression/100f;
-
-
+        private void UpdateIcon(Animal animal)
+        {
             switch (animal.type)
             {
                 case animalTypes.dog:
@@ -106,12 +90,39 @@ namespace Quarantine {
 
                     panel.sprite = empty;
                     progressBar.color = Color.white;
-                    background.color = Color.white; 
+                    background.color = Color.white;
 
                     break;
             }
+        }
 
+        private void UpdateProgressbar(Animal animal)
+        {
+           
+
+            progressBar.fillAmount = animal.sickProgression / 100f;
+
+
+            if (progression > animal.sickProgression / 100f)
+            {
+                progressBar.color = progressColour.Evaluate(0f);
+                background.color = backgroundColour.Evaluate(0f);
+            }
+            else
+            {
+                progressBar.color = progressColour.Evaluate(animal.sickProgression / 100f); 
+                background.color =  backgroundColour.Evaluate(animal.sickProgression / 100f);
+            }
+
+            
 
         }
+
+
+        private void LateUpdate()
+        {
+            progression = progressBar.fillAmount;
+        }
     }
+
 }

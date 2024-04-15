@@ -883,7 +883,6 @@ MonoBehaviour:
   crowWeight: 8
   parrotWeight: 4
   healthyWeight: 7
-  spreadSpeed: 0.1
 --- !u!1 &3371228092696271123
 GameObject:
   m_ObjectHideFlags: 0
@@ -4066,6 +4065,81 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4519763055031024105}
     m_Modifications:
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: progressColour.ctime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: progressColour.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: progressColour.key0.g
+      value: 0.7005143
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: progressColour.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: progressColour.key1.b
+      value: 0.028657902
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: progressColour.key1.g
+      value: 0.028657902
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: progressColour.key1.r
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: progressColour.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: backgroundColour.ctime0
+      value: 9830
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: backgroundColour.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: backgroundColour.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: backgroundColour.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: backgroundColour.key1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: backgroundColour.key1.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253958133868236371, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: backgroundColour.key1.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7067636728682078910, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
         type: 3}
       propertyPath: m_LocalScale.x

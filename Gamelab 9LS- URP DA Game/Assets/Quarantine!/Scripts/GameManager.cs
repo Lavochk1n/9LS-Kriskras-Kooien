@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI; 
 
 namespace Quarantine
 {
@@ -10,13 +11,15 @@ namespace Quarantine
 
         [Header("player Specifics")]
         public bool playerOneSpawned = false;
-        public InventoryUI iventory1, iventory2;
+        public InventoryUI inventory1, inventory2;
 
 
 
         [Header("Game Rules")]
-        [SerializeField] int pointsPerCage = 10;
         public float spreadSpeed = 0.01f;
+        [SerializeField] private float gameTime = 150f; 
+        [SerializeField] int pointsPerCage = 10, cageQuota = 10;
+
 
 
         [Header("Initialisation")]
@@ -29,6 +32,8 @@ namespace Quarantine
         [Header("Other")]
         [SerializeField] private GameObject Winscreen;
         [SerializeField] private TextMeshProUGUI Wintext;
+        [SerializeField] private Image timer;
+        [SerializeField] private Gradient timercolour; 
 
         private float playTime = 0f;
 
@@ -48,7 +53,7 @@ namespace Quarantine
 
         private void Update()
         {
-            if (quarentineManager == null)
+            if (quarentineManager == null || inventory1.player == null || inventory2.player == null )
             {
                 return;
             }
@@ -64,25 +69,36 @@ namespace Quarantine
             else
             {
                 playTime += Time.deltaTime;
+                timer.fillAmount = 1f - (playTime/gameTime);
+                timer.color = timercolour.Evaluate(1f - (playTime / gameTime));
             }
         }
 
-        private bool GameOver()
+
+        // add acces to player and change end condition from no empty cages to no held animals (to test empty cages as well)
+        public bool GameOver()
         {
+            if (inventory1.player == null || inventory2.player == null) return true;
+
+            if (playTime > gameTime) return true;
+            if (CountInfected() >= cageQuota) return true;
+
             foreach (GameObject cage in quarentineManager.Cages)
             {
                 CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
                 if (cageBehaviour.AdjDisease() && cageBehaviour.myAnimal.state == sickState.healthy)
                 {
-                    return false;
+                    return false; 
                 }
-                
-                if (cageBehaviour.myAnimal.type == animalTypes.Empty)
+                if (inventory1.player.heldAnimal.type != animalTypes.Empty || inventory2.player.heldAnimal.type != animalTypes.Empty)
                 {
                     return false;
+
                 }
             }
+
+            
             return true; 
         }
 
@@ -100,6 +116,24 @@ namespace Quarantine
                 }
             }
             return score.ToString(); 
+        }
+
+        private int CountInfected()
+        {
+            int count = 0;
+
+            foreach (GameObject cage in quarentineManager.Cages)
+            {
+                CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
+
+                if (cageBehaviour.myAnimal.state == sickState.sick) count++;
+            }
+
+            if (inventory1.player.heldAnimal.state == sickState.sick) count++;
+
+            if (inventory2.player.heldAnimal.state == sickState.sick) count++;
+
+            return count;
         }
     }
 }

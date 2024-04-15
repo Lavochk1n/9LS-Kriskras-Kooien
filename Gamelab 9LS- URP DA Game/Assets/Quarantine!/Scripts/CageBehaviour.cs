@@ -29,7 +29,7 @@ namespace Quarantine
             UpdateCage();
             spreadSpeed = GameManager.Instance.spreadSpeed;
 
-            spreadSpeed = spreadSpeed * UnityEngine.Random.Range(.8f, 1.2f);
+            spreadSpeed *= UnityEngine.Random.Range(.8f, 1.2f);
             if (myAnimal.state == sickState.sick)
             {
                 myAnimal.sickProgression = 100f;
@@ -43,6 +43,8 @@ namespace Quarantine
 
         private void Update()
         {
+            if (GameManager.Instance.GameOver()) return;
+
             CheckSpread();
         }
 
@@ -119,20 +121,19 @@ namespace Quarantine
                 if (myAnimal.sickProgression >= 100)
                 {
                     myAnimal.state = sickState.sick;
-
+                    myAnimal.sickProgression = 100;
                 }
                 else 
                 { 
                     myAnimal.sickProgression += spreadSpeed * Time.deltaTime; 
                 }
 
-
-                
-                
             }
             else if(myAnimal.sickProgression > 0 && myAnimal.state != sickState.sick)
             {
                 myAnimal.sickProgression -= spreadSpeed * Time.deltaTime;
+
+                if (myAnimal.sickProgression < 0) myAnimal.sickProgression = 0; 
 
             }
             UpdateCage();
@@ -163,7 +164,6 @@ namespace Quarantine
                 }
             }
 
-
             if (type == animalTypes.parrot)
             {
                 if (myAnimal.type == animalTypes.parrot && myAnimal.state == sickState.sick)
@@ -172,7 +172,6 @@ namespace Quarantine
                 }
             }
 
-
             if (type == animalTypes.crow)
             {
                 if(myAnimal.type == animalTypes.parrot || (myAnimal.type == animalTypes.crow && myAnimal.state == sickState.sick))
@@ -180,37 +179,6 @@ namespace Quarantine
                     return true;
                 }
             }
-
-
-
-            //if(myAnimal.type == animalTypes.dog)
-            //{
-            //    if(type == animalTypes.dog && myAnimal.state == sickState.sick)
-            //    {
-            //        return true;
-            //    }
-            //}
-
-
-            //if(myAnimal.type == animalTypes.parrot)
-            //{
-            //    if ((type == animalTypes.parrot && myAnimal.state == sickState.sick) || type == animalTypes.crow)
-            //    {
-            //        return true;
-            //    }
-            //}
-
-
-            //if (myAnimal.type == animalTypes.crow)
-            //{
-            //    if ((type == animalTypes.crow || type == animalTypes.parrot) && myAnimal.state == sickState.sick)
-            //    {
-            //        return true;
-            //    }
-            //}
-
-
-
             return false; 
         }
     }

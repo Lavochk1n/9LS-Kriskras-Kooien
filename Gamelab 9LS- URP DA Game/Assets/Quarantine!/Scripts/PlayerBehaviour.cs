@@ -43,8 +43,8 @@ namespace Quarantine
                 GameManager.Instance.playerOneSpawned = true;
                 GetComponent<Renderer>().material.color = color1;
                 transform.position = GameObject.FindGameObjectWithTag("spawn1").transform.position;
-                GameManager.Instance.iventory1.player = this;
-                GameManager.Instance.iventory1.SetColour(color1);
+                GameManager.Instance.inventory1.player = this;
+                GameManager.Instance.inventory1.SetColour(color1);
 
 
 
@@ -53,8 +53,8 @@ namespace Quarantine
             {
                 GetComponent<Renderer>().material.color = color2;
                 transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
-                GameManager.Instance.iventory2.player = this;
-                GameManager.Instance.iventory1.SetColour(color2);
+                GameManager.Instance.inventory2.player = this;
+                GameManager.Instance.inventory2.SetColour(color2);
 
 
             }
@@ -67,6 +67,9 @@ namespace Quarantine
 
         private void Update()
         {
+
+            if (GameManager.Instance.GameOver()) return;
+
             if (sprintSpeed > 1f)
             {
                 sprintSpeed -= Time.deltaTime * sprintBonus;
@@ -108,6 +111,9 @@ namespace Quarantine
 
         private void FixedUpdate()
         {
+
+            if (GameManager.Instance.GameOver()) return;
+
             if (moveVector.magnitude == 0) { return; }
 
             Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y);
