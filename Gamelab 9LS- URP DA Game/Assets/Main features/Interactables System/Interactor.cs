@@ -12,10 +12,13 @@ public class Interactor : MonoBehaviour
     /// <param name="origin"></param>
     /// <param name="direction"></param>
     /// <param name="raycastRange"></param>
+    /// 
     public void ScanInteractable(GameObject origin, Vector3 direction = default, float raycastRange = default)
     {
         if (direction == default) direction = Vector3.forward;
         if (raycastRange == default) raycastRange = 10f;
+    
+        
         
         Debug.DrawRay(origin.transform.position, direction * raycastRange, Color.red);
 
@@ -23,10 +26,14 @@ public class Interactor : MonoBehaviour
 
         if (Physics.Raycast(origin.transform.position, direction, out hit, raycastRange))
         {
+            Debug.Log(hit.collider.gameObject);
+
             Interactable interactable = hit.collider.GetComponent<Interactable>();
 
             if (interactable != null)
             {
+                Debug.Log("found interacabel");
+
                 HandleInteraction(interactable);
             }
         }

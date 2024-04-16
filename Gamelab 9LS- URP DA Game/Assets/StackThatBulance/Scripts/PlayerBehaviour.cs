@@ -27,7 +27,7 @@ namespace StackThatBulance
 
         private void Update()
         {
-            ScanInteractable(CursorMovement.gameObject, Vector3.down, 10f);
+            ScanInteractable(CursorMovement.gameObject, Vector3.forward, 10f);
         }
 
         public void OnMovement(InputAction.CallbackContext value)
@@ -59,6 +59,7 @@ namespace StackThatBulance
         {
             if (context.started)
             {
+
                 RequestInteraction();
             }
         }

@@ -7,15 +7,15 @@ namespace StackThatBulance
         [SerializeField] private Transform grapPoint;
         [SerializeField] private float movespeed = 10f;
 
-        public Vector2 moveVector = Vector2.zero;
+        public Vector3 moveVector = Vector3.zero;
 
         private GameObject grabTarget;
-        private Rigidbody2D rb;
+        private Rigidbody rb;
 
 
         private void Awake()
         {
-            rb = GetComponent<Rigidbody2D>();
+            rb = GetComponent<Rigidbody>();
         }
 
         private void FixedUpdate()
@@ -33,11 +33,11 @@ namespace StackThatBulance
             if (grabTarget == null)
             {
                 grabTarget = target;
-                grabTarget.GetComponent<Rigidbody2D>().gravityScale = 0;
+                grabTarget.GetComponent<Rigidbody>().useGravity = false;
             }
             else
             {
-                grabTarget.GetComponent<Rigidbody2D>().gravityScale = 1;
+                grabTarget.GetComponent<Rigidbody>().useGravity = true;
                 grabTarget = null;
             }
         }
