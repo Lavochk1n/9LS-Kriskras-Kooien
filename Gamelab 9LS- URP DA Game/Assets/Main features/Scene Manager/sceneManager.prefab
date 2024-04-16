@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2244e9d8bc9679749b7d674fab0306df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenes:
-  - Menu
-  - Quarantine map 1
-  - Quarantine map 2
-  - Quarantine map 3
+  miniGames:
+  - Q!_PreGame
+  - STB_PreGame

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI; 
 
@@ -60,11 +61,19 @@ namespace Quarantine
 
             if (GameOver())
             {
-                Winscreen.SetActive(true);
+                if (playTime > gameTime)
+                {
+                    ScenesManager.Instance.GetGameOver(); 
+                }
+                else
+                {
+                    Winscreen.SetActive(true);
 
-                string text = "Score: " + CalculateScore() + ", playtime:  " + Mathf.RoundToInt(playTime).ToString() + " seconds";
+                    string text = "Score: " + CalculateScore() + ", playtime:  " + Mathf.RoundToInt(playTime).ToString() + " seconds";
 
-                Wintext.SetText(text);
+                    Wintext.SetText(text);
+                    //ScenesManager.Instance.NextScene();
+                }
             }
             else
             {
@@ -75,12 +84,15 @@ namespace Quarantine
         }
 
 
-        // add acces to player and change end condition from no empty cages to no held animals (to test empty cages as well)
         public bool GameOver()
         {
-            if (inventory1.player == null || inventory2.player == null) return true;
+            if (playTime > gameTime)
+            {
 
-            if (playTime > gameTime) return true;
+                return true;
+            }
+
+
             if (CountInfected() >= cageQuota) return true;
 
             foreach (GameObject cage in quarentineManager.Cages)
@@ -100,6 +112,14 @@ namespace Quarantine
 
             
             return true; 
+        }
+
+        public bool PlayerSpawned()
+        {
+            if (inventory1.player == null || inventory2.player == null) return false;
+
+            return true; 
+
         }
 
         private string CalculateScore()

@@ -43,7 +43,7 @@ namespace Quarantine
 
         private void Update()
         {
-            if (GameManager.Instance.GameOver()) return;
+            if (!GameManager.Instance.PlayerSpawned() || GameManager.Instance.GameOver() ) return;
 
             CheckSpread();
         }
