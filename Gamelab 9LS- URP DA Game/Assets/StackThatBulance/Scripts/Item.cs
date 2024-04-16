@@ -17,7 +17,7 @@ namespace StackThatBulance
             startPos = transform.position;
         }
 
-        public override void Interact()
+        public override void Interact(Interactor interactor)
         {
             Cursor.GetComponent<CursorBehaviour>().GrabTarget(gameObject);
         }
