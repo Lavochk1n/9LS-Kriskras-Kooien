@@ -45,7 +45,7 @@ public class ScenesManager : MonoBehaviour
 
     public void GetGameOver()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(1);
     }
 
     public void ResetScene()

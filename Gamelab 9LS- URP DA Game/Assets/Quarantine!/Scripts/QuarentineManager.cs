@@ -44,13 +44,11 @@ namespace Quarantine
         [SerializeField] private GameObject CagePrefab;
         [SerializeField] private int rowCount, rowAmount;
         [SerializeField] private float cageOffset;
-        public List<GameObject> Cages = new List<GameObject>();
-        [SerializeField] private int dogWeight, crowWeight, parrotWeight,  healthyWeight;
 
+        public List<GameObject> Cages = new List<GameObject>();
         private List<AnimalWeight> animalWeights;
 
-        //[Header("Game Rules")]
-        //public float spreadSpeed;
+        [SerializeField] private int dogWeight, crowWeight, parrotWeight,  healthyWeight;
 
         private void Awake()
         {
@@ -66,8 +64,7 @@ namespace Quarantine
                 cage.ChangeOccupation(GetWeightedRandomAnimal());
                 cage.ChangeSickstate(GetWeightedRandomState());
             }
-
-            GameManager.Instance.quarentineManager = this; 
+            MiniGameManager.Instance.quarentineManager = this; 
         }
 
         private void GetAnimalWeights()
@@ -77,30 +74,7 @@ namespace Quarantine
                 new AnimalWeight {AnimalType = animalTypes.dog, Weight = dogWeight},
                 new AnimalWeight {AnimalType = animalTypes.crow, Weight = crowWeight},
                 new AnimalWeight {AnimalType = animalTypes.parrot, Weight = parrotWeight},
-
             };
-        }
-
-        private void SpawnCages()
-        {
-            //Cages = new GameObject[rowCount*rowAmount];
-
-            for (int i = 0; i < rowCount; i++)
-            {
-                for (int j = 0; j < rowAmount; j++)
-                {
-                    Vector3 pos = new Vector3(j * cageOffset,0, i*cageOffset);
-
-
-                    GameObject newCage = Instantiate(CagePrefab, pos, Quaternion.identity, this.transform);
-                    Cages[i * rowAmount + j] = newCage;
-
-                    CageBehaviour cage = newCage.GetComponent<CageBehaviour>();
-
-                    cage.ChangeOccupation(GetWeightedRandomAnimal());
-                    cage.ChangeSickstate(GetWeightedRandomState());
-                }
-            }
         }
 
         private animalTypes GetWeightedRandomAnimal()
