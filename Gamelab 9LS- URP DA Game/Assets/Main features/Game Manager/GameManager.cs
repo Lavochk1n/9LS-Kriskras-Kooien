@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] private float newGameTime = 210f;
-    [SerializeField] private float newGameDifficulty = 100f;
+
+        [SerializeField][Range(50.0f, 200.0f)] private float newGameDifficulty = 100f;
 
 
     private void Awake()
@@ -39,8 +40,15 @@ public class GameManager : MonoBehaviour
 
     public void SetTimeLeft(float amount)
     {
+        //if (timeLeft + amount > newGameTime)
+        //{
+        //    timeLeft =  newGameTime;
+        //    return;
+        //}
+
         timeLeft = amount;
     }
+
 
     public float GetTimeLeft()
     {
@@ -56,6 +64,11 @@ public class GameManager : MonoBehaviour
     public float GetDifficultyRatio()
     {
         return difficulty/100;
+    }
+
+    public float GetTotalGameTime()
+    {
+        return newGameTime;
     }
 
 

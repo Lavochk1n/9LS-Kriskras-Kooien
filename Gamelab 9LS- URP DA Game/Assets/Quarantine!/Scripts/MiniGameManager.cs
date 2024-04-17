@@ -30,14 +30,18 @@ namespace Quarantine
         public QuarentineManager quarentineManager;
 
         
-        [Header("Other")]
+        [Header("Timer")]
         [SerializeField] private Image timer;
-        [SerializeField] private Gradient timercolour; 
+        [SerializeField] private Gradient timercolour;
+
+
 
         private float playTime = 0f;
 
         private void Awake()
         {
+            Debug.Log(gameTime);
+
             if (Instance != null && Instance != this)
             {
                 Destroy(this);
@@ -50,8 +54,7 @@ namespace Quarantine
             else { Instantiate(maps[mapIndex]); }
 
             gameTime = GameManager.instance.GetTimeLeft();
-
-          
+            Debug.Log(gameTime); 
         }
 
         private void Update()
@@ -77,13 +80,16 @@ namespace Quarantine
             }
             else
             {
+
                 playTime += Time.deltaTime;
-                timer.fillAmount = 1f - (playTime/gameTime);
+
+                timer.fillAmount = 1f - ((GameManager.instance.GetTotalGameTime()- GameManager.instance.GetTimeLeft()) + playTime) / GameManager.instance.GetTotalGameTime();
+                //timer.fillAmount = 1f - (playTime / gameTime);
                 timer.color = timercolour.Evaluate(1f - (playTime / gameTime));
             }
         }
 
-
+         
         public bool GameOver()
         {
             if (playTime > gameTime)
