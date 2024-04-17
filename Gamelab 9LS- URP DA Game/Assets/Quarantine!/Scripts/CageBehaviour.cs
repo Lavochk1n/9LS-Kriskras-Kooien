@@ -9,7 +9,6 @@ namespace Quarantine
     {
 
         [SerializeField] private List<CageBehaviour> AdjCages;
-
         [SerializeField] private LayerMask layer;
         [SerializeField] private float searchDistance =3f;
 
@@ -18,18 +17,16 @@ namespace Quarantine
 
         [SerializeField] private ProgressionUI progressUI;
 
-
         public Animal myAnimal = new Animal();
-
 
 
         private void Start()
         {
             InitializeCages();
             UpdateCage();
-            spreadSpeed = GameManager.Instance.spreadSpeed;
+            spreadSpeed = MiniGameManager.Instance.spreadSpeed;
 
-            spreadSpeed *= UnityEngine.Random.Range(.8f, 1.2f);
+            spreadSpeed *= Random.Range(.8f, 1.2f) * GameManager.instance.GetDifficultyRatio();
             if (myAnimal.state == sickState.sick)
             {
                 myAnimal.sickProgression = 100f;
@@ -38,12 +35,11 @@ namespace Quarantine
             {
                 myAnimal.sickProgression = sickProgression;
             }
-        
         }
 
         private void Update()
         {
-            if (GameManager.Instance.GameOver()) return;
+            if (!MiniGameManager.Instance.PlayerSpawned() || MiniGameManager.Instance.GameOver() ) return;
 
             CheckSpread();
         }

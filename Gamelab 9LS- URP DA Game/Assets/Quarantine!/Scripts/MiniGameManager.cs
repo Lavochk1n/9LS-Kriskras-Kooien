@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI; 
 
 namespace Quarantine
 {
-    public class GameManager : MonoBehaviour
+    public class MiniGameManager : MonoBehaviour
     {
-        public static GameManager Instance { get; private set; }
+        public static MiniGameManager Instance { get; private set; }
 
         [Header("player Specifics")]
         public bool playerOneSpawned = false;
@@ -17,8 +18,8 @@ namespace Quarantine
 
         [Header("Game Rules")]
         public float spreadSpeed = 0.01f;
-        [SerializeField] private float gameTime = 150f; 
-        [SerializeField] int pointsPerCage = 10, cageQuota = 10;
+        private float gameTime; 
+        [SerializeField] int cageQuota = 10;
 
 
 
@@ -30,8 +31,6 @@ namespace Quarantine
 
         
         [Header("Other")]
-        [SerializeField] private GameObject Winscreen;
-        [SerializeField] private TextMeshProUGUI Wintext;
         [SerializeField] private Image timer;
         [SerializeField] private Gradient timercolour; 
 
@@ -49,6 +48,10 @@ namespace Quarantine
             }
             if(randomMap) { Instantiate(maps[Random.Range(0, maps.Count)]); }
             else { Instantiate(maps[mapIndex]); }
+
+            gameTime = GameManager.instance.GetTimeLeft();
+
+          
         }
 
         private void Update()
@@ -60,11 +63,17 @@ namespace Quarantine
 
             if (GameOver())
             {
-                Winscreen.SetActive(true);
+                if (playTime > gameTime)
+                {
+                    ScenesManager.Instance.GetGameOver(); 
+                }
+                else
+                {
+                    GameManager.instance.SetTimeLeft(gameTime - playTime);
+                    GameManager.instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
 
-                string text = "Score: " + CalculateScore() + ", playtime:  " + Mathf.RoundToInt(playTime).ToString() + " seconds";
-
-                Wintext.SetText(text);
+                    ScenesManager.Instance.NextScene();
+                }
             }
             else
             {
@@ -75,12 +84,15 @@ namespace Quarantine
         }
 
 
-        // add acces to player and change end condition from no empty cages to no held animals (to test empty cages as well)
         public bool GameOver()
         {
-            if (inventory1.player == null || inventory2.player == null) return true;
+            if (playTime > gameTime)
+            {
 
-            if (playTime > gameTime) return true;
+                return true;
+            }
+
+
             if (CountInfected() >= cageQuota) return true;
 
             foreach (GameObject cage in quarentineManager.Cages)
@@ -97,14 +109,20 @@ namespace Quarantine
 
                 }
             }
-
-            
             return true; 
         }
 
-        private string CalculateScore()
+        public bool PlayerSpawned()
         {
-            int score = 0;
+            if (inventory1.player == null || inventory2.player == null) return false;
+
+            return true; 
+
+        }
+
+        private float CalculateScore()
+        {
+            float performance = 0;
 
             foreach (GameObject cage in quarentineManager.Cages)
             {
@@ -112,10 +130,17 @@ namespace Quarantine
 
                 if (cageBehaviour.myAnimal.state == sickState.healthy)
                 {
-                    score += pointsPerCage; 
+                    performance += 1; 
                 }
             }
-            return score.ToString(); 
+
+
+            float estMin = quarentineManager.Cages.Count - cageQuota;
+            float estMax = quarentineManager.Cages.Count;
+
+            float addedScore = (performance - estMin) / ( estMax - estMin) * 100;
+
+            return addedScore; 
         }
 
         private int CountInfected()

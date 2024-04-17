@@ -150,10 +150,9 @@ MonoBehaviour:
   cageOffset: 0
   Cages: []
   dogWeight: 6
-  crowWeight: 8
+  crowWeight: 7
   parrotWeight: 4
   healthyWeight: 7
-  spreadSpeed: 0.1
 --- !u!1 &3873243579693606226
 GameObject:
   m_ObjectHideFlags: 0

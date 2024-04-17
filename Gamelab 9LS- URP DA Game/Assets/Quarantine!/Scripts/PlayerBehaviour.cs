@@ -38,13 +38,13 @@ namespace Quarantine
                 sickProgression = 0
             };
 
-            if (!GameManager.Instance.playerOneSpawned)
+            if (!MiniGameManager.Instance.playerOneSpawned)
             {
-                GameManager.Instance.playerOneSpawned = true;
+                MiniGameManager.Instance.playerOneSpawned = true;
                 GetComponent<Renderer>().material.color = color1;
                 transform.position = GameObject.FindGameObjectWithTag("spawn1").transform.position;
-                GameManager.Instance.inventory1.player = this;
-                GameManager.Instance.inventory1.SetColour(color1);
+                MiniGameManager.Instance.inventory1.player = this;
+                MiniGameManager.Instance.inventory1.SetColour(color1);
 
 
 
@@ -53,8 +53,8 @@ namespace Quarantine
             {
                 GetComponent<Renderer>().material.color = color2;
                 transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
-                GameManager.Instance.inventory2.player = this;
-                GameManager.Instance.inventory2.SetColour(color2);
+                MiniGameManager.Instance.inventory2.player = this;
+                MiniGameManager.Instance.inventory2.SetColour(color2);
 
 
             }
@@ -68,7 +68,7 @@ namespace Quarantine
         private void Update()
         {
 
-            if (GameManager.Instance.GameOver()) return;
+            if (!MiniGameManager.Instance.PlayerSpawned() || MiniGameManager.Instance.GameOver()) return;
 
             if (sprintSpeed > 1f)
             {
@@ -112,7 +112,7 @@ namespace Quarantine
         private void FixedUpdate()
         {
 
-            if (GameManager.Instance.GameOver()) return;
+            if (!MiniGameManager.Instance.PlayerSpawned() || MiniGameManager.Instance.GameOver()) return;
 
             if (moveVector.magnitude == 0) { return; }
 
