@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    ////////////////////////////////// SCORE ////////////////////////////
+
     public void IncreaseScore(int amount)
     {
         score += amount;
@@ -37,16 +39,26 @@ public class GameManager : MonoBehaviour
         return score;
     }
 
+    ////////////////////////////////// TIME ////////////////////////////
 
-    public void SetTimeLeft(float amount)
+    public void DecreaseTime()
     {
-        //if (timeLeft + amount > newGameTime)
-        //{
-        //    timeLeft =  newGameTime;
-        //    return;
-        //}
+        timeLeft -= Time.deltaTime;
+        if(timeLeft < 0)
+        {
+            timeLeft = 0;
+            ScenesManager.Instance.GetGameOver(); 
+        }
+    }
 
-        timeLeft = amount;
+    public void AddTime(float amount)
+    {
+        timeLeft += amount; 
+    }
+
+    public float GetTotalGameTime()
+    {
+        return newGameTime;
     }
 
 
@@ -54,6 +66,9 @@ public class GameManager : MonoBehaviour
     {
         return timeLeft;
     }
+
+
+    ////////////////////////////////// Difficulty ////////////////////////////
 
 
     public float IncreaseDifficulty(float amount)
@@ -66,10 +81,7 @@ public class GameManager : MonoBehaviour
         return difficulty/100;
     }
 
-    public float GetTotalGameTime()
-    {
-        return newGameTime;
-    }
+    
 
 
     public void Reset()

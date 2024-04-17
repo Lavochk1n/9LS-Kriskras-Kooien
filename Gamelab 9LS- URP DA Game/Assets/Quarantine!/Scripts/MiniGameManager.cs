@@ -30,9 +30,7 @@ namespace Quarantine
         public QuarentineManager quarentineManager;
 
         
-        [Header("Timer")]
-        [SerializeField] private Image timer;
-        [SerializeField] private Gradient timercolour;
+        
 
 
 
@@ -64,41 +62,20 @@ namespace Quarantine
                 return;
             }
 
+            GameManager.instance.DecreaseTime(); 
+
+
             if (GameOver())
             {
-                if (playTime > gameTime)
-                {
-                    ScenesManager.Instance.GetGameOver(); 
-                }
-                else
-                {
-                    GameManager.instance.SetTimeLeft(gameTime - playTime);
-                    GameManager.instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
-
-                    ScenesManager.Instance.NextScene();
-                }
-            }
-            else
-            {
-
-                playTime += Time.deltaTime;
-
-                timer.fillAmount = 1f - ((GameManager.instance.GetTotalGameTime()- GameManager.instance.GetTimeLeft()) + playTime) / GameManager.instance.GetTotalGameTime();
-                //timer.fillAmount = 1f - (playTime / gameTime);
-                timer.color = timercolour.Evaluate(1f - (playTime / gameTime));
+                GameManager.instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
+                ScenesManager.Instance.NextScene();
             }
         }
 
          
         public bool GameOver()
         {
-            if (playTime > gameTime)
-            {
-
-                return true;
-            }
-
-
+            
             if (CountInfected() >= cageQuota) return true;
 
             foreach (GameObject cage in quarentineManager.Cages)

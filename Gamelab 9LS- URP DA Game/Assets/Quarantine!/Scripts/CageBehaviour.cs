@@ -23,7 +23,6 @@ namespace Quarantine
         private void Start()
         {
             InitializeCages();
-            UpdateCage();
             spreadSpeed = MiniGameManager.Instance.spreadSpeed;
 
             spreadSpeed *= Random.Range(.8f, 1.2f) * GameManager.instance.GetDifficultyRatio();
@@ -35,6 +34,10 @@ namespace Quarantine
             {
                 myAnimal.sickProgression = sickProgression;
             }
+
+            UpdateCage();
+
+
         }
 
         private void Update()
