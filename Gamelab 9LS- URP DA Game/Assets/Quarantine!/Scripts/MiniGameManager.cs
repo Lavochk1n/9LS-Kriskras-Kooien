@@ -20,6 +20,7 @@ namespace Quarantine
         public float spreadSpeed = 0.01f;
         private float gameTime; 
         [SerializeField] int cageQuota = 10;
+        [SerializeField] private float completionBonus = 30f;  
 
 
 
@@ -68,6 +69,8 @@ namespace Quarantine
             if (GameOver())
             {
                 GameManager.instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
+                GameManager.instance.IncreaseDifficulty();
+                GameManager.instance.AddTime(completionBonus); 
                 ScenesManager.Instance.NextScene();
             }
         }
