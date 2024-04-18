@@ -19,9 +19,10 @@ namespace Quarantine
 
         public Animal heldAnimal;
 
-
-
         [SerializeField] private float smoothtime = 0.5f, currentVeloctiy;
+
+
+        [SerializeField] private GameObject parrotModel, crowModel, dogModel;
 
         private void Awake()
         {
@@ -79,6 +80,10 @@ namespace Quarantine
 
 
             ScanInteractable(gameObject, transform.forward, 3);
+
+
+            UpdateHeldAnimal();
+
         }
 
         public void OnMovementPerformed(InputAction.CallbackContext context)
@@ -108,6 +113,34 @@ namespace Quarantine
         }
 
 
+
+        ///  MAKE THIS HAPPPEM ON EVENT FOR PERFORMANCE 
+        private void UpdateHeldAnimal()
+        {
+            switch (heldAnimal.type)
+            {
+                case animalTypes.dog:
+                    dogModel.SetActive(true);
+                    parrotModel.SetActive(false);
+                    crowModel.SetActive(false);
+                    break;
+                case animalTypes.crow:
+                    dogModel.SetActive(false);
+                    parrotModel.SetActive(false);
+                    crowModel.SetActive(true);
+                    break;
+                case animalTypes.parrot:
+                    dogModel.SetActive(false);
+                    parrotModel.SetActive(true);
+                    crowModel.SetActive(false);
+                    break;
+                case animalTypes.Empty:
+                    dogModel.SetActive(false);
+                    parrotModel.SetActive(false);
+                    crowModel.SetActive(false);
+                    break; 
+            }
+        }
 
         private void FixedUpdate()
         {
