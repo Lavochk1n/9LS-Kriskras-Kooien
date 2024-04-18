@@ -9,6 +9,7 @@ namespace StackThatBulance
         public bool playerOne;
 
         private Vector2 previousMoveVector = Vector2.zero;
+        private Item currentItem;
 
         private void Awake()
         {
@@ -27,31 +28,31 @@ namespace StackThatBulance
 
         private void Update()
         {
-            ScanInteractable(CursorMovement.gameObject, Vector3.forward, 10f);
+            ScanInteractable(CursorMovement.gameObject, Vector3.down, 10f);
         }
 
         public void OnMovement(InputAction.CallbackContext value)
         {
             Vector2 moveVector = value.ReadValue<Vector2>();
 
+            // Normalize the move vector to ensure diagonal movement is not faster
+            moveVector.Normalize();
+
             if (playerOne)
             {
-                // Player One can only move up and left
-                if (moveVector.x > 0 && previousMoveVector.x <= 0)
-                    moveVector.x = 0;
-                if (moveVector.y > 0 && previousMoveVector.y <= 0)
-                    moveVector.y = 0;
+               
+                moveVector.x = Mathf.Max(0, moveVector.x);
+                moveVector.y = Mathf.Max(0, moveVector.y);
             }
             else
             {
-                // Player Two can only move down and right
-                if (moveVector.x < 0 && previousMoveVector.x >= 0)
-                    moveVector.x = 0;
-                if (moveVector.y < 0 && previousMoveVector.y >= 0)
-                    moveVector.y = 0;
+               
+                moveVector.x = Mathf.Min(0, moveVector.x);
+                moveVector.y = Mathf.Min(0, moveVector.y);
             }
 
-            CursorMovement.moveVector = moveVector;
+           
+            CursorMovement.moveVector = new Vector3(moveVector.x, 0f, moveVector.y);
             previousMoveVector = moveVector;
         }
 
@@ -59,9 +60,33 @@ namespace StackThatBulance
         {
             if (context.started)
             {
-
                 RequestInteraction();
+            }
+        }
+
+        public void OnRotate(InputAction.CallbackContext context)
+        {
+             if (context.started)
+            {
+                RotateItem();
+            }
+        }
+
+
+        private void RotateItem()
+        {
+            if (CursorMovement.grabTarget != null)
+
+            {
+               
+             Debug.Log("Rotate button pressed");
+             CursorMovement.grabTarget.transform.Rotate(Vector3.forward, 90f);
+           
             }
         }
     }
 }
+
+
+
+

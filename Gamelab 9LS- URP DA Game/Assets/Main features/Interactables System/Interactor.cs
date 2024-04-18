@@ -25,14 +25,10 @@ public class Interactor : MonoBehaviour
 
         if (Physics.Raycast(origin.transform.position, direction, out hit, raycastRange))
         {
-            Debug.Log(hit.collider.gameObject);
-
             Interactable interactable = hit.collider.GetComponent<Interactable>();
 
             if (interactable != null)
             {
-                Debug.Log("found interacabel");
-
                 HandleInteraction(interactable);
             }
         }
