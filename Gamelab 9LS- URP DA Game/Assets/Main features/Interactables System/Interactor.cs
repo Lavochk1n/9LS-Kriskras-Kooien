@@ -32,7 +32,7 @@ public class Interactor : MonoBehaviour
             if (interactable != null)
             {
                 Debug.Log("found interacabel");
-
+                interactable.GetDescription();
                 HandleInteraction(interactable);
             }
         }

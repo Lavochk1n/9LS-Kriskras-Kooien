@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,11 @@ namespace Quarantine
         [SerializeField] private ProgressionUI progressUI;
 
         public Animal myAnimal = new Animal();
+
+        [SerializeField] private GameObject spotLight;
+        private bool isLookedAt = false;
+        private float lightTimer = 0f;
+        [SerializeField] private float resetTime = 0.1f; 
 
 
         private void Start()
@@ -45,6 +51,19 @@ namespace Quarantine
             if (!MiniGameManager.Instance.PlayerSpawned() || MiniGameManager.Instance.GameOver() ) return;
 
             CheckSpread();
+
+           
+            spotLight.SetActive(isLookedAt);
+            if (lightTimer > 0f)
+            {
+                lightTimer -= Time.deltaTime;
+
+            }
+            else
+            {
+                isLookedAt = false; 
+            }
+
         }
 
         public override void Interact(Interactor interactor)
@@ -68,8 +87,12 @@ namespace Quarantine
 
         public override string GetDescription()
         {
-            return "Press 'A' to interact"; 
+            isLookedAt = true;
+            lightTimer = resetTime; 
+
+            return ""; 
         }
+
 
         private void InitializeCages()
         {
