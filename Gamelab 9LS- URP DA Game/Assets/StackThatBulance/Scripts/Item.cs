@@ -1,28 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace StackThatBulance
 {
     public class Item : Interactable
     {
-        [SerializeField] private Transform requiredSlot; // Change type to Transform
-
-        private Vector3 startPos;
-        private GameObject Cursor;
-        private bool isBeingHeld = false; // Flag to track if the item is being held by the player
+        private Rigidbody rb;
+        private bool isBeingHeld = false; 
+        private bool isInBox = false; 
 
         private void Start()
         {
-            Cursor = GameObject.FindGameObjectWithTag("Cursor");
-            startPos = transform.position;
+            rb = GetComponent<Rigidbody>();
         }
 
         public override void Interact(Interactor interactor)
         {
             if (!isBeingHeld)
             {
-                Cursor.GetComponent<CursorBehaviour>().GrabTarget(gameObject);
+                CursorBehaviour cursor = GameObject.FindWithTag("Cursor").GetComponent<CursorBehaviour>();
+                cursor.GrabTarget(gameObject);
                 isBeingHeld = true;
             }
             else
@@ -43,49 +39,60 @@ namespace StackThatBulance
             }
         }
 
-        private void OnTriggerEnter(Collider collision)
+        private void OnTriggerEnter(Collider other)
         {
-            if (requiredSlot == null) { return; }
-
-            if (collision.gameObject == requiredSlot.gameObject && isBeingHeld) // Check if being held and collides with slot
+            if (other.CompareTag("Box"))
             {
-                SnapToSlot();
+                isInBox = true;
+                // GameManager.Instance.UpdateScore(); // Update the score when the item enters the box
+                CheckIfAllItemsInBox();
             }
+        }
 
-            if (collision.CompareTag("reset"))
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Box"))
             {
-                if (isBeingHeld) // Reset only if the item is being held
+                isInBox = false;
+            }
+        }
+        private void CheckIfAllItemsInBox()
+        {
+            GameObject[] itemsInBox = GameObject.FindGameObjectsWithTag("Item");
+            int totalItems = 7;
+            int itemsCount = 0;
+
+            foreach (GameObject item in itemsInBox)
+            {
+                Item itemComponent = item.GetComponent<Item>();
+                if (itemComponent != null && itemComponent.isInBox)
                 {
-                    ResetItem();
+                    itemsCount++;
                 }
             }
+
+            if (itemsCount == totalItems)
+            {
+                GameManager.Instance.FinishGame();
+            }
         }
 
-        // Function to snap the item to the slot
-        private void SnapToSlot()
-        {
-            transform.position = requiredSlot.position; // Snap to the required slot's position
-            GetComponent<Rigidbody>().isKinematic = true; // Disable physics
-            isBeingHeld = false; // Release the item
-        }
-
-        // Function to release the item
         private void ReleaseItem()
         {
-            Cursor.GetComponent<CursorBehaviour>().GrabTarget(null); // Release the item from the cursor
-            GetComponent<Rigidbody>().isKinematic = false; // Enable physics
-            isBeingHeld = false; // Release the item
-        }
+            CursorBehaviour cursor = FindObjectOfType<CursorBehaviour>();
+            if (cursor != null)
+            {
+                cursor.GrabTarget(null); 
+            }
 
-        // Function to reset the item to its original position
-        private void ResetItem()
-        {
-            transform.position = startPos;
-            GetComponent<Rigidbody>().velocity = Vector3.zero; // Reset velocity
-            GetComponent<Rigidbody>().angularVelocity = Vector3.zero; // Reset angular velocity
+            isBeingHeld = false; 
+            rb.useGravity = true; 
+            rb.isKinematic = false; 
         }
     }
 }
+
+
 
 
 

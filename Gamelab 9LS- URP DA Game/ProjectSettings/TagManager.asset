@@ -8,6 +8,8 @@ TagManager:
   - Cursor
   - spawn1
   - spawn2
+  - Item
+  - Box
   layers:
   - Default
   - TransparentFX

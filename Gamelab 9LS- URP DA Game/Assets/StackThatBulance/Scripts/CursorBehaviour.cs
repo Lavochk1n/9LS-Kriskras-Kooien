@@ -8,14 +8,15 @@ namespace StackThatBulance
         [SerializeField] private float movespeed = 10f;
 
         public Vector3 moveVector = Vector3.zero;
+        private PlayerBehaviour playerBehaviour;
 
-        private GameObject grabTarget;
+        public GameObject grabTarget;
         private Rigidbody rb;
-
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
+            playerBehaviour = GetComponent<PlayerBehaviour>(); 
         }
 
         private void FixedUpdate()
@@ -43,4 +44,5 @@ namespace StackThatBulance
         }
     }
 }
+
 
