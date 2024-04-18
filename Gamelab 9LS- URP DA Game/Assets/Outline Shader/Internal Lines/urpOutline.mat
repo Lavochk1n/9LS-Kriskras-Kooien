@@ -85,7 +85,7 @@ Material:
     - _BumpScale: 1
     - _CHECKCOLOURS: 0
     - _CHECKDEPTH: 1
-    - _Colour_Threshold: 1.42
+    - _Colour_Threshold: 1.17
     - _Cutoff: 0.5
     - _DepthStrength: 2.06
     - _DepthThickness: 0.2
@@ -97,7 +97,7 @@ Material:
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _Normal_Threshold: 1.33
+    - _Normal_Threshold: 1.15
     - _OVERLAY: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02

@@ -493,13 +493,13 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: c32c470ec1fcd3e43a5b7fcc22160f62,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: c32c470ec1fcd3e43a5b7fcc22160f62,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b068b1b990dd04b408a3f2d94f441da0, type: 2}
+      objectReference: {fileID: 2100000, guid: f98ae65fbebcf574c8e7c22b82ed8a0a, type: 2}
     - target: {fileID: -7511558181221131132, guid: c32c470ec1fcd3e43a5b7fcc22160f62,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -509,6 +509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hedgehog
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c32c470ec1fcd3e43a5b7fcc22160f62,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -580,7 +585,7 @@ GameObject:
   - component: {fileID: 2018496887}
   - component: {fileID: 2018496886}
   - component: {fileID: 2018496890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,8 +633,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  - {fileID: 2100000, guid: b068b1b990dd04b408a3f2d94f441da0, type: 2}
+  - {fileID: -400310251153081761, guid: 481986ea55c6f2c4698025f39850ba93, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -832,7 +836,6 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b068b1b990dd04b408a3f2d94f441da0, type: 2}
   - {fileID: 2100000, guid: f98ae65fbebcf574c8e7c22b82ed8a0a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
