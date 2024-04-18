@@ -10,6 +10,7 @@ TagManager:
   - spawn2
   - Item
   - Box
+  - OptionalItem
   layers:
   - Default
   - TransparentFX

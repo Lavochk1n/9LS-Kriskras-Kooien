@@ -777,6 +777,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: sceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: miniGames.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: miniGames.Array.data[0]
+      value: STB_PreGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: miniGames.Array.data[1]
+      value: Q!_PreGame
+      objectReference: {fileID: 0}
     - target: {fileID: 8372754092079060623, guid: fd514d266a59b9a47981ffb03721aa80,
         type: 3}
       propertyPath: m_LocalPosition.x

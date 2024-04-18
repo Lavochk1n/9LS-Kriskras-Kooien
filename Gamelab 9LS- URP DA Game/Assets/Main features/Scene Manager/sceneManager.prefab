@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniGames:
   - Q!_PreGame
+  - STB_PreGame

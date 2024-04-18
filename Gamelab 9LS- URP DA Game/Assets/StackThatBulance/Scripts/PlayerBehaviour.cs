@@ -15,10 +15,10 @@ namespace StackThatBulance
         {
             CursorMovement = GameObject.FindWithTag("Cursor").GetComponent<CursorBehaviour>();
 
-            if (!GameManager.Instance.playerOneSpawned)
+            if (!MiniGameManager.Instance.playerOneSpawned)
             {
                 playerOne = true;
-                GameManager.Instance.playerOneSpawned = true;
+                MiniGameManager.Instance.playerOneSpawned = true;
             }
             else
             {

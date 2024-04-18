@@ -6,7 +6,8 @@ namespace StackThatBulance
     {
         private Rigidbody rb;
         private bool isBeingHeld = false; 
-        private bool isInBox = false; 
+        public bool isInBox = false;
+        public float pointValue = 10f; 
 
         private void Start()
         {
@@ -44,8 +45,6 @@ namespace StackThatBulance
             if (other.CompareTag("Box"))
             {
                 isInBox = true;
-                // GameManager.Instance.UpdateScore(); // Update the score when the item enters the box
-                CheckIfAllItemsInBox();
             }
         }
 
@@ -56,26 +55,7 @@ namespace StackThatBulance
                 isInBox = false;
             }
         }
-        private void CheckIfAllItemsInBox()
-        {
-            GameObject[] itemsInBox = GameObject.FindGameObjectsWithTag("Item");
-            int totalItems = 7;
-            int itemsCount = 0;
-
-            foreach (GameObject item in itemsInBox)
-            {
-                Item itemComponent = item.GetComponent<Item>();
-                if (itemComponent != null && itemComponent.isInBox)
-                {
-                    itemsCount++;
-                }
-            }
-
-            if (itemsCount == totalItems)
-            {
-                GameManager.Instance.FinishGame();
-            }
-        }
+        
 
         private void ReleaseItem()
         {

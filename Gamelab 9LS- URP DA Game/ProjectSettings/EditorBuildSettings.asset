@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/StackThatBulance/Scenes/STB_PreGame.unity
     guid: cfe34adbeccaeb142b6a0ac9282c6ff6
   - enabled: 1
-    path: Assets/StackThatBulance/Scenes/StackThatBulance.unity
+    path: Assets/StackThatBulance/Scenes/STB_Game.unity
     guid: d5072a44bc90d8a4e9a39b1a87a0247b
   - enabled: 1
     path: Assets/StackThatBulance/Scenes/STB_PostGame.unity
