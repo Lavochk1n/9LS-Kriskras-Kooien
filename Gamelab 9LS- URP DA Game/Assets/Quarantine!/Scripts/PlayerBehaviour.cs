@@ -24,6 +24,8 @@ namespace Quarantine
 
         [SerializeField] private GameObject parrotModel, crowModel, dogModel;
 
+        [SerializeField] private GameObject player1Model, player2Model; 
+
         private void Awake()
         {
             CC = GetComponent<CharacterController>();
@@ -42,7 +44,9 @@ namespace Quarantine
             if (!MiniGameManager.Instance.playerOneSpawned)
             {
                 MiniGameManager.Instance.playerOneSpawned = true;
-                GetComponent<Renderer>().material.color = color1;
+
+                player1Model.SetActive(true);
+                player2Model.SetActive(false);
                 transform.position = GameObject.FindGameObjectWithTag("spawn1").transform.position;
                 MiniGameManager.Instance.inventory1.player = this;
                 MiniGameManager.Instance.inventory1.SetColour(color1);
@@ -52,7 +56,10 @@ namespace Quarantine
             }
             else
             {
-                GetComponent<Renderer>().material.color = color2;
+
+
+                player1Model.SetActive(false);
+                player2Model.SetActive(true);
                 transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
                 MiniGameManager.Instance.inventory2.player = this;
                 MiniGameManager.Instance.inventory2.SetColour(color2);
