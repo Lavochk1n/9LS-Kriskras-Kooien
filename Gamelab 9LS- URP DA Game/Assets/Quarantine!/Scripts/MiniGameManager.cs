@@ -14,14 +14,11 @@ namespace Quarantine
         public bool playerOneSpawned = false;
         public InventoryUI inventory1, inventory2;
 
-
-
         [Header("Game Rules")]
         public float spreadSpeed = 0.01f;
         private float gameTime; 
         [SerializeField] int cageQuota = 10;
         [SerializeField] private float completionBonus = 30f;  
-
 
 
         [Header("Initialisation")]
@@ -30,12 +27,6 @@ namespace Quarantine
         [SerializeField] private int mapIndex=0; 
         public QuarentineManager quarentineManager;
 
-        
-        
-
-
-
-        private float playTime = 0f;
 
         private void Awake()
         {
@@ -65,7 +56,6 @@ namespace Quarantine
 
             GameManager.instance.DecreaseTime(); 
 
-
             if (GameOver())
             {
                 GameManager.instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
@@ -75,11 +65,11 @@ namespace Quarantine
             }
         }
 
-         
+        
+
+         /// <returns>true if one of the game-over conditions are met</returns>
         public bool GameOver()
-        {
-            
-            if (CountInfected() >= cageQuota) return true;
+        {            if (CountInfected() >= cageQuota) return true;
 
             foreach (GameObject cage in quarentineManager.Cages)
             {
@@ -92,11 +82,11 @@ namespace Quarantine
                 if (inventory1.player.heldAnimal.type != animalTypes.Empty || inventory2.player.heldAnimal.type != animalTypes.Empty)
                 {
                     return false;
-
                 }
             }
             return true; 
         }
+
 
         public bool PlayerSpawned()
         {
@@ -106,6 +96,8 @@ namespace Quarantine
 
         }
 
+
+        /// <returns>score based on the share of healthy cages</returns>
         private float CalculateScore()
         {
             float performance = 0;
@@ -119,8 +111,6 @@ namespace Quarantine
                     performance += 1; 
                 }
             }
-
-
             float estMin = quarentineManager.Cages.Count - cageQuota;
             float estMax = quarentineManager.Cages.Count;
 
@@ -129,6 +119,8 @@ namespace Quarantine
             return addedScore; 
         }
 
+
+        /// <returns>amount of infected cages</returns>
         private int CountInfected()
         {
             int count = 0;
@@ -141,7 +133,6 @@ namespace Quarantine
             }
 
             if (inventory1.player.heldAnimal.state == sickState.sick) count++;
-
             if (inventory2.player.heldAnimal.state == sickState.sick) count++;
 
             return count;

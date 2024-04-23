@@ -780,12 +780,12 @@ PrefabInstance:
     - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
         type: 3}
       propertyPath: miniGames.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
         type: 3}
       propertyPath: miniGames.Array.data[0]
-      value: STB_PreGame
+      value: Q!_PreGame
       objectReference: {fileID: 0}
     - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
         type: 3}

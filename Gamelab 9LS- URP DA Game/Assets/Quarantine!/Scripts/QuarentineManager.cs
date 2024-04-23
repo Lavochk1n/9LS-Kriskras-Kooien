@@ -24,6 +24,12 @@ namespace Quarantine
         public animalTypes type;
         public sickState state;
         public float sickProgression;
+
+
+        private GameObject model; 
+
+
+
     }
 
     public class AnimalWeight
@@ -36,24 +42,24 @@ namespace Quarantine
     {
         public static QuarentineManager Instance { get; private set; }
 
-        [Header("colours")]
-        public Material dog;
-        public Material native,exotic,empty;
-
         [Header("cage Set-up")]
         [SerializeField] private GameObject CagePrefab;
-        [SerializeField] private int rowCount, rowAmount;
-        [SerializeField] private float cageOffset;
-
         public List<GameObject> Cages = new List<GameObject>();
-        private List<AnimalWeight> animalWeights;
 
-        [SerializeField] private int dogWeight, crowWeight, parrotWeight,  healthyWeight;
+        [Header("Randomiser")]
+        private List<AnimalWeight> animalWeights;
+        [SerializeField] private int dogWeight, crowWeight, parrotWeight, healthyWeight;
+
+
+        [SerializeField] private GameObject dogModel, crowModel, parrotModel;
+        [SerializeField] private Sprite dogSpriteHealthy, crowSpriteHealthy, parrotSpriteHealthy;
+
 
         private void Awake()
         {
             if (Instance != null && Instance != this) { Destroy(this);}  
             else {Instance = this;}
+
             GetAnimalWeights();
 
             foreach (Transform child  in transform) 
@@ -77,6 +83,8 @@ namespace Quarantine
             };
         }
 
+      
+        /// <returns> An animaltype enumstate  based on weight</returns>
         private animalTypes GetWeightedRandomAnimal()
         {
             int totalWeight = 0; 
@@ -85,7 +93,7 @@ namespace Quarantine
                 totalWeight += weight.Weight;
             }
 
-            int randomWeight = UnityEngine.Random.Range(0, totalWeight);
+            int randomWeight = Random.Range(0, totalWeight);
 
             for (int i = 0; i < animalWeights.Count; ++i)
             {
@@ -101,7 +109,7 @@ namespace Quarantine
         private sickState GetWeightedRandomState()
         {
             int totalWeight = 1 + healthyWeight;
-            int randomWeight = UnityEngine.Random.Range(0, totalWeight);
+            int randomWeight = Random.Range(0, totalWeight);
             randomWeight -= healthyWeight;
             if (randomWeight < 0)
             {

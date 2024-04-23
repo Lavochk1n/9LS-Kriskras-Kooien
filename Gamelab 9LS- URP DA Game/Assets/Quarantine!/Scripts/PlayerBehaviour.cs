@@ -6,30 +6,28 @@ namespace Quarantine
 {
     public class PlayerBehaviour : Interactor
     {
-        [SerializeField] private Color color1, color2; 
-
-        private Vector2 moveVector;
-
+        [Header("Player Movement")]
         public float moveSpeed = 5f;
-
-        private float sprintSpeed = 1f;
         [SerializeField] private float sprintBonus = 3f; 
-
-        private CharacterController CC;
-
-        public Animal heldAnimal;
-
         [SerializeField] private float smoothtime = 0.5f, currentVeloctiy;
 
+        private CharacterController CC;
+        private Vector2 moveVector;
+        private float sprintSpeed = 1f;
 
+        [Header("Holding Animal")]
+        public Animal heldAnimal;
         [SerializeField] private GameObject parrotModel, crowModel, dogModel;
 
-        [SerializeField] private GameObject player1Model, player2Model; 
+
+        [Header("Player Distinction")]
+        [SerializeField] private GameObject player1Model;
+        [SerializeField] private GameObject player2Model; 
+        [SerializeField] private Color color1, color2; 
 
         private void Awake()
         {
             CC = GetComponent<CharacterController>();
-
         }
 
         private void Start()
@@ -49,27 +47,17 @@ namespace Quarantine
                 player2Model.SetActive(false);
                 transform.position = GameObject.FindGameObjectWithTag("spawn1").transform.position;
                 MiniGameManager.Instance.inventory1.player = this;
-                MiniGameManager.Instance.inventory1.SetColour(color1);
-
-
-
+                //MiniGameManager.Instance.inventory1.SetColour(color1);
             }
             else
             {
-
-
                 player1Model.SetActive(false);
                 player2Model.SetActive(true);
                 transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
                 MiniGameManager.Instance.inventory2.player = this;
-                MiniGameManager.Instance.inventory2.SetColour(color2);
-
-
+                //MiniGameManager.Instance.inventory2.SetColour(color2);
             }
             moveVector = Vector2.zero;
-
-
-
         }
 
 
@@ -84,13 +72,9 @@ namespace Quarantine
             }
             else if (sprintSpeed < 1f) { sprintSpeed = 1f; }
 
-
-
             ScanInteractable(gameObject, transform.forward, 3);
 
-
             UpdateHeldAnimal();
-
         }
 
         public void OnMovementPerformed(InputAction.CallbackContext context)
@@ -116,12 +100,11 @@ namespace Quarantine
 
                 }
             }
-
         }
 
 
 
-        ///  MAKE THIS HAPPPEM ON EVENT FOR PERFORMANCE 
+        //  MAKE THIS HAPPPEM ON EVENT FOR PERFORMANCE 
         private void UpdateHeldAnimal()
         {
             switch (heldAnimal.type)
@@ -164,9 +147,6 @@ namespace Quarantine
             transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
 
             CC.Move(movement * moveSpeed * sprintSpeed * Time.deltaTime);
-
-
-
         }
     }
 }
