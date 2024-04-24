@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Bunny
   m_EditorClassIdentifier: 
   type: 0
-  model: {fileID: 919132149155446097, guid: 8af5737f2d53ed841ace65aa46485300, type: 3}
+  model: {fileID: 5436333085478034918, guid: 10c5bb0309a939244809f857622e408f, type: 3}
   iconTypeSick: {fileID: 21300000, guid: d8537436a4f22a34eb5a8413258c27f3, type: 3}
   iconTypeHealthy: {fileID: 21300000, guid: b875ee91b3236cf4483084228eafe746, type: 3}

@@ -6,7 +6,6 @@ public class VisualManager : MonoBehaviour
 {
     public List<AnimalVisuals> animalVisualsList;
 
-    // Singleton instance
     public static VisualManager instance;
 
     private void Awake()
@@ -21,9 +20,13 @@ public class VisualManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Find the corresponding visual Scriptable Object 
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
     public AnimalVisuals GetAnimalVisuals(AnimalTypes type)
     {
-        // Iterate through the list and find the AnimalVisuals for the specified type
         foreach (AnimalVisuals visuals in animalVisualsList)
         {
             if (visuals.type == type)

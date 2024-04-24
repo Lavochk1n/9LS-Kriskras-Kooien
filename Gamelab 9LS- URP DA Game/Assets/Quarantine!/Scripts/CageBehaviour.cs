@@ -26,7 +26,7 @@ namespace Quarantine
         private void Start()
         {
             InitializeCages();
-            spreadSpeed = MiniGameManager.Instance.spreadSpeed;
+            spreadSpeed = QuarentineManager.Instance.spreadSpeed;
 
             spreadSpeed *= Random.Range(.8f, 1.2f) * GameManager.instance.GetDifficultyRatio();
             if (myAnimal.state == SickState.sick)
@@ -45,7 +45,7 @@ namespace Quarantine
 
         private void Update()
         {
-            if (!MiniGameManager.Instance.PlayerSpawned() || MiniGameManager.Instance.GameOver() ) return;
+            if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GameOver() ) return;
 
             CheckSpread();
 

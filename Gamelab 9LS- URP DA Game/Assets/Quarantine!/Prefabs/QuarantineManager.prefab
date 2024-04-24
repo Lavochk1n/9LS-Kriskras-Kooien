@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 106446417513987375}
-  - component: {fileID: 7589098773242433583}
+  - component: {fileID: 508082665948515054}
   m_Layer: 0
-  m_Name: MiniGameManager
+  m_Name: QuarantineManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7589098773242433583
+--- !u!114 &508082665948515054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,14 +41,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5586851599605876594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 934eb74bb3066c64589293dc327ed7f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 24dee66c826e3b2478b59b549f65f966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOneSpawned: 0
-  inventory1: {fileID: 0}
-  inventory2: {fileID: 0}
+  cagesParent: {fileID: 0}
+  Cages: []
+  bunnyWeight: 6
+  crowWeight: 8
+  parrotWeight: 4
+  healthyWeight: 7
   spreadSpeed: 2.1
-  cageQuota: 10
+  cageQuota: 15
   completionBonus: 30
   maps:
   - {fileID: 956357379441123067, guid: 4657c7243e23ac1459f7441663ce6c19, type: 3}
@@ -58,3 +61,6 @@ MonoBehaviour:
   randomMap: 1
   mapIndex: 0
   quarentineManager: {fileID: 0}
+  playerOneSpawned: 0
+  inventory1: {fileID: 0}
+  inventory2: {fileID: 0}

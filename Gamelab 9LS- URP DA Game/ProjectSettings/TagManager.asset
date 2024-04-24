@@ -11,6 +11,7 @@ TagManager:
   - Item
   - Box
   - OptionalItem
+  - Cage Parent
   layers:
   - Default
   - TransparentFX

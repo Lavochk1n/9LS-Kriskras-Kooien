@@ -327,6 +327,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &719597163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 719597164}
+  m_Layer: 0
+  m_Name: ---- MANAGERS ----
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &719597164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719597163}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.25386208, y: -0.43673563, z: -2.0662804}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &784593131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -344,17 +375,17 @@ PrefabInstance:
     - target: {fileID: 1014693130893942612, guid: 056357d670ebbc5429e50ed3b7983131,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.7264151
+      value: 0.105882324
       objectReference: {fileID: 0}
     - target: {fileID: 1014693130893942612, guid: 056357d670ebbc5429e50ed3b7983131,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.2770291
+      value: 0.4409844
       objectReference: {fileID: 0}
     - target: {fileID: 1014693130893942612, guid: 056357d670ebbc5429e50ed3b7983131,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.10622107
+      value: 0.7254902
       objectReference: {fileID: 0}
     - target: {fileID: 3955491713401399489, guid: 056357d670ebbc5429e50ed3b7983131,
         type: 3}
@@ -974,7 +1005,7 @@ GameObject:
   - component: {fileID: 1352017328}
   - component: {fileID: 1352017327}
   m_Layer: 0
-  m_Name: PlayerManager
+  m_Name: Player Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1309,7 +1340,7 @@ PrefabInstance:
     - target: {fileID: 3949987697187447685, guid: fd514d266a59b9a47981ffb03721aa80,
         type: 3}
       propertyPath: m_Name
-      value: sceneManager
+      value: scene Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8372754092079060623, guid: fd514d266a59b9a47981ffb03721aa80,
         type: 3}
@@ -1554,10 +1585,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
+        type: 3}
+      propertyPath: inventory1
+      value: 
+      objectReference: {fileID: 456252771}
+    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
+        type: 3}
+      propertyPath: inventory2
+      value: 
+      objectReference: {fileID: 952945947}
     - target: {fileID: 5586851599605876594, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
         type: 3}
       propertyPath: m_Name
-      value: MiniGameManager
+      value: Quarantine Manager
       objectReference: {fileID: 0}
     - target: {fileID: 7589098773242433583, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
         type: 3}
@@ -1596,17 +1637,17 @@ PrefabInstance:
     - target: {fileID: 1014693130893942612, guid: 056357d670ebbc5429e50ed3b7983131,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.17986828
+      value: 0.7735849
       objectReference: {fileID: 0}
     - target: {fileID: 1014693130893942612, guid: 056357d670ebbc5429e50ed3b7983131,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.5452941
+      value: 0.2880113
       objectReference: {fileID: 0}
     - target: {fileID: 1014693130893942612, guid: 056357d670ebbc5429e50ed3b7983131,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.8867924
+      value: 0.054734774
       objectReference: {fileID: 0}
     - target: {fileID: 3955491713401399489, guid: 056357d670ebbc5429e50ed3b7983131,
         type: 3}
@@ -1680,7 +1721,8 @@ SceneRoots:
   - {fileID: 1575085490}
   - {fileID: 5564261}
   - {fileID: 645883489}
-  - {fileID: 1352017328}
-  - {fileID: 6356512965918406134}
   - {fileID: 1057106628}
+  - {fileID: 719597164}
   - {fileID: 2109637699}
+  - {fileID: 6356512965918406134}
+  - {fileID: 1352017328}

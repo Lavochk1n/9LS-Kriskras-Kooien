@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Crow
   m_EditorClassIdentifier: 
   type: 1
-  model: {fileID: 919132149155446097, guid: 28df6fd2d59b7544d9e9ccb2fc115d03, type: 3}
+  model: {fileID: 5436333085478034918, guid: f260ae9e6f3a29d4fbf8ee7f101204a8, type: 3}
   iconTypeSick: {fileID: 21300000, guid: 60b721cf2f9bc2542a3b1ae081b19bad, type: 3}
   iconTypeHealthy: {fileID: 21300000, guid: d960aa3815515314dbe9cc163a0544a1, type: 3}

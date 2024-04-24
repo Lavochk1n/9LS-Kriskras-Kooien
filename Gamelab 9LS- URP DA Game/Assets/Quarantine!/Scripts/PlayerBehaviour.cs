@@ -39,21 +39,21 @@ namespace Quarantine
                 sickProgression = 0
             };
 
-            if (!MiniGameManager.Instance.playerOneSpawned)
+            if (!QuarentineManager.Instance.playerOneSpawned)
             {
-                MiniGameManager.Instance.playerOneSpawned = true;
+                QuarentineManager.Instance.playerOneSpawned = true;
 
                 player1Model.SetActive(true);
                 player2Model.SetActive(false);
                 transform.position = GameObject.FindGameObjectWithTag("spawn1").transform.position;
-                MiniGameManager.Instance.inventory1.player = this;
+                QuarentineManager.Instance.inventory1.player = this;
             }
             else
             {
                 player1Model.SetActive(false);
                 player2Model.SetActive(true);
                 transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
-                MiniGameManager.Instance.inventory2.player = this;
+                QuarentineManager.Instance.inventory2.player = this;
             }
             moveVector = Vector2.zero;
 
@@ -63,7 +63,7 @@ namespace Quarantine
         private void Update()
         {
 
-            if (!MiniGameManager.Instance.PlayerSpawned() || MiniGameManager.Instance.GameOver()) return;
+            if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GameOver()) return;
 
             if (sprintSpeed > 1f)
             {
@@ -115,7 +115,7 @@ namespace Quarantine
         private void FixedUpdate()
         {
 
-            if (!MiniGameManager.Instance.PlayerSpawned() || MiniGameManager.Instance.GameOver()) return;
+            if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GameOver()) return;
 
             if (moveVector.magnitude == 0) { return; }
 
