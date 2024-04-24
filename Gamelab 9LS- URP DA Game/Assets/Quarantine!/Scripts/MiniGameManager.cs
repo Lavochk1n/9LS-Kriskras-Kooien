@@ -28,12 +28,9 @@ namespace Quarantine
         public QuarentineManager quarentineManager;
 
 
-        public Dictionary<AnimalTypes, (GameObject model, Sprite healthyIcon, Sprite sickIcon)> amimalVisuals;
-
 
         private void Awake()
         {
-            Debug.Log(gameTime);
 
             if (Instance != null && Instance != this)
             {
@@ -47,7 +44,6 @@ namespace Quarantine
             else { Instantiate(maps[mapIndex]); }
 
             gameTime = GameManager.instance.GetTimeLeft();
-            Debug.Log(gameTime); 
         }
 
         private void Update()

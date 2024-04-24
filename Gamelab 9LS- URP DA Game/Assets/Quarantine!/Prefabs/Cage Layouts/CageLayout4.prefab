@@ -135,16 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dee66c826e3b2478b59b549f65f966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dog: {fileID: 2100000, guid: d71e5541a5f705e4ba3b0b0f427bfba1, type: 2}
-  native: {fileID: 2100000, guid: dde1083b3694aab4e84091fd84b34162, type: 2}
-  exotic: {fileID: 2100000, guid: d3909104b832308498d8b5d4b2515e73, type: 2}
-  empty: {fileID: 2100000, guid: e431f069e6415c14aa3d1a8602c2471c, type: 2}
   CagePrefab: {fileID: 0}
-  rowCount: 0
-  rowAmount: 0
-  cageOffset: 0
   Cages: []
-  dogWeight: 6
+  bunnyWeight: 6
   crowWeight: 8
   parrotWeight: 4
   healthyWeight: 7

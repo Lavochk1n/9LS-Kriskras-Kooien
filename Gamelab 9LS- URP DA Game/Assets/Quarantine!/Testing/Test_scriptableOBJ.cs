@@ -18,7 +18,7 @@ public class Test_scriptableOBJ : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AnimalVisualManager animalVisualManager = AnimalVisualManager.instance;
+        VisualManager animalVisualManager = VisualManager.instance;
         myAnimal.type = AnimalTypes.Bunny;
 
 

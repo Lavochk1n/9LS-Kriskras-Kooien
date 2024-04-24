@@ -17,7 +17,7 @@ namespace Quarantine
 
         [Header("Holding Animal")]
         public Animal heldAnimal;
-        [SerializeField] private GameObject parrotModel, crowModel, dogModel;
+        [SerializeField] private GameObject attachPoint;
 
 
         [Header("Player Distinction")]
@@ -47,7 +47,6 @@ namespace Quarantine
                 player2Model.SetActive(false);
                 transform.position = GameObject.FindGameObjectWithTag("spawn1").transform.position;
                 MiniGameManager.Instance.inventory1.player = this;
-                //MiniGameManager.Instance.inventory1.SetColour(color1);
             }
             else
             {
@@ -55,11 +54,11 @@ namespace Quarantine
                 player2Model.SetActive(true);
                 transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
                 MiniGameManager.Instance.inventory2.player = this;
-                //MiniGameManager.Instance.inventory2.SetColour(color2);
             }
             moveVector = Vector2.zero;
-        }
 
+
+        }
 
         private void Update()
         {
@@ -102,34 +101,15 @@ namespace Quarantine
             }
         }
 
-
-
         //  MAKE THIS HAPPPEM ON EVENT FOR PERFORMANCE 
         private void UpdateHeldAnimal()
         {
-            switch (heldAnimal.type)
-            {
-                case AnimalTypes.Bunny:
-                    dogModel.SetActive(true);
-                    parrotModel.SetActive(false);
-                    crowModel.SetActive(false);
-                    break;
-                case AnimalTypes.crow:
-                    dogModel.SetActive(false);
-                    parrotModel.SetActive(false);
-                    crowModel.SetActive(true);
-                    break;
-                case AnimalTypes.parrot:
-                    dogModel.SetActive(false);
-                    parrotModel.SetActive(true);
-                    crowModel.SetActive(false);
-                    break;
-                case AnimalTypes.Empty:
-                    dogModel.SetActive(false);
-                    parrotModel.SetActive(false);
-                    crowModel.SetActive(false);
-                    break; 
+            if (attachPoint.transform.childCount > 0) 
+            {  
+                Destroy(attachPoint.transform.GetChild(0).gameObject);
             }
+
+            Instantiate(VisualManager.instance.GetAnimalVisuals(heldAnimal.type).model, attachPoint.transform);
         }
 
         private void FixedUpdate()

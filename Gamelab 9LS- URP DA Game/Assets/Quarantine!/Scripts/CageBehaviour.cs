@@ -16,14 +16,11 @@ namespace Quarantine
         private float sickProgression = 0f; 
         private float spreadSpeed;
 
-        [SerializeField] private ProgressionUI progressUI;
+        [SerializeField] private CageVisual myCageVisual;
 
         public Animal myAnimal = new Animal();
 
-        [SerializeField] private GameObject spotLight;
-        private bool isLookedAt = false;
-        private float lightTimer = 0f;
-        [SerializeField] private float resetTime = 0.1f; 
+        
 
 
         private void Start()
@@ -53,16 +50,7 @@ namespace Quarantine
             CheckSpread();
 
            
-            spotLight.SetActive(isLookedAt);
-            if (lightTimer > 0f)
-            {
-                lightTimer -= Time.deltaTime;
-
-            }
-            else
-            {
-                isLookedAt = false; 
-            }
+            
 
         }
 
@@ -87,10 +75,9 @@ namespace Quarantine
 
         public override string GetDescription()
         {
-            isLookedAt = true;
-            lightTimer = resetTime; 
 
-            return ""; 
+            myCageVisual.IsLookedAt(); 
+            return null; 
         }
 
 
@@ -110,7 +97,6 @@ namespace Quarantine
                 }
             }
             UpdateCage();
-
         }
 
         void OnDrawGizmosSelected()
@@ -131,7 +117,7 @@ namespace Quarantine
         private void UpdateCage()
         {
 
-            progressUI.UpdateVisuals(myAnimal); 
+            myCageVisual.UpdateVisuals(myAnimal); 
         }
         
 
@@ -173,8 +159,9 @@ namespace Quarantine
             }
 
             return false;
-        
         }
+
+
         private bool IsContagious(AnimalTypes type)
         {
 
