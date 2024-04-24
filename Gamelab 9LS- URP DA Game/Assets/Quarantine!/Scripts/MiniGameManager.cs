@@ -28,6 +28,9 @@ namespace Quarantine
         public QuarentineManager quarentineManager;
 
 
+        public Dictionary<AnimalTypes, (GameObject model, Sprite healthyIcon, Sprite sickIcon)> amimalVisuals;
+
+
         private void Awake()
         {
             Debug.Log(gameTime);
@@ -75,11 +78,11 @@ namespace Quarantine
             {
                 CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
-                if (cageBehaviour.AdjDisease() && cageBehaviour.myAnimal.state == sickState.healthy)
+                if (cageBehaviour.AdjDisease() && cageBehaviour.myAnimal.state == SickState.healthy)
                 {
                     return false; 
                 }
-                if (inventory1.player.heldAnimal.type != animalTypes.Empty || inventory2.player.heldAnimal.type != animalTypes.Empty)
+                if (inventory1.player.heldAnimal.type != AnimalTypes.Empty || inventory2.player.heldAnimal.type != AnimalTypes.Empty)
                 {
                     return false;
                 }
@@ -106,7 +109,7 @@ namespace Quarantine
             {
                 CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
-                if (cageBehaviour.myAnimal.state == sickState.healthy)
+                if (cageBehaviour.myAnimal.state == SickState.healthy)
                 {
                     performance += 1; 
                 }
@@ -129,11 +132,11 @@ namespace Quarantine
             {
                 CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
-                if (cageBehaviour.myAnimal.state == sickState.sick) count++;
+                if (cageBehaviour.myAnimal.state == SickState.sick) count++;
             }
 
-            if (inventory1.player.heldAnimal.state == sickState.sick) count++;
-            if (inventory2.player.heldAnimal.state == sickState.sick) count++;
+            if (inventory1.player.heldAnimal.state == SickState.sick) count++;
+            if (inventory2.player.heldAnimal.state == SickState.sick) count++;
 
             return count;
         }

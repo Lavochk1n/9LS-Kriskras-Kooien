@@ -20,9 +20,9 @@ namespace Quarantine
 
             switch (player.heldAnimal.type)
             {
-                case animalTypes.dog:
+                case AnimalTypes.Bunny:
                    
-                    if (player.heldAnimal.state == sickState.sick)
+                    if (player.heldAnimal.state == SickState.sick)
                     {
                         icon.sprite = sickDog;
                     }
@@ -32,8 +32,8 @@ namespace Quarantine
                     }
 
                     break;
-                case animalTypes.crow:
-                    if (player.heldAnimal.state == sickState.sick)
+                case AnimalTypes.crow:
+                    if (player.heldAnimal.state == SickState.sick)
                     {
                         icon.sprite = sickCrow;
                     }
@@ -43,9 +43,9 @@ namespace Quarantine
                     }
 
                     break;
-                case animalTypes.parrot:
+                case AnimalTypes.parrot:
 
-                    if (player.heldAnimal.state == sickState.sick)
+                    if (player.heldAnimal.state == SickState.sick)
                     {
                         icon.sprite = sickParrot;
                     }
@@ -55,7 +55,7 @@ namespace Quarantine
                     }
 
                     break;
-                case animalTypes.Empty:
+                case AnimalTypes.Empty:
 
                     icon.sprite = empty;
                     

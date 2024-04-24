@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace Quarantine
 {
-    public enum animalTypes
+    public enum AnimalTypes
     {
-        dog,
+        Bunny,
         crow,
         parrot,
         Empty
          
     }
 
-    public enum sickState
+    public enum SickState
     {
         healthy,
         sick
@@ -21,20 +21,15 @@ namespace Quarantine
 
     public class Animal
     {
-        public animalTypes type;
-        public sickState state;
+        public AnimalTypes type;
+        public SickState state;
         public float sickProgression;
-
-
-        private GameObject model; 
-
-
-
     }
+
 
     public class AnimalWeight
     {
-        public animalTypes AnimalType { get; set; }
+        public AnimalTypes AnimalType { get; set; }
         public int Weight { get; set; }
     }
 
@@ -48,11 +43,11 @@ namespace Quarantine
 
         [Header("Randomiser")]
         private List<AnimalWeight> animalWeights;
-        [SerializeField] private int dogWeight, crowWeight, parrotWeight, healthyWeight;
+        [SerializeField] private int bunnyWeight, crowWeight, parrotWeight, healthyWeight;
 
 
-        [SerializeField] private GameObject dogModel, crowModel, parrotModel;
-        [SerializeField] private Sprite dogSpriteHealthy, crowSpriteHealthy, parrotSpriteHealthy;
+
+
 
 
         private void Awake()
@@ -77,15 +72,15 @@ namespace Quarantine
         {
             animalWeights = new List<AnimalWeight>
             {
-                new AnimalWeight {AnimalType = animalTypes.dog, Weight = dogWeight},
-                new AnimalWeight {AnimalType = animalTypes.crow, Weight = crowWeight},
-                new AnimalWeight {AnimalType = animalTypes.parrot, Weight = parrotWeight},
+                new AnimalWeight {AnimalType = AnimalTypes.Bunny, Weight = bunnyWeight},
+                new AnimalWeight {AnimalType = AnimalTypes.crow, Weight = crowWeight},
+                new AnimalWeight {AnimalType = AnimalTypes.parrot, Weight = parrotWeight},
             };
         }
 
       
         /// <returns> An animaltype enumstate  based on weight</returns>
-        private animalTypes GetWeightedRandomAnimal()
+        private AnimalTypes GetWeightedRandomAnimal()
         {
             int totalWeight = 0; 
             foreach (AnimalWeight weight in animalWeights) 
@@ -103,19 +98,19 @@ namespace Quarantine
                     return animalWeights[i].AnimalType;
                 }
             }
-            return animalTypes.Empty;
+            return AnimalTypes.Empty;
         }
 
-        private sickState GetWeightedRandomState()
+        private SickState GetWeightedRandomState()
         {
             int totalWeight = 1 + healthyWeight;
             int randomWeight = Random.Range(0, totalWeight);
             randomWeight -= healthyWeight;
             if (randomWeight < 0)
             {
-                return sickState.healthy;
+                return SickState.healthy;
             }
-            return sickState.sick;
+            return SickState.sick;
         }
     }
 }

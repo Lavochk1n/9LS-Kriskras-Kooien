@@ -38,12 +38,12 @@ namespace Quarantine {
         {
             switch (animal.type)
             {
-                case animalTypes.dog:
+                case AnimalTypes.Bunny:
                     dogModel.SetActive(true);
                     parrotModel.SetActive(false);
                     crowModel.SetActive(false);
 
-                    if (animal.state == sickState.sick)
+                    if (animal.state == SickState.sick)
                     {
                         panel.sprite = sickDog;
                     }
@@ -53,12 +53,12 @@ namespace Quarantine {
                     }
 
                     break;
-                case animalTypes.crow:
+                case AnimalTypes.crow:
                     dogModel.SetActive(false);
                     parrotModel.SetActive(false);
                     crowModel.SetActive(true);
 
-                    if (animal.state == sickState.sick)
+                    if (animal.state == SickState.sick)
                     {
                         panel.sprite = sickCrow;
                     }
@@ -68,12 +68,12 @@ namespace Quarantine {
                     }
 
                     break;
-                case animalTypes.parrot:
+                case AnimalTypes.parrot:
                     dogModel.SetActive(false);
                     parrotModel.SetActive(true);
                     crowModel.SetActive(false);
 
-                    if (animal.state == sickState.sick)
+                    if (animal.state == SickState.sick)
                     {
                         panel.sprite = sickParrot;
                     }
@@ -83,7 +83,7 @@ namespace Quarantine {
                     }
 
                     break;
-                case animalTypes.Empty:
+                case AnimalTypes.Empty:
                     dogModel.SetActive(false);
                     parrotModel.SetActive(false);
                     crowModel.SetActive(false);

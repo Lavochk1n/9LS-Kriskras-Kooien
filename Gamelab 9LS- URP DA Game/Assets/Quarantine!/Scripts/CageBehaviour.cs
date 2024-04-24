@@ -32,7 +32,7 @@ namespace Quarantine
             spreadSpeed = MiniGameManager.Instance.spreadSpeed;
 
             spreadSpeed *= Random.Range(.8f, 1.2f) * GameManager.instance.GetDifficultyRatio();
-            if (myAnimal.state == sickState.sick)
+            if (myAnimal.state == SickState.sick)
             {
                 myAnimal.sickProgression = 100f;
             }
@@ -73,7 +73,7 @@ namespace Quarantine
 
             Animal heldAnimal = playerBehaviour.heldAnimal;
 
-            if (heldAnimal.type == animalTypes.Empty || myAnimal.type == animalTypes.Empty)
+            if (heldAnimal.type == AnimalTypes.Empty || myAnimal.type == AnimalTypes.Empty)
             {
                 playerBehaviour.heldAnimal = myAnimal;
 
@@ -119,11 +119,11 @@ namespace Quarantine
             Gizmos.DrawWireSphere(transform.position, searchDistance);
         }
 
-        public void ChangeOccupation(animalTypes animal)
+        public void ChangeOccupation(AnimalTypes animal)
         {
             myAnimal.type = animal;
         }
-        public void ChangeSickstate(sickState sick)
+        public void ChangeSickstate(SickState sick)
         {
             myAnimal.state = sick;
         }
@@ -142,7 +142,7 @@ namespace Quarantine
 
                 if (myAnimal.sickProgression >= 100)
                 {
-                    myAnimal.state = sickState.sick;
+                    myAnimal.state = SickState.sick;
                     myAnimal.sickProgression = 100;
                 }
                 else 
@@ -151,7 +151,7 @@ namespace Quarantine
                 }
 
             }
-            else if(myAnimal.sickProgression > 0 && myAnimal.state != sickState.sick)
+            else if(myAnimal.sickProgression > 0 && myAnimal.state != SickState.sick)
             {
                 myAnimal.sickProgression -= spreadSpeed * Time.deltaTime;
 
@@ -175,28 +175,28 @@ namespace Quarantine
             return false;
         
         }
-        private bool IsContagious(animalTypes type)
+        private bool IsContagious(AnimalTypes type)
         {
 
-            if (type == animalTypes.dog)
+            if (type == AnimalTypes.Bunny)
             {
-                if (myAnimal.type == animalTypes.dog && myAnimal.state == sickState.sick)
+                if (myAnimal.type == AnimalTypes.Bunny && myAnimal.state == SickState.sick)
                 {
                     return true;
                 }
             }
 
-            if (type == animalTypes.parrot)
+            if (type == AnimalTypes.parrot)
             {
-                if (myAnimal.type == animalTypes.parrot && myAnimal.state == sickState.sick)
+                if (myAnimal.type == AnimalTypes.parrot && myAnimal.state == SickState.sick)
                 {
                     return true;
                 }
             }
 
-            if (type == animalTypes.crow)
+            if (type == AnimalTypes.crow)
             {
-                if(myAnimal.type == animalTypes.parrot || (myAnimal.type == animalTypes.crow && myAnimal.state == sickState.sick))
+                if(myAnimal.type == AnimalTypes.parrot || (myAnimal.type == AnimalTypes.crow && myAnimal.state == SickState.sick))
                 {
                     return true;
                 }

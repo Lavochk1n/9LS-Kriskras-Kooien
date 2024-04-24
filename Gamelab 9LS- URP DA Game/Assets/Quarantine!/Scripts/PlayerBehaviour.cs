@@ -34,8 +34,8 @@ namespace Quarantine
         {
             heldAnimal = new Animal()
             {
-                type = animalTypes.Empty,
-                state = sickState.healthy, 
+                type = AnimalTypes.Empty,
+                state = SickState.healthy, 
                 sickProgression = 0
             };
 
@@ -109,22 +109,22 @@ namespace Quarantine
         {
             switch (heldAnimal.type)
             {
-                case animalTypes.dog:
+                case AnimalTypes.Bunny:
                     dogModel.SetActive(true);
                     parrotModel.SetActive(false);
                     crowModel.SetActive(false);
                     break;
-                case animalTypes.crow:
+                case AnimalTypes.crow:
                     dogModel.SetActive(false);
                     parrotModel.SetActive(false);
                     crowModel.SetActive(true);
                     break;
-                case animalTypes.parrot:
+                case AnimalTypes.parrot:
                     dogModel.SetActive(false);
                     parrotModel.SetActive(true);
                     crowModel.SetActive(false);
                     break;
-                case animalTypes.Empty:
+                case AnimalTypes.Empty:
                     dogModel.SetActive(false);
                     parrotModel.SetActive(false);
                     crowModel.SetActive(false);
