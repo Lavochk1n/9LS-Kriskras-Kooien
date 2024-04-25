@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
@@ -49,28 +50,26 @@ namespace Quarantine {
             }
         }
 
-        public void UpdateVisuals(Animal animal)
-        {
-            UpdateProgressbar(animal);
-
-            UpdateIcon(animal);
-
-            UpdateModel(animal);
-
-        }
+       
 
 
-        private void UpdateModel(Animal animal)
+        public void UpdateModel(Animal animal)
         {
             if (attachPoint.transform.childCount > 0)
             {
-                Destroy(attachPoint.transform.GetChild(0).gameObject);
+
+
+                foreach (Transform child in attachPoint.transform)
+                {
+                    Destroy(child.gameObject);
+
+                }
             }
 
             Instantiate(VisualManager.instance.GetAnimalVisuals(animal.type).model, attachPoint.transform);
         }
 
-        private void UpdateIcon(Animal animal)
+        public void UpdateIcon(Animal animal)
         {
             AnimalVisuals visuals =  VisualManager.instance.GetAnimalVisuals(animal.type) ;
 
@@ -90,9 +89,14 @@ namespace Quarantine {
             }
         }
 
-        private void UpdateProgressbar(Animal animal)
+        public void UpdateProgressbar(Animal animal)
         {
-           
+            if (animal.type == AnimalTypes.Empty)
+            {
+                progressBar.fillAmount = 0;
+                background.color = backgroundColour.Evaluate(0f);
+                return; 
+            }
 
             progressBar.fillAmount = animal.sickProgression / 100f;
 
@@ -107,6 +111,7 @@ namespace Quarantine {
                 progressBar.color = progressColour.Evaluate(animal.sickProgression / 100f); 
                 background.color =  backgroundColour.Evaluate(animal.sickProgression / 100f);
             }
+            
         }
 
 
@@ -119,7 +124,7 @@ namespace Quarantine {
 
         private void LateUpdate()
         {
-            progression = progressBar.fillAmount;
+                progression = progressBar.fillAmount;
         }
     }
 

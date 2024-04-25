@@ -1,4 +1,5 @@
 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -81,7 +82,7 @@ namespace Quarantine
 
 
             RandomiseCages();
-
+            StartCoroutine(CheckGameProgress()); 
         }
 
 
@@ -103,6 +104,25 @@ namespace Quarantine
             }
         }
 
+
+        private IEnumerator CheckGameProgress()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(1f);
+
+                if (inventory1.player != null && inventory2.player != null)
+                {
+                    if (GameOver())
+                    {
+                        GameManager.instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
+                        GameManager.instance.IncreaseDifficulty();
+                        GameManager.instance.AddTime(completionBonus);
+                        ScenesManager.Instance.NextScene();
+                    }
+                }
+            }
+        }
 
         //////////////////////////// GAME RULES TRACKING ////////////////////////////
 
@@ -127,15 +147,12 @@ namespace Quarantine
             return true;
         }
 
-
         public bool PlayerSpawned()
         {
             if (inventory1.player == null || inventory2.player == null) return false;
 
             return true;
-
         }
-
 
         /// <returns>score based on the share of healthy cages</returns>
         private float CalculateScore()
@@ -158,7 +175,6 @@ namespace Quarantine
 
             return addedScore;
         }
-
 
         /// <returns>amount of infected cages</returns>
         private int CountInfected()

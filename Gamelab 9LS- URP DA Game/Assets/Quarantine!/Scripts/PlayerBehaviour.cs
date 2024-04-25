@@ -19,11 +19,9 @@ namespace Quarantine
         public Animal heldAnimal;
         [SerializeField] private GameObject attachPoint;
 
-
         [Header("Player Distinction")]
         [SerializeField] private GameObject player1Model;
         [SerializeField] private GameObject player2Model; 
-        [SerializeField] private Color color1, color2; 
 
         private void Awake()
         {
@@ -56,13 +54,10 @@ namespace Quarantine
                 QuarentineManager.Instance.inventory2.player = this;
             }
             moveVector = Vector2.zero;
-
-
         }
 
         private void Update()
         {
-
             if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GameOver()) return;
 
             if (sprintSpeed > 1f)
@@ -72,8 +67,6 @@ namespace Quarantine
             else if (sprintSpeed < 1f) { sprintSpeed = 1f; }
 
             ScanInteractable(gameObject, transform.forward, 3);
-
-            UpdateHeldAnimal();
         }
 
         public void OnMovementPerformed(InputAction.CallbackContext context)
@@ -96,25 +89,21 @@ namespace Quarantine
                 if (sprintSpeed <= 1f)
                 {
                     sprintSpeed = sprintBonus;
-
                 }
             }
         }
 
-        //  MAKE THIS HAPPPEM ON EVENT FOR PERFORMANCE 
-        private void UpdateHeldAnimal()
+        public void UpdateHeldAnimal()
         {
             if (attachPoint.transform.childCount > 0) 
             {  
                 Destroy(attachPoint.transform.GetChild(0).gameObject);
             }
-
             Instantiate(VisualManager.instance.GetAnimalVisuals(heldAnimal.type).model, attachPoint.transform);
         }
 
         private void FixedUpdate()
         {
-
             if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GameOver()) return;
 
             if (moveVector.magnitude == 0) { return; }

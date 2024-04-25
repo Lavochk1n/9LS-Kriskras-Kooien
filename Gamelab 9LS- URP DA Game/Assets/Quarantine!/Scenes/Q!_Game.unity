@@ -1587,6 +1587,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
         type: 3}
+      propertyPath: mapIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
+        type: 3}
+      propertyPath: randomMap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
+        type: 3}
       propertyPath: inventory1
       value: 
       objectReference: {fileID: 456252771}
@@ -1595,6 +1605,17 @@ PrefabInstance:
       propertyPath: inventory2
       value: 
       objectReference: {fileID: 952945947}
+    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
+        type: 3}
+      propertyPath: maps.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
+        type: 3}
+      propertyPath: maps.Array.data[4]
+      value: 
+      objectReference: {fileID: 956357379441123067, guid: 6388a2e34c91b374ebcbcfe04173ffd7,
+        type: 3}
     - target: {fileID: 5586851599605876594, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
         type: 3}
       propertyPath: m_Name

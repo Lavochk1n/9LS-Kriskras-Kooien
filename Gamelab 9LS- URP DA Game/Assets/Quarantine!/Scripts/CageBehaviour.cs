@@ -40,8 +40,13 @@ namespace Quarantine
 
             UpdateCage();
 
+            StartCoroutine(UpdateVisuals());
 
         }
+
+
+
+
 
         private void Update()
         {
@@ -49,8 +54,18 @@ namespace Quarantine
 
             CheckSpread();
 
-           
-            
+        }
+
+
+
+        public IEnumerator UpdateVisuals( )
+        {
+
+            while (true)
+            {
+                yield return new WaitForSeconds(.1f);
+                myCageVisual.UpdateProgressbar(myAnimal);
+            }
 
         }
 
@@ -68,6 +83,7 @@ namespace Quarantine
                 myAnimal = heldAnimal;
 
                 UpdateCage();
+                playerBehaviour.UpdateHeldAnimal(); 
 
             }
         }
@@ -76,7 +92,7 @@ namespace Quarantine
         public override string GetDescription()
         {
 
-            myCageVisual.IsLookedAt(); 
+            //myCageVisual.IsLookedAt(); 
             return null; 
         }
 
@@ -96,7 +112,6 @@ namespace Quarantine
                     AdjCages.Add(cage);
                 }
             }
-            UpdateCage();
         }
 
         void OnDrawGizmosSelected()
@@ -117,9 +132,11 @@ namespace Quarantine
         private void UpdateCage()
         {
 
-            myCageVisual.UpdateVisuals(myAnimal); 
+            myCageVisual.UpdateIcon(myAnimal);
+            myCageVisual.UpdateModel(myAnimal);
+            myCageVisual.UpdateProgressbar(myAnimal);
         }
-        
+
 
         private void CheckSpread()
         {
@@ -130,6 +147,8 @@ namespace Quarantine
                 {
                     myAnimal.state = SickState.sick;
                     myAnimal.sickProgression = 100;
+                    UpdateCage();
+
                 }
                 else 
                 { 
@@ -144,7 +163,6 @@ namespace Quarantine
                 if (myAnimal.sickProgression < 0) myAnimal.sickProgression = 0; 
 
             }
-            UpdateCage();
 
         }
 
