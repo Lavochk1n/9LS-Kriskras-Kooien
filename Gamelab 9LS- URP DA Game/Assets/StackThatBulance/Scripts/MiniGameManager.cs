@@ -27,14 +27,14 @@ namespace StackThatBulance
         private void Update()
         {
             
-            GameManager.instance.DecreaseTime();
+            GameManager.Instance.DecreaseTime();
 
 
             if (GameOver())
             {
-                GameManager.instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
-                GameManager.instance.IncreaseDifficulty();
-                GameManager.instance.AddTime(completionBonus);
+                GameManager.Instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
+                GameManager.Instance.IncreaseDifficulty();
+                GameManager.Instance.AddTime(completionBonus);
                 ScenesManager.Instance.NextScene();
             }
         }

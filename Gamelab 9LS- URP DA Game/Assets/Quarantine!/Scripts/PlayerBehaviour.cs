@@ -44,14 +44,14 @@ namespace Quarantine
                 player1Model.SetActive(true);
                 player2Model.SetActive(false);
                 transform.position = GameObject.FindGameObjectWithTag("spawn1").transform.position;
-                QuarentineManager.Instance.inventory1.player = this;
+                GameManager.Instance.playerBehaviour1 = this;
             }
             else
             {
                 player1Model.SetActive(false);
                 player2Model.SetActive(true);
                 transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
-                QuarentineManager.Instance.inventory2.player = this;
+                GameManager.Instance.playerBehaviour2 = this;
             }
             moveVector = Vector2.zero;
         }

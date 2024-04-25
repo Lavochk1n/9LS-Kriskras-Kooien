@@ -8,70 +8,54 @@ namespace Quarantine
 
     public class CageBehaviour : Interactable
     {
-
         [SerializeField] private List<CageBehaviour> AdjCages;
         [SerializeField] private LayerMask layer;
         [SerializeField] private float searchDistance =3f;
 
-        private float sickProgression = 0f; 
         private float spreadSpeed;
 
         [SerializeField] private CageVisual myCageVisual;
 
-        public Animal myAnimal = new Animal();
-
-        
-
+        public Animal myAnimal = new();
 
         private void Start()
         {
             InitializeCages();
             spreadSpeed = QuarentineManager.Instance.spreadSpeed;
 
-            spreadSpeed *= Random.Range(.8f, 1.2f) * GameManager.instance.GetDifficultyRatio();
+            spreadSpeed *= Random.Range(.8f, 1.2f) * GameManager.Instance.GetDifficultyRatio();
             if (myAnimal.state == SickState.sick)
             {
                 myAnimal.sickProgression = 100f;
             }
             else
             {
-                myAnimal.sickProgression = sickProgression;
+                myAnimal.sickProgression = 0f;
             }
 
             UpdateCage();
 
             StartCoroutine(UpdateVisuals());
-
         }
-
-
-
-
 
         private void Update()
         {
             if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GameOver() ) return;
 
             CheckSpread();
-
         }
-
-
 
         public IEnumerator UpdateVisuals( )
         {
-
             while (true)
             {
                 yield return new WaitForSeconds(.1f);
                 myCageVisual.UpdateProgressbar(myAnimal);
             }
-
         }
 
         public override void Interact(Interactor interactor)
         {
-
             PlayerBehaviour playerBehaviour = interactor.GetComponent<PlayerBehaviour>();
 
             Animal heldAnimal = playerBehaviour.heldAnimal;
@@ -84,14 +68,11 @@ namespace Quarantine
 
                 UpdateCage();
                 playerBehaviour.UpdateHeldAnimal(); 
-
             }
         }
 
-
         public override string GetDescription()
         {
-
             //myCageVisual.IsLookedAt(); 
             return null; 
         }
@@ -99,15 +80,13 @@ namespace Quarantine
 
         private void InitializeCages()
         {
-
             AdjCages = new List<CageBehaviour>();
 
             Collider[] colliders = Physics.OverlapSphere(transform.position, searchDistance);
 
             foreach (Collider col in colliders)
             {
-                CageBehaviour cage = col.GetComponent<CageBehaviour>();
-                if (cage != null)
+                if (col.TryGetComponent<CageBehaviour>(out var cage))
                 {
                     AdjCages.Add(cage);
                 }
@@ -131,7 +110,6 @@ namespace Quarantine
 
         private void UpdateCage()
         {
-
             myCageVisual.UpdateIcon(myAnimal);
             myCageVisual.UpdateModel(myAnimal);
             myCageVisual.UpdateProgressbar(myAnimal);
@@ -148,7 +126,6 @@ namespace Quarantine
                     myAnimal.state = SickState.sick;
                     myAnimal.sickProgression = 100;
                     UpdateCage();
-
                 }
                 else 
                 { 
@@ -161,7 +138,6 @@ namespace Quarantine
                 myAnimal.sickProgression -= spreadSpeed * Time.deltaTime;
 
                 if (myAnimal.sickProgression < 0) myAnimal.sickProgression = 0; 
-
             }
 
         }
@@ -178,7 +154,6 @@ namespace Quarantine
 
             return false;
         }
-
 
         private bool IsContagious(AnimalTypes type)
         {

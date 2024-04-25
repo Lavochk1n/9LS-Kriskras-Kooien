@@ -15,7 +15,7 @@ public class TimerUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TotalTime = GameManager.instance.GetTotalGameTime();
+        TotalTime = GameManager.Instance.GetTotalGameTime();
         timer = GetComponent<Image>();  
     }
 
@@ -23,8 +23,8 @@ public class TimerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TotalTime = GameManager.instance.GetTotalGameTime();
-        TimeLeft = TotalTime - GameManager.instance.GetTimeLeft();
+        TotalTime = GameManager.Instance.GetTotalGameTime();
+        TimeLeft = TotalTime - GameManager.Instance.GetTimeLeft();
 
         timer.fillAmount = 1f - (TimeLeft / TotalTime);
         timer.color = timercolour.Evaluate((1f - TimeLeft / TotalTime));

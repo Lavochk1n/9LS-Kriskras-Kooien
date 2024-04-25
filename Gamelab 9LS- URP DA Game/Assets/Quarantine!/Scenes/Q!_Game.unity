@@ -1724,6 +1724,11 @@ PrefabInstance:
         type: 3}
       propertyPath: background
       value: 
+      objectReference: {fileID: 6867300887647182282}
+    - target: {fileID: 7560230960485622616, guid: 056357d670ebbc5429e50ed3b7983131,
+        type: 3}
+      propertyPath: player1Inventory
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8224229742576151567, guid: 056357d670ebbc5429e50ed3b7983131,
         type: 3}
@@ -1735,6 +1740,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 056357d670ebbc5429e50ed3b7983131, type: 3}
+--- !u!114 &6867300887647182282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1014693130893942612, guid: 056357d670ebbc5429e50ed3b7983131,
+    type: 3}
+  m_PrefabInstance: {fileID: 6867300887647182281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

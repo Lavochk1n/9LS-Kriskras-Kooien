@@ -40,7 +40,7 @@ namespace Quarantine
 
         [Header("cage Set-up")]
         [SerializeField] private GameObject cagesParent;
-        public List<GameObject> Cages = new List<GameObject>();
+        public List<GameObject> Cages = new();
 
         [Header("Randomiser")]
         private List<AnimalWeight> animalWeights;
@@ -49,19 +49,17 @@ namespace Quarantine
 
         [Header("Game Rules")]
         public float spreadSpeed = 2.1f;
-        private float gameTime;
         [SerializeField] int cageQuota = 15;
         [SerializeField] private float completionBonus = 30f;
 
 
         [Header("Initialisation")]
-        [SerializeField] private List<GameObject> maps = new List<GameObject>();
+        [SerializeField] private List<GameObject> maps = new();
         [SerializeField] private bool randomMap = true;
         [SerializeField] private int mapIndex = 0;
 
         [Header("player Specifics")]
         public bool playerOneSpawned = false;
-        public InventoryUI inventory1, inventory2;
 
 
 
@@ -78,9 +76,6 @@ namespace Quarantine
 
             cagesParent = GameObject.FindGameObjectWithTag("Cage Parent");
 
-            gameTime = GameManager.instance.GetTimeLeft();
-
-
             RandomiseCages();
             StartCoroutine(CheckGameProgress()); 
         }
@@ -88,18 +83,18 @@ namespace Quarantine
 
         private void Update()
         {
-            if ( inventory1.player == null || inventory2.player == null)
+            if (!PlayerSpawned())
             {
                 return;
             }
 
-            GameManager.instance.DecreaseTime();
+            GameManager.Instance.DecreaseTime();
 
             if (GameOver())
             {
-                GameManager.instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
-                GameManager.instance.IncreaseDifficulty();
-                GameManager.instance.AddTime(completionBonus);
+                GameManager.Instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
+                GameManager.Instance.IncreaseDifficulty();
+                GameManager.Instance.AddTime(completionBonus);
                 ScenesManager.Instance.NextScene();
             }
         }
@@ -111,13 +106,13 @@ namespace Quarantine
             {
                 yield return new WaitForSeconds(1f);
 
-                if (inventory1.player != null && inventory2.player != null)
+                if (!PlayerSpawned())
                 {
                     if (GameOver())
                     {
-                        GameManager.instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
-                        GameManager.instance.IncreaseDifficulty();
-                        GameManager.instance.AddTime(completionBonus);
+                        GameManager.Instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
+                        GameManager.Instance.IncreaseDifficulty();
+                        GameManager.Instance.AddTime(completionBonus);
                         ScenesManager.Instance.NextScene();
                     }
                 }
@@ -139,7 +134,8 @@ namespace Quarantine
                 {
                     return false;
                 }
-                if (inventory1.player.heldAnimal.type != AnimalTypes.Empty || inventory2.player.heldAnimal.type != AnimalTypes.Empty)
+                if (GameManager.Instance.playerBehaviour1.heldAnimal.type != AnimalTypes.Empty ||
+                    GameManager.Instance.playerBehaviour2.heldAnimal.type != AnimalTypes.Empty)
                 {
                     return false;
                 }
@@ -149,7 +145,8 @@ namespace Quarantine
 
         public bool PlayerSpawned()
         {
-            if (inventory1.player == null || inventory2.player == null) return false;
+            if (GameManager.Instance.playerBehaviour1 == null || 
+                GameManager.Instance.playerBehaviour2 == null) return false;
 
             return true;
         }
@@ -188,8 +185,8 @@ namespace Quarantine
                 if (cageBehaviour.myAnimal.state == SickState.sick) count++;
             }
 
-            if (inventory1.player.heldAnimal.state == SickState.sick) count++;
-            if (inventory2.player.heldAnimal.state == SickState.sick) count++;
+            if (GameManager.Instance.playerBehaviour1.heldAnimal.state == SickState.sick) count++;
+            if (GameManager.Instance.playerBehaviour2.heldAnimal.state == SickState.sick) count++;
 
             return count;
         }
@@ -203,9 +200,9 @@ namespace Quarantine
         {
             animalWeights = new List<AnimalWeight>
             {
-                new AnimalWeight {AnimalType = AnimalTypes.Bunny, Weight = bunnyWeight},
-                new AnimalWeight {AnimalType = AnimalTypes.crow, Weight = crowWeight},
-                new AnimalWeight {AnimalType = AnimalTypes.parrot, Weight = parrotWeight},
+                new() {AnimalType = AnimalTypes.Bunny, Weight = bunnyWeight},
+                new() {AnimalType = AnimalTypes.crow, Weight = crowWeight},
+                new() {AnimalType = AnimalTypes.parrot, Weight = parrotWeight},
             };
 
             foreach (Transform child in cagesParent.transform)

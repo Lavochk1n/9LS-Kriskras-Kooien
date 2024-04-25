@@ -1,8 +1,9 @@
+using Quarantine;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager Instance;
 
     private int score = 0;
     private float timeLeft = 60f;
@@ -13,14 +14,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField][Range(50.0f, 200.0f)] private float newGameDifficulty = 100f;
     [SerializeField][Range(1f, 1.50f)] private float difficultyIncrease = 1.1f;
-
+    
+    public PlayerBehaviour playerBehaviour1, playerBehaviour2;
 
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
