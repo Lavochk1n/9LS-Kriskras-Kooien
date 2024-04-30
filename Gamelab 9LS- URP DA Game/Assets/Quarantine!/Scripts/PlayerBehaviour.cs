@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+//using static UnityEngine.InputSystem.InputAction;
 
 
 namespace Quarantine
@@ -22,25 +23,26 @@ namespace Quarantine
         [Header("Player Distinction")]
         [SerializeField] private GameObject player1Model;
         [SerializeField] private GameObject player2Model; 
+        [SerializeField] private GameObject hatPoint; 
+
+        private PlayerConfig playerConfig;
+        private StandardPlayerInput controls;
+
 
         private void Awake()
         {
             CC = GetComponent<CharacterController>();
+            controls = new StandardPlayerInput();
         }
 
-        private void Start()
+
+        public void InitializePlayer(PlayerConfig pc)
         {
-            heldAnimal = new Animal()
-            {
-                type = AnimalTypes.Empty,
-                state = SickState.healthy, 
-                sickProgression = 0
-            };
+            playerConfig = pc;
+            Debug.Log(pc.PlayerIndex.ToString() + pc.Hat.ToString());
 
-            if (!QuarentineManager.Instance.playerOneSpawned)
+            if (pc.PlayerIndex == 0)
             {
-                QuarentineManager.Instance.playerOneSpawned = true;
-
                 player1Model.SetActive(true);
                 player2Model.SetActive(false);
                 transform.position = GameObject.FindGameObjectWithTag("spawn1").transform.position;
@@ -53,6 +55,40 @@ namespace Quarantine
                 transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
                 GameManager.Instance.playerBehaviour2 = this;
             }
+
+            Instantiate(pc.Hat, hatPoint.transform.position, hatPoint.transform.rotation, hatPoint.transform);
+
+            playerConfig.Input.onActionTriggered += Input_onActionTriggered;
+
+        }
+
+        private void Input_onActionTriggered(InputAction.CallbackContext obj)
+        {
+            if (obj.action.name == controls.Player.Movement.name)
+            {
+                OnMovementPerformed(obj);
+            }
+            if (obj.action.name == controls.Player.Interact.name)
+            {
+                OnInteract(obj);
+            }
+            if (obj.action.name == controls.Player.Return.name)
+            {
+                OnReturn(obj);
+            }
+
+        }
+
+        private void Start()
+        {
+            heldAnimal = new Animal()
+            {
+                type = AnimalTypes.Empty,
+                state = SickState.healthy, 
+                sickProgression = 0
+            };
+
+       
             moveVector = Vector2.zero;
         }
 
