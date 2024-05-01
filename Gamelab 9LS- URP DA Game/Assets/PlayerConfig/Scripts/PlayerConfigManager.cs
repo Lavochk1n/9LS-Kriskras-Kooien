@@ -10,6 +10,8 @@ public class PlayerConfigManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> hatPrefabs = new();
 
+    [SerializeField] private List<GameObject> EmptyPanels = new();
+
 
     private List<PlayerConfig> playerConfigs;
     [SerializeField] private int maxPlayers = 2;
@@ -60,6 +62,16 @@ public class PlayerConfigManager : MonoBehaviour
     public void HandlePlayerJoin(PlayerInput pi)
     {
         Debug.Log("Player Joined " + pi.playerIndex);
+
+        if (EmptyPanels.Count != 0)
+        {
+
+            Destroy(EmptyPanels[0]);
+            EmptyPanels.RemoveAt(0);
+
+            
+            
+        }
 
         if (!playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))
         {

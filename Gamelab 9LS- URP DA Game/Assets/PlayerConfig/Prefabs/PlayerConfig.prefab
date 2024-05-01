@@ -91,3 +91,6 @@ MonoBehaviour:
   playerSetupmenuPrefab: {fileID: 7376093808034549549, guid: 371993a52a7e2df48bb15037ce7c6510,
     type: 3}
   pi: {fileID: 6203184589449287573}
+  renderTextures:
+  - {fileID: 8400000, guid: 8fb9fe0037dd5694fbb8d08cdd3acdd7, type: 2}
+  - {fileID: 8400000, guid: dfa9715af7a09134b99f8e91dc5e4cb2, type: 2}

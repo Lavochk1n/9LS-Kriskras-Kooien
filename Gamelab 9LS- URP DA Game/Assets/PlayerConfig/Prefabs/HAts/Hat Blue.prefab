@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1714948739554108795}
   - component: {fileID: 367158805509858129}
   - component: {fileID: 8100428859297442282}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hat Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

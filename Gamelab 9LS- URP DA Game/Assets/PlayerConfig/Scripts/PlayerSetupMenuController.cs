@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using UnityEditor.ShaderGraph;
 using Quarantine;
 
 public class PlayerSetupMenuController : MonoBehaviour
@@ -28,6 +27,8 @@ public class PlayerSetupMenuController : MonoBehaviour
     private PlayerInput Input;
 
     private StandardPlayerInput controls;
+
+    public RawImage rawImage;
 
     private void Awake()
     {
@@ -101,7 +102,6 @@ public class PlayerSetupMenuController : MonoBehaviour
                     currentHat = PlayerConfigManager.Instance.GetHatsConfigs().Count -1;
                 }
             }
-            Debug.Log(currentHat);
             timer = Time.time + ignoreCycleTime;
             cycleEnabled = false; 
         }
