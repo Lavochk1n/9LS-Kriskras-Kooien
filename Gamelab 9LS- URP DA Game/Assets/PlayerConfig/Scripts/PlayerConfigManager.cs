@@ -18,12 +18,12 @@ public class PlayerConfigManager : MonoBehaviour
     public List<PlayerConfig> GetPlayerConfigs()
     {
         return playerConfigs;
-    } 
+    }
 
-    private int currentHat = 0; 
-
-
-
+    public List<GameObject> GetHatsConfigs()
+    {
+        return hatPrefabs;
+    }
 
     private void Awake()
     {
@@ -45,23 +45,6 @@ public class PlayerConfigManager : MonoBehaviour
     {
         playerConfigs[playerIndex].Hat = hatPrefabs[hatIndex];
         Debug.Log(hatIndex);
-
-
-        //if (currentHat - hatIndex < 0)
-        //{
-        //    currentHat = hatPrefabs.Count;
-        //}
-        //else if (currentHat + hatIndex > hatPrefabs.Count)
-        //{
-        //    currentHat = 0;
-        //}
-        //else
-        //{
-        //    currentHat += hatIndex; 
-        //}
-
-        //playerConfigs[playerIndex].Hat = hatPrefabs[currentHat];
-        //Debug.Log(currentHat);
     }
 
     public void ReadyPlayer(int playerIndex)
