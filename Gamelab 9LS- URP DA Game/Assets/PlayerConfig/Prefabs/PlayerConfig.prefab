@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8866490821464648998}
   - component: {fileID: 6203184589449287573}
   - component: {fileID: 452136544439624497}
+  - component: {fileID: 6699392725404595010}
   m_Layer: 0
   m_Name: PlayerConfig
   m_TagString: Untagged
@@ -94,3 +95,16 @@ MonoBehaviour:
   renderTextures:
   - {fileID: 8400000, guid: 8fb9fe0037dd5694fbb8d08cdd3acdd7, type: 2}
   - {fileID: 8400000, guid: dfa9715af7a09134b99f8e91dc5e4cb2, type: 2}
+--- !u!114 &6699392725404595010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5520977481016772874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd81d68c2b35de3498acaa285f41843f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pi: {fileID: 6203184589449287573}

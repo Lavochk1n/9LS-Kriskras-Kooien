@@ -153,6 +153,8 @@ namespace Quarantine
                 return false;
             }
 
+            if (GameManager.Instance.GetTimeLeft() <= 0) { return false; }
+
 
 
                 if (CountInfected() >= cageQuota) return true;

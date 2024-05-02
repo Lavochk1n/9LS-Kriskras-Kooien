@@ -41,7 +41,7 @@ public class PlayerSetupMenuController : MonoBehaviour
     {
         Input = pi;
         PlayerIndex = pi.playerIndex;
-        titleText.SetText("Player " + (PlayerIndex + 1).ToString());
+        titleText.SetText("Speler " + (PlayerIndex + 1).ToString());
         ignoreInputTime = Time.time + ignoreInputTime;
         Input.onActionTriggered += OnMove;
 
@@ -135,7 +135,7 @@ public class PlayerSetupMenuController : MonoBehaviour
 
         PlayerConfigManager.Instance.SetPlayerHat(PlayerIndex, currentHat);
         readyPanel.SetActive(true);
-        readyButton.Select(); 
+        //readyButton.Select(); 
         menuPanel.SetActive(false);
     }
 
@@ -144,7 +144,7 @@ public class PlayerSetupMenuController : MonoBehaviour
     {
         if(!inputEnabled) { return; }
 
-        PlayerConfigManager.Instance.ReadyPlayer(PlayerIndex); 
-        readyButton.gameObject.SetActive(false);             
+        PlayerConfigManager.Instance.ReadyPlayer(PlayerIndex);
+        //readyButton.GetComponent<Button>().interactable = false;               
     }
 }

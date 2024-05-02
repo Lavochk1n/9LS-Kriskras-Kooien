@@ -12,6 +12,8 @@ TagManager:
   - Box
   - OptionalItem
   - Cage Parent
+  - nameMenu0
+  - nameMenu1
   layers:
   - Default
   - TransparentFX
