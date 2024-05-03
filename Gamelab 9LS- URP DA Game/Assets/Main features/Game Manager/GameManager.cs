@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         {
             timeLeft = 0;
             //ScenesManager.Instance.GetGameOver();
-            ScenesManager.Instance.NextScene();
+            //ScenesManager.Instance.NextScene();
         }
     }
 

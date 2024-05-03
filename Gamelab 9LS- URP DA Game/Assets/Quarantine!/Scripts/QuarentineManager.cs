@@ -110,7 +110,7 @@ namespace Quarantine
                 return;
             }
 
-            GameManager.Instance.DecreaseTime();
+            //GameManager.Instance.DecreaseTime();
 
             if (GameOver())
             {
@@ -153,7 +153,7 @@ namespace Quarantine
                 return false;
             }
 
-            if (GameManager.Instance.GetTimeLeft() <= 0) { return false; }
+            //if (GameManager.Instance.GetTimeLeft() <= 0) { return false; }
 
 
 
