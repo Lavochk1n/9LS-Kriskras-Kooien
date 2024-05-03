@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.SceneManagement;
 
 
 public class FindNameSelectMenu : MonoBehaviour
@@ -10,10 +11,33 @@ public class FindNameSelectMenu : MonoBehaviour
 
     public PlayerInput pi;
 
-    private void Awake()
-    {
+    private string tagName;
 
-        string tagName = "nameMenu" + pi.playerIndex.ToString();
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (pi.playerIndex == 0)
+        {
+            tagName = "nameMenu0";
+
+        }
+        else
+        {
+            tagName = "nameMenu1";
+
+        }
+
+
 
         var nameMenu = GameObject.FindGameObjectWithTag(tagName);
 
@@ -25,7 +49,7 @@ public class FindNameSelectMenu : MonoBehaviour
         Debug.Log("Menu found");
 
         pi.uiInputModule = nameMenu.GetComponentInChildren<InputSystemUIInputModule>();
-          
+
     }
 
 }

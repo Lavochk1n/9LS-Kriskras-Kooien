@@ -17,7 +17,7 @@ public class ScoreDisplay : MonoBehaviour
         //}
         //else
         {
-            m_text = "Score : " + GameManager.Instance.GetScore().ToString();
+            m_text =  GameManager.Instance.GetScore().ToString();
                 //+ " Overige Tijd: " + GameManager.Instance.GetTimeLeft().ToString();
         }
         textBox.text = m_text; 
