@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SinkBehavior : Interactable
 {
-    [SerializeField] private float timeToReplenish = 1f;
     private GloveManager glovemanager;
 
     public override void Interact(Interactor interactor)

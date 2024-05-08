@@ -116,6 +116,13 @@ namespace Quarantine
             {
                 RequestInteraction();
             }
+            else if (context.canceled) 
+            {
+                RequestHold();
+            }
+
+            
+            
         }
 
         public void OnReturn(InputAction.CallbackContext context)

@@ -14,6 +14,7 @@ TagManager:
   - Cage Parent
   - nameMenu0
   - nameMenu1
+  - HoldProgressIcon
   layers:
   - Default
   - TransparentFX

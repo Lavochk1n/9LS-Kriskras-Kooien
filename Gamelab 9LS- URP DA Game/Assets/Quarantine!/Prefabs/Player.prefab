@@ -154,6 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92bbfcf7f36e994eb6bd603b044e658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionPrompt: {fileID: 3951192532899829633, guid: a6be700f7981e1749b4bed897f547f4e,
+    type: 3}
+  offset: -1
   moveSpeed: 5
   sprintBonus: 3
   smoothtime: 0.1
