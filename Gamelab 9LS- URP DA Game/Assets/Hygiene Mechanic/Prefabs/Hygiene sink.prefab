@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2821004349068859534}
   - component: {fileID: 7902814311025573723}
+  - component: {fileID: 7656252190963194914}
   m_Layer: 0
   m_Name: Hygiene sink
   m_TagString: Untagged
@@ -135,5 +136,19 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1.4792589, z: 1}
+  m_Center: {x: 0, y: 0.23962963, z: 0}
+--- !u!114 &7656252190963194914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4053707520806702887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e73ea1d0b66c94d835f08229d5e134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 0
+  timeToReplenish: 1

@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SinkBehavior : MonoBehaviour
+public class SinkBehavior : Interactable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float timeToReplenish = 1f;
+    private GloveManager glovemanager;
+
+    public override void Interact(Interactor interactor)
     {
-        
+        glovemanager = interactor.GetComponent<GloveManager>();
+        glovemanager.AddGloves();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override string GetDescription()
     {
-        
+        return null;
     }
+    
 }

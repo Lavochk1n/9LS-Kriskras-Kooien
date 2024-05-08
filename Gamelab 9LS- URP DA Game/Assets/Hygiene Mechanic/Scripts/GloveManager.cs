@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GloveManager : MonoBehaviour
 {
     private int gloves;
     [SerializeField] private int maximumgloves = 5;
 
+    private TextMeshProUGUI textDisplay; 
+
     void Start()
     {
         gloves = maximumgloves;
+        //textDisplay = GetComponent<PlayerBehaviour>()
     }
 
     public void RemoveGlove()
@@ -20,11 +24,10 @@ public class GloveManager : MonoBehaviour
         }
 
         gloves--;
+        UpdateUI();
 
         //gloves = gloves - 1;
         //gloves -= 1;
-
-        
 
     }
 
@@ -36,6 +39,7 @@ public class GloveManager : MonoBehaviour
         }
 
         gloves++;
+        UpdateUI();
     }
 
     public bool HasGloves()
@@ -45,6 +49,11 @@ public class GloveManager : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+    private void UpdateUI()
+    {
+
     }
 }
 

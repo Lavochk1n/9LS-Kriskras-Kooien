@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Quarantine
 {
@@ -10,8 +11,10 @@ namespace Quarantine
         [Header("player Inventory")]
         //public PlayerBehaviour player;
         [SerializeField] private Image background, icon;
+        public TextMeshProUGUI glovesText;
 
         [SerializeField] private bool player1Inventory;
+
 
         private PlayerBehaviour playerBehaviour;
 
