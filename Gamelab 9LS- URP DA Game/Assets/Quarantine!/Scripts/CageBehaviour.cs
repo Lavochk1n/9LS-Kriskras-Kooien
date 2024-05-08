@@ -62,6 +62,19 @@ namespace Quarantine
 
             if (heldAnimal.type == AnimalTypes.Empty || myAnimal.type == AnimalTypes.Empty)
             {
+                if (heldAnimal.type == AnimalTypes.Empty)
+                {
+                    if(!playerBehaviour.GetComponent<GloveManager>().HasGloves())
+                    {
+                        return;
+                    }
+                    playerBehaviour.GetComponent<GloveManager>().RemoveGlove();
+
+                }
+
+
+
+
                 playerBehaviour.heldAnimal = myAnimal;
 
                 myAnimal = heldAnimal;
