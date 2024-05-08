@@ -13,6 +13,12 @@ public class SinkBehavior : Interactable
 
     }
 
+    // Sorry felix, I put this function in to make it work. 
+    public override void Interact_Secondairy(Interactor interactor)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override string GetDescription()
     {
         return null;

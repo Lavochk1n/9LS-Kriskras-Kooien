@@ -16,7 +16,11 @@ public abstract class Interactable : MonoBehaviour
     public InteractionType interactionType;
 
     public abstract string GetDescription();
+
     public abstract void Interact(Interactor interactor);
+
+    public abstract void Interact_Secondairy(Interactor interactor);
+
 
     public void IncreaseHoldTime() => holdTime += Time.deltaTime;
     public void ResetHoldTime() => holdTime = 0f;

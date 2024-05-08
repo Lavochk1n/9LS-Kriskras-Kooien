@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Secondairy Interact",
+                    "type": "Button",
+                    "id": "8d0745ed-1b43-45dd-a975-b848b3dd3912",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -218,6 +227,39 @@
                     "processors": "",
                     "groups": "Right Keyboard",
                     "action": "Return",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c788a240-879c-402e-881f-abc8d27f3883",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Secondairy Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1dd74f1-5b38-4d1a-8903-6c931173465b",
+                    "path": "<Keyboard>/leftAlt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Left Keyboard",
+                    "action": "Secondairy Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c286e91-888c-4595-9c1d-76446659fe15",
+                    "path": "<Keyboard>/alt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Right Keyboard",
+                    "action": "Secondairy Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

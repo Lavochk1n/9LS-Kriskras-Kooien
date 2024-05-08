@@ -11,7 +11,7 @@ namespace Quarantine {
     {
         [SerializeField] private CageBehaviour myCage;
 
-        [SerializeField] private GameObject attachPoint;
+        [SerializeField] private GameObject attachPoint, flag;
 
         [SerializeField] private Image panel, progressBar, background;
 
@@ -50,7 +50,10 @@ namespace Quarantine {
             }
         }
 
-       
+       public void UpdateFlag(bool state)
+        {
+            flag.SetActive(state);
+        }
 
 
         public void UpdateModel(Animal animal)

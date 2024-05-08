@@ -27,6 +27,10 @@ namespace StackThatBulance
                 ReleaseItem();
             }
         }
+        public override void Interact_Secondairy(Interactor interactor)
+        {
+            throw new System.NotImplementedException();
+        }
 
         public override string GetDescription()
         {

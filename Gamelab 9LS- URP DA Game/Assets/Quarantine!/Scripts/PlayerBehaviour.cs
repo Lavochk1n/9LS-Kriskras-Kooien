@@ -29,15 +29,21 @@ namespace Quarantine
         private StandardPlayerInput controls;
 
 
+        public int maxFlags = 2; 
+        public int flagAmount; 
+
+
         private void Awake()
         {
             CC = GetComponent<CharacterController>();
             controls = new StandardPlayerInput();
+
         }
 
 
         public void InitializePlayer(PlayerConfig pc)
         {
+            flagAmount = maxFlags; 
             playerConfig = pc;
             Debug.Log(pc.PlayerIndex.ToString() + pc.Hat.ToString());
 
@@ -75,6 +81,10 @@ namespace Quarantine
             if (obj.action.name == controls.Player.Return.name)
             {
                 OnReturn(obj);
+            }
+            if (obj.action.name == controls.Player.SecondairyInteract.name)
+            {
+                OnSecondairyInteract(obj);
             }
 
         }
@@ -120,10 +130,17 @@ namespace Quarantine
             {
                 RequestHold();
             }
-
-            
-            
         }
+
+        public void OnSecondairyInteract(InputAction.CallbackContext context)
+        {
+            if(context.started)
+            {
+                RequestRemove(); 
+            }
+        }
+
+
 
         public void OnReturn(InputAction.CallbackContext context)
         {

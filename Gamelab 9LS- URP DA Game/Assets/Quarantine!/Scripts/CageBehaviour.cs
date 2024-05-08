@@ -18,6 +18,8 @@ namespace Quarantine
 
         public Animal myAnimal = new();
 
+        public bool markedForRemoval = false; 
+
         private void Start()
         {
             InitializeCages();
@@ -64,16 +66,13 @@ namespace Quarantine
             {
                 if (heldAnimal.type == AnimalTypes.Empty)
                 {
+                    if(markedForRemoval) { return; }
                     if(!playerBehaviour.GetComponent<GloveManager>().HasGloves())
                     {
                         return;
                     }
                     playerBehaviour.GetComponent<GloveManager>().RemoveGlove();
-
                 }
-
-
-
 
                 playerBehaviour.heldAnimal = myAnimal;
 
@@ -82,6 +81,42 @@ namespace Quarantine
                 UpdateCage();
                 playerBehaviour.UpdateHeldAnimal(); 
             }
+        }
+
+        public override void Interact_Secondairy(Interactor interactor)
+        {
+            if (myAnimal.type == AnimalTypes.Empty) { return; }
+
+
+            if(interactor != null)
+            {
+
+                PlayerBehaviour pb = interactor.GetComponent<PlayerBehaviour>();
+                if(markedForRemoval)
+                {
+                    pb.flagAmount++;
+                    markedForRemoval = !markedForRemoval;
+
+                }
+                else
+                {
+                    if (pb.flagAmount > 0 )
+                    {
+                        pb.flagAmount--;
+                        markedForRemoval = !markedForRemoval;
+
+
+                    }
+
+                }
+            }
+            else
+            {
+                markedForRemoval = !markedForRemoval;
+            }
+            myCageVisual.UpdateFlag(markedForRemoval);
+
+
         }
 
         public override string GetDescription()
@@ -121,7 +156,7 @@ namespace Quarantine
             myAnimal.state = sick;
         }
 
-        private void UpdateCage()
+        public void UpdateCage()
         {
             myCageVisual.UpdateIcon(myAnimal);
             myCageVisual.UpdateModel(myAnimal);

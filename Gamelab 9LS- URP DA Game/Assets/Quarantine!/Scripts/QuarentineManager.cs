@@ -110,7 +110,7 @@ namespace Quarantine
                 return;
             }
 
-            //GameManager.Instance.DecreaseTime();
+            GameManager.Instance.DecreaseTime();
 
             if (GameOver())
             {
@@ -134,7 +134,7 @@ namespace Quarantine
                     {
                         GameManager.Instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
                         GameManager.Instance.IncreaseDifficulty();
-                        GameManager.Instance.AddTime(completionBonus);
+                        //GameManager.Instance.AddTime(completionBonus);
                         ScenesManager.Instance.GetGameOver();
                     }
                 }
@@ -202,8 +202,8 @@ namespace Quarantine
             float estMax = Cages.Count;
 
             float addedScore = (performance - estMin) / (estMax - estMin) * 100;
-
-            return addedScore;
+            
+            return Mathf.RoundToInt(addedScore);
         }
 
         /// <returns>amount of infected cages</returns>
@@ -283,5 +283,42 @@ namespace Quarantine
             }
             return SickState.sick;
         }
+
+        //////////////////////// AMBUALNCE
+        
+        public void AmbulanceArrival()
+        {
+            foreach (GameObject cage in Cages)
+            {
+                CageBehaviour cb = cage.GetComponent<CageBehaviour>();
+
+                if (cb.markedForRemoval)
+                {
+
+                    if (cb.myAnimal.state == SickState.healthy)
+                    {
+                        GameManager.Instance.IncreaseScore(50);
+                    }
+                    else
+                    {
+                        GameManager.Instance.IncreaseScore(5);
+                    }
+                    cb.Interact_Secondairy(null);
+
+
+                    cb.ChangeOccupation(GetWeightedRandomAnimal());
+                    cb.ChangeSickstate(GetWeightedRandomState());
+                    cb.UpdateCage();
+
+                    GameManager.Instance.playerBehaviour1.flagAmount = GameManager.Instance.playerBehaviour1.maxFlags;
+                    GameManager.Instance.playerBehaviour2.flagAmount = GameManager.Instance.playerBehaviour2.maxFlags;
+
+                }
+            }
+        }
+
+
+
     }
+
 }

@@ -50,9 +50,9 @@ public class GameManager : MonoBehaviour
         timeLeft -= Time.deltaTime;
         if(timeLeft < 0)
         {
-            timeLeft = 0;
-            //ScenesManager.Instance.GetGameOver();
-            //ScenesManager.Instance.NextScene();
+            QuarentineManager.Instance.AmbulanceArrival();
+            timeLeft = newGameTime;
+
         }
     }
 

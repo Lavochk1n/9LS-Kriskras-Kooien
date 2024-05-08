@@ -8,7 +8,7 @@ public class Interactor : MonoBehaviour
     public GameObject interactionPrompt;
     [SerializeField] private float offset = -1f; 
 
-    private bool requestInteract = false, requestHold = false;
+    private bool requestInteract = false, requestHold = false, requestRemove = false;
     [SerializeField]  private Image interactionProgress;
 
     private GameObject currentPrompt; 
@@ -76,6 +76,11 @@ public class Interactor : MonoBehaviour
                     interactable.Interact(this);
                     requestInteract = false;
                 }
+
+                if (requestRemove)
+                {
+                    interactable.Interact_Secondairy(this);
+                }
                 break;
 
             case Interactable.InteractionType.Hold:
@@ -102,6 +107,12 @@ public class Interactor : MonoBehaviour
         requestHold = true; 
     }
 
+
+    public void RequestRemove()
+    {
+        requestRemove = true;
+    }
+
     public void RequestHold()
     {
         requestHold = false;
@@ -109,7 +120,9 @@ public class Interactor : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (requestInteract) { requestInteract = false; }   
+        if (requestInteract) { requestInteract = false; }
+        if (requestRemove) { requestRemove = false; }
+
     }
 }
 
