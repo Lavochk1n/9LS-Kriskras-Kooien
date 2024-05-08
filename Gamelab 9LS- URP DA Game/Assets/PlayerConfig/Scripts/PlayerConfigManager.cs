@@ -55,7 +55,7 @@ public class PlayerConfigManager : MonoBehaviour
 
         if (playerConfigs.Count == maxPlayers && playerConfigs.All(p => p.isReady == true)) 
         {
-            ScenesManager.Instance.NextScene();
+            ScenesManager.Instance.RandomGame();
         }
     }
 

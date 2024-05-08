@@ -72,8 +72,8 @@ namespace Quarantine
 
 
 
-            if (randomMap) { Instantiate(maps[Random.Range(0, maps.Count)]); }
-            else { Instantiate(maps[mapIndex]); }
+            //if (randomMap) { Instantiate(maps[Random.Range(0, maps.Count)]); }
+            //else { Instantiate(maps[mapIndex]); }
 
             cagesParent = GameObject.FindGameObjectWithTag("Cage Parent");
 
@@ -117,7 +117,7 @@ namespace Quarantine
                 GameManager.Instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
                 GameManager.Instance.IncreaseDifficulty();
                 GameManager.Instance.AddTime(completionBonus);
-                ScenesManager.Instance.NextScene();
+                ScenesManager.Instance.GetGameOver();
             }
         }
 
@@ -135,7 +135,7 @@ namespace Quarantine
                         GameManager.Instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
                         GameManager.Instance.IncreaseDifficulty();
                         GameManager.Instance.AddTime(completionBonus);
-                        ScenesManager.Instance.NextScene();
+                        ScenesManager.Instance.GetGameOver();
                     }
                 }
             }
