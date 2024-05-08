@@ -51,7 +51,8 @@ public class GameManager : MonoBehaviour
         if(timeLeft < 0)
         {
             timeLeft = 0;
-            ScenesManager.Instance.GetGameOver(); 
+            //ScenesManager.Instance.GetGameOver();
+            //ScenesManager.Instance.NextScene();
         }
     }
 

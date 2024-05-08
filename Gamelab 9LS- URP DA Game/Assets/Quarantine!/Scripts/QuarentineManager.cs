@@ -60,6 +60,7 @@ namespace Quarantine
 
         [Header("player Specifics")]
         public bool playerOneSpawned = false;
+        [SerializeField] private GameObject playerPrefab; 
 
 
 
@@ -80,6 +81,27 @@ namespace Quarantine
             StartCoroutine(CheckGameProgress()); 
         }
 
+        private void Start()
+        {
+            var playerConfigs = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
+
+            // Make this less hardcoded 
+
+            var player = Instantiate(
+                playerPrefab,
+                GameObject.FindGameObjectWithTag("spawn1").transform.position,
+                GameObject.FindGameObjectWithTag("spawn1").transform.rotation,
+                gameObject.transform);
+            player.GetComponent<PlayerBehaviour>().InitializePlayer(playerConfigs[0]);
+
+            var player2 = Instantiate(
+                playerPrefab,
+                GameObject.FindGameObjectWithTag("spawn2").transform.position,
+                GameObject.FindGameObjectWithTag("spawn2").transform.rotation,
+                gameObject.transform);
+            player2.GetComponent<PlayerBehaviour>().InitializePlayer(playerConfigs[1]);
+
+        }
 
         private void Update()
         {
@@ -88,7 +110,7 @@ namespace Quarantine
                 return;
             }
 
-            GameManager.Instance.DecreaseTime();
+            //GameManager.Instance.DecreaseTime();
 
             if (GameOver())
             {
@@ -124,7 +146,18 @@ namespace Quarantine
         /// <returns>true if one of the game-over conditions are met</returns>
         public bool GameOver()
         {
-            if (CountInfected() >= cageQuota) return true;
+
+            if (GameManager.Instance.playerBehaviour1.heldAnimal == null ||
+                GameManager.Instance.playerBehaviour2.heldAnimal == null)
+            {
+                return false;
+            }
+
+            //if (GameManager.Instance.GetTimeLeft() <= 0) { return false; }
+
+
+
+                if (CountInfected() >= cageQuota) return true;
 
             foreach (GameObject cage in Cages)
             {
@@ -184,9 +217,11 @@ namespace Quarantine
 
                 if (cageBehaviour.myAnimal.state == SickState.sick) count++;
             }
-
+            
             if (GameManager.Instance.playerBehaviour1.heldAnimal.state == SickState.sick) count++;
             if (GameManager.Instance.playerBehaviour2.heldAnimal.state == SickState.sick) count++;
+
+            
 
             return count;
         }
