@@ -60,7 +60,6 @@ MonoBehaviour:
   - {fileID: 956357379441123067, guid: 1341a11a6dd2e8a4b929d595f49aa87b, type: 3}
   randomMap: 1
   mapIndex: 0
-  quarentineManager: {fileID: 0}
   playerOneSpawned: 0
-  inventory1: {fileID: 0}
-  inventory2: {fileID: 0}
+  playerPrefab: {fileID: 0}
+  pauseTimeDelay: 4

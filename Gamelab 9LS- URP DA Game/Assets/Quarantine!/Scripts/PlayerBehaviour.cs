@@ -30,8 +30,9 @@ namespace Quarantine
 
 
         public int maxFlags = 2; 
-        public int flagAmount; 
+        public int flagAmount;
 
+        public CageBehaviour mostRecentCage; 
 
         private void Awake()
         {
@@ -104,7 +105,7 @@ namespace Quarantine
 
         private void Update()
         {
-            if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GameOver()) return;
+            if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GamePaused()) return;
 
             if (sprintSpeed > 1f)
             {
@@ -134,9 +135,12 @@ namespace Quarantine
 
         public void OnSecondairyInteract(InputAction.CallbackContext context)
         {
-            if(context.started)
+            if(GameManager.Instance.flaggedMode)
             {
-                RequestRemove(); 
+                if (context.started)
+                {
+                    RequestRemove();
+                }
             }
         }
 
@@ -164,7 +168,7 @@ namespace Quarantine
 
         private void FixedUpdate()
         {
-            if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GameOver()) return;
+            if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GamePaused()) return;
 
             if (moveVector.magnitude == 0) { return; }
 

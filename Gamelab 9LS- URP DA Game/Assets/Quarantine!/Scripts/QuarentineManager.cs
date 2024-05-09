@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -60,9 +61,11 @@ namespace Quarantine
 
         [Header("player Specifics")]
         public bool playerOneSpawned = false;
-        [SerializeField] private GameObject playerPrefab; 
+        [SerializeField] private GameObject playerPrefab;
 
-
+        [Header("GamePause")]
+        private bool GamePause, delayRunning;
+        [SerializeField] float pauseTimeDelay = 8f; 
 
 
         private void Awake()
@@ -101,6 +104,9 @@ namespace Quarantine
                 gameObject.transform);
             player2.GetComponent<PlayerBehaviour>().InitializePlayer(playerConfigs[1]);
 
+            GamePause = true;
+            StartCoroutine(DelayedUnpause());
+
         }
 
         private void Update()
@@ -109,6 +115,8 @@ namespace Quarantine
             {
                 return;
             }
+
+            if (GamePause) { return; }
 
             GameManager.Instance.DecreaseTime();
 
@@ -143,6 +151,31 @@ namespace Quarantine
 
         //////////////////////////// GAME RULES TRACKING ////////////////////////////
 
+
+        public bool GamePaused()
+        {
+            if (GameOver()) { return true; }    
+
+            return GamePause;
+        }
+
+        public void PauseGame()
+        {
+            if(!delayRunning)
+            {
+                GamePause = !GamePause; 
+            }
+        }
+
+        private IEnumerator DelayedUnpause()
+        {
+            delayRunning = true;
+            yield return new WaitForSeconds(pauseTimeDelay);
+            GamePause = false;
+            delayRunning = false;
+        }
+
+
         /// <returns>true if one of the game-over conditions are met</returns>
         public bool GameOver()
         {
@@ -153,11 +186,8 @@ namespace Quarantine
                 return false;
             }
 
-            //if (GameManager.Instance.GetTimeLeft() <= 0) { return false; }
-
-
-
-                if (CountInfected() >= cageQuota) return true;
+           
+            if (CountInfected() >= cageQuota) return true;
 
             foreach (GameObject cage in Cages)
             {
@@ -251,7 +281,7 @@ namespace Quarantine
         }
     
         /// <returns> An animaltype enumstate  based on weight</returns>
-        private AnimalTypes GetWeightedRandomAnimal()
+        public AnimalTypes GetWeightedRandomAnimal()
         {
             int totalWeight = 0; 
             foreach (AnimalWeight weight in animalWeights) 
@@ -259,7 +289,7 @@ namespace Quarantine
                 totalWeight += weight.Weight;
             }
 
-            int randomWeight = Random.Range(0, totalWeight);
+            int randomWeight = UnityEngine.Random.Range(0, totalWeight);
 
             for (int i = 0; i < animalWeights.Count; ++i)
             {
@@ -272,10 +302,10 @@ namespace Quarantine
             return AnimalTypes.Empty;
         }
 
-        private SickState GetWeightedRandomState()
+        public SickState GetWeightedRandomState()
         {
             int totalWeight = 1 + healthyWeight;
-            int randomWeight = Random.Range(0, totalWeight);
+            int randomWeight = UnityEngine.Random.Range(0, totalWeight);
             randomWeight -= healthyWeight;
             if (randomWeight < 0)
             {
@@ -286,36 +316,7 @@ namespace Quarantine
 
         //////////////////////// AMBUALNCE
         
-        public void AmbulanceArrival()
-        {
-            foreach (GameObject cage in Cages)
-            {
-                CageBehaviour cb = cage.GetComponent<CageBehaviour>();
-
-                if (cb.markedForRemoval)
-                {
-
-                    if (cb.myAnimal.state == SickState.healthy)
-                    {
-                        GameManager.Instance.IncreaseScore(50);
-                    }
-                    else
-                    {
-                        GameManager.Instance.IncreaseScore(5);
-                    }
-                    cb.Interact_Secondairy(null);
-
-
-                    cb.ChangeOccupation(GetWeightedRandomAnimal());
-                    cb.ChangeSickstate(GetWeightedRandomState());
-                    cb.UpdateCage();
-
-                    GameManager.Instance.playerBehaviour1.flagAmount = GameManager.Instance.playerBehaviour1.maxFlags;
-                    GameManager.Instance.playerBehaviour2.flagAmount = GameManager.Instance.playerBehaviour2.maxFlags;
-
-                }
-            }
-        }
+        
 
 
 

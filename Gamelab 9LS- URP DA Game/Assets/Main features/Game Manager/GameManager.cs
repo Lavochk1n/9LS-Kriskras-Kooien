@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     
     public PlayerBehaviour playerBehaviour1, playerBehaviour2;
 
+    public AmbulanceBehaviour AM;
+
+    public bool flaggedMode= true; 
 
     private void Awake()
     {
@@ -50,7 +53,7 @@ public class GameManager : MonoBehaviour
         timeLeft -= Time.deltaTime;
         if(timeLeft < 0)
         {
-            QuarentineManager.Instance.AmbulanceArrival();
+            AM.HandleArrival();
             timeLeft = newGameTime;
 
         }

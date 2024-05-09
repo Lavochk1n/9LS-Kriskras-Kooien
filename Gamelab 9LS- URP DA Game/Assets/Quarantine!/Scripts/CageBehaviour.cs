@@ -42,7 +42,7 @@ namespace Quarantine
 
         private void Update()
         {
-            if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GameOver() ) return;
+            if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GamePaused() ) return;
 
             CheckSpread();
         }
@@ -66,15 +66,31 @@ namespace Quarantine
             {
                 if (heldAnimal.type == AnimalTypes.Empty)
                 {
-                    if(markedForRemoval) { return; }
+                    if (markedForRemoval)
+                    {
+                        if (GameManager.Instance.flaggedMode) { return; }
+
+                        markedForRemoval = false;
+                        playerBehaviour.mostRecentCage.markedForRemoval = true;
+
+                    }
+
+
+
+
                     if(!playerBehaviour.GetComponent<GloveManager>().HasGloves())
                     {
                         return;
                     }
                     playerBehaviour.GetComponent<GloveManager>().RemoveGlove();
+
+
+
                 }
 
                 playerBehaviour.heldAnimal = myAnimal;
+
+                playerBehaviour.mostRecentCage = this; 
 
                 myAnimal = heldAnimal;
 

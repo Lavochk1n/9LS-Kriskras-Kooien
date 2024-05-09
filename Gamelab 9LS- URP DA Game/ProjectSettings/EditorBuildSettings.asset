@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene Manager/Q!_Game.unity
     guid: 2457fbd67b0f20c4798e41fb9a9aa72e
+  - enabled: 1
+    path: Assets/Scene Manager/SceneTemplates/Tutorial0.unity
+    guid: 5083d867f4a46a44d83d2f90ee969594
   m_configObjects: {}
