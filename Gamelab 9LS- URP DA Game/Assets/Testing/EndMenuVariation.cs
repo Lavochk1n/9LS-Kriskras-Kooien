@@ -18,7 +18,7 @@ public class EndMenuVariation : MonoBehaviour
         manager = TestManager.Instance;
 
 
-        if (manager.useDropdowns)
+        //if (manager.useDropdowns)
         {
             inputVariant.SetActive(false);
             dropdownVariant.SetActive(true);
@@ -27,11 +27,11 @@ public class EndMenuVariation : MonoBehaviour
             dropdown1.AddOptions(new List<string> { manager.name1 , manager.name2 });
             dropdown2.AddOptions(new List<string> { manager.name1 , manager.name2  });
         }
-        else
-        {
-            inputVariant.SetActive(true);
-            dropdownVariant.SetActive(false);
-        }
+        //else
+        //{
+        //    inputVariant.SetActive(true);
+        //    dropdownVariant.SetActive(false);
+        //}
 
 
     }

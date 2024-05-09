@@ -3777,6 +3777,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
         type: 3}
+      propertyPath: cageQuota
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
+        type: 3}
       propertyPath: randomMap
       value: 0
       objectReference: {fileID: 0}
@@ -3796,6 +3801,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2643759386923098102, guid: abc0fcb6402dd984dab3000e1f3bdec1,
         type: 3}
+    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
+        type: 3}
+      propertyPath: pauseTimeDelay
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
         type: 3}
       propertyPath: maps.Array.size

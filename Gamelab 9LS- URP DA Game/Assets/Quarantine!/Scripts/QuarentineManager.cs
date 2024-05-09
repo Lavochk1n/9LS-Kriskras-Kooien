@@ -50,8 +50,9 @@ namespace Quarantine
 
         [Header("Game Rules")]
         public float spreadSpeed = 2.1f;
-        [SerializeField] int cageQuota = 15;
+        [SerializeField][Range(0, 100.0f)] float cageQuota = 80;
         [SerializeField] private float completionBonus = 30f;
+
 
 
         [Header("Initialisation")]
@@ -154,7 +155,14 @@ namespace Quarantine
 
         public bool GamePaused()
         {
-            if (GameOver()) { return true; }    
+
+            if (GameObject.FindWithTag("spawn1") == null) return true; 
+
+
+            if (GameOver()) return true;     
+
+            if (!PlayerSpawned()) return true; 
+            
 
             return GamePause;
         }
@@ -180,30 +188,25 @@ namespace Quarantine
         public bool GameOver()
         {
 
-            if (GameManager.Instance.playerBehaviour1.heldAnimal == null ||
-                GameManager.Instance.playerBehaviour2.heldAnimal == null)
-            {
-                return false;
-            }
 
            
-            if (CountInfected() >= cageQuota) return true;
+            if (CountInfected() >= Mathf.RoundToInt(cageQuota * Cages.Count/ 100)) return true;
 
-            foreach (GameObject cage in Cages)
-            {
-                CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
+            //foreach (GameObject cage in Cages)
+            //{
+            //    CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
-                if (cageBehaviour.AdjDisease() && cageBehaviour.myAnimal.state == SickState.healthy)
-                {
-                    return false;
-                }
-                if (GameManager.Instance.playerBehaviour1.heldAnimal.type != AnimalTypes.Empty ||
-                    GameManager.Instance.playerBehaviour2.heldAnimal.type != AnimalTypes.Empty)
-                {
-                    return false;
-                }
-            }
-            return true;
+            //    if (cageBehaviour.AdjDisease() && cageBehaviour.myAnimal.state == SickState.healthy)
+            //    {
+            //        return false;
+            //    }
+            //    if (GameManager.Instance.playerBehaviour1.heldAnimal.type != AnimalTypes.Empty ||
+            //        GameManager.Instance.playerBehaviour2.heldAnimal.type != AnimalTypes.Empty)
+            //    {
+            //        return false;
+            //    }
+            //}
+            return false;
         }
 
         public bool PlayerSpawned()
@@ -247,7 +250,11 @@ namespace Quarantine
 
                 if (cageBehaviour.myAnimal.state == SickState.sick) count++;
             }
-            
+            if (GameManager.Instance.playerBehaviour1.heldAnimal == null || GameManager.Instance.playerBehaviour2.heldAnimal == null)
+            {
+                return 0; 
+            }
+
             if (GameManager.Instance.playerBehaviour1.heldAnimal.state == SickState.sick) count++;
             if (GameManager.Instance.playerBehaviour2.heldAnimal.state == SickState.sick) count++;
 

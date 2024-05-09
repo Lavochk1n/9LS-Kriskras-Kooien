@@ -54,6 +54,7 @@ public class Interactor : MonoBehaviour
                 }
                 else
                 {
+                    requestHold = false; 
                     if (currentPrompt != null)
                     {
                         Destroy(currentPrompt);
@@ -61,6 +62,10 @@ public class Interactor : MonoBehaviour
                         interactionProgress = null;
                     }
                 }
+            }
+            else
+            {
+                requestHold = false;
             }
         }
     }

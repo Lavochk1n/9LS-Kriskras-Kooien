@@ -143,7 +143,7 @@ public class AmbulanceBehaviour : Interactable
                 {
                     cb.myAnimal.sickProgression = 0f;
                 }
-
+                cb.markedForRemoval = false;    
                 cb.UpdateCage();
             }
         }

@@ -66,6 +66,14 @@ namespace Quarantine
             {
                 if (heldAnimal.type == AnimalTypes.Empty)
                 {
+                    if(!playerBehaviour.GetComponent<GloveManager>().HasGloves())
+                    {
+                        return;
+                    }
+                    playerBehaviour.GetComponent<GloveManager>().RemoveGlove();
+                }
+                else
+                {
                     if (markedForRemoval)
                     {
                         if (GameManager.Instance.flaggedMode) { return; }
@@ -74,18 +82,6 @@ namespace Quarantine
                         playerBehaviour.mostRecentCage.markedForRemoval = true;
 
                     }
-
-
-
-
-                    if(!playerBehaviour.GetComponent<GloveManager>().HasGloves())
-                    {
-                        return;
-                    }
-                    playerBehaviour.GetComponent<GloveManager>().RemoveGlove();
-
-
-
                 }
 
                 playerBehaviour.heldAnimal = myAnimal;

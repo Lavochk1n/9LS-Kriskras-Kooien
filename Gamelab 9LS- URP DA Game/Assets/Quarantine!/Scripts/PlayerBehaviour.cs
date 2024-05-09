@@ -181,6 +181,15 @@ namespace Quarantine
 
             CC.Move(movement * moveSpeed * sprintSpeed * Time.deltaTime);
         }
+
+        private void OnDestroy()
+        {
+            
+                GameManager.Instance.playerBehaviour1 = null;
+           
+                GameManager.Instance.playerBehaviour2 = null;
+            
+        }
     }
 }
 
