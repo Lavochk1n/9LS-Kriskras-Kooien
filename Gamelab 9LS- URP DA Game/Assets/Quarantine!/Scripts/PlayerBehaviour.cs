@@ -21,8 +21,8 @@ namespace Quarantine
         [SerializeField] private GameObject attachPoint;
 
         [Header("Player Distinction")]
-        [SerializeField] private GameObject player1Model;
-        [SerializeField] private GameObject player2Model; 
+        //[SerializeField] private GameObject player1Model;
+        //[SerializeField] private GameObject player2Model; 
         [SerializeField] private GameObject hatPoint; 
 
         private PlayerConfig playerConfig;
@@ -50,15 +50,15 @@ namespace Quarantine
 
             if (pc.PlayerIndex == 0)
             {
-                player1Model.SetActive(true);
-                player2Model.SetActive(false);
+                //player1Model.SetActive(true);
+                //player2Model.SetActive(false);
                 transform.position = GameObject.FindGameObjectWithTag("spawn1").transform.position;
                 GameManager.Instance.playerBehaviour1 = this;
             }
             else
             {
-                player1Model.SetActive(false);
-                player2Model.SetActive(true);
+                //player1Model.SetActive(false);
+                //player2Model.SetActive(true);
                 transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
                 GameManager.Instance.playerBehaviour2 = this;
             }

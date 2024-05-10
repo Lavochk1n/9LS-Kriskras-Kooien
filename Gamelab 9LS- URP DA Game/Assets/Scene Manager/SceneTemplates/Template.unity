@@ -3983,51 +3983,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelve 2x1 (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 8499889665873557280, guid: dcaacb69435381140a6c913bc8efa8df,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8499889665873557280, guid: dcaacb69435381140a6c913bc8efa8df,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8499889665873557280, guid: dcaacb69435381140a6c913bc8efa8df,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7072302
-      objectReference: {fileID: 0}
-    - target: {fileID: 8499889665873557280, guid: dcaacb69435381140a6c913bc8efa8df,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7069834
-      objectReference: {fileID: 0}
-    - target: {fileID: 8499889665873557280, guid: dcaacb69435381140a6c913bc8efa8df,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8499889665873557280, guid: dcaacb69435381140a6c913bc8efa8df,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8499889665873557280, guid: dcaacb69435381140a6c913bc8efa8df,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 8499889665873557280, guid: dcaacb69435381140a6c913bc8efa8df,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8499889665873557280, guid: dcaacb69435381140a6c913bc8efa8df,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4158,6 +4113,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 295737843338623744}
     m_Modifications:
+    - target: {fileID: 1105107310861662713, guid: 90c91b4446818684292b58830722a71c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105107310861662713, guid: 90c91b4446818684292b58830722a71c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105107310861662713, guid: 90c91b4446818684292b58830722a71c,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105107310861662713, guid: 90c91b4446818684292b58830722a71c,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105107310861662713, guid: 90c91b4446818684292b58830722a71c,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105107310861662713, guid: 90c91b4446818684292b58830722a71c,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4898416872083693795, guid: 90c91b4446818684292b58830722a71c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4166,12 +4151,17 @@ PrefabInstance:
     - target: {fileID: 4898416872083693795, guid: 90c91b4446818684292b58830722a71c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4898416872083693795, guid: 90c91b4446818684292b58830722a71c,
         type: 3}
       propertyPath: m_LocalScale.z
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898416872083693795, guid: 90c91b4446818684292b58830722a71c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.23602796
       objectReference: {fileID: 0}
     - target: {fileID: 4898416872083693795, guid: 90c91b4446818684292b58830722a71c,
         type: 3}
