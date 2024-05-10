@@ -2881,8 +2881,18 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 7476915885717203478}
     m_Modifications:
+    - target: {fileID: 114725165874805495, guid: 5a3dd12d6e7632b42a56efa38c04dfb7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.62876993
+      objectReference: {fileID: 0}
+    - target: {fileID: 114725165874805495, guid: 5a3dd12d6e7632b42a56efa38c04dfb7,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.62876993
+      objectReference: {fileID: 0}
     - target: {fileID: 114725165874805495, guid: 5a3dd12d6e7632b42a56efa38c04dfb7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2896,7 +2906,7 @@ PrefabInstance:
     - target: {fileID: 114725165874805495, guid: 5a3dd12d6e7632b42a56efa38c04dfb7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 114725165874805495, guid: 5a3dd12d6e7632b42a56efa38c04dfb7,
         type: 3}
@@ -2911,12 +2921,12 @@ PrefabInstance:
     - target: {fileID: 114725165874805495, guid: 5a3dd12d6e7632b42a56efa38c04dfb7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 114725165874805495, guid: 5a3dd12d6e7632b42a56efa38c04dfb7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 114725165874805495, guid: 5a3dd12d6e7632b42a56efa38c04dfb7,
         type: 3}
@@ -2958,6 +2968,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a3dd12d6e7632b42a56efa38c04dfb7, type: 3}
+--- !u!4 &2531529032869229608 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 114725165874805495, guid: 5a3dd12d6e7632b42a56efa38c04dfb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2531529032869229607}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &2687292491868093308
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4262,6 +4278,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2531529032869229608}
   - {fileID: 8994575680531962711}
   - {fileID: 8020690135783961191}
   - {fileID: 4519763055367095319}
@@ -4486,4 +4503,3 @@ SceneRoots:
   - {fileID: 645883489}
   - {fileID: 1057106628}
   - {fileID: 7476915885717203478}
-  - {fileID: 2531529032869229607}
