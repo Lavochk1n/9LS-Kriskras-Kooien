@@ -38,7 +38,7 @@ namespace Quarantine {
 
         private void Update()
         {
-            spotLight.SetActive(isLookedAt);
+            //spotLight.SetActive(isLookedAt);
             if (lightTimer > 0f)
             {
                 lightTimer -= Time.deltaTime;
