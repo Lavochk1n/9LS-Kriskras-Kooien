@@ -1,48 +1,48 @@
-using UnityEngine;
+//using UnityEngine;
 
-namespace StackThatBulance
-{
-    public class CursorBehaviour : MonoBehaviour
-    {
-        [SerializeField] private Transform grapPoint;
-        [SerializeField] private float movespeed = 10f;
+//namespace StackThatBulance
+//{
+//    public class CursorBehaviour : MonoBehaviour
+//    {
+//        [SerializeField] private Transform grapPoint;
+//        [SerializeField] private float movespeed = 10f;
 
-        public Vector3 moveVector = Vector3.zero;
-        private PlayerBehaviour playerBehaviour;
+//        public Vector3 moveVector = Vector3.zero;
+//        private PlayerBehaviour playerBehaviour;
 
-        public GameObject grabTarget;
-        private Rigidbody rb;
+//        public GameObject grabTarget;
+//        private Rigidbody rb;
 
-        private void Awake()
-        {
-            rb = GetComponent<Rigidbody>();
-            playerBehaviour = GetComponent<PlayerBehaviour>(); 
-        }
+//        private void Awake()
+//        {
+//            rb = GetComponent<Rigidbody>();
+//            playerBehaviour = GetComponent<PlayerBehaviour>(); 
+//        }
 
-        private void FixedUpdate()
-        {
-            rb.velocity = moveVector * movespeed;
+//        private void FixedUpdate()
+//        {
+//            rb.velocity = moveVector * movespeed;
 
-            if (grabTarget != null)
-            {
-                grabTarget.transform.position = grapPoint.transform.position;
-            }
-        }
+//            if (grabTarget != null)
+//            {
+//                grabTarget.transform.position = grapPoint.transform.position;
+//            }
+//        }
 
-        public void GrabTarget(GameObject target)
-        {
-            if (grabTarget == null)
-            {
-                grabTarget = target;
-                grabTarget.GetComponent<Rigidbody>().useGravity = false;
-            }
-            else
-            {
-                grabTarget.GetComponent<Rigidbody>().useGravity = true;
-                grabTarget = null;
-            }
-        }
-    }
-}
+//        public void GrabTarget(GameObject target)
+//        {
+//            if (grabTarget == null)
+//            {
+//                grabTarget = target;
+//                grabTarget.GetComponent<Rigidbody>().useGravity = false;
+//            }
+//            else
+//            {
+//                grabTarget.GetComponent<Rigidbody>().useGravity = true;
+//                grabTarget = null;
+//            }
+//        }
+//    }
+//}
 
 

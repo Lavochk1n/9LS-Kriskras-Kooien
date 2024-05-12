@@ -1,3 +1,4 @@
+using Quarantine;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,10 +37,11 @@ public class ScenesManager : MonoBehaviour
 
     public void RandomGame()
     {
+        ResetPlayer();
         if (getTutorial) 
         {
-            SceneManager.LoadScene("Tutorial0");
-            return; 
+            SceneManager.LoadScene("Tutorial 0");
+            return;  
         }
         SceneManager.LoadScene(miniGames[UnityEngine.Random.Range(0, miniGames.Count)]);
     }
@@ -51,6 +53,7 @@ public class ScenesManager : MonoBehaviour
 
     public void GetGameOver()
     {
+        ResetPlayer();
         SceneManager.LoadScene(1);
     }
 
@@ -61,11 +64,18 @@ public class ScenesManager : MonoBehaviour
 
     public void NextScene()
     {
+        ResetPlayer();
+
+        if (TutorialManager.Instance != null)
+        {
+            if(TutorialManager.Instance.lastTutorial) GetMainMenu();
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ResetScene()
     {
+        ResetPlayer();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -74,6 +84,21 @@ public class ScenesManager : MonoBehaviour
         UnityEngine.Application.Quit();
     }
 
+    private void ResetPlayer()
+    {
+        PlayerBehaviour pb1 = GameManager.Instance.playerBehaviour1;
+        PlayerBehaviour pb2 = GameManager.Instance.playerBehaviour2;
 
+        if (pb1 != null)
+        {
+            Destroy(pb1.gameObject);
+            GameManager.Instance.playerBehaviour1 = null;
+        }
+        if (pb2 != null)
+        {
+            Destroy(pb2.gameObject);
+            GameManager.Instance.playerBehaviour2 = null;
+        }
+    }
 }
 

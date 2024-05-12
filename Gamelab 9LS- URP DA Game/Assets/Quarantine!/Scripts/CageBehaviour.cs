@@ -32,7 +32,10 @@ namespace Quarantine
             }
             else
             {
-                myAnimal.sickProgression = 0f;
+                if (TutorialManager.Instance == null)
+                {
+                    myAnimal.sickProgression = 0f;
+                }
             }
 
             UpdateCage();
@@ -108,7 +111,6 @@ namespace Quarantine
                 {
                     pb.flagAmount++;
                     markedForRemoval = !markedForRemoval;
-
                 }
                 else
                 {
@@ -116,10 +118,7 @@ namespace Quarantine
                     {
                         pb.flagAmount--;
                         markedForRemoval = !markedForRemoval;
-
-
                     }
-
                 }
             }
             else
@@ -127,8 +126,6 @@ namespace Quarantine
                 markedForRemoval = !markedForRemoval;
             }
             myCageVisual.UpdateFlag(markedForRemoval);
-
-
         }
 
         public override string GetDescription()

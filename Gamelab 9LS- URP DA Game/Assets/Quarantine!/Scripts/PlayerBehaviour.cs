@@ -113,7 +113,7 @@ namespace Quarantine
             }
             else if (sprintSpeed < 1f) { sprintSpeed = 1f; }
 
-            ScanInteractable(gameObject, transform.forward, 3);
+            ScanInteractable(gameObject, transform.forward, 1);
         }
 
         public void OnMovementPerformed(InputAction.CallbackContext context)

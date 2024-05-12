@@ -15,9 +15,18 @@ EditorBuildSettings:
     path: Assets/Scene Manager/Menus/Q!_PreGame.unity
     guid: a3d54eafa862e74458fd8b20ce088484
   - enabled: 1
-    path: Assets/Scene Manager/GameRooms/Q!_Game.unity
-    guid: 2457fbd67b0f20c4798e41fb9a9aa72e
+    path: Assets/Scene Manager/GameRooms/GameRoom 0.unity
+    guid: 615e52a17b623904ebd44e8a89749236
   - enabled: 1
-    path: Assets/Scene Manager/Tutorial/Tutorial0.unity
+    path: Assets/Scene Manager/Tutorial/Tutorial 0.unity
     guid: 5083d867f4a46a44d83d2f90ee969594
+  - enabled: 1
+    path: Assets/Scene Manager/Tutorial/Tutorial 1.unity
+    guid: 89494fab4116d434597fea0603ea6688
+  - enabled: 1
+    path: Assets/Scene Manager/Tutorial/Tutorial 2.unity
+    guid: 4932529bc92462e44bee15fa7639d55b
+  - enabled: 1
+    path: Assets/Scene Manager/Tutorial/Tutorial 3.unity
+    guid: c2ff5d000b7932549adbe062891a4dbc
   m_configObjects: {}

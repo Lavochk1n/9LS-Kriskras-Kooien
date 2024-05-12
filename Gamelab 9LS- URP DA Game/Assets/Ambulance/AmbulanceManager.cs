@@ -3,20 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmbulanceBehaviour : Interactable
+public class AmbulanceManager : Interactable
 {
+    public static AmbulanceManager Instance;
 
 
     [Header("Intervals")]
     private bool HasArrived = false;
     [SerializeField] private float
         flaggedInterval = 20f,
-        fillInterval = 40f,
-        parkedTime = 20f;
+        fillInterval = 30f,
+        parkedTime = 8f;
 
     [Header("dOOR")]
     public GameObject door;
 
+    [SerializeField] private int ambulanceCapacity = 4; 
 
     private GameManager GM;
     private QuarentineManager QM;
@@ -24,11 +26,61 @@ public class AmbulanceBehaviour : Interactable
 
     List<Animal> storedAnimals = new List<Animal>();
 
+    private float timeLeft;
+    [SerializeField] private float newGameTime = 40f;
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
         GM = GameManager.Instance;
         QM = QuarentineManager.Instance;
-        GM.AM = this;
+        timeLeft = newGameTime; 
+    }
+
+    
+
+
+
+    public void DecreaseTime()
+    {
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
+        {
+            HandleArrival();
+            //timeLeft = newGameTime;
+
+        }
+    }
+
+    public void AddTime(float amount)
+    {
+
+        timeLeft += amount;
+        if (timeLeft > newGameTime)
+        {
+            timeLeft = newGameTime;
+        }
+    }
+
+    public float GetTotalGameTime()
+    {
+        return newGameTime;
+    }
+
+
+    public float GetTimeLeft()
+    {
+        return timeLeft;
     }
 
     public void HandleArrival()
@@ -36,7 +88,7 @@ public class AmbulanceBehaviour : Interactable
         if (GM.flaggedMode)
         {
             ArrivalFlagged();
-            GM.AddTime(flaggedInterval);
+            AddTime(flaggedInterval);
             
         }
         else
@@ -44,18 +96,20 @@ public class AmbulanceBehaviour : Interactable
             if (!HasArrived)
             {
                 Arrival();
-                GM.AddTime(parkedTime);
+                AddTime(parkedTime);
             }
             else
             {
                 Departure();
-                GM.AddTime(fillInterval);
+                AddTime(fillInterval);
             }
         }
     }
 
     public override void Interact(Interactor interactor)
     {
+
+        if (storedAnimals.Count >= ambulanceCapacity) { }
 
         if (!HasArrived) { return;  }
 
@@ -112,16 +166,13 @@ public class AmbulanceBehaviour : Interactable
             if (animal.state == SickState.healthy)
             {
                 GM.IncreaseScore(50);
-
             }
             else
             {
                 GM.IncreaseScore(5);
-
             }
-
-
         }
+        storedAnimals.Clear();  
 
         foreach (GameObject cage in QuarentineManager.Instance.Cages)
         {
@@ -131,9 +182,23 @@ public class AmbulanceBehaviour : Interactable
             {
                 cb.Interact_Secondairy(null);
 
-
-                cb.ChangeOccupation(QM.GetWeightedRandomAnimal());
+                if (TutorialManager.Instance != null)
+                {
+                    if (Random.Range(0, 1) == 0)
+                    {
+                        cb.ChangeOccupation(AnimalTypes.crow);
+                    }
+                    else
+                    {
+                        cb.ChangeOccupation(AnimalTypes.Bunny);
+                    }
+                }
+                else
+                {
+                    cb.ChangeOccupation(QM.GetWeightedRandomAnimal());
+                }
                 cb.ChangeSickstate(QM.GetWeightedRandomState());
+
 
                 if (cb.myAnimal.state == SickState.sick)
                 {
@@ -147,10 +212,6 @@ public class AmbulanceBehaviour : Interactable
                 cb.UpdateCage();
             }
         }
-
-
-
-
     }
 
     public void ArrivalFlagged()

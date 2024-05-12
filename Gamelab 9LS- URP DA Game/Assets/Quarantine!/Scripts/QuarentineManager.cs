@@ -39,6 +39,8 @@ namespace Quarantine
     {
         public static QuarentineManager Instance { get; private set; }
 
+        //public bool isTutorial = false; 
+
         [Header("cage Set-up")]
         [SerializeField] private GameObject cagesParent;
         public List<GameObject> Cages = new();
@@ -51,14 +53,7 @@ namespace Quarantine
         [Header("Game Rules")]
         public float spreadSpeed = 2.1f;
         [SerializeField][Range(0, 100.0f)] float cageQuota = 80;
-        [SerializeField] private float completionBonus = 30f;
 
-
-
-        [Header("Initialisation")]
-        [SerializeField] private List<GameObject> maps = new();
-        [SerializeField] private bool randomMap = true;
-        [SerializeField] private int mapIndex = 0;
 
         [Header("player Specifics")]
         public bool playerOneSpawned = false;
@@ -80,6 +75,16 @@ namespace Quarantine
             //else { Instantiate(maps[mapIndex]); }
 
             cagesParent = GameObject.FindGameObjectWithTag("Cage Parent");
+
+            if (TutorialManager.Instance != null)
+            {
+                foreach (Transform child in cagesParent.transform)
+                {
+                    Cages.Add(child.gameObject);
+                }
+
+                    return;
+            }
 
             RandomiseCages();
             StartCoroutine(CheckGameProgress()); 
@@ -119,13 +124,22 @@ namespace Quarantine
 
             if (GamePause) { return; }
 
-            GameManager.Instance.DecreaseTime();
+            if (AmbulanceManager.Instance != null)
+            {
+                AmbulanceManager.Instance.DecreaseTime();
+            }
 
             if (GameOver())
             {
+                if (TutorialManager.Instance != null)
+                {
+
+                    ScenesManager.Instance.NextScene();
+                    return;
+                }
+
+
                 GameManager.Instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
-                GameManager.Instance.IncreaseDifficulty();
-                GameManager.Instance.AddTime(completionBonus);
                 ScenesManager.Instance.GetGameOver();
             }
         }
@@ -188,25 +202,34 @@ namespace Quarantine
         public bool GameOver()
         {
 
+            if(delayRunning) return false;
+            if (TutorialManager.Instance != null) 
+            {
+                foreach (GameObject cage in Cages)
+                {
+                    CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
-           
-            if (CountInfected() >= Mathf.RoundToInt(cageQuota * Cages.Count/ 100)) return true;
-
-            //foreach (GameObject cage in Cages)
-            //{
-            //    CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
-
-            //    if (cageBehaviour.AdjDisease() && cageBehaviour.myAnimal.state == SickState.healthy)
-            //    {
-            //        return false;
-            //    }
-            //    if (GameManager.Instance.playerBehaviour1.heldAnimal.type != AnimalTypes.Empty ||
-            //        GameManager.Instance.playerBehaviour2.heldAnimal.type != AnimalTypes.Empty)
-            //    {
-            //        return false;
-            //    }
-            //}
-            return false;
+                    if (cageBehaviour.AdjDisease() && cageBehaviour.myAnimal.state == SickState.healthy)
+                    {
+                        return false;
+                    }
+                    if (cageBehaviour.myAnimal.type == AnimalTypes.Empty )
+                    {
+                        return false;
+                    }
+                    if (GameManager.Instance.playerBehaviour1.heldAnimal.type != AnimalTypes.Empty ||
+                        GameManager.Instance.playerBehaviour2.heldAnimal.type != AnimalTypes.Empty)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                if (CountInfected() >= Mathf.RoundToInt(cageQuota * Cages.Count / 100)) return true;
+                return false;
+            }
         }
 
         public bool PlayerSpawned()

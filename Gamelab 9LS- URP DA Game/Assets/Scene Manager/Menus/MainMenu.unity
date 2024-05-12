@@ -1120,21 +1120,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: sceneManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
-        type: 3}
-      propertyPath: miniGames.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
-        type: 3}
-      propertyPath: miniGames.Array.data[0]
-      value: Q!_Game
-      objectReference: {fileID: 0}
-    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
-        type: 3}
-      propertyPath: miniGames.Array.data[1]
-      value: Q!_PreGame
-      objectReference: {fileID: 0}
     - target: {fileID: 8372754092079060623, guid: fd514d266a59b9a47981ffb03721aa80,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1560,7 +1545,7 @@ PrefabInstance:
     - target: {fileID: 1161320296525089214, guid: f72ff08e21d9c154cae3c4b4d0b4708d,
         type: 3}
       propertyPath: newGameTime
-      value: 10
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1228155458449421174, guid: f72ff08e21d9c154cae3c4b4d0b4708d,
         type: 3}

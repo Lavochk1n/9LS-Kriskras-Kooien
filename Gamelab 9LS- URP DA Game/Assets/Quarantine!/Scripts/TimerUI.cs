@@ -12,19 +12,17 @@ public class TimerUI : MonoBehaviour
     private Image timer;
     [SerializeField] private Gradient timercolour;
 
-    // Start is called before the first frame update
     void Start()
     {
-        TotalTime = GameManager.Instance.GetTotalGameTime();
+        TotalTime = AmbulanceManager.Instance.GetTotalGameTime();
         timer = GetComponent<Image>();  
     }
 
 
-    // Update is called once per frame
     void Update()
     {
-        TotalTime = GameManager.Instance.GetTotalGameTime();
-        TimeLeft = TotalTime - GameManager.Instance.GetTimeLeft();
+        TotalTime = AmbulanceManager.Instance.GetTotalGameTime();
+        TimeLeft = TotalTime - AmbulanceManager.Instance.GetTimeLeft();
 
         timer.fillAmount = 1f - (TimeLeft / TotalTime);
         timer.color = timercolour.Evaluate((1f - TimeLeft / TotalTime));

@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniGames:
-  - Q!_Game
+  - GameRoom 0
