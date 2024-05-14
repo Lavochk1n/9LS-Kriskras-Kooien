@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene Management/Tutorial/Tutorial 3.unity
     guid: c2ff5d000b7932549adbe062891a4dbc
+  - enabled: 1
+    path: Assets/Testing/Testing.unity
+    guid: 1849f76299c70304e96c910379d5d95e
   m_configObjects: {}

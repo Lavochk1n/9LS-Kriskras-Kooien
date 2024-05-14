@@ -2016,6 +2016,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
         type: 3}
+      propertyPath: maxPlayers
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
       propertyPath: EmptyPanels.Array.size
       value: 2
       objectReference: {fileID: 0}
