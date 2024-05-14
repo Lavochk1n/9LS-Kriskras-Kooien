@@ -130,12 +130,12 @@ namespace Quarantine {
             if (progression >= animal.sickProgression / 100f)
             {
                 panel.sprite = visuals.iconTypeHealthy;
-                //progressBar.color = barHealthyColor;
+                progressBar.color = barHealthyColor;
             }
             else
             {
                 panel.sprite = visuals.iconTypeSickening;
-                //progressBar.color = barSickColor;
+                progressBar.color = barSickColor;
             }
 
             progressBar.fillAmount = animal.sickProgression / 100f;
