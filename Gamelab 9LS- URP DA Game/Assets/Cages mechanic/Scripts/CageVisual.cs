@@ -15,18 +15,14 @@ namespace Quarantine {
 
         [SerializeField] private Image panel, progressBar, background;
 
+        [SerializeField] private Sprite backgroundSick, backgroundHealthy; 
 
-        [SerializeField] private Gradient progressColour, backgroundColour;
+        [SerializeField] private Color barSickColor, barHealthyColor;
 
-
-
-        [Header("Light Up")]
-        [SerializeField] private GameObject spotLight;
+        [Header("being looked at")]
         private bool isLookedAt = false;
         private float lightTimer = 0f;
         [SerializeField] private float resetTime = 0.1f;
-
-
 
         private float progression; 
 
@@ -35,14 +31,12 @@ namespace Quarantine {
             progression = progressBar.fillAmount;
         }
 
-
         private void Update()
         {
             //spotLight.SetActive(isLookedAt);
             if (lightTimer > 0f)
             {
                 lightTimer -= Time.deltaTime;
-
             }
             else
             {
@@ -55,22 +49,41 @@ namespace Quarantine {
             flag.SetActive(state);
         }
 
-
         public void UpdateModel(Animal animal)
         {
             if (attachPoint.transform.childCount > 0)
             {
-
-
                 foreach (Transform child in attachPoint.transform)
                 {
                     Destroy(child.gameObject);
-
                 }
             }
-
             Instantiate(VisualManager.instance.GetAnimalVisuals(animal.type).model, attachPoint.transform);
         }
+
+
+
+
+        //public void UpdateIconm(Animal animal)
+        //{
+        //    AnimalVisuals visuals = VisualManager.instance.GetAnimalVisuals(animal.type);
+
+
+        //    if(animal.state  == SickState.sick)
+        //    {
+        //        background.sprite = backgroundSick;
+
+        //        panel.sprite = visuals.iconTypeSick;
+        //    }
+        //    else
+        //    {
+        //        if (progression > animal.sickProgression / 100f)
+        //        {
+        //            panel.sprite 
+        //        }
+        //    }
+        //}
+
 
         public void UpdateIcon(Animal animal)
         {
@@ -78,45 +91,56 @@ namespace Quarantine {
 
             if (animal.state == SickState.sick)
             {
+                background.sprite = backgroundSick;
                 panel.sprite = visuals.iconTypeSick;
             }
             else
             {
+                background.sprite = backgroundHealthy;
                 panel.sprite = visuals.iconTypeHealthy;
+                //progressBar.fillAmount = animal.sickProgression / 100f;
             }
 
-            if (animal.type == AnimalTypes.Empty)
-            {
-                progressBar.color = Color.white;
-                background.color = Color.white;
-            }
         }
 
         public void UpdateProgressbar(Animal animal)
         {
+            AnimalVisuals visuals = VisualManager.instance.GetAnimalVisuals(animal.type);
+
             if (animal.type == AnimalTypes.Empty)
             {
-                progressBar.fillAmount = 0;
-                background.color = backgroundColour.Evaluate(0f);
+                if (progressBar.IsActive()) progressBar.gameObject.SetActive(false);
+
+                background.sprite = backgroundHealthy;
                 return; 
+            }
+
+            if (animal.state == SickState.sick) 
+            {
+                if (progressBar.IsActive()) progressBar.gameObject.SetActive(false);
+                //progressBar.fillAmount = animal.sickProgression / 0f;
+                return;
+            }
+
+            if (!progressBar.IsActive())
+            {
+                progressBar.gameObject.SetActive(true);
+            }
+
+            if (progression >= animal.sickProgression / 100f)
+            {
+                panel.sprite = visuals.iconTypeHealthy;
+                //progressBar.color = barHealthyColor;
+            }
+            else
+            {
+                panel.sprite = visuals.iconTypeSickening;
+                //progressBar.color = barSickColor;
             }
 
             progressBar.fillAmount = animal.sickProgression / 100f;
 
-
-            if (progression > animal.sickProgression / 100f)
-            {
-                progressBar.color = progressColour.Evaluate(0f);
-                background.color = backgroundColour.Evaluate(0f);
-            }
-            else
-            {
-                progressBar.color = progressColour.Evaluate(animal.sickProgression / 100f); 
-                background.color =  backgroundColour.Evaluate(animal.sickProgression / 100f);
-            }
-            
         }
-
 
         public void IsLookedAt()
         {
@@ -124,11 +148,9 @@ namespace Quarantine {
             lightTimer = resetTime;
         }
 
-
         private void LateUpdate()
         {
-                progression = progressBar.fillAmount;
+            progression = progressBar.fillAmount;
         }
     }
-
 }

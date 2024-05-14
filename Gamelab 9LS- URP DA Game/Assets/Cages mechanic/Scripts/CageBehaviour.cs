@@ -56,6 +56,7 @@ namespace Quarantine
             {
                 yield return new WaitForSeconds(.1f);
                 myCageVisual.UpdateProgressbar(myAnimal);
+                //myCageVisual.UpdateIcon(myAnimal);
             }
         }
 
@@ -168,35 +169,33 @@ namespace Quarantine
         public void UpdateCage()
         {
             myCageVisual.UpdateIcon(myAnimal);
-            myCageVisual.UpdateModel(myAnimal);
-            myCageVisual.UpdateProgressbar(myAnimal);
+            //myCageVisual.UpdateModel(myAnimal);
+            //myCageVisual.UpdateProgressbar(myAnimal);
         }
 
 
         private void CheckSpread()
         {
+            if (myAnimal.state == SickState.sick) return;
+
             if (AdjDisease())
             {
-
                 if (myAnimal.sickProgression >= 100)
                 {
                     myAnimal.state = SickState.sick;
                     myAnimal.sickProgression = 100;
-                    UpdateCage();
                 }
                 else 
-                { 
+                {
                     myAnimal.sickProgression += spreadSpeed * Time.deltaTime; 
                 }
-
-            }
-            else if(myAnimal.sickProgression > 0 && myAnimal.state != SickState.sick)
+            } 
+            else if(myAnimal.sickProgression > 0)
             {
                 myAnimal.sickProgression -= spreadSpeed * Time.deltaTime;
 
                 if (myAnimal.sickProgression < 0) myAnimal.sickProgression = 0; 
             }
-
         }
 
         public bool AdjDisease()

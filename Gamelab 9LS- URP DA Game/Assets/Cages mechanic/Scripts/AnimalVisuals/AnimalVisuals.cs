@@ -9,6 +9,7 @@ public class AnimalVisuals : ScriptableObject
     public AnimalTypes type; 
     public GameObject model;
     public Sprite iconTypeSick;
+    public Sprite iconTypeSickening;
     public Sprite iconTypeHealthy;
 
 }
