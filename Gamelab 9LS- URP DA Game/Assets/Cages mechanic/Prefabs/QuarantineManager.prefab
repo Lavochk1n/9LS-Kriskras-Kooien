@@ -52,14 +52,9 @@ MonoBehaviour:
   healthyWeight: 7
   spreadSpeed: 2.1
   cageQuota: 15
-  completionBonus: 30
-  maps:
-  - {fileID: 956357379441123067, guid: 4657c7243e23ac1459f7441663ce6c19, type: 3}
-  - {fileID: 956357379441123067, guid: a2e0dcdfaff5bb742ba87f6266cb8314, type: 3}
-  - {fileID: 956357379441123067, guid: 7cccd22cc43985f4eb06bc57c05843a9, type: 3}
-  - {fileID: 956357379441123067, guid: 1341a11a6dd2e8a4b929d595f49aa87b, type: 3}
-  randomMap: 1
-  mapIndex: 0
   playerOneSpawned: 0
   playerPrefab: {fileID: 0}
   pauseTimeDelay: 4
+  floatText: {fileID: 8796936603251092784, guid: e49a70dba021a494b9dade967d94f06f,
+    type: 3}
+  floatOffset: 2

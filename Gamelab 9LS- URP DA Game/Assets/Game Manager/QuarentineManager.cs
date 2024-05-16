@@ -61,7 +61,16 @@ namespace Quarantine
 
         [Header("GamePause")]
         private bool GamePause, delayRunning;
-        [SerializeField] float pauseTimeDelay = 8f; 
+        [SerializeField] float pauseTimeDelay = 8f;
+
+
+        [Header("EndOfGameSequence")]
+        private bool EndOfGameComplete = false, EndOfGameSequence = false;
+        [SerializeField] private GameObject floatText;
+        [SerializeField] private float floatOffset = 2f; 
+
+
+
 
 
         private void Awake()
@@ -131,16 +140,19 @@ namespace Quarantine
 
             if (GameOver())
             {
+                if(!EndOfGameSequence)StartCoroutine(EndOfGame());
+
                 if (TutorialManager.Instance != null)
                 {
 
-                    ScenesManager.Instance.NextScene();
+                    if (EndOfGameComplete)  ScenesManager.Instance.NextScene();
                     return;
                 }
 
 
-                GameManager.Instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
-                ScenesManager.Instance.GetGameOver();
+                //GameManager.Instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
+
+                if (EndOfGameComplete) ScenesManager.Instance.GetGameOver();
             }
         }
 
@@ -281,12 +293,42 @@ namespace Quarantine
             if (GameManager.Instance.playerBehaviour1.heldAnimal.state == SickState.sick) count++;
             if (GameManager.Instance.playerBehaviour2.heldAnimal.state == SickState.sick) count++;
 
-            
-
             return count;
         }
 
+        private IEnumerator EndOfGame()
+        {
+            EndOfGameSequence = true; 
 
+            float estMin = Cages.Count - cageQuota;
+            float estMax = Cages.Count;
+            yield return new WaitForSeconds(0.1f);
+
+            foreach (GameObject cage in Cages)
+            {
+                CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
+
+                float performance = 0;
+
+                performance = 100f - cageBehaviour.myAnimal.sickProgression;
+
+                int AddedScore = Mathf.RoundToInt(performance);
+
+                Vector3 textPos = cage.transform.position;
+                textPos.y = cage.transform.position.y + floatOffset;
+
+
+                GameObject floatTextInstance = Instantiate(floatText, textPos, cage.transform.rotation, cage.transform);
+                floatTextInstance.GetComponent<FloatText>().SetScore(AddedScore);
+                GameManager.Instance.IncreaseScore(AddedScore);
+                yield return new WaitForSeconds(0.3f);
+
+                
+            }
+            EndOfGameComplete = true;
+
+
+        }
 
 
         ///////////////// RANDOMISATION////////////////////////////

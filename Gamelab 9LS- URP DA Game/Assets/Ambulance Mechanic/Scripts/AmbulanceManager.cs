@@ -24,6 +24,8 @@ public class AmbulanceManager : Interactable
     private QuarentineManager QM;
 
 
+
+    [SerializeField] private GameObject floatText; 
     List<Animal> storedAnimals = new List<Animal>();
 
     private float timeLeft;
@@ -48,9 +50,6 @@ public class AmbulanceManager : Interactable
     }
 
     
-
-
-
     public void DecreaseTime()
     {
         timeLeft -= Time.deltaTime;
@@ -121,7 +120,13 @@ public class AmbulanceManager : Interactable
         }
         pb.mostRecentCage.markedForRemoval = true;
 
-        storedAnimals.Add(pb.heldAnimal); 
+        storedAnimals.Add(pb.heldAnimal);
+        float performance = 100f - pb.heldAnimal.sickProgression;
+        int AddedScore = Mathf.RoundToInt(performance);
+
+        ShowScoreFloat(AddedScore);
+
+
 
         pb.heldAnimal = new Animal()
         {
@@ -161,18 +166,21 @@ public class AmbulanceManager : Interactable
         Debug.Log("departed");
 
 
-        foreach (Animal animal in  storedAnimals)
-        {
-            if (animal.state == SickState.healthy)
-            {
-                GM.IncreaseScore(50);
-            }
-            else
-            {
-                GM.IncreaseScore(5);
-            }
-        }
-        storedAnimals.Clear();  
+        //foreach (Animal animal in  storedAnimals)
+        //{
+        //    if (animal.state == SickState.healthy)
+        //    {
+        //        GM.IncreaseScore(50);
+        //    }
+        //    else
+        //    {
+        //        GM.IncreaseScore(5);
+        //    }
+        //}
+        storedAnimals.Clear();
+
+
+        //StartCoroutine(CalculateStoreed());
 
         foreach (GameObject cage in QuarentineManager.Instance.Cages)
         {
@@ -212,6 +220,49 @@ public class AmbulanceManager : Interactable
                 cb.UpdateCage();
             }
         }
+    }
+
+
+    private void ShowScoreFloat(int score)
+    {
+        Vector3 textPos = transform.position;
+        textPos.z = transform.position.z -3 ;
+
+        GameObject floatTextInstance = Instantiate(floatText, textPos, transform.rotation, transform);
+        floatTextInstance.GetComponent<FloatText>().SetScore(score);
+        GameManager.Instance.IncreaseScore(score);
+    }
+
+    private IEnumerator CalculateStoreed()
+    {
+
+        
+        yield return new WaitForSeconds(0.1f);
+
+        foreach (Animal animal in storedAnimals)
+        {
+
+
+            float performance = 100f - animal.sickProgression;
+
+            int AddedScore = Mathf.RoundToInt(performance);
+
+            Vector3 textPos = transform.position;
+            textPos.y = transform.position.y + 2;
+            textPos.x = transform.position.x + storedAnimals.Count;
+            textPos.z = transform.position.z - 1; 
+
+
+            GameObject floatTextInstance = Instantiate(floatText, textPos, transform.rotation, transform);
+            floatTextInstance.GetComponent<FloatText>().SetScore(AddedScore);
+            GameManager.Instance.IncreaseScore(AddedScore);
+            yield return new WaitForSeconds(0.3f);
+
+
+        }
+
+        storedAnimals.Clear();
+
     }
 
     public void ArrivalFlagged()
