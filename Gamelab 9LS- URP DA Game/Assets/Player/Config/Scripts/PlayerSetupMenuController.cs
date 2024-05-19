@@ -30,9 +30,12 @@ public class PlayerSetupMenuController : MonoBehaviour
 
     public RawImage rawImage;
 
+    private PlayerConfigManager pcm; 
+
     private void Awake()
     {
         controls = new StandardPlayerInput();
+        pcm = PlayerConfigManager.Instance;
 
     }
 
@@ -47,7 +50,10 @@ public class PlayerSetupMenuController : MonoBehaviour
 
     }
 
-
+    private void Start()
+    {
+        DisplayHat();
+    }
     private void OnDisable()
     {
         Input.onActionTriggered -= OnMove;
@@ -88,19 +94,22 @@ public class PlayerSetupMenuController : MonoBehaviour
         {
             if (horizontalInput > 0)
             {
-                currentHat += 1;
-                if (currentHat >= PlayerConfigManager.Instance.GetHatsConfigs().Count)
-                {
-                    currentHat = 0;
-                }
+                currentHat = pcm.CycleHat(PlayerIndex, 1); 
+                //currentHat += 1;
+                //if (currentHat >= PlayerConfigManager.Instance.GetHatsConfigs().Count)
+                //{
+                //    currentHat = 0;
+                //}
             }
             else
             {
-                currentHat -= 1;
-                if (currentHat < 0)
-                {
-                    currentHat = PlayerConfigManager.Instance.GetHatsConfigs().Count -1;
-                }
+                currentHat = pcm.CycleHat(PlayerIndex, -1);
+
+                //currentHat -= 1;
+                //if (currentHat < 0)
+                //{
+                //    currentHat = PlayerConfigManager.Instance.GetHatsConfigs().Count -1;
+                //}
             }
             timer = Time.time + ignoreCycleTime;
             cycleEnabled = false; 
