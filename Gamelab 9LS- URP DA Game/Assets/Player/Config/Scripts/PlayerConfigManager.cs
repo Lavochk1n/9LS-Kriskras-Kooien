@@ -17,6 +17,9 @@ public class PlayerConfigManager : MonoBehaviour
     [SerializeField] private int maxPlayers = 2;
 
 
+    private int player0Hat = -2;
+    private int player1Hat = -2;
+
     public List<PlayerConfig> GetPlayerConfigs()
     {
         return playerConfigs;
@@ -42,6 +45,64 @@ public class PlayerConfigManager : MonoBehaviour
         playerConfigs = new List<PlayerConfig>();
 
     }
+
+
+    
+
+    public int CycleHat(int playerIndex, int indexChange)
+    {
+        int hat;
+        int othersHat;
+
+        if (playerIndex == 0)
+        {
+            hat = player0Hat;
+            othersHat = player1Hat;
+        }
+        else
+        {
+            hat = player1Hat;
+            othersHat = player0Hat;
+        }
+
+        hat += indexChange;
+
+        int hatCount = hatPrefabs.Count;
+        if (hatCount <= 1) return hat;  
+
+        while (true)
+        {
+            if (hat >= hatCount)
+            {
+                hat = 0;
+            }
+            else if (hat < 0)
+            {
+                hat = hatCount - 1;
+            }
+
+            if (hat == othersHat)
+            {
+                hat += indexChange > 0 ? 1 : -1;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        if (playerIndex == 0)
+        {
+            player0Hat = hat;
+        }
+        else
+        {
+            player1Hat = hat;
+        }
+
+        return hat;
+    }
+
 
     public void SetPlayerHat(int playerIndex,int hatIndex)
     {
