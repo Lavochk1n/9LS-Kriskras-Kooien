@@ -179,6 +179,7 @@ public class AmbulanceManager : Interactable
         //}
         storedAnimals.Clear();
 
+        QM.AddAmbulanceDepartCounter(); 
 
         //StartCoroutine(CalculateStoreed());
 

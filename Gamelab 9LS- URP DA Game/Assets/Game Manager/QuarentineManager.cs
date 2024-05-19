@@ -53,7 +53,8 @@ namespace Quarantine
         [Header("Game Rules")]
         public float spreadSpeed = 2.1f;
         [SerializeField][Range(0, 100.0f)] float cageQuota = 80;
-
+        private int currentDepartures = 0;
+        private int totalDepartures;
 
         [Header("player Specifics")]
         public bool playerOneSpawned = false;
@@ -67,10 +68,10 @@ namespace Quarantine
         [Header("EndOfGameSequence")]
         private bool EndOfGameComplete = false, EndOfGameSequence = false;
         [SerializeField] private GameObject floatText;
-        [SerializeField] private float floatOffset = 2f; 
+        [SerializeField] private float floatOffset = 2f;
 
 
-
+        
 
 
         private void Awake()
@@ -84,6 +85,9 @@ namespace Quarantine
             //else { Instantiate(maps[mapIndex]); }
 
             cagesParent = GameObject.FindGameObjectWithTag("Cage Parent");
+
+            totalDepartures = GameManager.Instance.GetTotalDepartures();
+
 
             if (TutorialManager.Instance != null)
             {
@@ -136,6 +140,8 @@ namespace Quarantine
             if (AmbulanceManager.Instance != null)
             {
                 AmbulanceManager.Instance.DecreaseTime();
+
+
             }
 
             if (GameOver())
@@ -213,10 +219,12 @@ namespace Quarantine
         /// <returns>true if one of the game-over conditions are met</returns>
         public bool GameOver()
         {
+            if (currentDepartures >= totalDepartures) return true;
 
-            if(delayRunning) return false;
+            if (delayRunning) return false;
             if (TutorialManager.Instance != null) 
             {
+
                 foreach (GameObject cage in Cages)
                 {
                     CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
@@ -388,7 +396,11 @@ namespace Quarantine
 
         //////////////////////// AMBUALNCE
         
-        
+        public void AddAmbulanceDepartCounter()
+        {
+            currentDepartures++;
+
+        }
 
 
 

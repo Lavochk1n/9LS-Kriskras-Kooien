@@ -44,4 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1342e0d0a19af44b930d4d424613608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGameTime: 210
+  newGameDifficulty: 100
+  difficultyIncrease: 1.1
+  ambulanceDepartures: 6
+  playerBehaviour1: {fileID: 0}
+  playerBehaviour2: {fileID: 0}
+  flaggedMode: 0
