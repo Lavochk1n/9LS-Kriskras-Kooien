@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1001,6 +1001,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: sceneManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: miniGames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: miniGames.Array.data[0]
+      value: GameRoom 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: miniGames.Array.data[1]
+      value: GameRoom 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: miniGames.Array.data[2]
+      value: GameRoom 1
       objectReference: {fileID: 0}
     - target: {fileID: 8372754092079060623, guid: fd514d266a59b9a47981ffb03721aa80,
         type: 3}
