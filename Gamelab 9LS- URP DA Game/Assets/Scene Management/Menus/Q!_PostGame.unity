@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae294c95409b404e9c8a31b4249a448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 2769950996919173065}
+  textBox: {fileID: 1476279642}
 --- !u!4 &56583298
 Transform:
   m_ObjectHideFlags: 0
@@ -390,10 +390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0481c289d277bda46a45d5997958b488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropdownVariant: {fileID: 1658656655}
-  inputVariant: {fileID: 1033054198}
-  dropdown1: {fileID: 609782077489914800}
-  dropdown2: {fileID: 1750360057}
 --- !u!4 &208321146
 Transform:
   m_ObjectHideFlags: 0
@@ -578,7 +574,7 @@ GameObject:
   - component: {fileID: 429393747}
   - component: {fileID: 429393746}
   m_Layer: 5
-  m_Name: TeamNameField (2)
+  m_Name: Player2Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -752,16 +748,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: sceneManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
-        type: 3}
-      propertyPath: scenes.Array.data[1]
-      value: Q!_PreGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
-        type: 3}
-      propertyPath: miniGames.Array.data[0]
-      value: Q!_Game
       objectReference: {fileID: 0}
     - target: {fileID: 8372754092079060623, guid: fd514d266a59b9a47981ffb03721aa80,
         type: 3}
@@ -1530,7 +1516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1033054199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,7 +1756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1126545784
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1837,7 +1823,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 448278162}
         m_TargetAssemblyTypeName: ScenesManager, Assembly-CSharp
-        m_MethodName: RandomGame
+        m_MethodName: GetMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2334,7 +2320,7 @@ GameObject:
   - component: {fileID: 1476279643}
   - component: {fileID: 1476279642}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2657,7 +2643,7 @@ GameObject:
   - component: {fileID: 1605645984}
   - component: {fileID: 1605645983}
   m_Layer: 5
-  m_Name: TeamNameField (1)
+  m_Name: Player1Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2993,7 +2979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1658656656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3635,18 +3621,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ce41b8d0eaa02b45b452039b5462221, type: 3}
---- !u!114 &1750360057 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3124755017210361922, guid: 2ce41b8d0eaa02b45b452039b5462221,
-    type: 3}
-  m_PrefabInstance: {fileID: 1750360056}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1784900409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3704,7 +3678,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Volgende
+  m_text: Hoofdmenu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4027,18 +4001,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ce41b8d0eaa02b45b452039b5462221, type: 3}
---- !u!114 &609782077489914800 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3124755017210361922, guid: 2ce41b8d0eaa02b45b452039b5462221,
-    type: 3}
-  m_PrefabInstance: {fileID: 609782077489914799}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2769950996919173065
 MonoBehaviour:
   m_ObjectHideFlags: 0

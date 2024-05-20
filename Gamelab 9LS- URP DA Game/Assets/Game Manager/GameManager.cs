@@ -18,6 +18,12 @@ public class GameManager : MonoBehaviour
 
     public PlayerBehaviour playerBehaviour1, playerBehaviour2;
 
+    [Header ("SceneInitialization")]
+    private bool levelIsTutorial = false;
+
+    public bool randomGame = false;
+    public int gameRoom;
+
     //public AmbulanceBehaviour AM;
 
     public bool flaggedMode= true; 
@@ -33,6 +39,18 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    ////////////////////////////////// scene testing ////////////////////////////
+
+    public void SetTutorial(bool state)
+    {
+        levelIsTutorial=state;
+    }
+
+    public bool IsTutorial()
+    {
+        return levelIsTutorial;
     }
 
     ////////////////////////////////// SCORE ////////////////////////////

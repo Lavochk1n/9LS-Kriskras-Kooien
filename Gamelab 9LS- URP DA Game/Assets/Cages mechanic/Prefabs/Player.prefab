@@ -163,8 +163,8 @@ MonoBehaviour:
     type: 3}
   offset: -1
   interactionProgress: {fileID: 0}
-  moveSpeed: 2.5
-  sprintBonus: 3
+  moveSpeed: 3.5
+  sprintBonus: 2
   smoothtime: 0.1
   currentVeloctiy: 0
   attachPoint: {fileID: 7494504169655174064}

@@ -12,16 +12,16 @@ public class ScenesManager : MonoBehaviour
 
     public List<string> miniGames = new List<string>();
 
-    private bool getTutorial = false; 
-
-
+    private GameManager GM; 
+    
     private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(this); }
         else { 
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
+        GM = GameManager.Instance;
     }
 
     public void GetScene(int sceneIndex)
@@ -31,23 +31,33 @@ public class ScenesManager : MonoBehaviour
 
     public void GetTutorial()
     {
-        getTutorial = true;
+        GM.SetTutorial(true);
         GetPreGame();
     }
 
     public void RandomGame()
     {
         ResetPlayer();
-        if (getTutorial) 
+
+
+        if (GM.IsTutorial()) 
         {
             SceneManager.LoadScene("Tutorial 0");
+            GM.SetTutorial(false);
+
             return;  
+        }
+        if (!GM.randomGame)
+        {
+            SceneManager.LoadScene(GM.gameRoom);
+
         }
         SceneManager.LoadScene(miniGames[UnityEngine.Random.Range(0, miniGames.Count)]);
     }
 
     public void GetMainMenu()
     {
+
         SceneManager.LoadScene(0);
     }
 

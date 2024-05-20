@@ -184,6 +184,7 @@ namespace Quarantine
                 {
                     myAnimal.state = SickState.sick;
                     myAnimal.sickProgression = 100;
+                    UpdateCage();
                 }
                 else 
                 {

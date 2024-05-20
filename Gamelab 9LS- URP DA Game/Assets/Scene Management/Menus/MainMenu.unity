@@ -1004,6 +1004,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
         type: 3}
+      propertyPath: gameRoom
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: randomGame
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
       propertyPath: miniGames.Array.data[0]
       value: GameRoom 0
       objectReference: {fileID: 0}
@@ -1222,7 +1232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 512164003}
+  m_FirstSelected: {fileID: 1559997904}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1115069520
@@ -1424,6 +1434,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1161320296525089214, guid: f72ff08e21d9c154cae3c4b4d0b4708d,
+        type: 3}
+      propertyPath: ambulanceDepartures
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1228155458449421174, guid: f72ff08e21d9c154cae3c4b4d0b4708d,
         type: 3}
       propertyPath: m_Name
