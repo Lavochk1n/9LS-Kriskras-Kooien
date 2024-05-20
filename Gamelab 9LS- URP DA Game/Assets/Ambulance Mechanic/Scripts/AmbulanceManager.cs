@@ -1,6 +1,7 @@
 using Quarantine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AmbulanceManager : Interactable
@@ -15,21 +16,23 @@ public class AmbulanceManager : Interactable
         fillInterval = 30f,
         parkedTime = 8f;
 
-    [Header("dOOR")]
-    public GameObject door;
+
 
     [SerializeField] private int ambulanceCapacity = 4; 
 
     private GameManager GM;
     private QuarentineManager QM;
 
-
+    [SerializeField] private Animator animator; 
 
     [SerializeField] private GameObject floatText; 
     List<Animal> storedAnimals = new List<Animal>();
 
     private float timeLeft;
     [SerializeField] private float newGameTime = 40f;
+
+
+    [SerializeField] private Renderer greenLight, redLight; 
     private void Awake()
     {
         if(Instance == null)
@@ -46,12 +49,15 @@ public class AmbulanceManager : Interactable
     {
         GM = GameManager.Instance;
         QM = QuarentineManager.Instance;
-        timeLeft = newGameTime; 
+        timeLeft = newGameTime;
+        redLight.material.EnableKeyword("_EMISSION");
+        greenLight.material.DisableKeyword("_EMISSION");
     }
 
     
     public void DecreaseTime()
     {
+        if(QM.GameOver()) { return; }
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
         {
@@ -152,8 +158,11 @@ public class AmbulanceManager : Interactable
 
     private void Arrival()
     {
+        greenLight.material.EnableKeyword("_EMISSION");
+        redLight.material.DisableKeyword("_EMISSION");
 
-        door.GetComponent<Animator>().SetBool("isClosed", false);
+
+        animator.GetComponent<Animator>().SetBool("isClosed", false);
         HasArrived = true;
         Debug.Log("arrived");
         //handle arrival
@@ -161,27 +170,18 @@ public class AmbulanceManager : Interactable
 
     private void Departure()
     {
-        door.GetComponent<Animator>().SetBool("isClosed", true);
+        redLight.material.EnableKeyword("_EMISSION");
+        greenLight.material.DisableKeyword("_EMISSION");
+
+        animator.GetComponent<Animator>().SetBool("isClosed", true);
         HasArrived = false ;
         Debug.Log("departed");
 
 
-        //foreach (Animal animal in  storedAnimals)
-        //{
-        //    if (animal.state == SickState.healthy)
-        //    {
-        //        GM.IncreaseScore(50);
-        //    }
-        //    else
-        //    {
-        //        GM.IncreaseScore(5);
-        //    }
-        //}
         storedAnimals.Clear();
 
         QM.AddAmbulanceDepartCounter(); 
 
-        //StartCoroutine(CalculateStoreed());
 
         foreach (GameObject cage in QuarentineManager.Instance.Cages)
         {
