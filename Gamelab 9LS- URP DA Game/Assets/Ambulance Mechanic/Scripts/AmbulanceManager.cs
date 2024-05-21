@@ -1,6 +1,7 @@
 using Quarantine;
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class AmbulanceManager : Interactable
     private bool HasArrived = false;
     [SerializeField] private float
         flaggedInterval = 20f,
-        fillInterval = 30f,
+        awayTime = 30f,
         parkedTime = 8f;
 
 
@@ -32,7 +33,14 @@ public class AmbulanceManager : Interactable
     [SerializeField] private float newGameTime = 40f;
 
 
-    [SerializeField] private Renderer greenLight, redLight; 
+    [SerializeField] private Renderer greenLight, redLight;
+
+    [SerializeField] private float flickerThreshold= 5f;
+    private bool isFlickering = false;
+    private float timerTotal;
+    private float flickingInterval = 0.5f;
+
+
     private void Awake()
     {
         if(Instance == null)
@@ -52,6 +60,7 @@ public class AmbulanceManager : Interactable
         timeLeft = newGameTime;
         redLight.material.EnableKeyword("_EMISSION");
         greenLight.material.DisableKeyword("_EMISSION");
+        timerTotal = timeLeft;
     }
 
     
@@ -59,9 +68,26 @@ public class AmbulanceManager : Interactable
     {
         if(QM.GameOver()) { return; }
         timeLeft -= Time.deltaTime;
+        if (!isFlickering)
+        {
+            if (timeLeft < timerTotal / 2)
+            {
+                if (HasArrived)
+                {
+                    StartCoroutine(FlickerLight(redLight));
+                }
+                else
+                {
+                    StartCoroutine(FlickerLight(greenLight));
+                }
+            }
+        }
+        
         if (timeLeft < 0)
         {
+            StopAllCoroutines();
             HandleArrival();
+            isFlickering = false;
             //timeLeft = newGameTime;
 
         }
@@ -69,12 +95,13 @@ public class AmbulanceManager : Interactable
 
     public void AddTime(float amount)
     {
-
+         
         timeLeft += amount;
         if (timeLeft > newGameTime)
         {
             timeLeft = newGameTime;
         }
+        timerTotal = timeLeft; 
     }
 
     public float GetTotalGameTime()
@@ -106,7 +133,7 @@ public class AmbulanceManager : Interactable
             else
             {
                 Departure();
-                AddTime(fillInterval);
+                AddTime(awayTime);
             }
         }
     }
@@ -304,6 +331,33 @@ public class AmbulanceManager : Interactable
                 GM.playerBehaviour2.flagAmount = GM.playerBehaviour2.maxFlags;
 
             }
+        }
+    }
+
+    private IEnumerator FlickerLight(Renderer light)
+    {
+        isFlickering = true; 
+
+        while (true)
+        {
+            light.material.EnableKeyword("_EMISSION");
+
+            if (timeLeft < timerTotal / 4)
+            {
+                yield return new WaitForSeconds(flickingInterval/2);
+
+            }
+            else yield return new WaitForSeconds(flickingInterval);
+
+
+            light.material.DisableKeyword("_EMISSION");
+
+            if (timeLeft < timerTotal / 4)
+            {
+                yield return new WaitForSeconds(flickingInterval / 2);
+
+            }
+            else yield return new WaitForSeconds(flickingInterval);
         }
     }
 }
