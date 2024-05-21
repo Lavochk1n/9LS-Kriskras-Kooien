@@ -7,15 +7,13 @@ public class GloveUI : MonoBehaviour
     public GameObject uiGlove;
     public GameObject myCanvas;
     public float SpawnOffSet = 100;
-    public int GlovesToSpawn = 5;
 
 
     private void Start()
     {
-        ShowUIGlove();
     }
 
-    void ShowUIGlove()
+    public void updateUIGlove(int gloves)
     {
 
         foreach (Transform child in myCanvas.transform)
@@ -26,7 +24,7 @@ public class GloveUI : MonoBehaviour
 
         Vector3 spawnPos = new Vector3(50,1000,0);
 
-        for (int i = 0; i < GlovesToSpawn; i++)
+        for (int i = 0; i < gloves; i++)
         {
             Instantiate(uiGlove, spawnPos, Quaternion.identity, myCanvas.transform);
             spawnPos.y -= SpawnOffSet;
