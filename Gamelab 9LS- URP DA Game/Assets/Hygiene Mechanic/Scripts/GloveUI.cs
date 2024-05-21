@@ -22,7 +22,7 @@ public class GloveUI : MonoBehaviour
         }
             
 
-        Vector3 spawnPos = new Vector3(50,1000,0);
+        Vector3 spawnPos = myCanvas.transform.position;
 
         for (int i = 0; i < gloves; i++)
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using Quarantine;
 
 public class GloveManager : MonoBehaviour
 {
@@ -16,16 +17,6 @@ public class GloveManager : MonoBehaviour
     void Start()
     {
         gloves = maximumgloves;
-
-        if (GetComponent<PlayerInput>().playerIndex == 0)
-        {
-            gloveUI = GameObject.FindGameObjectWithTag("gloveUI1").GetComponent<GloveUI>();
-        }
-        else  gloveUI = GameObject.FindGameObjectWithTag("gloveUI2").GetComponent<GloveUI>();
-
-
-
-        //textDisplay = GetComponent<PlayerBehaviour>()
     }
 
     public void RemoveGlove()
@@ -63,9 +54,14 @@ public class GloveManager : MonoBehaviour
         return true;
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
-        gloveUI.updateUIGlove(gloves);
+        GetComponent<PlayerBehaviour>().myUI.GetComponentInChildren<GloveUI>().updateUIGlove(gloves);
+    }
+
+    public int GetGloves()
+    {
+        return gloves;
     }
 }
 
