@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
+using UnityEngine.Events;
+using Quarantine;
 
 public class GloveManager : MonoBehaviour
 {
     private int gloves;
     [SerializeField] private int maximumgloves = 5;
 
-    private TextMeshProUGUI textDisplay; 
+
+    private GloveUI gloveUI;
 
     void Start()
     {
         gloves = maximumgloves;
-        //textDisplay = GetComponent<PlayerBehaviour>()
     }
 
     public void RemoveGlove()
@@ -51,9 +54,14 @@ public class GloveManager : MonoBehaviour
         return true;
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
+        GetComponent<PlayerBehaviour>().myUI.GetComponentInChildren<GloveUI>().updateUIGlove(gloves);
+    }
 
+    public int GetGloves()
+    {
+        return gloves;
     }
 }
 

@@ -58,6 +58,7 @@ namespace Quarantine
 
         [Header("player Specifics")]
         public bool playerOneSpawned = false;
+        public bool playerOneUISpawned = false; 
         [SerializeField] private GameObject playerPrefab;
 
         [Header("GamePause")]

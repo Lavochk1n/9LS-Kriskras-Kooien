@@ -15,6 +15,7 @@ TagManager:
   - nameMenu0
   - nameMenu1
   - HoldProgressIcon
+  - Canvas
   layers:
   - Default
   - TransparentFX

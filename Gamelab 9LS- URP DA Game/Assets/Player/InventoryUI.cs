@@ -9,45 +9,22 @@ namespace Quarantine
     public class InventoryUI : MonoBehaviour
     {
         [Header("player Inventory")]
-        //public PlayerBehaviour player;
         [SerializeField] private Image background, icon;
-        public TextMeshProUGUI glovesText;
-
-        [SerializeField] private bool player1Inventory;
 
 
-        private PlayerBehaviour playerBehaviour;
-
-
-       
-
-        void Update()
+        public void UpdateInventoryUI(Animal animal)
         {
-            if (playerBehaviour == null) 
+            AnimalVisuals visuals = VisualManager.instance.GetAnimalVisuals(animal.type);
+            if(animal.state == SickState.sick)
             {
-                if (player1Inventory)
-                {
-                    playerBehaviour = GameManager.Instance.playerBehaviour1;
-                }
-                else
-                {
-                    playerBehaviour = GameManager.Instance.playerBehaviour2;
-
-                }; 
-                return;
-            }
-
-            AnimalVisuals visuals = VisualManager.instance.GetAnimalVisuals(playerBehaviour.heldAnimal.type); 
-
-            if (playerBehaviour.heldAnimal.state == SickState.sick)
-            {
-                icon.sprite =  visuals.iconTypeSick;
+                icon.sprite = visuals.iconTypeSick;
             }
             else
             {
                 icon.sprite = visuals.iconTypeHealthy;
-            }       
+            }
         }
+
     }
  }
 
