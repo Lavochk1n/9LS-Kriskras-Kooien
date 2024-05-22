@@ -46,9 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hatPrefabs:
-  - {fileID: 1749864475742134561, guid: df1505dfea4e67f44b1a289b10fec413, type: 3}
-  - {fileID: 6771276874474584669, guid: e4af3bb75e2c6be4a94c3b7182e54dfd, type: 3}
   - {fileID: 4949118506233123553, guid: 4da00cc162f12154c85891a3abcbefb5, type: 3}
+  - {fileID: 883437115981426459, guid: 87843fba59290cf40b22b05838900c22, type: 3}
+  - {fileID: 883437115981426459, guid: fcb911f88defa0a45be8c3cdad39d29b, type: 3}
+  - {fileID: 883437115981426459, guid: 2c1cad221f205224197a428ccd3ef51c, type: 3}
+  - {fileID: 883437115981426459, guid: 73c6f9360bfac544c9ee8b62d4e244e7, type: 3}
+  - {fileID: 883437115981426459, guid: c4f65a26d21bf674ba4c3b3fd80c2362, type: 3}
+  - {fileID: 883437115981426459, guid: b87aa5a3c196d894c8320ac9a45719e9, type: 3}
+  - {fileID: 883437115981426459, guid: 28192d493cad33e43b3c76ab8fb6acc8, type: 3}
   EmptyPanels:
   - {fileID: 0}
   - {fileID: 0}
