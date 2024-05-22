@@ -21,7 +21,12 @@ public class ScenesManager : MonoBehaviour
             Instance = this;
             //DontDestroyOnLoad(gameObject);
         }
+    }
+
+    private void Start()
+    {
         GM = GameManager.Instance;
+
     }
 
     public void GetScene(int sceneIndex)
