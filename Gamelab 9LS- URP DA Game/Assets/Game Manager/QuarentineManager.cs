@@ -39,8 +39,6 @@ namespace Quarantine
     {
         public static QuarentineManager Instance { get; private set; }
 
-        //public bool isTutorial = false; 
-
         [Header("cage Set-up")]
         [SerializeField] private GameObject cagesParent;
         public List<GameObject> Cages = new();
@@ -48,7 +46,6 @@ namespace Quarantine
         [Header("Randomiser")]
         private List<AnimalWeight> animalWeights;
         [SerializeField] private int bunnyWeight, crowWeight, parrotWeight, healthyWeight;
-
 
         [Header("Game Rules")]
         public float spreadSpeed = 2.1f;
@@ -65,30 +62,18 @@ namespace Quarantine
         private bool GamePause, delayRunning;
         [SerializeField] float pauseTimeDelay = 8f;
 
-
         [Header("EndOfGameSequence")]
         private bool EndOfGameComplete = false, EndOfGameSequence = false;
         [SerializeField] private GameObject floatText;
         [SerializeField] private float floatOffset = 2f;
-
-
-        
-
 
         private void Awake()
         {
             if (Instance != null && Instance != this) { Destroy(this);}  
             else {Instance = this;}
 
-
-
-            //if (randomMap) { Instantiate(maps[Random.Range(0, maps.Count)]); }
-            //else { Instantiate(maps[mapIndex]); }
-
             cagesParent = GameObject.FindGameObjectWithTag("Cage Parent");
-
             totalDepartures = GameManager.Instance.GetTotalDepartures();
-
 
             if (TutorialManager.Instance != null)
             {
@@ -96,8 +81,7 @@ namespace Quarantine
                 {
                     Cages.Add(child.gameObject);
                 }
-
-                    return;
+                return;
             }
 
             RandomiseCages();
@@ -107,8 +91,6 @@ namespace Quarantine
         private void Start()
         {
             var playerConfigs = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
-
-            // Make this less hardcoded 
 
             var player = Instantiate(
                 playerPrefab,
@@ -126,7 +108,6 @@ namespace Quarantine
 
             GamePause = true;
             StartCoroutine(DelayedUnpause());
-
         }
 
         private void Update()
@@ -141,8 +122,6 @@ namespace Quarantine
             if (AmbulanceManager.Instance != null)
             {
                 AmbulanceManager.Instance.DecreaseTime();
-
-
             }
 
             if (GameOver())
@@ -151,18 +130,12 @@ namespace Quarantine
 
                 if (TutorialManager.Instance != null)
                 {
-
                     if (EndOfGameComplete)  ScenesManager.Instance.NextScene();
                     return;
                 }
-
-
-                //GameManager.Instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
-
                 if (EndOfGameComplete) ScenesManager.Instance.GetGameOver();
             }
         }
-
 
         private IEnumerator CheckGameProgress()
         {
@@ -184,7 +157,6 @@ namespace Quarantine
         }
 
         //////////////////////////// GAME RULES TRACKING ////////////////////////////
-
 
         public bool GamePaused()
         {
@@ -216,7 +188,6 @@ namespace Quarantine
             delayRunning = false;
         }
 
-
         /// <returns>true if one of the game-over conditions are met</returns>
         public bool GameOver()
         {
@@ -225,7 +196,6 @@ namespace Quarantine
             if (delayRunning) return false;
             if (TutorialManager.Instance != null) 
             {
-
                 foreach (GameObject cage in Cages)
                 {
                     CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
@@ -318,27 +288,19 @@ namespace Quarantine
                 CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
                 float performance = 0;
-
                 performance = 100f - cageBehaviour.myAnimal.sickProgression;
-
                 int AddedScore = Mathf.RoundToInt(performance);
 
                 Vector3 textPos = cage.transform.position;
                 textPos.y = cage.transform.position.y + floatOffset;
 
-
                 GameObject floatTextInstance = Instantiate(floatText, textPos, cage.transform.rotation, cage.transform);
                 floatTextInstance.GetComponent<FloatText>().SetScore(AddedScore);
                 GameManager.Instance.IncreaseScore(AddedScore);
                 yield return new WaitForSeconds(0.3f);
-
-                
             }
             EndOfGameComplete = true;
-
-
         }
-
 
         ///////////////// RANDOMISATION////////////////////////////
 
@@ -400,11 +362,6 @@ namespace Quarantine
         public void AddAmbulanceDepartCounter()
         {
             currentDepartures++;
-
         }
-
-
-
     }
-
 }
