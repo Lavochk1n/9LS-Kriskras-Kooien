@@ -146,7 +146,7 @@ namespace Quarantine
             {
                 if (col.TryGetComponent<CageBehaviour>(out var cage))
                 {
-                    Vector3 direction = transform.position - col.transform.position; 
+                    //Vector3 direction = transform.position - col.transform.position; 
 
                     //RaycastHit hit;
                     //if(Physics.Raycast(transform.position, direction.normalized, out hit, searchDistance/*, wallLayer*/))

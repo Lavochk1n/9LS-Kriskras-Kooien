@@ -294,7 +294,7 @@ namespace Quarantine
                 Vector3 textPos = cage.transform.position;
                 textPos.y = cage.transform.position.y + floatOffset;
 
-                GameObject floatTextInstance = Instantiate(floatText, textPos, cage.transform.rotation, cage.transform);
+                GameObject floatTextInstance = Instantiate(floatText, textPos, cage.transform.rotation);
                 floatTextInstance.GetComponent<FloatText>().SetScore(AddedScore);
                 GameManager.Instance.IncreaseScore(AddedScore);
                 yield return new WaitForSeconds(0.3f);

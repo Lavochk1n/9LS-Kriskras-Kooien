@@ -252,9 +252,9 @@ public class AmbulanceManager : Interactable
     private void ShowScoreFloat(int score)
     {
         Vector3 textPos = transform.position;
-        textPos.z = transform.position.z -3 ;
+        textPos.z = transform.position.z -1.5f ;
 
-        GameObject floatTextInstance = Instantiate(floatText, textPos, transform.rotation, transform);
+        GameObject floatTextInstance = Instantiate(floatText, textPos, transform.rotation);
         floatTextInstance.GetComponent<FloatText>().SetScore(score);
         GameManager.Instance.IncreaseScore(score);
     }
