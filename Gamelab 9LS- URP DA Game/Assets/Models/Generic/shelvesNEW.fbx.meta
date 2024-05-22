@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 783eec8b669b90242aa4817a527ea0cc
+guid: dd6768dba5ae90249834d9f9bdc3974a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,7 +7,17 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.005
+      name: shelf Top
+    second: {fileID: 2100000, guid: b09efbc85b2b5f440b804aae1fdbe47e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shelf legs
+    second: {fileID: 2100000, guid: 05c6bda807c7656418cf34aee9542f4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shelf shefl
     second: {fileID: 2100000, guid: 5a5aa275147cb5c4cab34f1aae3b6f95, type: 2}
   materials:
     materialImportMode: 2

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 783eec8b669b90242aa4817a527ea0cc
+guid: e1d096daf7dd03e4091e61a3d9fc6ec4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.005
-    second: {fileID: 2100000, guid: 5a5aa275147cb5c4cab34f1aae3b6f95, type: 2}
+      name: Material.011
+    second: {fileID: 2100000, guid: e3b6e2bf816339e45bebb2beff56f3c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.012
+    second: {fileID: 2100000, guid: f9af5ffc138f8b649af8fc71da706025, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shelf door mat
+    second: {fileID: 2100000, guid: 9dd0dd858d6730f42b142e702c2da2e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shelf outline mat
+    second: {fileID: 2100000, guid: dec5797dbcd39bd4cb3b3e75419b9814, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
