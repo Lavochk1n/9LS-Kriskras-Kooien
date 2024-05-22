@@ -1897,7 +1897,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1561709091}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2498,6 +2499,157 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532800868}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1561709090
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1057106628}
+    m_Modifications:
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 76.16675
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -244.16663
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490877545026791240, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -161.14996
+      objectReference: {fileID: 0}
+    - target: {fileID: 3353239088145253481, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_Name
+      value: Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553013281375313991, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_text
+      value: "Het doel is om zoveel mogelijk punten te scoren om gezamenlijk een
+        plek te zetten op het scorebord. Het spel is voorbij als de ambulance een
+        bepaald aantal keren voorbij is geweest. \r\n\nAls deze er is kunnen jullie
+        dieren inleveren voor punten. Er worden meer punten behaald voor gezondere
+        dieren en nog meer als het dier prioriteit heeft. \n\nZodra het spel voorbij
+        is, krijgen jullie nog punten voor de staat van alle dieren in de kooien.
+        Dit levert echter minder punten op dan als deze dieren naar de ambulance
+        gebracht worden! \r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553013281375313991, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -156.74762
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984667568397542292, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+        type: 3}
+      propertyPath: m_text
+      value: 'Speldoel '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dfbe7147b6dc9643b8624bd1eb93197, type: 3}
+--- !u!224 &1561709091 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1274794036011733782, guid: 7dfbe7147b6dc9643b8624bd1eb93197,
+    type: 3}
+  m_PrefabInstance: {fileID: 1561709090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1660884176
 PrefabInstance:
   m_ObjectHideFlags: 0
