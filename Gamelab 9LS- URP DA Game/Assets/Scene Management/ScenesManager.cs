@@ -54,7 +54,8 @@ public class ScenesManager : MonoBehaviour
         }
         if (!GM.randomGame)
         {
-            SceneManager.LoadScene(GM.gameRoom);
+            SceneManager.LoadScene("GameRoom " + GM.gameRoom.ToString());
+            return;
 
         }
         SceneManager.LoadScene(miniGames[UnityEngine.Random.Range(0, miniGames.Count)]);

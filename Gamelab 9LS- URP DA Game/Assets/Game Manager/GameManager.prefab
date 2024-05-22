@@ -47,8 +47,9 @@ MonoBehaviour:
   newGameDifficulty: 100
   difficultyIncrease: 1.1
   ambulanceDepartures: 6
+  maxGloves: 6
   playerBehaviour1: {fileID: 0}
   playerBehaviour2: {fileID: 0}
-  randomGame: 0
-  gameRoom: 0
+  randomGame: 1
+  gameRoom: 1
   flaggedMode: 0
