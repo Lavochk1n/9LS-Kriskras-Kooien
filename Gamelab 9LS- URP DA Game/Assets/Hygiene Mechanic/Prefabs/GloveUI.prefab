@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7324800065792127678}
   - component: {fileID: 7486485024287257451}
   - component: {fileID: 4237531616123199656}
-  - component: {fileID: 6463998400715111866}
   m_Layer: 5
   m_Name: GloveUI
   m_TagString: Untagged
@@ -36,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 50, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7486485024287257451
 CanvasRenderer:
@@ -76,18 +75,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6463998400715111866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4718162730525974350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91be7b926e4c27640a0c091538fdce55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiGlove: {fileID: 0}
-  myCanvas: {fileID: 0}
-  SpawnOffSet: 100
