@@ -136,10 +136,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionType: 0
   AdjCages: []
-  layer:
+  wallLayer:
     serializedVersion: 2
-    m_Bits: 1024
-  searchDistance: 1
+    m_Bits: 0
+  searchDistance: 0.8
   myCageVisual: {fileID: 8339529071733849949}
   markedForRemoval: 0
 --- !u!114 &8339529071733849949

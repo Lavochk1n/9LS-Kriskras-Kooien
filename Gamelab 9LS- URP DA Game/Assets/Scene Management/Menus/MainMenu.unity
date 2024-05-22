@@ -1437,7 +1437,7 @@ PrefabInstance:
     - target: {fileID: 1161320296525089214, guid: f72ff08e21d9c154cae3c4b4d0b4708d,
         type: 3}
       propertyPath: ambulanceDepartures
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1228155458449421174, guid: f72ff08e21d9c154cae3c4b4d0b4708d,
         type: 3}

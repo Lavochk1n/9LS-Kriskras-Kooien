@@ -49,10 +49,11 @@ MonoBehaviour:
   bunnyWeight: 6
   crowWeight: 8
   parrotWeight: 4
-  healthyWeight: 7
+  healthyWeight: 4
   spreadSpeed: 2.1
   cageQuota: 15
   playerOneSpawned: 0
+  playerOneUISpawned: 0
   playerPrefab: {fileID: 0}
   pauseTimeDelay: 4
   floatText: {fileID: 8796936603251092784, guid: e49a70dba021a494b9dade967d94f06f,

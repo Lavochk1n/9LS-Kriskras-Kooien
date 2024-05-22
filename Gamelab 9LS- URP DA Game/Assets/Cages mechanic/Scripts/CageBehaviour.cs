@@ -9,7 +9,7 @@ namespace Quarantine
     public class CageBehaviour : Interactable
     {
         [SerializeField] private List<CageBehaviour> AdjCages;
-        [SerializeField] private LayerMask layer;
+        [SerializeField] private LayerMask wallLayer;
         [SerializeField] private float searchDistance =3f;
 
         private float spreadSpeed;
@@ -146,7 +146,17 @@ namespace Quarantine
             {
                 if (col.TryGetComponent<CageBehaviour>(out var cage))
                 {
-                    AdjCages.Add(cage);
+                    Vector3 direction = transform.position - col.transform.position; 
+
+                    //RaycastHit hit;
+                    //if(Physics.Raycast(transform.position, direction.normalized, out hit, searchDistance/*, wallLayer*/))
+                    //{
+
+                    //}
+                    //else
+                    {
+                        AdjCages.Add(cage);
+                    }
                 }
             }
         }
@@ -155,6 +165,14 @@ namespace Quarantine
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, searchDistance);
+            
+            foreach(CageBehaviour cageBehaviour in AdjCages)
+            {
+                Gizmos.color = Color.blue;
+
+                Gizmos.DrawLine(transform.position, cageBehaviour.transform.position);
+
+            }
         }
 
         public void ChangeOccupation(AnimalTypes animal)
@@ -169,8 +187,6 @@ namespace Quarantine
         public void UpdateCage()
         {
             myCageVisual.UpdateIcon(myAnimal);
-            //myCageVisual.UpdateModel(myAnimal);
-            //myCageVisual.UpdateProgressbar(myAnimal);
         }
 
 

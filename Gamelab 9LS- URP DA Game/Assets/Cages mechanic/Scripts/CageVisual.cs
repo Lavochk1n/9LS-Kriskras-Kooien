@@ -61,30 +61,6 @@ namespace Quarantine {
             Instantiate(VisualManager.instance.GetAnimalVisuals(animal.type).model, attachPoint.transform);
         }
 
-
-
-
-        //public void UpdateIconm(Animal animal)
-        //{
-        //    AnimalVisuals visuals = VisualManager.instance.GetAnimalVisuals(animal.type);
-
-
-        //    if(animal.state  == SickState.sick)
-        //    {
-        //        background.sprite = backgroundSick;
-
-        //        panel.sprite = visuals.iconTypeSick;
-        //    }
-        //    else
-        //    {
-        //        if (progression > animal.sickProgression / 100f)
-        //        {
-        //            panel.sprite 
-        //        }
-        //    }
-        //}
-
-
         public void UpdateIcon(Animal animal)
         {
             AnimalVisuals visuals =  VisualManager.instance.GetAnimalVisuals(animal.type) ;
@@ -98,9 +74,7 @@ namespace Quarantine {
             {
                 background.sprite = backgroundHealthy;
                 panel.sprite = visuals.iconTypeHealthy;
-                //progressBar.fillAmount = animal.sickProgression / 100f;
             }
-
         }
 
         public void UpdateProgressbar(Animal animal)
@@ -118,7 +92,6 @@ namespace Quarantine {
             if (animal.state == SickState.sick) 
             {
                 if (progressBar.IsActive()) progressBar.gameObject.SetActive(false);
-                //progressBar.fillAmount = animal.sickProgression / 0f;
                 return;
             }
 
