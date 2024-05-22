@@ -139,12 +139,8 @@ public class PlayerConfigManager : MonoBehaviour
 
         if (EmptyPanels.Count != 0)
         {
-
             Destroy(EmptyPanels[0]);
             EmptyPanels.RemoveAt(0);
-
-            
-            
         }
 
         if (!playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))

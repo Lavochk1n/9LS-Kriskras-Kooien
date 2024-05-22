@@ -57,9 +57,8 @@ public class AmbulanceManager : Interactable
     {
         GM = GameManager.Instance;
         QM = QuarentineManager.Instance;
-        timeLeft = newGameTime;
-        
-        timerTotal = timeLeft;
+        timeLeft = awayTime;
+        timerTotal = timeLeft; 
 
         redLight.material.EnableKeyword("_EMISSION");
         greenLight.material.DisableKeyword("_EMISSION");
@@ -71,10 +70,13 @@ public class AmbulanceManager : Interactable
     public void DecreaseTime()
     {
         if(QM.GameOver()) { return; }
-        timeLeft -= Time.deltaTime;
+        if (timeLeft > 0) 
+        {
+            timeLeft -= Time.deltaTime;
+        }
         if (!isFlickering)
         {
-            if (timeLeft < timerTotal / 2)
+            if (timeLeft < timerTotal / 4)
             {
                 if (HasArrived)
                 {
@@ -97,23 +99,9 @@ public class AmbulanceManager : Interactable
 
     public void AddTime(float amount)
     {
-         
         timeLeft += amount;
-        if (timeLeft > newGameTime)
-        {
-            timeLeft = newGameTime;
-        }
+        
         timerTotal = timeLeft; 
-    }
-
-    public float GetTotalGameTime()
-    {
-        return newGameTime;
-    }
-
-    public float GetTimeLeft()
-    {
-        return timeLeft;
     }
 
     public void HandleArrival()
@@ -268,7 +256,7 @@ public class AmbulanceManager : Interactable
         {
             light.material.EnableKeyword("_EMISSION");
 
-            if (timeLeft < timerTotal / 4)
+            if (timeLeft < timerTotal / 8)
             {
                 yield return new WaitForSeconds(flickingInterval/2);
 
@@ -278,7 +266,7 @@ public class AmbulanceManager : Interactable
 
             light.material.DisableKeyword("_EMISSION");
 
-            if (timeLeft < timerTotal / 4)
+            if (timeLeft < timerTotal / 8)
             {
                 yield return new WaitForSeconds(flickingInterval / 2);
 

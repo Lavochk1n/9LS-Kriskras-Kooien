@@ -65,7 +65,7 @@ public class ScenesManager : MonoBehaviour
     {
         PlayerConfigManager.Instance.ResetConfigs();
         GM.ResetScore();
-        Destroy(PlayerConfigManager.Instance.gameObject); 
+        Destroy(PlayerConfigManager.Instance.gameObject);
         SceneManager.LoadScene(0);
     }
 
