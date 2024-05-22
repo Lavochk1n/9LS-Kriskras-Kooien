@@ -9,13 +9,14 @@ using Quarantine;
 public class GloveManager : MonoBehaviour
 {
     private int gloves;
-    [SerializeField] private int maximumgloves = 5;
+    private int maximumgloves = 5;
 
 
     private GloveUI gloveUI;
 
     void Start()
     {
+        maximumgloves = GameManager.Instance.GetMaxGloves();
         gloves = maximumgloves;
     }
 

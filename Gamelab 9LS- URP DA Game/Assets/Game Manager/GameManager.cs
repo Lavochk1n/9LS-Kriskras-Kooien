@@ -6,14 +6,15 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     private int score = 0;
-    private float difficulty = 100; 
+    private float difficulty = 100;
 
-   
+
+    [Header("difficulty sliders")]
 
     [SerializeField][Range(50.0f, 200.0f)] private float newGameDifficulty = 100f;
     [SerializeField][Range(1f, 1.50f)] private float difficultyIncrease = 1.1f;
     [SerializeField][Range(1, 24)] private int ambulanceDepartures = 6;
-
+    [SerializeField][Range(1, 8)] private int maxGloves = 6;
 
 
     public PlayerBehaviour playerBehaviour1, playerBehaviour2;
@@ -70,6 +71,11 @@ public class GameManager : MonoBehaviour
     public int GetTotalDepartures()
     {
         return ambulanceDepartures;
+    }
+
+    public int GetMaxGloves()
+    {
+        return maxGloves;
     }
 
     ////////////////////////////////// Difficulty ////////////////////////////
