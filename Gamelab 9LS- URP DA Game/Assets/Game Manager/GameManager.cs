@@ -54,6 +54,11 @@ public class GameManager : MonoBehaviour
         return levelIsTutorial;
     }
 
+    public void DetermineScene(int scene)
+    {
+        gameRoom = scene;
+    }
+
     ////////////////////////////////// SCORE ////////////////////////////
 
     public void IncreaseScore(int amount)
