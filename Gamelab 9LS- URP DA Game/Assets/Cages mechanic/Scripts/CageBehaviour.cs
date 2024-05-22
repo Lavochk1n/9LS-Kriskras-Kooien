@@ -78,14 +78,31 @@ namespace Quarantine
                 }
                 else
                 {
-                    if (markedForRemoval)
+                    PlayerBehaviour player1 = QuarentineManager.Instance.player.GetComponent<PlayerBehaviour>();
+                    PlayerBehaviour player2 = QuarentineManager.Instance.player2.GetComponent<PlayerBehaviour>();
+
+                    
+                    if (playerBehaviour ==  player1)
                     {
-                        if (GameManager.Instance.flaggedMode) { return; }
-
-                        markedForRemoval = false;
-                        playerBehaviour.mostRecentCage.markedForRemoval = true;
-
+                        if(player2.mostRecentCage == this)
+                        {
+                            player2.mostRecentCage = player1.mostRecentCage;
+                        }
                     }
+                    if (playerBehaviour == player2)
+                    {
+                        if (player1.mostRecentCage == this)
+                        {
+                            player1.mostRecentCage = player2.mostRecentCage;
+                        }
+                    }
+
+                    //if (markedForRemoval)
+                    //{
+                    //    markedForRemoval = false;
+                    //    playerBehaviour.mostRecentCage.markedForRemoval = true;
+
+                    //}
                 }
 
                 playerBehaviour.heldAnimal = myAnimal;

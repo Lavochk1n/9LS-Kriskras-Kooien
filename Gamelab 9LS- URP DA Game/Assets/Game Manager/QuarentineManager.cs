@@ -67,6 +67,8 @@ namespace Quarantine
         [SerializeField] private GameObject floatText;
         [SerializeField] private float floatOffset = 2f;
 
+        public GameObject player, player2; 
+
         private void Awake()
         {
             if (Instance != null && Instance != this) { Destroy(this);}  
@@ -92,14 +94,14 @@ namespace Quarantine
         {
             var playerConfigs = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
 
-            var player = Instantiate(
+             player = Instantiate(
                 playerPrefab,
                 GameObject.FindGameObjectWithTag("spawn1").transform.position,
                 GameObject.FindGameObjectWithTag("spawn1").transform.rotation,
                 gameObject.transform);
             player.GetComponent<PlayerBehaviour>().InitializePlayer(playerConfigs[0]);
 
-            var player2 = Instantiate(
+             player2 = Instantiate(
                 playerPrefab,
                 GameObject.FindGameObjectWithTag("spawn2").transform.position,
                 GameObject.FindGameObjectWithTag("spawn2").transform.rotation,
