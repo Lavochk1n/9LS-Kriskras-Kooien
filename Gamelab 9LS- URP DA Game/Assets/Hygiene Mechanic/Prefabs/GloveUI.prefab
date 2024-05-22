@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d215a37936120e646809daf942f9ba12, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -91,4 +91,3 @@ MonoBehaviour:
   uiGlove: {fileID: 0}
   myCanvas: {fileID: 0}
   SpawnOffSet: 100
-  GlovesToSpawn: 5

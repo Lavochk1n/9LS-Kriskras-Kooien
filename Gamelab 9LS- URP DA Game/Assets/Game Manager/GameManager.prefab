@@ -49,4 +49,6 @@ MonoBehaviour:
   ambulanceDepartures: 6
   playerBehaviour1: {fileID: 0}
   playerBehaviour2: {fileID: 0}
+  randomGame: 0
+  gameRoom: 0
   flaggedMode: 0
