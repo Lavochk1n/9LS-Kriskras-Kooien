@@ -66,6 +66,11 @@ public class GameManager : MonoBehaviour
         return score;
     }
 
+    public void ResetScore()
+    {
+        score = 0;
+    }
+
     ////////////////////////////////// Rules ////////////////////////////
 
     public int GetTotalDepartures()

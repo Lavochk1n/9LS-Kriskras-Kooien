@@ -66,6 +66,7 @@ namespace Quarantine
         private bool EndOfGameComplete = false, EndOfGameSequence = false;
         [SerializeField] private GameObject floatText;
         [SerializeField] private float floatOffset = 2f;
+        [SerializeField] private float EndOfGameMalus = .7f; 
 
         public GameObject player, player2; 
 
@@ -290,7 +291,7 @@ namespace Quarantine
                 CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
                 float performance = 0;
-                performance = 100f - cageBehaviour.myAnimal.sickProgression;
+                performance = (100f * EndOfGameMalus) - cageBehaviour.myAnimal.sickProgression;
                 int AddedScore = Mathf.RoundToInt(performance);
 
                 Vector3 textPos = cage.transform.position;

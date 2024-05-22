@@ -20,9 +20,22 @@ public class PlayerConfigManager : MonoBehaviour
     private int player0Hat = -2;
     private int player1Hat = -2;
 
+    
+
     public List<PlayerConfig> GetPlayerConfigs()
     {
         return playerConfigs;
+    }
+
+    public void ResetConfigs()
+    {
+
+        foreach (Transform player in transform)
+        {
+            Destroy(player.gameObject); 
+        }
+        playerConfigs.Clear();
+    
     }
 
     public List<GameObject> GetHatsConfigs()
@@ -139,6 +152,10 @@ public class PlayerConfigManager : MonoBehaviour
             pi.transform.SetParent(transform);
             playerConfigs.Add(new PlayerConfig(pi)); 
         }
+    }
+    private void OnDestroy()
+    {
+        Instance = null;
     }
 }
 
