@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Empty
   m_EditorClassIdentifier: 
   type: 3
-  model: {fileID: 3810982692146322570, guid: 136611bcc40fbff44bbd434f6c85e954, type: 3}
+  model: {fileID: 3810982692146322570, guid: ce9fd3b3a7a9e684d8f112758a838b0a, type: 3}
   iconTypeSick: {fileID: 21300000, guid: 53200dc2dab8fa141901219b66955179, type: 3}
+  iconTypeSickening: {fileID: 21300000, guid: 53200dc2dab8fa141901219b66955179, type: 3}
   iconTypeHealthy: {fileID: 21300000, guid: 53200dc2dab8fa141901219b66955179, type: 3}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3406,7 +3406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 397.83337, y: -283.8333}
+  m_AnchoredPosition: {x: 397.83337, y: -152}
   m_SizeDelta: {x: 800, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1274794035604235242
@@ -3427,7 +3427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -429.16663, y: -283.8333}
+  m_AnchoredPosition: {x: -429.16663, y: -152}
   m_SizeDelta: {x: 800, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1490877543682630512
@@ -3810,9 +3810,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ( Exotische vogels moeten in het echt ook van inheemse gescheiden worden.
-    Dit is vanwege de exotische ziektes die de vogels bij zich dragen waar ze zelf
-    immuun voor zijn maar onze inheemse vogels niet.)
+  m_text: 'Jullie kunnen een kort sprintje laten trekken door "B" te drukken. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 812a9999b58a0ca4bb80fb921cc01b62, type: 2}
   m_sharedMaterial: {fileID: -3528164220332010801, guid: 812a9999b58a0ca4bb80fb921cc01b62,
@@ -4267,7 +4265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Sprinten
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 945f0d27e5d0f7742bcc635cf0fb70b3, type: 2}
   m_sharedMaterial: {fileID: -3474204196548514913, guid: 945f0d27e5d0f7742bcc635cf0fb70b3,

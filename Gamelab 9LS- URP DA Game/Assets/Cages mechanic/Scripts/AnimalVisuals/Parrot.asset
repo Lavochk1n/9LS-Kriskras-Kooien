@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Parrot
   m_EditorClassIdentifier: 
   type: 2
-  model: {fileID: 5436333085478034918, guid: d3fcef11c84bc6949b4d76af7597e7d7, type: 3}
+  model: {fileID: 5436333085478034918, guid: 51fb65e0286be83479a0a6702c104a92, type: 3}
   iconTypeSick: {fileID: 21300000, guid: 9c2e83877bac35e4fbe5602b632e3013, type: 3}
   iconTypeSickening: {fileID: 21300000, guid: 377e4f7d04783a2458ceb57c4fa61017, type: 3}
   iconTypeHealthy: {fileID: 21300000, guid: ca530a8d20c913141b36e3d7088576b6, type: 3}
