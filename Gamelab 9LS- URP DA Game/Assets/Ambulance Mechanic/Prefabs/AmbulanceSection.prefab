@@ -107,8 +107,9 @@ MonoBehaviour:
   floatText: {fileID: 8796936603251092784, guid: e49a70dba021a494b9dade967d94f06f,
     type: 3}
   awayTime: 30
-  parkedTime: 20
+  parkedTime: 0
   newGameTime: 10
+  ambulanceCapacity: 4
   flickerThreshold: 5
   greenLight: {fileID: 8795086093555991520}
   redLight: {fileID: 211185594707037079}

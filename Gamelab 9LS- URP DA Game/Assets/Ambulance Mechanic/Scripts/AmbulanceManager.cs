@@ -26,7 +26,7 @@ public class AmbulanceManager : Interactable
     [SerializeField] private float newGameTime = 40f;
     private float timeLeft;
 
-    //[SerializeField] private int ambulanceCapacity = 4; 
+    [SerializeField] private int ambulanceCapacity = 4; 
 
     [Header("flickering")]
     [SerializeField] private float flickerThreshold= 5f;
@@ -89,12 +89,27 @@ public class AmbulanceManager : Interactable
             }
         }
         
-        if (timeLeft < 0)
+        if (HasArrived)
         {
-            StopAllCoroutines();
-            HandleArrival();
-            isFlickering = false;
+            if (storedAnimals.Count >= ambulanceCapacity)
+            {
+                StopAllCoroutines();
+                HandleArrival();
+                isFlickering = false;
+            }
         }
+        else
+        {
+            if (timeLeft < 0)
+            {
+                StopAllCoroutines();
+                HandleArrival();
+                isFlickering = false;
+            }
+        }
+
+
+        
     }
 
     public void AddTime(float amount)
@@ -121,7 +136,7 @@ public class AmbulanceManager : Interactable
     public override void Interact(Interactor interactor)
     {
 
-        //if (storedAnimals.Count >= ambulanceCapacity) { }
+        if (storedAnimals.Count >= ambulanceCapacity) { }
 
         if (!HasArrived) { return;  }
 
