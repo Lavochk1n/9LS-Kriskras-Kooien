@@ -9,10 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1481167308088625164}
+  - component: {fileID: 6341160888056328763}
+  - component: {fileID: 3223539441212023855}
+  - component: {fileID: 1867044241139865245}
   - component: {fileID: 1996237944539328476}
   - component: {fileID: 8915226257210555902}
   - component: {fileID: 8825337184619448795}
-  - component: {fileID: 6341160888056328763}
   m_Layer: 0
   m_Name: AmbulanceSection
   m_TagString: Untagged
@@ -40,6 +42,55 @@ Transform:
   - {fileID: 2414073494415654036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &6341160888056328763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947082406766609180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc3bb0f6342a484ca9fd2056aa5b27e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 0
+  animator: {fileID: 8825337184619448795}
+  floatText: {fileID: 8796936603251092784, guid: e49a70dba021a494b9dade967d94f06f,
+    type: 3}
+  HasArrived: 0
+  ambulanceCapacity: 4
+  priodisplay: {fileID: 7192969041559565170}
+  priorityBonus: 1.5
+--- !u!114 &3223539441212023855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947082406766609180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b5193aa16f9f645a8b7c56943280db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  awayTime: 30
+  parkedTime: 20
+  flickerThreshold: 5
+  greenLight: {fileID: 8795086093555991520}
+  redLight: {fileID: 211185594707037079}
+--- !u!114 &1867044241139865245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947082406766609180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8756bca42ed2e144b4e5a18a3fc5860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &1996237944539328476
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -90,31 +141,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6341160888056328763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947082406766609180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbc3bb0f6342a484ca9fd2056aa5b27e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionType: 0
-  animator: {fileID: 8825337184619448795}
-  floatText: {fileID: 8796936603251092784, guid: e49a70dba021a494b9dade967d94f06f,
-    type: 3}
-  awayTime: 30
-  parkedTime: 0
-  newGameTime: 10
-  ambulanceCapacity: 4
-  flickerThreshold: 5
-  greenLight: {fileID: 8795086093555991520}
-  redLight: {fileID: 211185594707037079}
-  priodisplay: {fileID: 7192969041559565170}
-  priorityBonus: 1.5
 --- !u!1 &1194250431413713728
 GameObject:
   m_ObjectHideFlags: 0

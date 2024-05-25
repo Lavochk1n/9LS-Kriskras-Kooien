@@ -13,28 +13,17 @@ public class AmbulanceManager : Interactable
     private GameManager GM;
     private QuarentineManager QM;
 
+    private AmbulanceTimer Timer;
+    private AmbulancePriority Priority; 
+
 
     [SerializeField] private Animator animator;
- [SerializeField] private GameObject floatText; 
+    [SerializeField] private GameObject floatText; 
     List<Animal> storedAnimals = new List<Animal>();
 
-    [Header("Intervals")]
-    private bool HasArrived = false;
-    [SerializeField] private float
-        awayTime = 30f,
-        parkedTime = 8f;
-    [SerializeField] private float newGameTime = 40f;
-    private float timeLeft;
+    public bool HasArrived = false;
 
     [SerializeField] private int ambulanceCapacity = 4; 
-
-    [Header("flickering")]
-    [SerializeField] private float flickerThreshold= 5f;
-    private bool isFlickering = false;
-    private float timerTotal;
-    private float flickingInterval = 0.5f;
-    [SerializeField] private Renderer greenLight, redLight;
-
 
     [Header("priority")]
     private AnimalTypes animalPriority;
@@ -57,79 +46,33 @@ public class AmbulanceManager : Interactable
     {
         GM = GameManager.Instance;
         QM = QuarentineManager.Instance;
-        timeLeft = awayTime;
-        timerTotal = timeLeft; 
-
-        redLight.material.EnableKeyword("_EMISSION");
-        greenLight.material.DisableKeyword("_EMISSION");
+        Timer = GetComponent<AmbulanceTimer>(); 
+        Priority = GetComponent<AmbulancePriority>();
 
         animalPriority = AnimalTypes.Empty;
         priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
     }
- 
-    public void DecreaseTime()
+
+    public void HandleAmbulance()
     {
-        if(QM.GameOver()) { return; }
-        if (timeLeft > 0) 
-        {
-            timeLeft -= Time.deltaTime;
-        }
-        if (!isFlickering)
-        {
-            if (timeLeft < timerTotal / 4)
+        if (QM.GameOver()) { return; }
+
+        if (HasArrived) {
+            if (storedAnimals.Count >= ambulanceCapacity || Timer.DecreaseTime())
             {
-                if (HasArrived)
-                {
-                    StartCoroutine(FlickerLight(redLight));
-                }
-                else
-                {
-                    StartCoroutine(FlickerLight(greenLight));
-                }
-            }
-        }
-        
-        if (HasArrived)
-        {
-            if (storedAnimals.Count >= ambulanceCapacity)
-            {
-                StopAllCoroutines();
-                HandleArrival();
-                isFlickering = false;
+                Timer.AddTime(); 
+                Departure();
             }
         }
         else
         {
-            if (timeLeft < 0)
+            if(Timer.DecreaseTime())
             {
-                StopAllCoroutines();
-                HandleArrival();
-                isFlickering = false;
+                Timer.AddTime();
+
+                Arrival();
             }
-        }
-
-
-        
-    }
-
-    public void AddTime(float amount)
-    {
-        timeLeft += amount;
-        
-        timerTotal = timeLeft; 
-    }
-
-    public void HandleArrival()
-    {
-        if (!HasArrived)
-        {
-            Arrival();
-            AddTime(parkedTime);
-        }
-        else
-        {
-            Departure();
-            AddTime(awayTime);
+            
         }
     }
 
@@ -180,12 +123,9 @@ public class AmbulanceManager : Interactable
         throw new System.NotImplementedException();
     }
 
-    private void Arrival()
+    public void Arrival()
     {
-        greenLight.material.EnableKeyword("_EMISSION");
-        redLight.material.DisableKeyword("_EMISSION");
-
-        animalPriority= RandomPriority();
+        animalPriority= Priority.RandomPriority();
         priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
 
         animator.GetComponent<Animator>().SetBool("isClosed", false);
@@ -193,11 +133,8 @@ public class AmbulanceManager : Interactable
         Debug.Log("arrived");
     }
 
-    private void Departure()
+    public void Departure()
     {
-        redLight.material.EnableKeyword("_EMISSION");
-        greenLight.material.DisableKeyword("_EMISSION");
-
         animalPriority = AnimalTypes.Empty;
         priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
 
@@ -211,7 +148,6 @@ public class AmbulanceManager : Interactable
 
         QM.AddAmbulanceDepartCounter(); 
 
-
         foreach (GameObject cage in QuarentineManager.Instance.Cages)
         {
             CageBehaviour cb = cage.GetComponent<CageBehaviour>();
@@ -222,7 +158,7 @@ public class AmbulanceManager : Interactable
 
                 if (TutorialManager.Instance != null)
                 {
-                    if (Random.Range(0, 1) == 0)
+                    if (Random.Range(0, 2) == 0)
                     {
                         cb.ChangeOccupation(AnimalTypes.crow);
                     }
@@ -260,81 +196,5 @@ public class AmbulanceManager : Interactable
         GameObject floatTextInstance = Instantiate(floatText, textPos, transform.rotation);
         floatTextInstance.GetComponent<FloatText>().SetScore(score);
         GameManager.Instance.IncreaseScore(score);
-    }
-
-
-    private IEnumerator FlickerLight(Renderer light)
-    {
-        isFlickering = true; 
-
-        while (true)
-        {
-            light.material.EnableKeyword("_EMISSION");
-
-            if (timeLeft < timerTotal / 8)
-            {
-                yield return new WaitForSeconds(flickingInterval/2);
-
-            }
-            else yield return new WaitForSeconds(flickingInterval);
-
-
-            light.material.DisableKeyword("_EMISSION");
-
-            if (timeLeft < timerTotal / 8)
-            {
-                yield return new WaitForSeconds(flickingInterval / 2);
-
-            }
-            else yield return new WaitForSeconds(flickingInterval);
-        }
-    }
-
-    private AnimalTypes RandomPriority()
-    {
-        int parrotWeight = 0;
-        int crowWeight = 0;
-        int bunnyWeight = 0; 
-
-        foreach (GameObject cage in QuarentineManager.Instance.Cages)
-        {
-            CageBehaviour cb = cage.GetComponent<CageBehaviour>();
-
-            switch (cb.myAnimal.type) 
-            {
-                case AnimalTypes.Bunny:
-                    bunnyWeight++; break;
-                case AnimalTypes.parrot:
-                    parrotWeight++; break;
-                case AnimalTypes.crow:
-                    crowWeight++; break;
-                default:
-                    Debug.Log("Error, unknown type");
-                    break; 
-            }
-        }
-        int totalWeight = bunnyWeight + crowWeight + parrotWeight;
-
-        if (totalWeight == 0)
-        {
-            Debug.Log("No animals found.");
-            return AnimalTypes.crow;
-        }
-        int randomWeight = Random.Range(0, totalWeight);
-
-        AnimalTypes selectedAnimalType;
-        if (randomWeight < bunnyWeight)
-        {
-            selectedAnimalType = AnimalTypes.Bunny;
-        }
-        else if (randomWeight < bunnyWeight + parrotWeight)
-        {
-            selectedAnimalType = AnimalTypes.parrot;
-        }
-        else
-        {
-            selectedAnimalType = AnimalTypes.crow;
-        }
-        return selectedAnimalType;
     }
 }

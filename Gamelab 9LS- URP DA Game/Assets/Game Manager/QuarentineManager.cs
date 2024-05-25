@@ -124,7 +124,7 @@ namespace Quarantine
 
             if (AmbulanceManager.Instance != null)
             {
-                AmbulanceManager.Instance.DecreaseTime();
+                AmbulanceManager.Instance.HandleAmbulance();
             }
 
             if (GameOver())
