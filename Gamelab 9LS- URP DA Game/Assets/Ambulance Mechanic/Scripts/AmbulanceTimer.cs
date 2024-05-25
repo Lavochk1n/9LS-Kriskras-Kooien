@@ -6,7 +6,6 @@ public class AmbulanceTimer : MonoBehaviour
 {
     private AmbulanceManager AM;
 
-
     [Header("Intervals")]
     private bool HasArrived = false;
     [SerializeField]
@@ -16,7 +15,7 @@ public class AmbulanceTimer : MonoBehaviour
     private float timeLeft;
 
     [Header("flickering")]
-    [SerializeField] private float flickerThreshold = 5f;
+    //[SerializeField] private float flickerThreshold = 5f;
     private bool isFlickering = false;
     private float timerTotal;
     private float flickingInterval = 0.5f;
@@ -29,15 +28,9 @@ public class AmbulanceTimer : MonoBehaviour
         timeLeft = awayTime;
         timerTotal = timeLeft;
 
-
-        //redLight = transform.Find("Red").GetComponent<Renderer>();
-        //redLight = transform.Find("Green").GetComponent<Renderer>();
-
-
         redLight.material.EnableKeyword("_EMISSION");
         greenLight.material.DisableKeyword("_EMISSION");
     }
-
 
     public bool DecreaseTime()
     {
@@ -80,7 +73,6 @@ public class AmbulanceTimer : MonoBehaviour
         }
         timerTotal = timeLeft;
     }
-
 
     private IEnumerator FlickerLight(Renderer light)
     {

@@ -49,9 +49,6 @@ public class AmbulanceManager : Interactable
         Timer = GetComponent<AmbulanceTimer>(); 
         Priority = GetComponent<AmbulancePriority>();
 
-
-
-
         animalPriority = AnimalTypes.Empty;
         priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
     }
@@ -161,7 +158,7 @@ public class AmbulanceManager : Interactable
 
                 if (TutorialManager.Instance != null)
                 {
-                    if (Random.Range(0, 1) == 0)
+                    if (Random.Range(0, 2) == 0)
                     {
                         cb.ChangeOccupation(AnimalTypes.crow);
                     }
