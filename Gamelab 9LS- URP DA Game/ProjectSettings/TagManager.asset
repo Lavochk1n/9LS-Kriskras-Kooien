@@ -16,6 +16,7 @@ TagManager:
   - nameMenu1
   - HoldProgressIcon
   - Canvas
+  - Leaderboard
   layers:
   - Default
   - TransparentFX
