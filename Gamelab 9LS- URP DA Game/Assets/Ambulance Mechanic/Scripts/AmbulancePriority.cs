@@ -6,15 +6,32 @@ using UnityEngine;
 public class AmbulancePriority : MonoBehaviour
 {
 
-    private AmbulanceManager AM; 
+    private AmbulanceManager AM;
+
+    public float priorityBonus = 500f; 
     // Start is called before the first frame update
     void Start()
     {
         AM = GetComponent<AmbulanceManager>();
     }
 
+    public void RandomPriorityAnimal()
+    {
+        List<CageBehaviour> potentials = new();
 
-    public AnimalTypes RandomPriority()
+        foreach (GameObject cage in QuarentineManager.Instance.Cages)
+        {
+            CageBehaviour cb = cage.GetComponent<CageBehaviour>();
+            if (cb.myAnimal.state == SickState.sick) potentials.Add(cb);
+        }
+
+        int range = potentials.Count;
+        CageBehaviour theChosenOne =  potentials[Random.Range(0, range)];
+        theChosenOne.myAnimal.priority = true;
+        theChosenOne.UpdateCage();
+    }
+
+    public AnimalTypes RandomPriorityType()
     {
         int parrotWeight = 0;
         int crowWeight = 0;

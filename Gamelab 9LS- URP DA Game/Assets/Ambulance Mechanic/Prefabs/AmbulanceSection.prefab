@@ -59,9 +59,7 @@ MonoBehaviour:
   floatText: {fileID: 8796936603251092784, guid: e49a70dba021a494b9dade967d94f06f,
     type: 3}
   HasArrived: 0
-  ambulanceCapacity: 4
-  priodisplay: {fileID: 7192969041559565170}
-  priorityBonus: 1.5
+  ambulanceCapacity: 2
 --- !u!114 &3223539441212023855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +74,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   awayTime: 30
   parkedTime: 20
-  flickerThreshold: 5
   greenLight: {fileID: 8795086093555991520}
   redLight: {fileID: 211185594707037079}
 --- !u!114 &1867044241139865245
@@ -91,6 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8756bca42ed2e144b4e5a18a3fc5860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priorityBonus: 500
 --- !u!33 &1996237944539328476
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1016,7 +1014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2414073494415654036
 RectTransform:
   m_ObjectHideFlags: 0

@@ -34,7 +34,6 @@ public class AmbulanceTimer : MonoBehaviour
 
     public bool DecreaseTime()
     {
-        Debug.Log(timeLeft);
 
         if (timeLeft > 0)
         {

@@ -50,7 +50,7 @@ MonoBehaviour:
   crowWeight: 8
   parrotWeight: 4
   healthyWeight: 4
-  spreadSpeed: 2.1
+  spreadSpeed: 1
   cageQuota: 15
   playerOneSpawned: 0
   playerOneUISpawned: 0
@@ -59,3 +59,6 @@ MonoBehaviour:
   floatText: {fileID: 8796936603251092784, guid: e49a70dba021a494b9dade967d94f06f,
     type: 3}
   floatOffset: 1
+  EndOfGameMalus: 0.7
+  player: {fileID: 0}
+  player2: {fileID: 0}

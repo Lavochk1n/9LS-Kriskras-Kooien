@@ -26,6 +26,7 @@ namespace Quarantine
         public AnimalTypes type;
         public SickState state;
         public float sickProgression;
+        public bool priority = false;
     }
 
 
@@ -203,7 +204,7 @@ namespace Quarantine
                 {
                     CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
-                    if (cageBehaviour.AdjDisease() && cageBehaviour.myAnimal.state == SickState.healthy)
+                    if (cageBehaviour.AdjDisease() > 0 && cageBehaviour.myAnimal.state == SickState.healthy)
                     {
                         return false;
                     }

@@ -1,9 +1,8 @@
 using Quarantine;
 using System.Collections;
 using System.Collections.Generic;
-
+using Unity.Mathematics;
 using UnityEngine;
-
 using UnityEngine.UI;
 
 public class AmbulanceManager : Interactable
@@ -25,10 +24,12 @@ public class AmbulanceManager : Interactable
 
     [SerializeField] private int ambulanceCapacity = 4; 
 
-    [Header("priority")]
-    private AnimalTypes animalPriority;
-    [SerializeField] private Image priodisplay;
-    [SerializeField] private float priorityBonus = 1.5f; 
+    //[Header("priority")]
+    //private AnimalTypes animalPriority
+    private CageBehaviour animalPriority;
+
+    //[SerializeField] private Image priodisplay;
+    //[SerializeField] private float priorityBonus = 1.5f; 
 
     private void Awake()
     {
@@ -49,8 +50,9 @@ public class AmbulanceManager : Interactable
         Timer = GetComponent<AmbulanceTimer>(); 
         Priority = GetComponent<AmbulancePriority>();
 
-        animalPriority = AnimalTypes.Empty;
-        priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
+        animalPriority = null;
+        //animalPriority = AnimalTypes.Empty;
+        //priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
     }
 
     public void HandleAmbulance()
@@ -91,16 +93,20 @@ public class AmbulanceManager : Interactable
         }
         pb.mostRecentCage.markedForRemoval = true;
 
+        if(pb.heldAnimal.priority)
+        {
+            pb.heldAnimal.priority = false;
+            ShowScoreFloat(Mathf.RoundToInt(Priority.priorityBonus));
+        }
+
         storedAnimals.Add(pb.heldAnimal);
-        float performance = 100f;
-        if (pb.heldAnimal.type == animalPriority) performance *= priorityBonus; 
-        performance -= pb.heldAnimal.sickProgression;
+        //float performance = 100f;
+        //if (pb.heldAnimal.type == animalPriority) performance *= priorityBonus; 
+        //performance -= pb.heldAnimal.sickProgression;
 
-        int AddedScore = Mathf.RoundToInt(performance);
+        //int AddedScore = Mathf.RoundToInt(performance);
 
-        ShowScoreFloat(AddedScore);
-
-
+        //ShowScoreFloat(AddedScore);
 
         pb.heldAnimal = new Animal()
         {
@@ -109,8 +115,6 @@ public class AmbulanceManager : Interactable
             sickProgression = 0
         };
         pb.UpdateHeldAnimal();
-
-
     }
 
     public override string GetDescription()
@@ -125,8 +129,12 @@ public class AmbulanceManager : Interactable
 
     public void Arrival()
     {
-        animalPriority= Priority.RandomPriority();
-        priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
+        Priority.RandomPriorityAnimal();
+        //animalPriority= Priority.RandomPriorityType();
+        //priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
+
+        //animalPriority = Priority.RandomPriorityAnimal();
+        //animalPriority.GetComponent<CageVisual>().UpdateFlag(true); 
 
         animator.GetComponent<Animator>().SetBool("isClosed", false);
         HasArrived = true;
@@ -135,8 +143,12 @@ public class AmbulanceManager : Interactable
 
     public void Departure()
     {
-        animalPriority = AnimalTypes.Empty;
-        priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
+        //animalPriority = AnimalTypes.Empty;
+        //priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
+        //animalPriority = null;
+        //animalPriority.GetComponent<CageVisual>().UpdateFlag(false);
+
+        int malus = -1 * Mathf.RoundToInt(Priority.priorityBonus);
 
 
         animator.GetComponent<Animator>().SetBool("isClosed", true);
@@ -153,12 +165,13 @@ public class AmbulanceManager : Interactable
             CageBehaviour cb = cage.GetComponent<CageBehaviour>();
 
             if (cb.markedForRemoval)
-            {
+            {  
+
                 cb.Interact_Secondairy(null);
 
                 if (TutorialManager.Instance != null)
                 {
-                    if (Random.Range(0, 2) == 0)
+                    if (UnityEngine.Random.Range(0, 2) == 0)
                     {
                         cb.ChangeOccupation(AnimalTypes.crow);
                     }
@@ -185,13 +198,51 @@ public class AmbulanceManager : Interactable
                 cb.markedForRemoval = false;    
                 cb.UpdateCage();
             }
+
+
+
+            if (cb.myAnimal.priority)
+            {
+                Debug.Log("DeductPoints");
+                GM.IncreaseScore(malus);
+                ShowScoreFloat(malus, cb.transform.position); 
+                cb.myAnimal.priority = false;
+                cb.UpdateCage();
+            }
         }
+
+        Animal p1Animilal = QM.player.GetComponent<PlayerBehaviour>().heldAnimal;
+        Animal p2Animilal = QM.player2.GetComponent<PlayerBehaviour>().heldAnimal;
+
+
+        if (p1Animilal.priority) 
+        {
+            Debug.Log("DeductPoints");
+            GM.IncreaseScore(malus);
+            ShowScoreFloat(malus, QM.player.transform.position);
+            p1Animilal.priority = false;
+        }
+        if (p2Animilal.priority)
+        {
+            Debug.Log("DeductPoints");
+            GM.IncreaseScore(malus);
+            ShowScoreFloat(malus, QM.player2.transform.position);
+            p2Animilal.priority = false;
+        }
+
     }
 
-    private void ShowScoreFloat(int score)
+    private void ShowScoreFloat(int score, Vector3 location = default)
     {
-        Vector3 textPos = transform.position;
-        textPos.z = transform.position.z -1.5f ;
+        location.y++;
+
+
+        if (location == default(Vector3)) // Check if the location is the default value
+        {
+            location = transform.position; // Set location to transform.position if not provided
+            location.z =- 1.5f; 
+        }
+        Vector3 textPos = location;
 
         GameObject floatTextInstance = Instantiate(floatText, textPos, transform.rotation);
         floatTextInstance.GetComponent<FloatText>().SetScore(score);

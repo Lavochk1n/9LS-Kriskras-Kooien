@@ -31,6 +31,18 @@ public class FloatText : MonoBehaviour
 
     public void SetScore(int score)
     {
-        text.text = "+ " + score.ToString();
+        string prefix = "";
+        Color color = Color.white;
+
+        if (score > 0)
+        {
+            prefix = "+"; color = Color.green;
+        }
+        if (score < 0)
+        {
+            color = Color.red;
+        }
+        text.text = prefix + score.ToString();
+        text.color = color;
     }    
 }

@@ -25,7 +25,7 @@ namespace Quarantine
             InitializeCages();
             spreadSpeed = QuarentineManager.Instance.spreadSpeed;
 
-            spreadSpeed *= Random.Range(.8f, 1.2f) * GameManager.Instance.GetDifficultyRatio();
+            spreadSpeed *= Random.Range(.95f, 1.05f) * GameManager.Instance.GetDifficultyRatio();
             if (myAnimal.state == SickState.sick)
             {
                 myAnimal.sickProgression = 100f;
@@ -204,6 +204,7 @@ namespace Quarantine
         public void UpdateCage()
         {
             myCageVisual.UpdateIcon(myAnimal);
+            myCageVisual.UpdateFlag(myAnimal.priority);
         }
 
 
@@ -211,7 +212,9 @@ namespace Quarantine
         {
             if (myAnimal.state == SickState.sick) return;
 
-            if (AdjDisease())
+            int multiplier = AdjDisease();
+
+            if (multiplier > 0)
             {
                 if (myAnimal.sickProgression >= 100)
                 {
@@ -221,7 +224,7 @@ namespace Quarantine
                 }
                 else 
                 {
-                    myAnimal.sickProgression += spreadSpeed * Time.deltaTime; 
+                    myAnimal.sickProgression += spreadSpeed* multiplier * Time.deltaTime ; 
                 }
             } 
             else if(myAnimal.sickProgression > 0)
@@ -232,17 +235,18 @@ namespace Quarantine
             }
         }
 
-        public bool AdjDisease()
+        public int AdjDisease()
         {
+            int multiplier = 0; 
             foreach(CageBehaviour cage in AdjCages)
             {
                 if (cage.IsContagious(myAnimal.type))
                 {
-                    return true;
+                    multiplier ++;
                 } 
             }
 
-            return false;
+            return multiplier;
         }
 
         private bool IsContagious(AnimalTypes type)
