@@ -85,6 +85,10 @@ namespace Quarantine
             {
                 OnSecondairyInteract(obj);
             }
+            if (obj.action.name == controls.Player.Pause.name)
+            {
+                OnPause(obj);
+            }
 
         }
 
@@ -142,8 +146,6 @@ namespace Quarantine
             }
         }
 
-
-
         public void OnReturn(InputAction.CallbackContext context)
         {
             if (context.started)
@@ -152,6 +154,14 @@ namespace Quarantine
                 {
                     sprintSpeed = sprintBonus;
                 }
+            }
+        }
+
+        public void OnPause(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                QuarentineManager.Instance.PauseGame();
             }
         }
 

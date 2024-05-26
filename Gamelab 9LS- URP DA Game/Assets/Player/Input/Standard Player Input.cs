@@ -62,6 +62,24 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""84e198bf-9b0c-4965-bd3c-4121bec735df"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""3639f270-1b1b-48ea-8849-79bd9443b296"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -148,7 +166,7 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Right Keyboard"",
+                    ""groups"": ""Left Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -159,7 +177,7 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Right Keyboard"",
+                    ""groups"": ""Left Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -170,7 +188,7 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Right Keyboard"",
+                    ""groups"": ""Left Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -181,7 +199,7 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Right Keyboard"",
+                    ""groups"": ""Left Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -214,7 +232,7 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Right Keyboard"",
+                    ""groups"": ""Left Keyboard"",
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -233,21 +251,10 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fa6442d1-ffd4-484c-8e69-6eea5afcdb5e"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Left Keyboard"",
-                    ""action"": ""Return"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""38fd2b80-7e9f-47cd-8f62-c075da7dc314"",
-                    ""path"": ""<Keyboard>/backspace"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Right Keyboard"",
                     ""action"": ""Return"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -280,10 +287,120 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/alt"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Right Keyboard"",
+                    ""groups"": ""Left Keyboard"",
                     ""action"": ""Secondairy Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""356040b1-42f6-4328-8924-3a42b8195000"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77473585-ba6d-4a40-89b9-9b8912ef9df4"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dac8b01c-7083-402a-a961-ecde3a840d15"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Left Keyboard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f9ccfd14-9195-4ab8-98e3-ef5ce0291862"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Left Keyboard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""edd3183c-27b1-4a38-915c-76dd35a7b826"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""d9e09e19-c3fe-4074-9eca-e08ca14090b3"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""8c1eea0b-14ba-4b79-8da3-12e07babc384"",
+                    ""path"": ""<Keyboard>/numpad8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""499e7e45-50d8-4ef3-9957-ac4a3eeed871"",
+                    ""path"": ""<Keyboard>/numpad2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""a8924187-9c7f-4742-93f2-838147fd830e"",
+                    ""path"": ""<Keyboard>/numpad4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""7b77ba8d-9b1f-4764-ac18-e2dbf3b22b8d"",
+                    ""path"": ""<Keyboard>/numpad6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -324,6 +441,8 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Return = m_Player.FindAction("Return", throwIfNotFound: true);
         m_Player_SecondairyInteract = m_Player.FindAction("Secondairy Interact", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -389,6 +508,8 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Return;
     private readonly InputAction m_Player_SecondairyInteract;
+    private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_Rotate;
     public struct PlayerActions
     {
         private @StandardPlayerInput m_Wrapper;
@@ -397,6 +518,8 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Return => m_Wrapper.m_Player_Return;
         public InputAction @SecondairyInteract => m_Wrapper.m_Player_SecondairyInteract;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -418,6 +541,12 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
             @SecondairyInteract.started += instance.OnSecondairyInteract;
             @SecondairyInteract.performed += instance.OnSecondairyInteract;
             @SecondairyInteract.canceled += instance.OnSecondairyInteract;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+            @Rotate.started += instance.OnRotate;
+            @Rotate.performed += instance.OnRotate;
+            @Rotate.canceled += instance.OnRotate;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -434,6 +563,12 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
             @SecondairyInteract.started -= instance.OnSecondairyInteract;
             @SecondairyInteract.performed -= instance.OnSecondairyInteract;
             @SecondairyInteract.canceled -= instance.OnSecondairyInteract;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+            @Rotate.started -= instance.OnRotate;
+            @Rotate.performed -= instance.OnRotate;
+            @Rotate.canceled -= instance.OnRotate;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -484,5 +619,7 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnReturn(InputAction.CallbackContext context);
         void OnSecondairyInteract(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
 }

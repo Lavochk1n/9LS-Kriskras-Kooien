@@ -48,6 +48,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         ignoreInputTime = Time.time + ignoreInputTime;
         Input.onActionTriggered += OnMove;
 
+
     }
 
     private void Start()
@@ -78,15 +79,23 @@ public class PlayerSetupMenuController : MonoBehaviour
     {
         if (!inputEnabled) { return; }
 
-        if(!cycleEnabled) {  return; }
+        if (!cycleEnabled) { return; }
 
         if (!menuPanel.activeInHierarchy || menuPanel == null) { return; }
 
-        if (cbc.action.name != controls.Player.Movement.name)
+        if (cbc.action.name == controls.Player.Movement.name)
         {
-            return; 
+            CycleHat(cbc);
         }
 
+        if (cbc.action.name == controls.Player.Rotate.name)
+        {
+            CycleHat(cbc);
+        }
+    }
+
+    private void CycleHat(InputAction.CallbackContext cbc)
+    {
         float horizontalInput = cbc.ReadValue<Vector2>().x;
 
         float movementThreshold = 0.5f;
@@ -95,7 +104,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         {
             if (horizontalInput > 0)
             {
-                currentHat = pcm.CycleHat(PlayerIndex, 1); 
+                currentHat = pcm.CycleHat(PlayerIndex, 1);
                 //currentHat += 1;
                 //if (currentHat >= PlayerConfigManager.Instance.GetHatsConfigs().Count)
                 //{
@@ -113,12 +122,11 @@ public class PlayerSetupMenuController : MonoBehaviour
                 //}
             }
             timer = Time.time + ignoreCycleTime;
-            cycleEnabled = false; 
+            cycleEnabled = false;
         }
 
-        DisplayHat(); 
+        DisplayHat();
     }
-    
 
     private void DisplayHat()
     {
