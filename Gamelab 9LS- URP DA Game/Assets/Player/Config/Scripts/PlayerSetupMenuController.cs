@@ -52,6 +52,7 @@ public class PlayerSetupMenuController : MonoBehaviour
 
     private void Start()
     {
+        currentHat = pcm.CycleHat(PlayerIndex, 1);
         DisplayHat();
     }
     private void OnDisable()
