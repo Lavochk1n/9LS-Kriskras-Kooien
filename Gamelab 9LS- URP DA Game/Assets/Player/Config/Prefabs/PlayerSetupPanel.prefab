@@ -984,6 +984,7 @@ MonoBehaviour:
   menuPanel: {fileID: 7353930049960733295}
   readyButton: {fileID: 0}
   hatPoint: {fileID: 0}
+  rotSpeed: 100
   rawImage: {fileID: 7377923472800671761}
 --- !u!1 &7437574589736541293
 GameObject:

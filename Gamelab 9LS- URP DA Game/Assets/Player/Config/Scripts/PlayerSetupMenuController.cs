@@ -12,11 +12,8 @@ public class PlayerSetupMenuController : MonoBehaviour
     private int PlayerIndex;
 
     [SerializeField] private TextMeshProUGUI titleText;
-
     [SerializeField] private GameObject readyPanel, menuPanel;
-
     [SerializeField] private Button readyButton;
-
     [SerializeField] private GameObject hatPoint; 
 
     private float ignoreInputTime = 1f, ignoreCycleTime = 0.3f, timer = 0f;
@@ -27,6 +24,9 @@ public class PlayerSetupMenuController : MonoBehaviour
     private PlayerInput Input;
 
     private StandardPlayerInput controls;
+
+    private Vector2 rotationInput;
+    [SerializeField] float rotSpeed = 2f; 
 
     public RawImage rawImage;
 
@@ -46,8 +46,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         PlayerIndex = pi.playerIndex;
         titleText.SetText("Speler " + (PlayerIndex + 1).ToString());
         ignoreInputTime = Time.time + ignoreInputTime;
-        Input.onActionTriggered += OnMove;
-
+        Input.onActionTriggered += OnInput;
 
     }
 
@@ -58,7 +57,7 @@ public class PlayerSetupMenuController : MonoBehaviour
     }
     private void OnDisable()
     {
-        Input.onActionTriggered -= OnMove;
+        Input.onActionTriggered -= OnInput;
     }
 
     void Update()
@@ -72,10 +71,11 @@ public class PlayerSetupMenuController : MonoBehaviour
         {
             cycleEnabled = true;
         }
+        RotateCharacter();
     }
 
 
-    private void OnMove(InputAction.CallbackContext cbc)
+    private void OnInput(InputAction.CallbackContext cbc)
     {
         if (!inputEnabled) { return; }
 
@@ -83,14 +83,37 @@ public class PlayerSetupMenuController : MonoBehaviour
 
         if (!menuPanel.activeInHierarchy || menuPanel == null) { return; }
 
+        if (cbc.action.name == controls.Player.Rotate.name)
+        {
+            RotateChar(cbc);
+        }
+
         if (cbc.action.name == controls.Player.Movement.name)
         {
             CycleHat(cbc);
         }
 
-        if (cbc.action.name == controls.Player.Rotate.name)
+        
+    }
+
+    private void RotateChar(InputAction.CallbackContext cbc)
+    {
+        rotationInput = cbc.ReadValue<Vector2>();
+    }
+
+    private void RotateCharacter()
+    {
+        if (rotationInput == Vector2.zero) return;
+
+        float horizontalInput = rotationInput.x;
+        float movementThreshold = 0.5f;
+
+        Transform player = GameObject.FindGameObjectWithTag("spawn" + (PlayerIndex + 1).ToString()).transform.parent;
+
+        if (Mathf.Abs(horizontalInput) > movementThreshold)
         {
-            CycleHat(cbc);
+            Vector3 rotation = Vector3.up * horizontalInput * rotSpeed * Time.deltaTime;
+            player.Rotate(rotation);
         }
     }
 
@@ -153,7 +176,6 @@ public class PlayerSetupMenuController : MonoBehaviour
 
         PlayerConfigManager.Instance.SetPlayerHat(PlayerIndex, currentHat);
         readyPanel.SetActive(true);
-        //readyButton.Select(); 
         menuPanel.SetActive(false);
     }
 
@@ -163,6 +185,5 @@ public class PlayerSetupMenuController : MonoBehaviour
         if(!inputEnabled) { return; }
 
         PlayerConfigManager.Instance.ReadyPlayer(PlayerIndex);
-        //readyButton.GetComponent<Button>().interactable = false;               
     }
 }
