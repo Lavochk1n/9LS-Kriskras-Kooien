@@ -10,10 +10,6 @@ public class HighScoreTable : MonoBehaviour
     private Transform entryContainer;
     [SerializeField]
     private float Templateheight = 20;
-    //public string teamName;
-    //public string player1Name;
-    //public string player2Name;
-    //public int score;
     private HighScores highScores;
     private List<Transform> entryTransforms = new List<Transform>();
     public List<HighScoreEntry> highScoreEntries = new List<HighScoreEntry>();
@@ -21,11 +17,7 @@ public class HighScoreTable : MonoBehaviour
     private void Awake()
     {
         entryContainer = GameObject.FindWithTag("Leaderboard").transform;
-            //transform.Find("HighscoreEntryContainer");
-        Debug.Log(entryContainer);
-        //entryTemplate = entryContainer.GetChild(0).transform;
         entryTemplate = entryContainer.Find("highscoreEntryTemplate");
-
         entryTemplate.gameObject.SetActive(false);
 
         for (int i = 0; i < 8; i++)
@@ -36,7 +28,6 @@ public class HighScoreTable : MonoBehaviour
             entryTransform.gameObject.SetActive(true);
 
         }
-        AddTestScore();
         LoadHighScores();
     }
 
@@ -63,12 +54,7 @@ public class HighScoreTable : MonoBehaviour
             JsonUtility.FromJsonOverwrite(json, this);
         }
     }
-    // Test method to add a score manually
-    [ContextMenu("Add Test Score")]
-    public void AddTestScore()
-    {
-        AddHighScore("Test Team", "Player 1", "Player 2", UnityEngine.Random.Range(0, 100));
-    }
+
     private void CreateHighScoreEntries()
     {
         foreach (Transform child in entryContainer)
@@ -83,9 +69,7 @@ public class HighScoreTable : MonoBehaviour
             entryTransforms.Add(entryTransform);
 
             int rank = highScores.entries.IndexOf(entry) + 1;
-            // string rankString = GetRankString(rank);
-
-            //entryTransform.Find("Ranking").GetComponent<Text>().text = rankString;
+           
             entryTransform.Find("Score").GetComponent<Text>().text = entry.score.ToString();
             entryTransform.Find("TeamName").GetComponent<Text>().text = entry.teamName;
             entryTransform.Find("Player1").GetComponent<Text>().text = entry.player1Name;
