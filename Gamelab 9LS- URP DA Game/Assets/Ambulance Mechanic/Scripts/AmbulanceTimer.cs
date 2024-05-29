@@ -20,6 +20,11 @@ public class AmbulanceTimer : MonoBehaviour
     private float timerTotal;
     private float flickingInterval = 0.5f;
     [SerializeField] private Renderer greenLight, redLight;
+    //private Renderer currentLight;
+
+    private Material green, red; 
+    [SerializeField] private Material white; 
+    
 
     void Start()
     {
@@ -27,6 +32,9 @@ public class AmbulanceTimer : MonoBehaviour
 
         timeLeft = awayTime;
         timerTotal = timeLeft;
+
+        green = greenLight.material; 
+        red = redLight.material;
 
         redLight.material.EnableKeyword("_EMISSION");
         greenLight.material.DisableKeyword("_EMISSION");
@@ -46,17 +54,42 @@ public class AmbulanceTimer : MonoBehaviour
                 if(!HasArrived)
                 {
                     StartCoroutine(FlickerLight(greenLight));
+                    StartCoroutine(FlickerLight(redLight));
+
                 }
             }
         }
 
         if (timeLeft < 0)
         {
-            StopAllCoroutines();
-            isFlickering = false;
+            TurnOffFlickering();
             return true;
         }
         return false; 
+    }
+
+    public void TurnOffFlickering()
+    {
+        StopAllCoroutines();
+        isFlickering = false;
+        greenLight.material = green;
+        redLight.material = red;
+    }
+
+    public void EngageLight(bool makeGreen)
+    {
+        if (makeGreen)
+        {
+            greenLight.material.EnableKeyword("_EMISSION");
+            redLight.material.DisableKeyword("_EMISSION");
+            //currentLight = greenLight;
+        }
+        else
+        {
+            greenLight.material.DisableKeyword("_EMISSION");
+            redLight.material.EnableKeyword("_EMISSION");
+            //currentLight = redLight;
+        }
     }
 
     public void AddTime( )
@@ -75,21 +108,27 @@ public class AmbulanceTimer : MonoBehaviour
 
     private IEnumerator FlickerLight(Renderer light)
     {
+
+        Material material = light.material;
         isFlickering = true;
 
-        while (true)
+        
+
+        while (timeLeft > 0 && timeLeft < timerTotal)
         {
+            light.material = white;
             light.material.EnableKeyword("_EMISSION");
+
 
             if (timeLeft < timerTotal / 8)
             {
-                yield return new WaitForSeconds(flickingInterval / 2);
+                yield return new WaitForSeconds(flickingInterval / 4);
 
             }
-            else yield return new WaitForSeconds(flickingInterval);
-
+            else yield return new WaitForSeconds(flickingInterval/2);
 
             light.material.DisableKeyword("_EMISSION");
+            light.material = material;
 
             if (timeLeft < timerTotal / 8)
             {
@@ -98,5 +137,8 @@ public class AmbulanceTimer : MonoBehaviour
             }
             else yield return new WaitForSeconds(flickingInterval);
         }
+        light.material = material;
+
+        isFlickering = false;
     }
 }

@@ -129,6 +129,7 @@ public class AmbulanceManager : Interactable
 
     public void Arrival()
     {
+        Timer.EngageLight(true);
         Priority.RandomPriorityAnimal();
         //animalPriority= Priority.RandomPriorityType();
         //priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
@@ -143,6 +144,8 @@ public class AmbulanceManager : Interactable
 
     public void Departure()
     {
+        Timer.TurnOffFlickering();
+        Timer.EngageLight(false);
         //animalPriority = AnimalTypes.Empty;
         //priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
         //animalPriority = null;
@@ -237,9 +240,9 @@ public class AmbulanceManager : Interactable
         location.y++;
 
 
-        if (location == default(Vector3)) // Check if the location is the default value
+        if (location == default(Vector3)) 
         {
-            location = transform.position; // Set location to transform.position if not provided
+            location = transform.GetChild(0).transform.position; 
             location.z =- 1.5f; 
         }
         Vector3 textPos = location;

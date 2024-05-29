@@ -76,6 +76,7 @@ MonoBehaviour:
   parkedTime: 20
   greenLight: {fileID: 8795086093555991520}
   redLight: {fileID: 211185594707037079}
+  white: {fileID: 2100000, guid: 0cfb208ded0a6a34da4f5b2208e7dd27, type: 2}
 --- !u!114 &1867044241139865245
 MonoBehaviour:
   m_ObjectHideFlags: 0
