@@ -106,7 +106,7 @@ public class AmbulanceManager : Interactable
 
     public override string GetDescription()
     {
-        throw new System.NotImplementedException();
+        return null;
     }
 
     public override void Interact_Secondairy(Interactor interactor)

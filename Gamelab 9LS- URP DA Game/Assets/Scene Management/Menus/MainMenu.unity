@@ -2088,7 +2088,7 @@ PrefabInstance:
     - target: {fileID: 1161320296525089214, guid: f72ff08e21d9c154cae3c4b4d0b4708d,
         type: 3}
       propertyPath: gameRoom
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1161320296525089214, guid: f72ff08e21d9c154cae3c4b4d0b4708d,
         type: 3}

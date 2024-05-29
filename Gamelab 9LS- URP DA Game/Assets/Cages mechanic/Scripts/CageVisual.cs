@@ -9,6 +9,10 @@ namespace Quarantine {
 
     public class CageVisual : MonoBehaviour
     {
+        
+
+
+
         [SerializeField] private CageBehaviour myCage;
 
         [SerializeField] private GameObject attachPoint, flag;
@@ -19,29 +23,46 @@ namespace Quarantine {
 
         [SerializeField] private Color barSickColor, barHealthyColor;
 
-        [Header("being looked at")]
         private bool isLookedAt = false;
         private float lightTimer = 0f;
         [SerializeField] private float resetTime = 0.1f;
+        private Material ogMat;
+        [SerializeField] private Material lookedAtMAt;
 
-        private float progression; 
+        private float progression;
 
+        
         private void Start()
         {
             progression = progressBar.fillAmount;
+            ogMat = GetComponentInChildren<Renderer>().materials[0];
+            GetComponentInChildren<Renderer>().materials[0].DisableKeyword("_EMISSION");
+
         }
 
         private void Update()
         {
-            //spotLight.SetActive(isLookedAt);
-            if (lightTimer > 0f)
+
+
+            if(isLookedAt)
             {
-                lightTimer -= Time.deltaTime;
+                //Debug.Log(isLookedAt);
+
+                GetComponentInChildren<Renderer>().materials[0].EnableKeyword("_EMISSION");
+
+                if (lightTimer > 0f)
+                {
+                    lightTimer -= Time.deltaTime;
+                }
+                else //if (mat.IsKeywordEnabled("_EMISSION"))
+                {
+                    //GetComponentInChildren<Renderer>().materials[0] = ogMat;
+                    GetComponentInChildren<Renderer>().materials[0].DisableKeyword("_EMISSION");
+
+                    isLookedAt = false;
+                }
             }
-            else
-            {
-                isLookedAt = false;
-            }
+            
         }
 
        public void UpdateFlag(bool state)
@@ -85,7 +106,6 @@ namespace Quarantine {
                 return true; 
             }
             else return false;
-            
         }
 
         public void UpdateProgressbar(Animal animal)
@@ -111,29 +131,24 @@ namespace Quarantine {
                 progressBar.gameObject.SetActive(true);
             }
 
-            
-
             if (isSickening())
             {   
                 panel.sprite = visuals.iconTypeSickening;
                 progressBar.color = barSickColor;
                 background.sprite = backgroundSickening;
-
             }
             else
             {
                 panel.sprite = visuals.iconTypeHealthy;
                 progressBar.color = barHealthyColor;
                 background.sprite = backgroundHealthy;
-
             }
-
             progressBar.fillAmount = animal.sickProgression / 100f;
-
         }
 
         public void IsLookedAt()
         {
+            //Debug.Log("register looking");
             isLookedAt = true;
             lightTimer = resetTime;
         }

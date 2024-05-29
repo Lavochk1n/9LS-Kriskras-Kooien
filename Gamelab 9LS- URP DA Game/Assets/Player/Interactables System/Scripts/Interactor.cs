@@ -33,6 +33,11 @@ public class Interactor : MonoBehaviour
         {
             Interactable interactable = hit.collider.GetComponent<Interactable>();
 
+            //if (hit.collider == null)
+            //{
+            //    requestHold = false;
+            //}
+
             if (interactable != null)
             {
                 HandleInteraction(interactable);
@@ -44,7 +49,7 @@ public class Interactor : MonoBehaviour
                        (
                         interactable.transform.position.x,
                         interactable.transform.position.y+ -offset,
-                       interactable.transform.position.z + offset);
+                       interactable.transform.position.z);
 
                     if(currentPrompt == null)
                     {
@@ -66,12 +71,31 @@ public class Interactor : MonoBehaviour
             else
             {
                 requestHold = false;
+                if (currentPrompt != null)
+                {
+                    Destroy(currentPrompt);
+                    currentPrompt = null;
+                    interactionProgress = null;
+                }
             }
         }
+        else
+        {
+            requestHold = false;
+            if (currentPrompt != null)
+            {
+                Destroy(currentPrompt);
+                currentPrompt = null;
+                interactionProgress = null;
+            }
+        }
+        
+
     }
 
     private void HandleInteraction(Interactable interactable)
     {
+        interactable.GetDescription(); 
 
         switch (interactable.interactionType)
         {

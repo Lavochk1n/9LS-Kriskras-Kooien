@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 
 namespace Quarantine
@@ -150,7 +149,7 @@ namespace Quarantine
 
         public override string GetDescription()
         {
-            //myCageVisual.IsLookedAt(); 
+            myCageVisual.IsLookedAt(); 
             return null; 
         }
 
