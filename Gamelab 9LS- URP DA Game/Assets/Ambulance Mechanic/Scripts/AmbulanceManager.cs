@@ -24,12 +24,8 @@ public class AmbulanceManager : Interactable
 
     [SerializeField] private int ambulanceCapacity = 4; 
 
-    //[Header("priority")]
-    //private AnimalTypes animalPriority
     private CageBehaviour animalPriority;
 
-    //[SerializeField] private Image priodisplay;
-    //[SerializeField] private float priorityBonus = 1.5f; 
 
     private void Awake()
     {
@@ -51,8 +47,6 @@ public class AmbulanceManager : Interactable
         Priority = GetComponent<AmbulancePriority>();
 
         animalPriority = null;
-        //animalPriority = AnimalTypes.Empty;
-        //priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
     }
 
     public void HandleAmbulance()
@@ -100,13 +94,6 @@ public class AmbulanceManager : Interactable
         }
 
         storedAnimals.Add(pb.heldAnimal);
-        //float performance = 100f;
-        //if (pb.heldAnimal.type == animalPriority) performance *= priorityBonus; 
-        //performance -= pb.heldAnimal.sickProgression;
-
-        //int AddedScore = Mathf.RoundToInt(performance);
-
-        //ShowScoreFloat(AddedScore);
 
         pb.heldAnimal = new Animal()
         {
@@ -131,11 +118,6 @@ public class AmbulanceManager : Interactable
     {
         Timer.EngageLight(true);
         Priority.RandomPriorityAnimal();
-        //animalPriority= Priority.RandomPriorityType();
-        //priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
-
-        //animalPriority = Priority.RandomPriorityAnimal();
-        //animalPriority.GetComponent<CageVisual>().UpdateFlag(true); 
 
         animator.GetComponent<Animator>().SetBool("isClosed", false);
         HasArrived = true;
@@ -146,18 +128,13 @@ public class AmbulanceManager : Interactable
     {
         Timer.TurnOffFlickering();
         Timer.EngageLight(false);
-        //animalPriority = AnimalTypes.Empty;
-        //priodisplay.sprite = VisualManager.instance.GetAnimalVisuals(animalPriority).iconTypeHealthy;
-        //animalPriority = null;
-        //animalPriority.GetComponent<CageVisual>().UpdateFlag(false);
+        
 
         int malus = -1 * Mathf.RoundToInt(Priority.priorityBonus);
-
 
         animator.GetComponent<Animator>().SetBool("isClosed", true);
         HasArrived = false ;
         Debug.Log("departed");
-
 
         storedAnimals.Clear();
 
@@ -169,7 +146,6 @@ public class AmbulanceManager : Interactable
 
             if (cb.markedForRemoval)
             {  
-
                 cb.Interact_Secondairy(null);
 
                 if (TutorialManager.Instance != null)
@@ -189,7 +165,6 @@ public class AmbulanceManager : Interactable
                 }
                 cb.ChangeSickstate(QM.GetWeightedRandomState());
 
-
                 if (cb.myAnimal.state == SickState.sick)
                 {
                     cb.myAnimal.sickProgression = 100f;
@@ -201,8 +176,6 @@ public class AmbulanceManager : Interactable
                 cb.markedForRemoval = false;    
                 cb.UpdateCage();
             }
-
-
 
             if (cb.myAnimal.priority)
             {
