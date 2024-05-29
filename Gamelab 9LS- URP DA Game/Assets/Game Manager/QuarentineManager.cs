@@ -2,6 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Quarantine
@@ -47,6 +49,7 @@ namespace Quarantine
         [Header("Randomiser")]
         private List<AnimalWeight> animalWeights;
         [SerializeField] private int bunnyWeight, crowWeight, parrotWeight, healthyWeight;
+        [SerializeField] private int sickAmount = 5;
 
         [Header("Game Rules")]
         public float spreadSpeed = 2.1f;
@@ -110,7 +113,6 @@ namespace Quarantine
                 gameObject.transform);
             player2.GetComponent<PlayerBehaviour>().InitializePlayer(playerConfigs[1]);
 
-            GamePause = true;
             StartCoroutine(DelayedUnpause());
         }
 
@@ -187,6 +189,10 @@ namespace Quarantine
         private IEnumerator DelayedUnpause()
         {
             delayRunning = true;
+
+            yield return null;
+            GamePause = true;
+
             yield return new WaitForSeconds(pauseTimeDelay);
             GamePause = false;
             delayRunning = false;
@@ -317,14 +323,25 @@ namespace Quarantine
                 new() {AnimalType = AnimalTypes.parrot, Weight = parrotWeight},
             };
 
+            List<CageBehaviour> potentialCages = new();
+            //int remainingNeedingSickness = sickAmount; 
+
             foreach (Transform child in cagesParent.transform)
             {
                 Cages.Add(child.gameObject);
                 CageBehaviour cage = child.GetComponent<CageBehaviour>();
-
+                potentialCages.Add(cage);
                 cage.ChangeOccupation(GetWeightedRandomAnimal());
-                cage.ChangeSickstate(GetWeightedRandomState());
+                //cage.ChangeSickstate(GetWeightedRandomState());
             }
+
+            for (int i = 0; i < sickAmount; i++)
+            {
+                CageBehaviour theChosenOne =  potentialCages[UnityEngine.Random.Range(0, potentialCages.Count)];
+                theChosenOne.ChangeSickstate(SickState.sick);
+                potentialCages.Remove(theChosenOne);
+            }
+
         }
     
         /// <returns> An animaltype enumstate  based on weight</returns>

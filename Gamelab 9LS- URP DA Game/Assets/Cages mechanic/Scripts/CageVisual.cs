@@ -15,7 +15,7 @@ namespace Quarantine {
 
         [SerializeField] private Image panel, progressBar, background;
 
-        [SerializeField] private Sprite backgroundSick, backgroundHealthy; 
+        [SerializeField] private Sprite backgroundSick, backgroundSickening, backgroundHealthy; 
 
         [SerializeField] private Color barSickColor, barHealthyColor;
 
@@ -72,9 +72,20 @@ namespace Quarantine {
             }
             else
             {
-                background.sprite = backgroundHealthy;
+                background.sprite = backgroundSickening;
                 panel.sprite = visuals.iconTypeHealthy;
             }
+        }
+
+        private bool isSickening()
+        {
+            Animal animal  = GetComponent<CageBehaviour>().myAnimal;
+            if (progression < animal.sickProgression / 100f)
+            {
+                return true; 
+            }
+            else return false;
+            
         }
 
         public void UpdateProgressbar(Animal animal)
@@ -85,7 +96,7 @@ namespace Quarantine {
             {
                 if (progressBar.IsActive()) progressBar.gameObject.SetActive(false);
 
-                background.sprite = backgroundHealthy;
+                background.sprite = backgroundSickening;
                 return; 
             }
 
@@ -100,15 +111,21 @@ namespace Quarantine {
                 progressBar.gameObject.SetActive(true);
             }
 
-            if (progression >= animal.sickProgression / 100f)
-            {
-                panel.sprite = visuals.iconTypeHealthy;
-                progressBar.color = barHealthyColor;
+            
+
+            if (isSickening())
+            {   
+                panel.sprite = visuals.iconTypeSickening;
+                progressBar.color = barSickColor;
+                background.sprite = backgroundSickening;
+
             }
             else
             {
-                panel.sprite = visuals.iconTypeSickening;
-                progressBar.color = barSickColor;
+                panel.sprite = visuals.iconTypeHealthy;
+                progressBar.color = barHealthyColor;
+                background.sprite = backgroundHealthy;
+
             }
 
             progressBar.fillAmount = animal.sickProgression / 100f;
