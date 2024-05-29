@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 
 namespace Quarantine
@@ -68,6 +69,12 @@ namespace Quarantine
 
             if (heldAnimal.type == AnimalTypes.Empty || myAnimal.type == AnimalTypes.Empty)
             {
+                if (markedForRemoval)
+                {
+                    markedForRemoval = false;
+                    playerBehaviour.mostRecentCage.markedForRemoval = true;
+                }
+
                 if (heldAnimal.type == AnimalTypes.Empty)
                 {
                     if(!playerBehaviour.GetComponent<GloveManager>().HasGloves())
@@ -96,13 +103,8 @@ namespace Quarantine
                             player1.mostRecentCage = player2.mostRecentCage;
                         }
                     }
+                    
 
-                    //if (markedForRemoval)
-                    //{
-                    //    markedForRemoval = false;
-                    //    playerBehaviour.mostRecentCage.markedForRemoval = true;
-
-                    //}
                 }
 
                 playerBehaviour.heldAnimal = myAnimal;
