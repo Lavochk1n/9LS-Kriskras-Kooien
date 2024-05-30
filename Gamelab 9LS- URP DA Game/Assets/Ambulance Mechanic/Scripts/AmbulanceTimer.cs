@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class AmbulanceTimer : MonoBehaviour
 {
@@ -92,7 +93,7 @@ public class AmbulanceTimer : MonoBehaviour
         }
     }
 
-    public void AddTime( )
+    public void AddTime()
     {
         if(AM.HasArrived )
         {
@@ -103,7 +104,16 @@ public class AmbulanceTimer : MonoBehaviour
             timeLeft = parkedTime;
 
         }
-        timerTotal = timeLeft;
+    timerTotal = timeLeft;
+    }
+
+    public float CurrentRelativeTime()
+    {
+        float time = 0;
+
+        time = timeLeft / timerTotal;
+
+        return time; 
     }
 
     private IEnumerator FlickerLight(Renderer light)

@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameDifficulty: 100
-  difficultyIncrease: 1.1
-  ambulanceDepartures: 6
-  maxGloves: 6
+  difficultyIncrease: 1.3
+  ambulanceDepartures: 3
+  maxGloves: 5
   playerBehaviour1: {fileID: 0}
   playerBehaviour2: {fileID: 0}
-  randomGame: 1
-  gameRoom: 1
+  randomGame: 0
+  gameRoom: 3
   flaggedMode: 0

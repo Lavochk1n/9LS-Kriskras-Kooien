@@ -43,6 +43,11 @@ namespace Quarantine
             StartCoroutine(UpdateVisuals());
         }
 
+        public void IncreaseDifficulty()
+        {
+            spreadSpeed *= GameManager.Instance.GetDifficultyRatio();
+        }
+
         private void Update()
         {
             if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GamePaused() ) return;

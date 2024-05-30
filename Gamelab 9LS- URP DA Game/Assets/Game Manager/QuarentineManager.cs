@@ -149,12 +149,17 @@ namespace Quarantine
             {
                 yield return new WaitForSeconds(1f);
 
+                GameManager.Instance.IncreaseDifficulty();
+                foreach (GameObject cage in Cages)
+                {
+                    cage.GetComponent<CageBehaviour>().IncreaseDifficulty();
+                }
+
                 if (!PlayerSpawned())
                 {
                     if (GameOver())
                     {
                         GameManager.Instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
-                        GameManager.Instance.IncreaseDifficulty();
                         //GameManager.Instance.AddTime(completionBonus);
                         ScenesManager.Instance.GetGameOver();
                     }

@@ -90,7 +90,7 @@ public class AmbulanceManager : Interactable
         if(pb.heldAnimal.priority)
         {
             pb.heldAnimal.priority = false;
-            ShowScoreFloat(Mathf.RoundToInt(Priority.priorityBonus));
+            ShowScoreFloat(Priority.CalculateScore());
         }
 
         storedAnimals.Add(pb.heldAnimal);

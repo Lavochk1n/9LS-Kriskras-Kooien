@@ -62,9 +62,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.33
-  m_Height: 1
+  m_Height: 0.9079481
   m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
+  m_Center: {x: 0, y: 0.44602594, z: 0}
 --- !u!114 &3950065169944920515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +143,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 8d0745ed-1b43-45dd-a975-b848b3dd3912
     m_ActionName: Player/Secondairy Interact[/XInputControllerWindows/buttonWest,/Keyboard/leftAlt,/Keyboard/alt]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 84e198bf-9b0c-4965-bd3c-4121bec735df
+    m_ActionName: Player/Pause[/XInputControllerWindows1/start,/XInputControllerWindows/start,/XInputControllerWindows1/select,/XInputControllerWindows/select,/Keyboard/escape,/Keyboard/backspace]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3639f270-1b1b-48ea-8849-79bd9443b296
+    m_ActionName: Player/Rotate[/XInputControllerWindows1/rightStick,/XInputControllerWindows/rightStick,/Keyboard/numpad8,/Keyboard/numpad2,/Keyboard/numpad4,/Keyboard/numpad6]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -212,7 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ecb84687026394c9c088a27aab04fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumgloves: 7
 --- !u!114 &7580444086419544175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,8 +291,8 @@ Transform:
   m_GameObject: {fileID: 7494504169655174064}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.49999997, z: 0.3333333}
-  m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
+  m_LocalPosition: {x: 0, y: 0.49999997, z: 0.459}
+  m_LocalScale: {x: 0.59, y: 0.59, z: 0.59}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5261058416242712874}
