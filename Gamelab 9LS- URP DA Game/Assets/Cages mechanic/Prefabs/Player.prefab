@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ecb84687026394c9c088a27aab04fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gloveUI: {fileID: 0}
 --- !u!114 &7580444086419544175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerUI: {fileID: 8224229742576151567, guid: 056357d670ebbc5429e50ed3b7983131,
+    type: 3}
+  Player2UI: {fileID: 4773863546353274063, guid: a25c27dc306dae44ca29a1af62d8ede4,
     type: 3}
   Borderoffset: 70
 --- !u!1 &3316258676127197810
