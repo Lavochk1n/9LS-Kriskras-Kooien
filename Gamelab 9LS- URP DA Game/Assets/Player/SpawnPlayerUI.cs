@@ -31,7 +31,7 @@ public class SpawnPlayerUI : MonoBehaviour
         GetComponent<PlayerBehaviour>().myUI = Instantiate(
             PlayerUI, spawnPos, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform
             );
-
+        GetComponent<GloveManager>().gloveUI = GetComponent<PlayerBehaviour>().myUI.GetComponentInChildren<GloveUI>();
         GetComponent<GloveManager>().UpdateUI();  
 
     }
