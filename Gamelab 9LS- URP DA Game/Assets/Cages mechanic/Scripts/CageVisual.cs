@@ -65,6 +65,12 @@ namespace Quarantine {
             
         }
 
+        public void ToggleIcon(bool state)
+        {
+            
+            panel.transform.parent.gameObject.SetActive(state);
+        }
+
        public void UpdateFlag(bool state)
         {
             flag.SetActive(state);

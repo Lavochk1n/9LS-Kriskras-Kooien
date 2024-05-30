@@ -82,7 +82,7 @@ public class AmbulanceManager : Interactable
         Debug.Log("departed");
 
 
-        QM.AddAmbulanceDepartCounter(); 
+        //QM.AddAmbulanceDepartCounter(); 
 
         
 

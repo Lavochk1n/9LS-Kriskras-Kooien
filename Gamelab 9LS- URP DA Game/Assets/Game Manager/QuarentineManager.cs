@@ -54,8 +54,8 @@ namespace Quarantine
         [Header("Game Rules")]
         public float spreadSpeed = 2.1f;
         [SerializeField][Range(0, 100.0f)] float cageQuota = 80;
-        private int currentDepartures = 0;
-        private int totalDepartures;
+        //private int currentDepartures = 0;
+        //private int totalDepartures;
 
         [Header("player Specifics")]
         public bool playerOneSpawned = false;
@@ -80,7 +80,7 @@ namespace Quarantine
             else {Instance = this;}
 
             cagesParent = GameObject.FindGameObjectWithTag("Cage Parent");
-            totalDepartures = GameManager.Instance.GetTotalDepartures();
+            //totalDepartures = GameManager.Instance.GetTotalDepartures();
 
             foreach (Transform child in cagesParent.transform)
             {
@@ -152,7 +152,6 @@ namespace Quarantine
             {
                 if (!isClearing)
                 {
-                    AmbulanceManager.Instance.Arrival();
                     StartCoroutine(ClearingRoom());
                     
                     Debug.Log("clear");
@@ -288,9 +287,10 @@ namespace Quarantine
 
         private IEnumerator ClearingRoom()
         {
-            isClearing = true; 
+            isClearing = true;
 
-            
+            AmbulanceManager.Instance.Arrival();
+
             yield return new WaitForSeconds(AmbulanceManager.Instance.waitTime);
 
             foreach (GameObject cage in Cages)
@@ -314,13 +314,13 @@ namespace Quarantine
                     state = SickState.healthy,
                     sickProgression = 0,
                 };
-                //cageBehaviour.GetComponent<VisualManager>().gameObject.SetActive(false);
+                cageBehaviour.GetComponent<CageVisual>().ToggleIcon(false);
 
                 yield return new WaitForSeconds(0.1f);
             }
 
+            GameManager.Instance.AddDeparture();
             AmbulanceManager.Instance.Departure();
-            
             RandomiseCages();
             
             clearCompleted = true;
@@ -342,10 +342,13 @@ namespace Quarantine
 
             foreach (Transform child in cagesParent.transform)
             {
+                child.GetComponent<CageVisual>().ToggleIcon(true);
+
                 CageBehaviour cage = child.GetComponent<CageBehaviour>();
                 potentialCages.Add(cage);
                 cage.ChangeOccupation(GetWeightedRandomAnimal());
                 cage.UpdateCage();
+                cage.UpdateSpreadSpeed();
                 //cage.ChangeSickstate(GetWeightedRandomState());
             }
 
@@ -395,9 +398,9 @@ namespace Quarantine
 
         //////////////////////// AMBUALNCE
         
-        public void AddAmbulanceDepartCounter()
-        {
-            currentDepartures++;
-        }
+        //public void AddAmbulanceDepartCounter()
+        //{
+        //    currentDepartures++;
+        //}
     }
 }

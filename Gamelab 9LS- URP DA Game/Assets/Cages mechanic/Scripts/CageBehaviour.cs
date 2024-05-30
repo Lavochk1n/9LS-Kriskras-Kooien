@@ -12,6 +12,7 @@ namespace Quarantine
         [SerializeField] private LayerMask wallLayer;
         [SerializeField] private float searchDistance =3f;
 
+        private float startSpreadSpeed; 
         private float spreadSpeed;
 
         [SerializeField] private CageVisual myCageVisual;
@@ -23,9 +24,9 @@ namespace Quarantine
         private void Start()
         {
             InitializeCages();
-            spreadSpeed = QuarentineManager.Instance.spreadSpeed;
+            startSpreadSpeed = QuarentineManager.Instance.spreadSpeed;
 
-            spreadSpeed *= Random.Range(.95f, 1.05f) * GameManager.Instance.GetDifficultyRatio();
+            UpdateSpreadSpeed();
             if (myAnimal.state == SickState.sick)
             {
                 myAnimal.sickProgression = 100f;
@@ -43,9 +44,9 @@ namespace Quarantine
             StartCoroutine(UpdateVisuals());
         }
 
-        public void IncreaseDifficulty()
+        public void UpdateSpreadSpeed()
         {
-            spreadSpeed *= GameManager.Instance.GetDifficultyRatio();
+            spreadSpeed = startSpreadSpeed * Random.Range(.98f, 1.02f) * GameManager.Instance.GetDifficultyRatio();
         }
 
         private void Update()
