@@ -12,11 +12,12 @@ public class GloveManager : MonoBehaviour
     private int maximumgloves = 5;
 
 
-    private GloveUI gloveUI;
+    public GloveUI gloveUI;
 
     void Start()
     {
         maximumgloves = GameManager.Instance.GetMaxGloves();
+        //gloveUI = GetComponent<PlayerBehaviour>().myUI.GetComponentInChildren<GloveUI>();
         gloves = maximumgloves;
     }
 
@@ -42,7 +43,7 @@ public class GloveManager : MonoBehaviour
             return;
         }
 
-        gloves++;
+        gloves = maximumgloves;
         UpdateUI();
     }
 
@@ -50,14 +51,16 @@ public class GloveManager : MonoBehaviour
     {
         if (gloves <= 0)
         {
+            gloveUI.spawnFadeOut();
             return false;
+            
         }
         return true;
     }
 
     public void UpdateUI()
     {
-        GetComponent<PlayerBehaviour>().myUI.GetComponentInChildren<GloveUI>().updateUIGlove(gloves);
+        gloveUI.updateUIGlove(gloves);
     }
 
     public int GetGloves()
