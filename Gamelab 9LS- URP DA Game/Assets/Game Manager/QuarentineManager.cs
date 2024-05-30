@@ -172,6 +172,7 @@ namespace Quarantine
 
 
             if (RoomCleared()) return true;     
+            if(isClearing) return true;
 
             if (!PlayerSpawned()) return true; 
             
@@ -289,9 +290,8 @@ namespace Quarantine
         {
             isClearing = true; 
 
-            float estMin = Cages.Count - cageQuota;
-            float estMax = Cages.Count;
-            yield return new WaitForSeconds(0.1f);
+            
+            yield return new WaitForSeconds(AmbulanceManager.Instance.waitTime);
 
             foreach (GameObject cage in Cages)
             {
@@ -314,9 +314,9 @@ namespace Quarantine
                     state = SickState.healthy,
                     sickProgression = 0,
                 };
-                cageBehaviour.UpdateCage();
+                //cageBehaviour.GetComponent<VisualManager>().gameObject.SetActive(false);
 
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(0.1f);
             }
 
             AmbulanceManager.Instance.Departure();

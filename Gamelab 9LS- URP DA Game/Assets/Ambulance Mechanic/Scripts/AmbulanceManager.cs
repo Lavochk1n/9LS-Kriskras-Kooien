@@ -15,8 +15,9 @@ public class AmbulanceManager : Interactable
     //private AmbulanceTimer Timer;
     //private AmbulancePriority Priority; 
 
+    public float waitTime = 3f;
 
-    [SerializeField] private Animator animator;
+    public Animator animator;
     [SerializeField] private GameObject floatText; 
     List<Animal> storedAnimals = new List<Animal>();
 
