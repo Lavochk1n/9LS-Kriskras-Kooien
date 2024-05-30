@@ -9,10 +9,6 @@ namespace Quarantine {
 
     public class CageVisual : MonoBehaviour
     {
-        
-
-
-
         [SerializeField] private CageBehaviour myCage;
 
         [SerializeField] private GameObject attachPoint, flag;

@@ -190,9 +190,14 @@ namespace Quarantine
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, searchDistance);
             
-            foreach(CageBehaviour cageBehaviour in AdjCages)
+            
+        }
+
+        private void OnDrawGizmos()
+        {
+            foreach (CageBehaviour cageBehaviour in AdjCages)
             {
-                Gizmos.color = Color.blue;
+                Gizmos.color = Color.red;
 
                 Gizmos.DrawLine(transform.position, cageBehaviour.transform.position);
 
