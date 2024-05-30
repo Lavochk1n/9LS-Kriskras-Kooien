@@ -4049,77 +4049,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: mapIndex
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: cageQuota
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: randomMap
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: inventory1
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: inventory2
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: playerPrefab
-      value: 
-      objectReference: {fileID: 2643759386923098102, guid: abc0fcb6402dd984dab3000e1f3bdec1,
-        type: 3}
-    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: pauseTimeDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: maps.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: playerOneSpawned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 508082665948515054, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: maps.Array.data[4]
-      value: 
-      objectReference: {fileID: 6847174503195977129, guid: 1af9aff61b4936e40ae0180e6b241061,
-        type: 3}
     - target: {fileID: 5586851599605876594, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
         type: 3}
       propertyPath: m_Name
       value: Quarantine Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7589098773242433583, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: randomMap
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7589098773242433583, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: inventory1
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7589098773242433583, guid: 30c3f111b9a4c5541be2ed1b2898c39a,
-        type: 3}
-      propertyPath: inventory2
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

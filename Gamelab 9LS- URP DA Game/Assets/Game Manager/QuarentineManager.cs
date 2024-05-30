@@ -67,7 +67,7 @@ namespace Quarantine
         [SerializeField] float pauseTimeDelay = 8f;
 
         [Header("EndOfGameSequence")]
-        private bool EndOfGameComplete = false, EndOfGameSequence = false;
+        private bool clearCompleted = false, isClearing = false;
         [SerializeField] private GameObject floatText;
         [SerializeField] private float floatOffset = 2f;
         [SerializeField] private float EndOfGameMalus = .7f; 
@@ -82,38 +82,45 @@ namespace Quarantine
             cagesParent = GameObject.FindGameObjectWithTag("Cage Parent");
             totalDepartures = GameManager.Instance.GetTotalDepartures();
 
+            foreach (Transform child in cagesParent.transform)
+            {
+                Cages.Add(child.gameObject);
+            }
+
             if (TutorialManager.Instance != null)
             {
-                foreach (Transform child in cagesParent.transform)
-                {
-                    Cages.Add(child.gameObject);
-                }
+                
                 return;
             }
 
             RandomiseCages();
-            StartCoroutine(CheckGameProgress()); 
+            //StartCoroutine(CheckGameProgress()); 
         }
 
         private void Start()
         {
-            var playerConfigs = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
-
-             player = Instantiate(
-                playerPrefab,
-                GameObject.FindGameObjectWithTag("spawn1").transform.position,
-                GameObject.FindGameObjectWithTag("spawn1").transform.rotation,
-                gameObject.transform);
-            player.GetComponent<PlayerBehaviour>().InitializePlayer(playerConfigs[0]);
-
-             player2 = Instantiate(
-                playerPrefab,
-                GameObject.FindGameObjectWithTag("spawn2").transform.position,
-                GameObject.FindGameObjectWithTag("spawn2").transform.rotation,
-                gameObject.transform);
-            player2.GetComponent<PlayerBehaviour>().InitializePlayer(playerConfigs[1]);
+            InitializePlayers();
 
             StartCoroutine(DelayedUnpause());
+        }
+
+        private void InitializePlayers()
+        {
+            var playerConfigs = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
+
+            player = Instantiate(
+               playerPrefab,
+               GameObject.FindGameObjectWithTag("spawn1").transform.position,
+               GameObject.FindGameObjectWithTag("spawn1").transform.rotation,
+               gameObject.transform);
+            player.GetComponent<PlayerBehaviour>().InitializePlayer(playerConfigs[0]);
+
+            player2 = Instantiate(
+               playerPrefab,
+               GameObject.FindGameObjectWithTag("spawn2").transform.position,
+               GameObject.FindGameObjectWithTag("spawn2").transform.rotation,
+               gameObject.transform);
+            player2.GetComponent<PlayerBehaviour>().InitializePlayer(playerConfigs[1]);
         }
 
         private void Update()
@@ -125,47 +132,36 @@ namespace Quarantine
 
             if (GamePause) { return; }
 
-            if (AmbulanceManager.Instance != null)
+            if ((clearCompleted))
             {
-                AmbulanceManager.Instance.HandleAmbulance();
+                isClearing = false;
+                clearCompleted = false;
             }
 
-            if (GameOver())
-            {
-                if(!EndOfGameSequence)StartCoroutine(EndOfGame());
 
-                if (TutorialManager.Instance != null)
+            if (GameOver() && !isClearing)
+            {
+                ScenesManager.Instance.GetGameOver();
+                Debug.Log("GetGameOVer");
+                //if (clearCompleted) ScenesManager.Instance.GetGameOver();
+                return;
+
+            }
+
+            if (RoomCleared())
+            {
+                if (!isClearing)
                 {
-                    if (EndOfGameComplete)  ScenesManager.Instance.NextScene();
-                    return;
-                }
-                if (EndOfGameComplete) ScenesManager.Instance.GetGameOver();
+                    AmbulanceManager.Instance.Arrival();
+                    StartCoroutine(ClearingRoom());
+                    
+                    Debug.Log("clear");
+                }      
             }
+            
         }
 
-        private IEnumerator CheckGameProgress()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(1f);
-
-                GameManager.Instance.IncreaseDifficulty();
-                foreach (GameObject cage in Cages)
-                {
-                    cage.GetComponent<CageBehaviour>().IncreaseDifficulty();
-                }
-
-                if (!PlayerSpawned())
-                {
-                    if (GameOver())
-                    {
-                        GameManager.Instance.IncreaseScore(Mathf.RoundToInt(CalculateScore()));
-                        //GameManager.Instance.AddTime(completionBonus);
-                        ScenesManager.Instance.GetGameOver();
-                    }
-                }
-            }
-        }
+    
 
         //////////////////////////// GAME RULES TRACKING ////////////////////////////
 
@@ -175,7 +171,7 @@ namespace Quarantine
             if (GameObject.FindWithTag("spawn1") == null) return true; 
 
 
-            if (GameOver()) return true;     
+            if (RoomCleared()) return true;     
 
             if (!PlayerSpawned()) return true; 
             
@@ -204,38 +200,37 @@ namespace Quarantine
         }
 
         /// <returns>true if one of the game-over conditions are met</returns>
+        public bool RoomCleared()
+        {
+            if (delayRunning) return false;
+  
+            foreach (GameObject cage in Cages)
+            {
+                CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
+
+                if (cageBehaviour.AdjDisease() > 0 && cageBehaviour.myAnimal.state == SickState.healthy)
+                {
+                    return false;
+                }
+                if (cageBehaviour.myAnimal.type == AnimalTypes.Empty )
+                {
+                    return false;
+                }
+                if (GameManager.Instance.playerBehaviour1.heldAnimal.type != AnimalTypes.Empty ||
+                    GameManager.Instance.playerBehaviour2.heldAnimal.type != AnimalTypes.Empty)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+            
+        }
+
         public bool GameOver()
         {
-            if (currentDepartures >= totalDepartures) return true;
-
-            if (delayRunning) return false;
-            if (TutorialManager.Instance != null) 
-            {
-                foreach (GameObject cage in Cages)
-                {
-                    CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
-
-                    if (cageBehaviour.AdjDisease() > 0 && cageBehaviour.myAnimal.state == SickState.healthy)
-                    {
-                        return false;
-                    }
-                    if (cageBehaviour.myAnimal.type == AnimalTypes.Empty )
-                    {
-                        return false;
-                    }
-                    if (GameManager.Instance.playerBehaviour1.heldAnimal.type != AnimalTypes.Empty ||
-                        GameManager.Instance.playerBehaviour2.heldAnimal.type != AnimalTypes.Empty)
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            else
-            {
-                if (CountInfected() >= Mathf.RoundToInt(cageQuota * Cages.Count / 100)) return true;
-                return false;
-            }
+            if (CountInfected() >= Mathf.RoundToInt(cageQuota * Cages.Count / 100)) return true;
+            return false; 
         }
 
         public bool PlayerSpawned()
@@ -290,9 +285,9 @@ namespace Quarantine
             return count;
         }
 
-        private IEnumerator EndOfGame()
+        private IEnumerator ClearingRoom()
         {
-            EndOfGameSequence = true; 
+            isClearing = true; 
 
             float estMin = Cages.Count - cageQuota;
             float estMax = Cages.Count;
@@ -303,7 +298,7 @@ namespace Quarantine
                 CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
                 float performance = 0;
-                performance = (100f * EndOfGameMalus) - cageBehaviour.myAnimal.sickProgression;
+                performance = (100f) - cageBehaviour.myAnimal.sickProgression;
                 int AddedScore = Mathf.RoundToInt(performance);
 
                 Vector3 textPos = cage.transform.position;
@@ -312,9 +307,23 @@ namespace Quarantine
                 GameObject floatTextInstance = Instantiate(floatText, textPos, cage.transform.rotation);
                 floatTextInstance.GetComponent<FloatText>().SetScore(AddedScore);
                 GameManager.Instance.IncreaseScore(AddedScore);
+
+                cageBehaviour.myAnimal = new Animal()
+                {
+                    type = AnimalTypes.Empty,
+                    state = SickState.healthy,
+                    sickProgression = 0,
+                };
+                cageBehaviour.UpdateCage();
+
                 yield return new WaitForSeconds(0.3f);
             }
-            EndOfGameComplete = true;
+
+            AmbulanceManager.Instance.Departure();
+            
+            RandomiseCages();
+            
+            clearCompleted = true;
         }
 
         ///////////////// RANDOMISATION////////////////////////////
@@ -329,22 +338,23 @@ namespace Quarantine
             };
 
             List<CageBehaviour> potentialCages = new();
-            //int remainingNeedingSickness = sickAmount; 
+            int remainingNeedingSickness = sickAmount; 
 
             foreach (Transform child in cagesParent.transform)
             {
-                Cages.Add(child.gameObject);
                 CageBehaviour cage = child.GetComponent<CageBehaviour>();
                 potentialCages.Add(cage);
                 cage.ChangeOccupation(GetWeightedRandomAnimal());
+                cage.UpdateCage();
                 //cage.ChangeSickstate(GetWeightedRandomState());
             }
 
             for (int i = 0; i < sickAmount; i++)
             {
-                CageBehaviour theChosenOne =  potentialCages[UnityEngine.Random.Range(0, potentialCages.Count)];
+                CageBehaviour theChosenOne = potentialCages[UnityEngine.Random.Range(0, potentialCages.Count)];
                 theChosenOne.ChangeSickstate(SickState.sick);
                 potentialCages.Remove(theChosenOne);
+                theChosenOne.UpdateCage();
             }
 
         }

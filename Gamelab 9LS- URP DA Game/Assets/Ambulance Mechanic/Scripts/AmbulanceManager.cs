@@ -12,8 +12,8 @@ public class AmbulanceManager : Interactable
     private GameManager GM;
     private QuarentineManager QM;
 
-    private AmbulanceTimer Timer;
-    private AmbulancePriority Priority; 
+    //private AmbulanceTimer Timer;
+    //private AmbulancePriority Priority; 
 
 
     [SerializeField] private Animator animator;
@@ -43,65 +43,15 @@ public class AmbulanceManager : Interactable
     {
         GM = GameManager.Instance;
         QM = QuarentineManager.Instance;
-        Timer = GetComponent<AmbulanceTimer>(); 
-        Priority = GetComponent<AmbulancePriority>();
 
         animalPriority = null;
     }
 
-    public void HandleAmbulance()
-    {
-        if (QM.GameOver()) { return; }
-
-        if (HasArrived) {
-            if (storedAnimals.Count >= ambulanceCapacity || Timer.DecreaseTime())
-            {
-                Timer.AddTime(); 
-                Departure();
-            }
-        }
-        else
-        {
-            if(Timer.DecreaseTime())
-            {
-                Timer.AddTime();
-
-                Arrival();
-            }
-            
-        }
-    }
 
     public override void Interact(Interactor interactor)
     {
 
-        if (storedAnimals.Count >= ambulanceCapacity) { }
-
-        if (!HasArrived) { return;  }
-
-        PlayerBehaviour pb = interactor.GetComponent<PlayerBehaviour>();
-
-        if (pb.heldAnimal.type == AnimalTypes.Empty)
-        {
-            return;
-        }
-        pb.mostRecentCage.markedForRemoval = true;
-
-        if(pb.heldAnimal.priority)
-        {
-            pb.heldAnimal.priority = false;
-            ShowScoreFloat(Priority.CalculateScore());
-        }
-
-        storedAnimals.Add(pb.heldAnimal);
-
-        pb.heldAnimal = new Animal()
-        {
-            type = AnimalTypes.Empty,
-            state = SickState.healthy,
-            sickProgression = 0
-        };
-        pb.UpdateHeldAnimal();
+        
     }
 
     public override string GetDescription()
@@ -116,9 +66,7 @@ public class AmbulanceManager : Interactable
 
     public void Arrival()
     {
-        Timer.EngageLight(true);
-        Priority.RandomPriorityAnimal();
-
+        
         animator.GetComponent<Animator>().SetBool("isClosed", false);
         HasArrived = true;
         Debug.Log("arrived");
@@ -126,85 +74,16 @@ public class AmbulanceManager : Interactable
 
     public void Departure()
     {
-        Timer.TurnOffFlickering();
-        Timer.EngageLight(false);
         
-
-        int malus = -1 * Mathf.RoundToInt(Priority.priorityBonus);
 
         animator.GetComponent<Animator>().SetBool("isClosed", true);
         HasArrived = false ;
         Debug.Log("departed");
 
-        storedAnimals.Clear();
 
         QM.AddAmbulanceDepartCounter(); 
 
-        foreach (GameObject cage in QuarentineManager.Instance.Cages)
-        {
-            CageBehaviour cb = cage.GetComponent<CageBehaviour>();
-
-            if (cb.markedForRemoval)
-            {  
-                cb.Interact_Secondairy(null);
-
-                if (TutorialManager.Instance != null)
-                {
-                    if (UnityEngine.Random.Range(0, 2) == 0)
-                    {
-                        cb.ChangeOccupation(AnimalTypes.crow);
-                    }
-                    else
-                    {
-                        cb.ChangeOccupation(AnimalTypes.Bunny);
-                    }
-                }
-                else
-                {
-                    cb.ChangeOccupation(QM.GetWeightedRandomAnimal());
-                }
-                cb.ChangeSickstate(QM.GetWeightedRandomState());
-
-                if (cb.myAnimal.state == SickState.sick)
-                {
-                    cb.myAnimal.sickProgression = 100f;
-                }
-                else
-                {
-                    cb.myAnimal.sickProgression = 0f;
-                }
-                cb.markedForRemoval = false;    
-                cb.UpdateCage();
-            }
-
-            if (cb.myAnimal.priority)
-            {
-                Debug.Log("DeductPoints");
-                GM.IncreaseScore(malus);
-                ShowScoreFloat(malus, cb.transform.position); 
-                cb.myAnimal.priority = false;
-                cb.UpdateCage();
-            }
-        }
-
-        Animal p1Animilal = QM.player.GetComponent<PlayerBehaviour>().heldAnimal;
-        Animal p2Animilal = QM.player2.GetComponent<PlayerBehaviour>().heldAnimal;
-
-
-        if (p1Animilal.priority) 
-        {
-            Debug.Log("DeductPoints");
-            GM.IncreaseScore(malus);
-            ShowScoreFloat(malus, QM.player.transform.position);
-            p1Animilal.priority = false;
-        }
-        if (p2Animilal.priority)
-        {
-            Debug.Log("DeductPoints");
-            GM.IncreaseScore(malus);
-            ShowScoreFloat(malus, QM.player2.transform.position);
-            p2Animilal.priority = false;
-        }
+        
 
     }
 
