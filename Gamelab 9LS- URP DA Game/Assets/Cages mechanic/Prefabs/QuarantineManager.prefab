@@ -50,9 +50,9 @@ MonoBehaviour:
   crowWeight: 8
   parrotWeight: 4
   healthyWeight: 4
-  sickAmount: 5
-  spreadSpeed: 1
-  cageQuota: 71.6
+  baseSickAmount: 5
+  spreadSpeed: 0.1
+  cageQuota: 70
   playerOneSpawned: 0
   playerOneUISpawned: 0
   playerPrefab: {fileID: 2643759386923098102, guid: abc0fcb6402dd984dab3000e1f3bdec1,

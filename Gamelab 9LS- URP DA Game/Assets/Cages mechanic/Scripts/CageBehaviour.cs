@@ -241,7 +241,7 @@ namespace Quarantine
             } 
             else if(myAnimal.sickProgression > 0)
             {
-                myAnimal.sickProgression -= spreadSpeed * Time.deltaTime;
+                //myAnimal.sickProgression -= spreadSpeed * Time.deltaTime;
 
                 if (myAnimal.sickProgression < 0) myAnimal.sickProgression = 0; 
             }

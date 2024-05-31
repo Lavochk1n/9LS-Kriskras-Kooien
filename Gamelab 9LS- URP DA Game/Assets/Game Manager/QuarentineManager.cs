@@ -49,7 +49,7 @@ namespace Quarantine
         [Header("Randomiser")]
         private List<AnimalWeight> animalWeights;
         [SerializeField] private int bunnyWeight, crowWeight, parrotWeight, healthyWeight;
-        [SerializeField] private int sickAmount = 5;
+        [SerializeField] private int baseSickAmount = 5;
 
         [Header("Game Rules")]
         public float spreadSpeed = 2.1f;
@@ -143,9 +143,7 @@ namespace Quarantine
             {
                 ScenesManager.Instance.GetGameOver();
                 Debug.Log("GetGameOVer");
-                //if (clearCompleted) ScenesManager.Instance.GetGameOver();
                 return;
-
             }
 
             if (RoomCleared())
@@ -157,12 +155,11 @@ namespace Quarantine
                     Debug.Log("clear");
                 }      
             }
-            
         }
 
     
 
-        //////////////////////////// GAME RULES TRACKING ////////////////////////////
+        ///////// GAME RULES TRACKING ////////////
 
         public bool GamePaused()
         {
@@ -285,6 +282,10 @@ namespace Quarantine
             return count;
         }
 
+        /// <summary>
+        /// routine for clearing the room , granting points and refilling it again. 
+        /// </summary>
+        /// <returns></returns>
         private IEnumerator ClearingRoom()
         {
             isClearing = true;
@@ -326,8 +327,9 @@ namespace Quarantine
             clearCompleted = true;
         }
 
-        ///////////////// RANDOMISATION////////////////////////////
-
+        /// <summary>
+        /// Randomizes all cages with new animals and sickstate. 
+        /// </summary>
         private void RandomiseCages()
         {
             animalWeights = new List<AnimalWeight>
@@ -338,7 +340,9 @@ namespace Quarantine
             };
 
             List<CageBehaviour> potentialCages = new();
-            int remainingNeedingSickness = sickAmount; 
+            int realSickAmount = baseSickAmount; 
+            realSickAmount = Mathf.RoundToInt(realSickAmount * GameManager.Instance.GetDifficultyRatio());
+
 
             foreach (Transform child in cagesParent.transform)
             {
@@ -352,7 +356,7 @@ namespace Quarantine
                 //cage.ChangeSickstate(GetWeightedRandomState());
             }
 
-            for (int i = 0; i < sickAmount; i++)
+            for (int i = 0; i < realSickAmount; i++)
             {
                 CageBehaviour theChosenOne = potentialCages[UnityEngine.Random.Range(0, potentialCages.Count)];
                 theChosenOne.ChangeSickstate(SickState.sick);
