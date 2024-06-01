@@ -29,7 +29,10 @@ public class PlayerHighScoreSubmitter : MonoBehaviour
         if (name1 == null || name2 == null || teamName == null)  return;  
 
         Debug.Log(teamName + ": " +  name1 + " & " + name2 );
+        
+        HighscoreManager.Instance.AddHighScore(teamName, name1, name2, GameManager.Instance.GetScore());
 
         ScenesManager.Instance.GetMainMenu();
+
     }
 }
