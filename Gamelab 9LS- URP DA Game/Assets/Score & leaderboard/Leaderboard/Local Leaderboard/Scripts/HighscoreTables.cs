@@ -52,19 +52,19 @@ public class HighscoreTables : MonoBehaviour
 
         for (int i = 0; i < tableSize; i++ )
         {
-            HighScoreEntry entry = HM.highScores.entries[i];
+            HighScoreEntry entry = HM.highScoreEntries[i];
             Transform entryTransform = Instantiate(entryTemplate, entryContainer).transform;
             RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
             entryRectTransform.anchoredPosition = new Vector2(0, -Templateheight * i);
            
 
 
-            int rank = HM.highScores.entries.IndexOf(entry) + 1;
+            //int rank = HM.highScoreEntries.IndexOf(entry) + 1;
 
-            entryTransform.Find("Score").GetComponent<Text>().text = entry.score.ToString();
-            entryTransform.Find("TeamName").GetComponent<Text>().text = entry.teamName;
-            entryTransform.Find("Player1").GetComponent<Text>().text = entry.player1Name;
-            entryTransform.Find("Player2").GetComponent<Text>().text = entry.player2Name;
+            entryTransform.Find("Score").GetComponent<TextMeshProUGUI>().text = entry.score.ToString();
+            entryTransform.Find("TeamName").GetComponent<TextMeshProUGUI>().text = entry.teamName;
+            entryTransform.Find("Player1").GetComponent<TextMeshProUGUI>().text = entry.player1Name;
+            entryTransform.Find("Player2").GetComponent<TextMeshProUGUI>().text = entry.player2Name;
 
         }
 

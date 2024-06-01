@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HighscoreManager : MonoBehaviour
 {
     public static HighscoreManager Instance;
-    public HighScores highScores;
+    //public HighScores highScores;
     public List<HighScoreEntry> highScoreEntries = new List<HighScoreEntry>();
     
 
@@ -37,7 +37,7 @@ public class HighscoreManager : MonoBehaviour
 
     public void SaveHighScores()
     {
-        highScores.entries = highScoreEntries;
+        //highScores.entries = highScoreEntries;
         string json = JsonUtility.ToJson(this);
         PlayerPrefs.SetString("HighScoreTable", json);
         PlayerPrefs.Save();
@@ -50,7 +50,7 @@ public class HighscoreManager : MonoBehaviour
             string json = PlayerPrefs.GetString("HighScoreTable");
             JsonUtility.FromJsonOverwrite(json, this);
         }
-        highScoreEntries = highScores.entries;
+        //highScoreEntries = highScores.entries;
     }
     
 }
@@ -73,8 +73,8 @@ public class HighScoreEntry
     }
 }
 
-[System.Serializable]
-public class HighScores
-{
-    public List<HighScoreEntry> entries = new List<HighScoreEntry>();
-}
+//[System.Serializable]
+//public class HighScores
+//{
+//    public List<HighScoreEntry> entries = new List<HighScoreEntry>();
+//}
