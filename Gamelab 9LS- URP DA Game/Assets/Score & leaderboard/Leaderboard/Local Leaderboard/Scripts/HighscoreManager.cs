@@ -57,7 +57,12 @@ public class HighscoreManager : MonoBehaviour
         }
         //highScoreEntries = highScores.entries;
     }
-    
+    public void AddTestScore()
+    {
+        AddHighScore("testers", "Casper", "Cornee", Mathf.RoundToInt(UnityEngine.Random.Range(2000, 5000)));
+
+    }
+
 }
 
 [System.Serializable]
@@ -76,6 +81,10 @@ public class HighScoreEntry
         this.player2Name = player2Name;
         this.score = score;
     }
+
+    
+
+
 }
 
 //[System.Serializable]

@@ -199,7 +199,7 @@ namespace TMPro
             }
             else
             {
-                // Reset all selections given we are hovering outside the text container bounds.
+                // HighscoreManagerEditor all selections given we are hovering outside the text container bounds.
                 m_selectedLink = -1;
                 m_lastCharIndex = -1;
                 m_lastWordIndex = -1;

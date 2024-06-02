@@ -12,13 +12,13 @@ public class ScoreDisplay : MonoBehaviour
     void Start()
     {
         textBox = GetComponentInChildren<TextMeshProUGUI>();  
-        m_text = "Score: " + GameManager.Instance.GetScore().ToString(); 
+        m_text =  GameManager.Instance.GetScore().ToString(); 
         
     }
 
     private void Update()
     {
-        m_text = "Score: " + GameManager.Instance.GetScore().ToString();
+        m_text = GameManager.Instance.GetScore().ToString();
         textBox.text = m_text;
     }
 }

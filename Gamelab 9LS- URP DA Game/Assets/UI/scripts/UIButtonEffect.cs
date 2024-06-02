@@ -72,8 +72,8 @@ public class UIButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         if (text != null)
         {
-            text.fontSize = originalFontSize; // Reset to original font size
-            text.fontStyle = originalFontStyle; // Reset to original font style
+            text.fontSize = originalFontSize; // HighscoreManagerEditor to original font size
+            text.fontStyle = originalFontStyle; // HighscoreManagerEditor to original font style
         }
     }
 }
