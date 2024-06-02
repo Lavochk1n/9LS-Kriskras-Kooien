@@ -335,6 +335,7 @@ namespace Quarantine
         /// </summary>
         private void RandomiseCages()
         {
+            //if (TutorialManager.Instance != null) { return; }
             animalWeights = new List<AnimalWeight>
             {
                 new() {AnimalType = AnimalTypes.Bunny, Weight = bunnyWeight},
