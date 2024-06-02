@@ -52,6 +52,8 @@ MonoBehaviour:
   uiGlove: {fileID: 4718162730525974350, guid: f927f8d77198dac47bdc8c47b357e6be, type: 3}
   myCanvas: {fileID: 1413638596852487269}
   SpawnOffSet: 80
+  fadeOutGlove: {fileID: 4718162730525974350, guid: 8c73be4f00ae70d4ea7bd2984abb7427,
+    type: 3}
 --- !u!1 &2933585077269848085
 GameObject:
   m_ObjectHideFlags: 0
