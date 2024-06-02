@@ -35,7 +35,7 @@ public class GloveUI : MonoBehaviour
     public void spawnFadeOut()
     {
         Vector3 spawnPos = myCanvas.transform.position;
-        Instantiate(uiGlove, spawnPos, Quaternion.identity, myCanvas.transform);
+        Instantiate(fadeOutGlove, spawnPos, Quaternion.identity, myCanvas.transform);
         spawnPos.y -= SpawnOffSet;
     }
     void HideUIGlove()
