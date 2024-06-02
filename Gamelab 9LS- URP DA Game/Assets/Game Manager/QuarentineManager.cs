@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -54,8 +55,7 @@ namespace Quarantine
         [Header("Game Rules")]
         public float spreadSpeed = 2.1f;
         [SerializeField][Range(0, 100.0f)] float cageQuota = 80;
-        //private int currentDepartures = 0;
-        //private int totalDepartures;
+
 
         [Header("player Specifics")]
         public bool playerOneSpawned = false;
@@ -70,7 +70,9 @@ namespace Quarantine
         private bool clearCompleted = false, isClearing = false;
         [SerializeField] private GameObject floatText;
         [SerializeField] private float floatOffset = 2f;
-        [SerializeField] private float EndOfGameMalus = .7f; 
+        [SerializeField] private float EndOfGameMalus = .7f;
+
+
 
         public GameObject player, player2; 
 
@@ -80,7 +82,8 @@ namespace Quarantine
             else {Instance = this;}
 
             cagesParent = GameObject.FindGameObjectWithTag("Cage Parent");
-            //totalDepartures = GameManager.Instance.GetTotalDepartures();
+
+                
 
             foreach (Transform child in cagesParent.transform)
             {
