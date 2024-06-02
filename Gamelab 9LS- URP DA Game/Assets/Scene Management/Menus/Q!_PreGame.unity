@@ -1946,6 +1946,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
         type: 3}
+      propertyPath: hatPrefabs.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
+      propertyPath: hatPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 8550038997597083254, guid: 5629ef57f1964da4388a6fdd41b0114a,
+        type: 3}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
+      propertyPath: hatPrefabs.Array.data[9]
+      value: 
+      objectReference: {fileID: 1631991872714690554, guid: b9d1a9e8b7afa034f8f64eb113149c38,
+        type: 3}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
       propertyPath: EmptyPanels.Array.data[0]
       value: 
       objectReference: {fileID: 2073110833}
@@ -1954,6 +1971,60 @@ PrefabInstance:
       propertyPath: EmptyPanels.Array.data[1]
       value: 
       objectReference: {fileID: 289811805}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
+      propertyPath: hatPrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 166665077749816219, guid: e5e17d1601f25894cb096ff3c3d03ce8,
+        type: 3}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
+      propertyPath: hatPrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 166665077749816219, guid: 0774267716c5eec4aa4893d3cc580e7c,
+        type: 3}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
+      propertyPath: hatPrefabs.Array.data[12]
+      value: 
+      objectReference: {fileID: 166665077749816219, guid: feabdd41720fb09408dda990aaf0c76e,
+        type: 3}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
+      propertyPath: hatPrefabs.Array.data[13]
+      value: 
+      objectReference: {fileID: 166665077749816219, guid: ef45a3353a91b574aa031cd7e2f4f870,
+        type: 3}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
+      propertyPath: hatPrefabs.Array.data[14]
+      value: 
+      objectReference: {fileID: 166665077749816219, guid: 1b71e571953ee0847a387dcd603150b1,
+        type: 3}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
+      propertyPath: hatPrefabs.Array.data[15]
+      value: 
+      objectReference: {fileID: 166665077749816219, guid: 647fef7bc6ff3fb4b8db1a378be26ddc,
+        type: 3}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
+      propertyPath: hatPrefabs.Array.data[16]
+      value: 
+      objectReference: {fileID: 166665077749816219, guid: c010440ede6b3604d98df167e0a9b2a7,
+        type: 3}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
+      propertyPath: hatPrefabs.Array.data[17]
+      value: 
+      objectReference: {fileID: 166665077749816219, guid: eb82b8fad69c49843a2427e7d6114152,
+        type: 3}
+    - target: {fileID: 4990851859335308701, guid: 47ec089abca198b468f8ad632b0c27dc,
+        type: 3}
+      propertyPath: hatPrefabs.Array.data[18]
+      value: 
+      objectReference: {fileID: 883437115981426459, guid: 8d9eb485dc0f98d438c49d2281b96af8,
+        type: 3}
     - target: {fileID: 5367852512440847304, guid: 47ec089abca198b468f8ad632b0c27dc,
         type: 3}
       propertyPath: m_LocalPosition.x
