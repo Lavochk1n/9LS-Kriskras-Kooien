@@ -7,6 +7,7 @@ public class GloveUI : MonoBehaviour
     public GameObject uiGlove;
     public GameObject myCanvas;
     public float SpawnOffSet = 100;
+    public GameObject fadeOutGlove;
 
 
     private void Start()
