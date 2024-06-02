@@ -11,17 +11,27 @@ namespace Quarantine
         [Header("player Inventory")]
         [SerializeField] private Image background, icon;
 
+        [SerializeField] private Sprite healthy, sickening, sick; 
 
         public void UpdateInventoryUI(Animal animal)
         {
             AnimalVisuals visuals = VisualManager.instance.GetAnimalVisuals(animal.type);
+
             if(animal.state == SickState.sick)
             {
+                
                 icon.sprite = visuals.iconTypeSick;
+                background.sprite = sick;
+
             }
-            else
+            else if(animal.sickProgression > 0)
             {
-                icon.sprite = visuals.iconTypeHealthy;
+                icon.sprite = visuals.iconTypeSickening;
+                background.sprite = sickening;
+            }
+            else // healthy 
+            {   icon.sprite = visuals.iconTypeHealthy;
+                background.sprite = healthy;
             }
         }
 

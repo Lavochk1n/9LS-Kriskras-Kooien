@@ -9,10 +9,6 @@ namespace Quarantine {
 
     public class CageVisual : MonoBehaviour
     {
-        
-
-
-
         [SerializeField] private CageBehaviour myCage;
 
         [SerializeField] private GameObject attachPoint, flag;
@@ -63,6 +59,12 @@ namespace Quarantine {
                 }
             }
             
+        }
+
+        public void ToggleIcon(bool state)
+        {
+            
+            panel.transform.parent.gameObject.SetActive(state);
         }
 
        public void UpdateFlag(bool state)

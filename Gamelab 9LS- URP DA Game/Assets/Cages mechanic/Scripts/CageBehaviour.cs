@@ -12,6 +12,7 @@ namespace Quarantine
         [SerializeField] private LayerMask wallLayer;
         [SerializeField] private float searchDistance =3f;
 
+        private float startSpreadSpeed; 
         private float spreadSpeed;
 
         [SerializeField] private CageVisual myCageVisual;
@@ -23,9 +24,9 @@ namespace Quarantine
         private void Start()
         {
             InitializeCages();
-            spreadSpeed = QuarentineManager.Instance.spreadSpeed;
+            startSpreadSpeed = QuarentineManager.Instance.spreadSpeed;
 
-            spreadSpeed *= Random.Range(.95f, 1.05f) * GameManager.Instance.GetDifficultyRatio();
+            UpdateSpreadSpeed();
             if (myAnimal.state == SickState.sick)
             {
                 myAnimal.sickProgression = 100f;
@@ -41,6 +42,11 @@ namespace Quarantine
             UpdateCage();
 
             StartCoroutine(UpdateVisuals());
+        }
+
+        public void UpdateSpreadSpeed()
+        {
+            spreadSpeed = startSpreadSpeed * Random.Range(.98f, 1.02f) * GameManager.Instance.GetDifficultyRatio();
         }
 
         private void Update()
@@ -184,9 +190,14 @@ namespace Quarantine
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, searchDistance);
             
-            foreach(CageBehaviour cageBehaviour in AdjCages)
+            
+        }
+
+        private void OnDrawGizmos()
+        {
+            foreach (CageBehaviour cageBehaviour in AdjCages)
             {
-                Gizmos.color = Color.blue;
+                Gizmos.color = Color.red;
 
                 Gizmos.DrawLine(transform.position, cageBehaviour.transform.position);
 
@@ -230,7 +241,7 @@ namespace Quarantine
             } 
             else if(myAnimal.sickProgression > 0)
             {
-                myAnimal.sickProgression -= spreadSpeed * Time.deltaTime;
+                //myAnimal.sickProgression -= spreadSpeed * Time.deltaTime;
 
                 if (myAnimal.sickProgression < 0) myAnimal.sickProgression = 0; 
             }

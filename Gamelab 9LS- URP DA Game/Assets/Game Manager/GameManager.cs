@@ -10,10 +10,13 @@ public class GameManager : MonoBehaviour
 
 
     [Header("difficulty sliders")]
+    private float startDif = 1f; 
+    [SerializeField][Range(1f, 5f)] private float maxDif = 2f;
+    [SerializeField][Range(0.001f, 1f)] private float difficultyIncrease = .01f;
 
-    [SerializeField][Range(50.0f, 200.0f)] private float newGameDifficulty = 100f;
-    [SerializeField][Range(1f, 1.50f)] private float difficultyIncrease = 1.1f;
-    [SerializeField][Range(1, 24)] private int ambulanceDepartures = 6;
+
+
+    private int ambulanceDepartures = 1;
     [SerializeField][Range(1, 8)] private int maxGloves = 6;
 
 
@@ -42,7 +45,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    ////////////////////////////////// scene testing ////////////////////////////
+   //////////// scene testing /////
 
     public void SetTutorial(bool state)
     {
@@ -59,7 +62,7 @@ public class GameManager : MonoBehaviour
         gameRoom = scene;
     }
 
-    ////////////////////////////////// SCORE ////////////////////////////
+    /////////// SCORE ////////
 
     public void IncreaseScore(int amount)
     {
@@ -71,16 +74,17 @@ public class GameManager : MonoBehaviour
         return score;
     }
 
-    public void ResetScore()
+    public void ResetValues()
     {
         score = 0;
+        ambulanceDepartures = 1; 
     }
 
-    ////////////////////////////////// Rules ////////////////////////////
+    /////// Rules //////
 
-    public int GetTotalDepartures()
+    public void AddDeparture()
     {
-        return ambulanceDepartures;
+        ambulanceDepartures ++;
     }
 
     public int GetMaxGloves()
@@ -88,25 +92,18 @@ public class GameManager : MonoBehaviour
         return maxGloves;
     }
 
-    ////////////////////////////////// Difficulty ////////////////////////////
+    /////////// Difficulty ///////////
 
-
-    public float IncreaseDifficulty()
-    {
-        return difficulty *= difficultyIncrease;
-    }
-
+    /// <summary>
+    /// Calculates difficiculty ratio
+    /// </summary>
+    /// <returns> 
+    /// Ratio between 1 and maxDif 
+    /// </returns>
     public float GetDifficultyRatio()
     {
-        return difficulty/100;
-    }
-
-    
-    
-
-    public void Reset()
-    {
-        score = 0;
-        difficulty = newGameDifficulty;
+        difficulty = maxDif - (maxDif - startDif) * Mathf.Pow(System.MathF.E, -difficultyIncrease * ambulanceDepartures) ;
+        Debug.Log(difficulty);
+        return difficulty;
     }
 }

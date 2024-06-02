@@ -1,6 +1,7 @@
 using Quarantine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class AmbulancePriority : MonoBehaviour
@@ -14,6 +15,7 @@ public class AmbulancePriority : MonoBehaviour
     {
         AM = GetComponent<AmbulanceManager>();
     }
+   
 
     public void RandomPriorityAnimal()
     {
@@ -29,6 +31,18 @@ public class AmbulancePriority : MonoBehaviour
         CageBehaviour theChosenOne =  potentials[Random.Range(0, range)];
         theChosenOne.myAnimal.priority = true;
         theChosenOne.UpdateCage();
+
+    }
+
+ 
+
+    public int CalculateScore()
+    {
+        int score = 0;
+        
+
+        score = Mathf.RoundToInt(priorityBonus * GetComponent<AmbulanceTimer>().CurrentRelativeTime());
+        return score; 
     }
 
     public AnimalTypes RandomPriorityType()

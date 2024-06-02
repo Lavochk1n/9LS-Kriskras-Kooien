@@ -44,12 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1342e0d0a19af44b930d4d424613608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGameDifficulty: 100
-  difficultyIncrease: 1.1
-  ambulanceDepartures: 6
-  maxGloves: 6
+  maxDif: 2
+  difficultyIncrease: 0.1
+  maxGloves: 5
   playerBehaviour1: {fileID: 0}
   playerBehaviour2: {fileID: 0}
-  randomGame: 1
-  gameRoom: 1
+  randomGame: 0
+  gameRoom: 3
   flaggedMode: 0
