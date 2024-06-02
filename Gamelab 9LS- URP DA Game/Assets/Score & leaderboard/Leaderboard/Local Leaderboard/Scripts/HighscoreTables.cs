@@ -26,7 +26,7 @@ public class HighscoreTables : MonoBehaviour
         HM = HighscoreManager.Instance;
 
         HM.LoadHighScores();
-       // HM.AddHighScore("testers", "Casper", "Cornee", 9000);
+        // HM.AddHighScore("testers", "Casper", "Cornee", 9000);
 
 
         entryContainer = GameObject.FindWithTag("Leaderboard").transform;
@@ -52,10 +52,12 @@ public class HighscoreTables : MonoBehaviour
 
         for (int i = 0; i < tableSize; i++ )
         {
+            if (i > HM.highScoreEntries.Count -1 || HM.highScoreEntries == null) return; 
             HighScoreEntry entry = HM.highScoreEntries[i];
             Transform entryTransform = Instantiate(entryTemplate, entryContainer).transform;
             RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
             entryRectTransform.anchoredPosition = new Vector2(0, -Templateheight * i);
+
            
 
 

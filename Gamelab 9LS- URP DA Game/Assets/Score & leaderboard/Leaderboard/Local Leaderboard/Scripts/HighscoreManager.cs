@@ -34,8 +34,13 @@ public class HighscoreManager : MonoBehaviour
         highScoreEntries.Sort((x, y) => y.score.CompareTo(x.score)); // Sort by score descending
         SaveHighScores();
     }
-
-    public void SaveHighScores()
+    public void ClearHighScores()
+    {
+        PlayerPrefs.DeleteKey("HighScoreTable");
+        PlayerPrefs.Save();
+        highScoreEntries.Clear();
+    }
+        public void SaveHighScores()
     {
         //highScores.entries = highScoreEntries;
         string json = JsonUtility.ToJson(this);
