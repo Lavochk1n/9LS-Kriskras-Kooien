@@ -1,12 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerHighScoreSubmitter : MonoBehaviour
 {
     private string name1, name2, teamName;
-    private int score; 
+    private int score;
+    private GameManager GM; 
 
+    [SerializeField] private TMP_InputField name1tx, name2tx, teamNametx;
+
+    private void Awake()
+    {
+        GM = GameManager.Instance;
+        name1 = GM.playerNames.Name1;
+        name2 = GM.playerNames.Name2;
+        teamName = GM.playerNames.TeamNAme;
+    }
+
+
+    private void Start()
+    {
+        name1tx.text = name1;
+        name2tx.text = name2;
+        teamNametx.text = teamName;
+    }
 
 
     public void SetName1(string name)
@@ -24,13 +43,20 @@ public class PlayerHighScoreSubmitter : MonoBehaviour
     }
 
 
+    public void saveNames()
+    {
+        GM.playerNames.SaveNames(name1, name2, teamName);
+    }
+
     public void Submit()
     {
         if (name1 == null || name2 == null || teamName == null)  return;  
 
         Debug.Log(teamName + ": " +  name1 + " & " + name2 );
-        
-        HighscoreManager.Instance.AddHighScore(teamName, name1, name2, GameManager.Instance.GetScore());
+
+        GM.playerNames.SaveNames(name1, name2, teamName);
+
+        HighscoreManager.Instance.AddHighScore(teamName, name1, name2, GM.GetScore());
 
         ScenesManager.Instance.GetMainMenu();
 

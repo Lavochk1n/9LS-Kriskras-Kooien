@@ -51,7 +51,7 @@ MonoBehaviour:
   parrotWeight: 4
   healthyWeight: 4
   baseSickAmount: 5
-  spreadSpeed: 1
+  spreadSpeed: 10
   cageQuota: 55
   playerOneSpawned: 0
   playerOneUISpawned: 0

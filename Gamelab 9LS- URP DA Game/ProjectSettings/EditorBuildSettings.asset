@@ -9,10 +9,13 @@ EditorBuildSettings:
     path: Assets/Scene Management/Menus/MainMenu.unity
     guid: 00f167380b0143242b41708e363ff9c9
   - enabled: 1
-    path: Assets/Scene Management/Menus/Q!_PostGame.unity
+    path: Assets/Scene Management/Menus/PostGame.unity
     guid: 00764b6a2b036784287dac2e19c6b3f5
   - enabled: 1
-    path: Assets/Scene Management/Menus/Q!_PreGame.unity
+    path: Assets/Scene Management/Menus/NameSelect.unity
+    guid: 23e85f06e5f353741a8972c683d884f1
+  - enabled: 1
+    path: Assets/Scene Management/Menus/CharacterSelection.unity
     guid: a3d54eafa862e74458fd8b20ce088484
   - enabled: 1
     path: Assets/Scene Management/GameRooms/GameRoom 0.unity
