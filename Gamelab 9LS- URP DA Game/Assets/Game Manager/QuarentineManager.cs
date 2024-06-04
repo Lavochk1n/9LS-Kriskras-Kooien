@@ -65,6 +65,7 @@ namespace Quarantine
         [Header("GamePause")]
         private bool GamePause, delayRunning;
         [SerializeField] float pauseTimeDelay = 8f;
+        public PauseScreenHandeler pauseScreen; 
 
         [Header("EndOfGameSequence")]
         private bool clearCompleted = false, isClearing = false;
@@ -163,7 +164,10 @@ namespace Quarantine
                 if (!isClearing)
                 {
                     StartCoroutine(ClearingRoom());
-                    
+                    player.GetComponent<GloveManager>().AddGloves();
+                    player2.GetComponent<GloveManager>().AddGloves();
+
+
                     Debug.Log("clear");
                 }      
             }
@@ -195,6 +199,7 @@ namespace Quarantine
             if(!delayRunning)
             {
                 GamePause = !GamePause; 
+                pauseScreen.PausePanel.SetActive(GamePause);
             }
         }
 
@@ -357,6 +362,7 @@ namespace Quarantine
             GameManager.Instance.AddDeparture();
             AmbulanceManager.Instance.Departure();
             RandomiseCages();
+            StartCoroutine(DelayedUnpause()); 
             
             clearCompleted = true;
         }

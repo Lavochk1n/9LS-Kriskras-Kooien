@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             playerNames = new PlayerNames();
-            playerNames.SaveNames("", "", "");
         }
         else
         {
@@ -115,10 +114,17 @@ public class GameManager : MonoBehaviour
 
         public void SaveNames(string name1, string name2, string teamName)
         {
+
+            //    if (name1 != null ||  name1 != "")  Name1 = name1; 
+            //    if (name2 != null || name2 != "")  Name2 = name2; 
+            //    if (teamName != null || teamName != "")  TeamNAme = teamName; 
+            //
+
             Name1 = name1;
             Name2 = name2;
             TeamNAme = teamName;
         }
+
     }
 
 }

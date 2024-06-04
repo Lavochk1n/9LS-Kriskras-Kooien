@@ -50,7 +50,9 @@ public class PlayerHighScoreSubmitter : MonoBehaviour
 
     public void Submit()
     {
-        if (name1 == null || name2 == null || teamName == null)  return;  
+        
+
+        if (string.IsNullOrEmpty(name1) || string.IsNullOrEmpty(name2) || string.IsNullOrEmpty(teamName))  return;  
 
         Debug.Log(teamName + ": " +  name1 + " & " + name2 );
 
