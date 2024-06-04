@@ -95,6 +95,17 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""49ca1d8b-5456-487f-a191-31b03ff7bbf4"",
+                    ""path"": ""<SwitchProControllerHID>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Nintendo"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""WASD"",
                     ""id"": ""cca62660-eb42-4ad5-a256-fa4befe8e4e0"",
                     ""path"": ""2DVector"",
@@ -217,6 +228,17 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""211611d3-93f2-4784-aff3-84b7b4851e25"",
+                    ""path"": ""<SwitchProControllerHID>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Nintendo"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""4733eccd-cbaa-41e8-a98d-ca0e7b111b5f"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -250,6 +272,17 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""cf8b55c6-8aee-4df9-b8d7-3f4d5732978b"",
+                    ""path"": ""<SwitchProControllerHID>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Nintendo"",
+                    ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""fa6442d1-ffd4-484c-8e69-6eea5afcdb5e"",
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
@@ -266,6 +299,17 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""Secondairy Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74d3b66d-edab-4495-9092-04e409b69ee3"",
+                    ""path"": ""<SwitchProControllerHID>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Nintendo"",
                     ""action"": ""Secondairy Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -305,11 +349,33 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""e2778103-ac86-46bd-82a4-66c7de42a284"",
+                    ""path"": ""<SwitchProControllerHID>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Nintendo"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""77473585-ba6d-4a40-89b9-9b8912ef9df4"",
                     ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e853ee07-3d80-4d45-b657-1a3c5a5e3e24"",
+                    ""path"": ""<SwitchProControllerHID>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Nintendo"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -342,7 +408,18 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f338f392-c28a-44a9-8fb6-7687f58e1a27"",
+                    ""path"": ""<SwitchProControllerHID>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Nintendo"",
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -364,7 +441,7 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/numpad8"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Left Keyboard"",
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -375,7 +452,7 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/numpad2"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Left Keyboard"",
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -386,7 +463,7 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/numpad4"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Left Keyboard"",
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -397,7 +474,7 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/numpad6"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Left Keyboard"",
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -429,9 +506,20 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Right Keyboard"",
-            ""bindingGroup"": ""Right Keyboard"",
+            ""name"": ""Empty"",
+            ""bindingGroup"": ""Empty"",
             ""devices"": []
+        },
+        {
+            ""name"": ""Nintendo"",
+            ""bindingGroup"": ""Nintendo"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<SwitchProControllerHID>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -604,13 +692,22 @@ public partial class @StandardPlayerInput: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_LeftKeyboardSchemeIndex];
         }
     }
-    private int m_RightKeyboardSchemeIndex = -1;
-    public InputControlScheme RightKeyboardScheme
+    private int m_EmptySchemeIndex = -1;
+    public InputControlScheme EmptyScheme
     {
         get
         {
-            if (m_RightKeyboardSchemeIndex == -1) m_RightKeyboardSchemeIndex = asset.FindControlSchemeIndex("Right Keyboard");
-            return asset.controlSchemes[m_RightKeyboardSchemeIndex];
+            if (m_EmptySchemeIndex == -1) m_EmptySchemeIndex = asset.FindControlSchemeIndex("Empty");
+            return asset.controlSchemes[m_EmptySchemeIndex];
+        }
+    }
+    private int m_NintendoSchemeIndex = -1;
+    public InputControlScheme NintendoScheme
+    {
+        get
+        {
+            if (m_NintendoSchemeIndex == -1) m_NintendoSchemeIndex = asset.FindControlSchemeIndex("Nintendo");
+            return asset.controlSchemes[m_NintendoSchemeIndex];
         }
     }
     public interface IPlayerActions
