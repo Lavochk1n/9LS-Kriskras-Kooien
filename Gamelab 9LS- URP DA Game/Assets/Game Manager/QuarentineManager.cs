@@ -327,6 +327,8 @@ namespace Quarantine
         /// <returns></returns>
         private IEnumerator ClearingRoom()
         {
+            baseSickAmount = CountInfected();
+
             isClearing = true;
 
             AmbulanceManager.Instance.Arrival();
@@ -338,7 +340,7 @@ namespace Quarantine
                 CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
                 float performance = 0;
-                performance = (100f) - cageBehaviour.myAnimal.sickProgression;
+                performance = (100f - cageBehaviour.myAnimal.sickProgression) * (1 + (GameManager.Instance.GetDepartures()/10));
                 int AddedScore = Mathf.RoundToInt(performance);
 
                 Vector3 textPos = cage.transform.position;
@@ -362,6 +364,11 @@ namespace Quarantine
             GameManager.Instance.AddDeparture();
             AmbulanceManager.Instance.Departure();
             RandomiseCages();
+            foreach (GameObject cage in Cages)
+            {
+                CageBehaviour cb = cage.GetComponent<CageBehaviour>();
+                cb.ForcedSpreadTick();
+            }
             StartCoroutine(DelayedUnpause()); 
             
             clearCompleted = true;
@@ -381,8 +388,8 @@ namespace Quarantine
             };
 
             List<CageBehaviour> potentialCages = new();
-            int realSickAmount = baseSickAmount; 
-            realSickAmount = Mathf.RoundToInt(realSickAmount * GameManager.Instance.GetDifficultyRatio());
+            //int realSickAmount = baseSickAmount; 
+            //realSickAmount = Mathf.RoundToInt(realSickAmount * GameManager.Instance.GetDifficultyRatio());
 
 
             foreach (Transform child in cagesParent.transform)
@@ -397,7 +404,7 @@ namespace Quarantine
                 //cage.ChangeSickstate(GetWeightedRandomState());
             }
 
-            for (int i = 0; i < realSickAmount; i++)
+            for (int i = 0; i < baseSickAmount; i++)
             {
                 CageBehaviour theChosenOne = potentialCages[UnityEngine.Random.Range(0, potentialCages.Count)];
                 theChosenOne.ChangeSickstate(SickState.sick);
