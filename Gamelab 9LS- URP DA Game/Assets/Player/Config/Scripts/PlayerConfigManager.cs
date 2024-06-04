@@ -8,7 +8,7 @@ public class PlayerConfigManager : MonoBehaviour
 {
     public static PlayerConfigManager Instance { get; private set; }
 
-    [SerializeField] private List<GameObject> hatPrefabs = new();
+    [SerializeField] private List<HatVisuals> hatPrefabs = new();
 
     [SerializeField] private List<GameObject> EmptyPanels = new();
 
@@ -38,7 +38,7 @@ public class PlayerConfigManager : MonoBehaviour
     
     }
 
-    public List<GameObject> GetHatsConfigs()
+    public List<HatVisuals> GetHatsConfigs()
     {
         return hatPrefabs;
     }
@@ -120,6 +120,7 @@ public class PlayerConfigManager : MonoBehaviour
     public void SetPlayerHat(int playerIndex,int hatIndex)
     {
         playerConfigs[playerIndex].Hat = hatPrefabs[hatIndex];
+
         Debug.Log(hatIndex);
     }
 
@@ -166,5 +167,5 @@ public class PlayerConfig
     public PlayerInput Input { get;  set; }
     public int PlayerIndex {  get;  set; }
     public bool isReady {  get;  set; }
-    public GameObject Hat {  get; set; }
+    public HatVisuals Hat {  get; set; }
 }

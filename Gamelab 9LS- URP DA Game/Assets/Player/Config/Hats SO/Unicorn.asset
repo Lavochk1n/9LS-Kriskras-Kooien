@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6476a4087a7364940834cf10e5b47f38, type: 3}
+  m_Name: Unicorn
+  m_EditorClassIdentifier: 
+  model: {fileID: 6041735855042481572, guid: a2ef514f56b5bd84aa8914cd9dd4e937, type: 3}
+  icon: {fileID: 21300000, guid: b95089696c6472d44b81ab3e2e668e76, type: 3}

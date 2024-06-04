@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6476a4087a7364940834cf10e5b47f38, type: 3}
+  m_Name: Wig SPR
+  m_EditorClassIdentifier: 
+  model: {fileID: 8550038997597083254, guid: 5629ef57f1964da4388a6fdd41b0114a, type: 3}
+  icon: {fileID: 0}

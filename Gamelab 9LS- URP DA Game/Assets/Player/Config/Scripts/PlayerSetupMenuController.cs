@@ -164,7 +164,7 @@ public class PlayerSetupMenuController : MonoBehaviour
             }
         }
         Instantiate(
-            PlayerConfigManager.Instance.GetHatsConfigs()[currentHat], 
+            PlayerConfigManager.Instance.GetHatsConfigs()[currentHat].model, 
             hatPoint.transform.position, 
             hatPoint.transform.rotation, 
             hatPoint.transform);

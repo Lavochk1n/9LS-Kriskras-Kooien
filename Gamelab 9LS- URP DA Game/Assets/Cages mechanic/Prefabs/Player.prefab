@@ -181,6 +181,7 @@ MonoBehaviour:
   hatPoint: {fileID: 3316258676127197810}
   player1model: {fileID: 3552782970209803806}
   player2model: {fileID: 1399649380306836333}
+  hatvisuals: {fileID: 0}
   maxFlags: 2
   flagAmount: 0
   mostRecentCage: {fileID: 0}
@@ -240,8 +241,8 @@ MonoBehaviour:
     type: 3}
   Player2UI: {fileID: 4773863546353274063, guid: a25c27dc306dae44ca29a1af62d8ede4,
     type: 3}
-  xBorderoffset: 70
-  yBorderoffset: 140
+  xBorderoffset: 80
+  yBorderoffset: 180
 --- !u!1 &3316258676127197810
 GameObject:
   m_ObjectHideFlags: 0

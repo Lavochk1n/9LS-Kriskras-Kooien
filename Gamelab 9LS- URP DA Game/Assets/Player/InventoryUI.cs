@@ -10,8 +10,12 @@ namespace Quarantine
     {
         [Header("player Inventory")]
         [SerializeField] private Image background, icon;
+        public Image hat;
 
         [SerializeField] private Sprite healthy, sickening, sick; 
+
+
+        
 
         public void UpdateInventoryUI(Animal animal)
         {
@@ -34,6 +38,7 @@ namespace Quarantine
                 background.sprite = healthy;
             }
         }
+
 
     }
  }

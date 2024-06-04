@@ -74,6 +74,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -38
       objectReference: {fileID: 0}
+    - target: {fileID: 7731887028554864412, guid: 056357d670ebbc5429e50ed3b7983131,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731887028554864412, guid: 056357d670ebbc5429e50ed3b7983131,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8224229742576151567, guid: 056357d670ebbc5429e50ed3b7983131,
         type: 3}
       propertyPath: m_Name

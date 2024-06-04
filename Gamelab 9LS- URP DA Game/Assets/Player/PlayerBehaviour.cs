@@ -23,6 +23,7 @@ namespace Quarantine
         [Header("Player Distinction")]
         [SerializeField] private GameObject hatPoint;
         [SerializeField] private GameObject player1model, player2model;
+        public HatVisuals hatvisuals; 
 
 
         private PlayerConfig playerConfig;
@@ -49,6 +50,9 @@ namespace Quarantine
             flagAmount = maxFlags; 
             playerConfig = pc;
             Debug.Log(pc.PlayerIndex.ToString() + pc.Hat.ToString());
+            hatvisuals = pc.Hat;
+
+
 
             if (pc.PlayerIndex == 0)
             {
@@ -57,7 +61,6 @@ namespace Quarantine
                 GameManager.Instance.playerBehaviour1 = this;
                 player1model.SetActive(true);
                 player2model.SetActive(false);
-
             }
             else
             {
@@ -68,7 +71,8 @@ namespace Quarantine
                 player2model.SetActive(true);
             }
 
-            Instantiate(pc.Hat, hatPoint.transform.position, hatPoint.transform.rotation, hatPoint.transform);
+
+            Instantiate(hatvisuals.model, hatPoint.transform.position, hatPoint.transform.rotation, hatPoint.transform);
 
             playerConfig.Input.onActionTriggered += Input_onActionTriggered;
 
@@ -110,6 +114,7 @@ namespace Quarantine
 
        
             moveVector = Vector2.zero;
+
         }
 
         private void Update()
