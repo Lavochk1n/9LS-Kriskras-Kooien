@@ -56,6 +56,14 @@ namespace Quarantine
             CheckSpread();
         }
 
+        public void ForcedSpreadTick()
+        {
+            CheckSpread();
+            CheckSpread();
+            UpdateVisuals();
+            UpdateCage();   
+        }
+
         public IEnumerator UpdateVisuals( )
         {
             while (true)

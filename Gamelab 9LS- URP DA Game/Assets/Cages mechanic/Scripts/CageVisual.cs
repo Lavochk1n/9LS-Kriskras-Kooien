@@ -25,12 +25,12 @@ namespace Quarantine {
         private Material ogMat;
         [SerializeField] private Material lookedAtMAt;
 
-        private float progression;
+        private float previousProgression;
 
         
         private void Start()
         {
-            progression = progressBar.fillAmount;
+            previousProgression = progressBar.fillAmount;
             ogMat = GetComponentInChildren<Renderer>().materials[0];
             GetComponentInChildren<Renderer>().materials[0].DisableKeyword("_EMISSION");
 
@@ -102,8 +102,10 @@ namespace Quarantine {
 
         private bool isSickening()
         {
+            if (QuarentineManager.Instance.GamePaused()) return false;
+
             Animal animal  = GetComponent<CageBehaviour>().myAnimal;
-            if (progression < animal.sickProgression / 100f)
+            if (animal.sickProgression / 100f > previousProgression)
             {
                 return true; 
             }
@@ -157,7 +159,7 @@ namespace Quarantine {
 
         private void LateUpdate()
         {
-            progression = progressBar.fillAmount;
+            previousProgression = progressBar.fillAmount;
         }
     }
 }

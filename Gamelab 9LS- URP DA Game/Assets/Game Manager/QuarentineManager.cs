@@ -73,6 +73,9 @@ namespace Quarantine
         [SerializeField] private float EndOfGameMalus = .7f;
 
 
+        private int infectedAmount, infectedQuota;
+        private RoundStatisticsDisplay scoreBox; 
+
 
         public GameObject player, player2; 
 
@@ -103,6 +106,12 @@ namespace Quarantine
         private void Start()
         {
             InitializePlayers();
+
+            scoreBox = GameObject.FindGameObjectWithTag("ScoreBox").GetComponent<RoundStatisticsDisplay>();
+            infectedAmount = CountInfected();
+            infectedQuota = Mathf.RoundToInt(cageQuota * Cages.Count / 100);
+
+            scoreBox.RefreshStats(infectedAmount,infectedQuota);
 
             StartCoroutine(DelayedUnpause());
         }
@@ -179,6 +188,8 @@ namespace Quarantine
             return GamePause;
         }
 
+      
+
         public void PauseGame()
         {
             if(!delayRunning)
@@ -190,11 +201,26 @@ namespace Quarantine
         private IEnumerator DelayedUnpause()
         {
             delayRunning = true;
-
+            //foreach (GameObject cage in Cages)
+            //{
+            //    CageBehaviour cb = cage.GetComponent<CageBehaviour>();
+            //    cb.ForcedSpreadTick();
+            //    cb.StopCoroutine("UpdateVisuals");
+            //}
             yield return null;
+                      
+
+
             GamePause = true;
 
             yield return new WaitForSeconds(pauseTimeDelay);
+
+            //foreach (GameObject cage in Cages)
+            //{
+            //    CageBehaviour cb = cage.GetComponent<CageBehaviour>();
+            //    cb.StartCoroutine("UpdateVisuals");
+            //}
+
             GamePause = false;
             delayRunning = false;
         }
@@ -229,7 +255,12 @@ namespace Quarantine
 
         public bool GameOver()
         {
-            if (CountInfected() >= Mathf.RoundToInt(cageQuota * Cages.Count / 100)) return true;
+            infectedAmount = CountInfected();
+            //infectedQuota = Mathf.RoundToInt(cageQuota * Cages.Count / 100);
+            scoreBox.RefreshStats(infectedAmount, infectedQuota);
+
+
+            if (infectedAmount >= infectedQuota) return true;
             return false; 
         }
 
@@ -404,11 +435,6 @@ namespace Quarantine
             return SickState.sick;
         }
 
-        //////////////////////// AMBUALNCE
-        
-        //public void AddAmbulanceDepartCounter()
-        //{
-        //    currentDepartures++;
-        //}
+       
     }
 }

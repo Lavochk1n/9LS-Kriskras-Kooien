@@ -87,6 +87,11 @@ public class GameManager : MonoBehaviour
         ambulanceDepartures ++;
     }
 
+    public int GetDepartures()
+    {
+        return ambulanceDepartures;
+    }
+
     public int GetMaxGloves()
     {
         return maxGloves;
