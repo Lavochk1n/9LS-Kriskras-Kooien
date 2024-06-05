@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHighScoreSubmitter : MonoBehaviour
 {
     private string name1, name2, teamName;
+    private int round;
     private int score; 
 
 
@@ -30,7 +31,7 @@ public class PlayerHighScoreSubmitter : MonoBehaviour
 
         Debug.Log(teamName + ": " +  name1 + " & " + name2 );
         
-        HighscoreManager.Instance.AddHighScore(teamName, name1, name2, GameManager.Instance.GetScore());
+        HighscoreManager.Instance.AddHighScore(teamName, name1, name2, GameManager.Instance.GetScore(),GameManager.Instance.GetRound());
 
         ScenesManager.Instance.GetMainMenu();
 
