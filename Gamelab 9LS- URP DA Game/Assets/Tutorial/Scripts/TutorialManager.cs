@@ -16,8 +16,8 @@ public class TutorialManager : MonoBehaviour
 
     public GameObject holdIcons;
 
-    [Header("Tutorial Cages")]
-    public List<TutorialCages> tutorialCages = new();
+    //[Header("Tutorial Cages")]
+    //public List<TutorialCages> tutorialCages = new();
 
 
     private void Start()
@@ -59,25 +59,20 @@ public class TutorialManager : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(this); }
         else { Instance = this; }
 
-        foreach (var tut in tutorialCages)
-        {
-            Animal animal = tut.cage.myAnimal;
-            animal.type = tut.type;
-            animal.sickProgression = tut.SickProgression; 
-            animal.state = tut.sickState;
+        //foreach (var tut in tutorialCages)
+        //{
+        //    Animal animal = tut.cage.myAnimal;
+        //    animal.type = tut.type;
+        //    animal.sickProgression = tut.SickProgression; 
+        //    animal.state = tut.sickState;
 
-            tut.cage.UpdateVisuals();
-        }
+        //    tut.cage.UpdateVisuals();
+        //}
     }
 
-    [System.Serializable]
-    public class TutorialCages
-    {
-        public CageBehaviour cage;
-        public AnimalTypes type; 
-        public SickState sickState;
-        [Range(0, 100f)] public float SickProgression;
-    }
+    
 
 }
+
+
 
