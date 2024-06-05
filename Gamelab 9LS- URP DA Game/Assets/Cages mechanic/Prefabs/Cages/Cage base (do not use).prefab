@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 5858139323570281108}
   - component: {fileID: 8339529071733849949}
   m_Layer: 10
-  m_Name: Cage Alone
+  m_Name: Cage base (do not use)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

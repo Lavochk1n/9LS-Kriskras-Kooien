@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class TutorialCages : MonoBehaviour
 {
-    public CageBehaviour cage;
+    private CageBehaviour cage;
     public AnimalTypes type;
     public SickState sickState;
     [Range(0, 100f)] public float SickProgression;
 
     private void Awake()
     {
+
+        cage = GetComponent<CageBehaviour>();   
         Animal animal = cage.myAnimal;
         animal.type = type;
         animal.sickProgression = SickProgression;

@@ -61,10 +61,36 @@ PrefabInstance:
     - target: {fileID: 6348397302926883994, guid: 9e5cd6cc8dac23e45b30ce701a0a82b2,
         type: 3}
       propertyPath: m_Name
-      value: Cage test
+      value: Cage Tutorial
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6348397302926883994, guid: 9e5cd6cc8dac23e45b30ce701a0a82b2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6317417947061523420}
   m_SourcePrefab: {fileID: 100100000, guid: 9e5cd6cc8dac23e45b30ce701a0a82b2, type: 3}
+--- !u!1 &4892848290462010141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6348397302926883994, guid: 9e5cd6cc8dac23e45b30ce701a0a82b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2016744220519085959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6317417947061523420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892848290462010141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c455d570f062a743aa344a60fbaea3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cage: {fileID: 0}
+  type: 0
+  sickState: 0
+  SickProgression: 0
