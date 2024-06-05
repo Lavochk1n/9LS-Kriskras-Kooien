@@ -44,7 +44,7 @@ public class HighscoreTables : MonoBehaviour
             entryTransform.Find("TeamName").GetComponent<TextMeshProUGUI>().text = entry.teamName;
             entryTransform.Find("Player1").GetComponent<TextMeshProUGUI>().text = entry.player1Name;
             entryTransform.Find("Player2").GetComponent<TextMeshProUGUI>().text = entry.player2Name;
-            entryTransform.Find("Round").GetComponent<TextMeshProUGUI>().text = "Round: " + entry.round.ToString();  // Display the round number
+            entryTransform.Find("Round").GetComponent<TextMeshProUGUI>().text = "Round: " + entry.round.ToString();
         }
     }
 }
