@@ -8,10 +8,12 @@ public class TutorialCages : MonoBehaviour
     public SickState sickState;
     [Range(0, 100f)] public float SickProgression;
 
-    private void Awake()
-    {
 
-        cage = GetComponent<CageBehaviour>();   
+
+
+    private void Start()
+    {
+        cage = GetComponent<CageBehaviour>();
         Animal animal = cage.myAnimal;
         animal.type = type;
         animal.sickProgression = SickProgression;
@@ -19,4 +21,5 @@ public class TutorialCages : MonoBehaviour
 
         cage.UpdateVisuals();
     }
+    
 }

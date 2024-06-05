@@ -71,7 +71,6 @@ namespace Quarantine
         private bool clearCompleted = false, isClearing = false;
         [SerializeField] private GameObject floatText;
         [SerializeField] private float floatOffset = 2f;
-        [SerializeField] private float EndOfGameMalus = .7f;
 
 
         private int infectedAmount, infectedQuota;
@@ -96,7 +95,7 @@ namespace Quarantine
 
             if (TutorialManager.Instance != null)
             {
-                if (!TutorialManager.Instance.randomCages) return;
+                if (TutorialManager.Instance.randomCages) return;
             }
 
             RandomiseCages();
@@ -155,6 +154,9 @@ namespace Quarantine
 
             if (GameOver() && !isClearing)
             {
+
+                if (TutorialManager.Instance != null) ScenesManager.Instance.GetMainMenu(); 
+
                 ScenesManager.Instance.GetGameOver();
                 Debug.Log("GetGameOVer");
                 return;

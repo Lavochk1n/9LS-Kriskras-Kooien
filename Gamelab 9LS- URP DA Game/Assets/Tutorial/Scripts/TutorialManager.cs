@@ -59,15 +59,7 @@ public class TutorialManager : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(this); }
         else { Instance = this; }
 
-        //foreach (var tut in tutorialCages)
-        //{
-        //    Animal animal = tut.cage.myAnimal;
-        //    animal.type = tut.type;
-        //    animal.sickProgression = tut.SickProgression; 
-        //    animal.state = tut.sickState;
-
-        //    tut.cage.UpdateVisuals();
-        //}
+       
     }
 
     
