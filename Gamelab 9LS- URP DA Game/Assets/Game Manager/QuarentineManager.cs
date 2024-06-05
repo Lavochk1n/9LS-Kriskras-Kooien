@@ -96,25 +96,26 @@ namespace Quarantine
 
             if (TutorialManager.Instance != null)
             {
-                
-                return;
+                if (!TutorialManager.Instance.randomCages) return;
             }
 
             RandomiseCages();
-            //StartCoroutine(CheckGameProgress()); 
         }
 
         private void Start()
         {
             InitializePlayers();
 
-            scoreBox = GameObject.FindGameObjectWithTag("ScoreBox").GetComponent<RoundStatisticsDisplay>();
             infectedAmount = CountInfected();
             infectedQuota = Mathf.RoundToInt(cageQuota * Cages.Count / 100);
+            if (infectedQuota == 0) { infectedQuota = 10; }
 
-            scoreBox.RefreshStats(infectedAmount,infectedQuota);
 
             StartCoroutine(DelayedUnpause());
+
+            scoreBox = GameObject.FindGameObjectWithTag("ScoreBox").GetComponent<RoundStatisticsDisplay>();
+            if (scoreBox != null) scoreBox.RefreshStats(infectedAmount, infectedQuota);
+
         }
 
         private void InitializePlayers()
@@ -161,6 +162,10 @@ namespace Quarantine
 
             if (RoomCleared())
             {
+                if (TutorialManager.Instance != null)
+                {
+                    if (TutorialManager.Instance.randomCages) return;
+                }
                 if (!isClearing)
                 {
                     StartCoroutine(ClearingRoom());
@@ -182,17 +187,26 @@ namespace Quarantine
 
             if (GameObject.FindWithTag("spawn1") == null) return true; 
 
-
-            if (RoomCleared()) return true;     
-            if(isClearing) return true;
+            if (TutorialManager.Instance != null)
+            {
+                if (!TutorialManager.Instance.randomCages)
+                {
+                    if (RoomCleared()) return true;
+                    if (isClearing) return true;
+                }
+            }
+            else
+            {
+                if (RoomCleared()) return true;
+                if (isClearing) return true;
+            }
+           
 
             if (!PlayerSpawned()) return true; 
             
 
             return GamePause;
         }
-
-      
 
         public void PauseGame()
         {
@@ -206,26 +220,10 @@ namespace Quarantine
         private IEnumerator DelayedUnpause()
         {
             delayRunning = true;
-            //foreach (GameObject cage in Cages)
-            //{
-            //    CageBehaviour cb = cage.GetComponent<CageBehaviour>();
-            //    cb.ForcedSpreadTick();
-            //    cb.StopCoroutine("UpdateVisuals");
-            //}
-            yield return null;
-                      
-
-
+            yield return null;       
             GamePause = true;
 
             yield return new WaitForSeconds(pauseTimeDelay);
-
-            //foreach (GameObject cage in Cages)
-            //{
-            //    CageBehaviour cb = cage.GetComponent<CageBehaviour>();
-            //    cb.StartCoroutine("UpdateVisuals");
-            //}
-
             GamePause = false;
             delayRunning = false;
         }
@@ -262,7 +260,11 @@ namespace Quarantine
         {
             infectedAmount = CountInfected();
             //infectedQuota = Mathf.RoundToInt(cageQuota * Cages.Count / 100);
-            scoreBox.RefreshStats(infectedAmount, infectedQuota);
+            if (scoreBox != null )
+            {
+                scoreBox.RefreshStats(infectedAmount, infectedQuota);
+
+            }
 
 
             if (infectedAmount >= infectedQuota) return true;
@@ -277,7 +279,7 @@ namespace Quarantine
             return true;
         }
 
-        /// <returns>score based on the share of healthy cages</returns>
+        /// <returns>score based on the share of healthy tutorialCages</returns>
         private float CalculateScore()
         {
             float performance = 0;
@@ -299,7 +301,7 @@ namespace Quarantine
             return Mathf.RoundToInt(addedScore);
         }
 
-        /// <returns>amount of infected cages</returns>
+        /// <returns>amount of infected tutorialCages</returns>
         private int CountInfected()
         {
             int count = 0;
@@ -375,11 +377,10 @@ namespace Quarantine
         }
 
         /// <summary>
-        /// Randomizes all cages with new animals and sickstate. 
+        /// Randomizes all tutorialCages with new animals and sickstate. 
         /// </summary>
         private void RandomiseCages()
         {
-            //if (TutorialManager.Instance != null) { return; }
             animalWeights = new List<AnimalWeight>
             {
                 new() {AnimalType = AnimalTypes.Bunny, Weight = bunnyWeight},
@@ -388,9 +389,6 @@ namespace Quarantine
             };
 
             List<CageBehaviour> potentialCages = new();
-            //int realSickAmount = baseSickAmount; 
-            //realSickAmount = Mathf.RoundToInt(realSickAmount * GameManager.Instance.GetDifficultyRatio());
-
 
             foreach (Transform child in cagesParent.transform)
             {
@@ -401,7 +399,6 @@ namespace Quarantine
                 cage.ChangeOccupation(GetWeightedRandomAnimal());
                 cage.UpdateCage();
                 cage.UpdateSpreadSpeed();
-                //cage.ChangeSickstate(GetWeightedRandomState());
             }
 
             for (int i = 0; i < baseSickAmount; i++)

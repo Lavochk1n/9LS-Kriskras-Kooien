@@ -96,14 +96,24 @@ namespace Quarantine
                     {
                         return;
                     }
-                    playerBehaviour.GetComponent<GloveManager>().RemoveGlove();
+                    if (TutorialManager.Instance != null) 
+                    {
+                        if (TutorialManager.Instance.useGloves) { playerBehaviour.GetComponent<GloveManager>().RemoveGlove(); }
+                    }
+                    else playerBehaviour.GetComponent<GloveManager>().RemoveGlove();
                 }
                 else
                 {
                     PlayerBehaviour player1 = QuarentineManager.Instance.player.GetComponent<PlayerBehaviour>();
                     PlayerBehaviour player2 = QuarentineManager.Instance.player2.GetComponent<PlayerBehaviour>();
 
-                    
+                    if(this != playerBehaviour.mostRecentCage)
+                    {
+                        playerBehaviour.GetComponent<CountSwaps>().AddSwap();
+
+                    }
+
+
                     if (playerBehaviour ==  player1)
                     {
                         if(player2.mostRecentCage == this)
@@ -116,6 +126,7 @@ namespace Quarantine
                         if (player1.mostRecentCage == this)
                         {
                             player1.mostRecentCage = player2.mostRecentCage;
+
                         }
                     }
                     

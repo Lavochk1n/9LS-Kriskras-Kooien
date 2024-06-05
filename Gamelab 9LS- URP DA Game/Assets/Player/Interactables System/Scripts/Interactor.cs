@@ -11,7 +11,7 @@ public class Interactor : MonoBehaviour
     private bool requestInteract = false, requestHold = false, requestRemove = false;
     [SerializeField]  private Image interactionProgress;
 
-    private GameObject currentPrompt; 
+    private GameObject currentPrompt;
 
     /// <summary>
     /// ScanInteractable looks for objects with an Interactable class on it and sets its Interact() availible.   
@@ -24,7 +24,7 @@ public class Interactor : MonoBehaviour
     {
         if (direction == default) direction = Vector3.forward;
         if (raycastRange == default) raycastRange = 10f;
-    
+
         Debug.DrawRay(origin.transform.position, direction * raycastRange, Color.red);
 
         RaycastHit hit;
@@ -48,18 +48,18 @@ public class Interactor : MonoBehaviour
                     Vector3 promptLocation = new Vector3
                        (
                         interactable.transform.position.x,
-                        interactable.transform.position.y+ -offset,
+                        interactable.transform.position.y + -offset,
                        interactable.transform.position.z);
 
-                    if(currentPrompt == null)
+                    if (currentPrompt == null)
                     {
                         currentPrompt = Instantiate(interactionPrompt, promptLocation, Quaternion.identity);
-                        interactionProgress = currentPrompt.transform.Find("Ring").GetComponent<Image>(); 
+                        interactionProgress = currentPrompt.transform.Find("Ring").GetComponent<Image>();
                     }
                 }
                 else
                 {
-                    requestHold = false; 
+                    requestHold = false;
                     if (currentPrompt != null)
                     {
                         Destroy(currentPrompt);
@@ -89,9 +89,10 @@ public class Interactor : MonoBehaviour
                 interactionProgress = null;
             }
         }
-        
+
 
     }
+    
 
     private void HandleInteraction(Interactable interactable)
     {
@@ -146,6 +147,8 @@ public class Interactor : MonoBehaviour
     {
         requestHold = false;
     }
+
+   
 
     private void LateUpdate()
     {
