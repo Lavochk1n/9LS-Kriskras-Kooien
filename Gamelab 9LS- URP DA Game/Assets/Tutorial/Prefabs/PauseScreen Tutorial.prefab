@@ -78,6 +78,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hoofdmenu
       objectReference: {fileID: 0}
+    - target: {fileID: 5777927887567008323, guid: bf2b0d257884099468280df7ca126d33,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8293406248721369054, guid: bf2b0d257884099468280df7ca126d33,
         type: 3}
       propertyPath: m_Name

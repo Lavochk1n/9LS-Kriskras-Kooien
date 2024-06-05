@@ -4290,11 +4290,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseScreen Tutorial
       objectReference: {fileID: 0}
-    - target: {fileID: 7468960686918211699, guid: 034c1c9617a5a954791a0cbc47041ce6,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8452408247080239826, guid: 034c1c9617a5a954791a0cbc47041ce6,
         type: 3}
       propertyPath: m_LocalPosition.x

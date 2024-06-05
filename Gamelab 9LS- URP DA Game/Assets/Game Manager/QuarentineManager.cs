@@ -226,6 +226,7 @@ namespace Quarantine
             yield return new WaitForSeconds(pauseTimeDelay);
             GamePause = false;
             delayRunning = false;
+            if (TutorialManager.Instance != null) { PauseGame(); }
         }
 
         /// <returns>true if one of the game-over conditions are met</returns>

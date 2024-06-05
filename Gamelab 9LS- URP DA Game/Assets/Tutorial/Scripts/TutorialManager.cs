@@ -20,6 +20,11 @@ public class TutorialManager : MonoBehaviour
     public List<TutorialCages> tutorialCages = new();
 
 
+    private void Start()
+    {
+        QuarentineManager.Instance.PauseGame();
+    }
+
     private void Update()
     {
 
