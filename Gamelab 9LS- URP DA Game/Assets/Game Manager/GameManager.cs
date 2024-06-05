@@ -7,29 +7,22 @@ public class GameManager : MonoBehaviour
 
     private int score = 0;
     private float difficulty = 100;
-
+    private int ambulanceDepartures = 1;
+    public PlayerNames playerNames; 
+    
+    public PlayerBehaviour playerBehaviour1, playerBehaviour2;
+    
 
     [Header("difficulty sliders")]
     private float startDif = 1f; 
     [SerializeField][Range(1f, 5f)] private float maxDif = 2f;
     [SerializeField][Range(0.001f, 1f)] private float difficultyIncrease = .01f;
-
-
-
-    private int ambulanceDepartures = 1;
     [SerializeField][Range(1, 8)] private int maxGloves = 6;
-
-
-    public PlayerBehaviour playerBehaviour1, playerBehaviour2;
 
     [Header ("SceneInitialization")]
     private bool levelIsTutorial = false;
-
     public bool randomGame = false;
     public int gameRoom;
-
-    //public AmbulanceBehaviour AM;
-
     public bool flaggedMode= true; 
 
     private void Awake()
@@ -38,6 +31,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            playerNames = new PlayerNames();
         }
         else
         {
@@ -111,4 +105,28 @@ public class GameManager : MonoBehaviour
         Debug.Log(difficulty);
         return difficulty;
     }
+
+    public class PlayerNames
+    {
+        public string Name1 { get; private set; }
+        public string Name2 { get; private set; }
+        public string TeamNAme { get; private set; }
+
+        public void SaveNames(string name1, string name2, string teamName)
+        {
+
+            //    if (name1 != null ||  name1 != "")  Name1 = name1; 
+            //    if (name2 != null || name2 != "")  Name2 = name2; 
+            //    if (teamName != null || teamName != "")  TeamNAme = teamName; 
+            //
+
+            Name1 = name1;
+            Name2 = name2;
+            TeamNAme = teamName;
+        }
+
+    }
+
 }
+
+

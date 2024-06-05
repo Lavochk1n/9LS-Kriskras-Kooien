@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniGames:
-  - GameRoom 0
-  - GameRoom 1
-  - GameRoom 2
+  - GameRoom 3
+  - GameRoom 4
+  - GameRoom 5

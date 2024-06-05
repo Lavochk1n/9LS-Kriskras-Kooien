@@ -19,6 +19,8 @@ namespace Quarantine
 
         public Animal myAnimal = new();
 
+        public bool isInfected; 
+
         public bool markedForRemoval = false; 
 
         private void Start()
@@ -236,6 +238,7 @@ namespace Quarantine
 
             if (multiplier > 0)
             {
+                isInfected = true;
                 if (myAnimal.sickProgression >= 100)
                 {
                     myAnimal.state = SickState.sick;
@@ -247,12 +250,17 @@ namespace Quarantine
                     myAnimal.sickProgression += spreadSpeed* multiplier * Time.deltaTime ; 
                 }
             } 
-            else if(myAnimal.sickProgression > 0)
+            else
             {
-                myAnimal.sickProgression -= spreadSpeed * Time.deltaTime * 0.001f;
-
-                if (myAnimal.sickProgression < 0) myAnimal.sickProgression = 0; 
+                isInfected=false;
             }
+            
+            //if(myAnimal.sickProgression > 0)
+            //{
+            //    myAnimal.sickProgression -= spreadSpeed * Time.deltaTime * 0.001f;
+
+            //    if (myAnimal.sickProgression < 0) myAnimal.sickProgression = 0; 
+            //}
         }
 
         public int AdjDisease()

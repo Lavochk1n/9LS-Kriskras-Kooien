@@ -135,7 +135,8 @@ namespace Quarantine {
                 progressBar.gameObject.SetActive(true);
             }
 
-            if (isSickening())
+            //if (isSickening())
+            if (GetComponent<CageBehaviour>().isInfected)
             {   
                 panel.sprite = visuals.iconTypeSickening;
                 progressBar.color = barSickColor;

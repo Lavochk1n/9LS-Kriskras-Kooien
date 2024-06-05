@@ -1594,31 +1594,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 582027124}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 873930338}
-        m_TargetAssemblyTypeName: ScenesManager, Assembly-CSharp
-        m_MethodName: GetTutorial
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1537589378}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Reset
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &582027124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,8 +2298,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
         type: 3}
+      propertyPath: miniGames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
       propertyPath: miniGames.Array.data[0]
-      value: GameRoom 0
+      value: GameRoom 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: miniGames.Array.data[1]
+      value: GameRoom 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: miniGames.Array.data[2]
+      value: GameRoom 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: miniGames.Array.data[3]
+      value: GameRoom 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: miniGames.Array.data[4]
+      value: GameRoom 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
+        type: 3}
+      propertyPath: miniGames.Array.data[5]
+      value: GameRoom 5
       objectReference: {fileID: 0}
     - target: {fileID: 8372754092079060623, guid: fd514d266a59b9a47981ffb03721aa80,
         type: 3}
@@ -3471,6 +3477,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1161320296525089214, guid: f72ff08e21d9c154cae3c4b4d0b4708d,
+        type: 3}
+      propertyPath: gameRoom
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161320296525089214, guid: f72ff08e21d9c154cae3c4b4d0b4708d,
+        type: 3}
+      propertyPath: randomGame
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1228155458449421174, guid: f72ff08e21d9c154cae3c4b4d0b4708d,
         type: 3}
       propertyPath: m_Name
