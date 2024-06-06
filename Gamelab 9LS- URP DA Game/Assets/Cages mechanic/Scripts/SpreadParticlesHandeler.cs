@@ -26,7 +26,7 @@ public class SpreadParticlesHandeler : MonoBehaviour
         adjCages = CB.AdjCages;
         if (adjCages != null)
         {
-            InitializeSystems();
+            //InitializeSystems();
         }
     }
 

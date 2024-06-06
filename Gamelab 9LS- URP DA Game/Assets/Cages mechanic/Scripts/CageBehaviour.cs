@@ -300,7 +300,7 @@ namespace Quarantine
                     multiplier ++;
                 }
 
-                particles.ToggleParticlesForCage(cage, contagious);
+                //particles.ToggleParticlesForCage(cage, contagious);
 
                 
 
