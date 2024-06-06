@@ -35,7 +35,9 @@ namespace Quarantine
 
         public CageBehaviour mostRecentCage;
 
-        public GameObject myUI;  
+        public GameObject myUI;
+
+        public bool isHolding; 
 
         private void Awake()
         {
@@ -140,10 +142,12 @@ namespace Quarantine
             if (context.started)
             {
                 RequestInteraction();
+                isHolding = true; 
             }
             else if (context.canceled) 
             {
                 RequestHold();
+                isHolding = false;
             }
         }
 
