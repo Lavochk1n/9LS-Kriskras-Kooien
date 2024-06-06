@@ -49,7 +49,7 @@ public class SpreadParticlesHandeler : MonoBehaviour
     }
 
 
-    public void DisableParticlesForCage(CageBehaviour targetCage)
+    public void ToggleParticlesForCage(CageBehaviour targetCage, bool state)
     {
         foreach (var psRef in psRefList)
         {
@@ -58,7 +58,14 @@ public class SpreadParticlesHandeler : MonoBehaviour
                 var particleSystem = psRef.ps.GetComponentInChildren<ParticleSystem>();
                 if (particleSystem != null)
                 {
-                     particleSystem.Stop();
+                    if (!state)
+                    {
+                        particleSystem.Stop();
+                    }
+                    else
+                    {
+                        particleSystem.Play();
+                    }
                 }
                 break;
             }

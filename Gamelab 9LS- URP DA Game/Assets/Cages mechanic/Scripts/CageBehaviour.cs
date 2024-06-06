@@ -278,17 +278,20 @@ namespace Quarantine
             int multiplier = 0; 
             foreach(CageBehaviour cage in AdjCages)
             {
+                bool contagious = false;  
                 if (cage.IsContagious(myAnimal))
                 {
-                    //particles.DisableParticlesForCage(cage);
-                    
+                    if (isInfected && myAnimal.state != SickState.sick)
+                    {
+                        contagious = true;
+                    }
+                   
                     multiplier ++;
                 }
-                else
-                {
-                    particles.DisableParticlesForCage(cage);
 
-                }
+                particles.ToggleParticlesForCage(cage, contagious);
+
+                
 
             }
 
