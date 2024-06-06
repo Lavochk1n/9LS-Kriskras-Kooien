@@ -58,7 +58,7 @@ public class PlayerHighScoreSubmitter : MonoBehaviour
 
         GM.playerNames.SaveNames(name1, name2, teamName);
 
-        HighscoreManager.Instance.AddHighScore(teamName, name1, name2, GM.GetScore());
+        HighscoreManager.Instance.AddHighScore(teamName, name1, name2, GM.GetScore(), GM.GetDepartures());
 
         ScenesManager.Instance.GetMainMenu();
 
