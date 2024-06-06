@@ -6,11 +6,11 @@ public class LeaderboardManager : MonoBehaviour
 {
     public GameObject entryTemplate;
     public Transform entryContainer;
-    private HighscoreManager HM;
+    private HighscoresManager HM;
 
     private void Start()
     {
-        HM = HighscoreManager.Instance;
+        HM = HighscoresManager.Instance;
         HM.LoadHighScores();
         DisplayTopScores();
     }

@@ -5,9 +5,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HighscoreTables : MonoBehaviour
+public class HighscoreTable : MonoBehaviour
 {
-    private HighscoreManager HM;
+    private HighscoresManager HM;
 
     [SerializeField] private GameObject entryTemplate;
     private Transform entryContainer;
@@ -19,7 +19,7 @@ public class HighscoreTables : MonoBehaviour
 
     private void Start()
     {
-        HM = HighscoreManager.Instance;
+        HM = HighscoresManager.Instance;
 
         HM.LoadHighScores();
 

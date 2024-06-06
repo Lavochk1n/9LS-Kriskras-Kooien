@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HighscoreManager : MonoBehaviour
+public class HighscoresManager : MonoBehaviour
 {
-    public static HighscoreManager Instance;
+    public static HighscoresManager Instance;
     public List<HighScoreEntry> highScoreEntries = new List<HighScoreEntry>();
 
     private void Awake()
