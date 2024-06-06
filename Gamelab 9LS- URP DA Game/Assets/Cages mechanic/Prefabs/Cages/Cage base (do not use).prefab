@@ -135,13 +135,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 0
-  AdjCages: []
   wallLayer:
     serializedVersion: 2
     m_Bits: 0
   searchDistance: 0.8
   myCageVisual: {fileID: 8339529071733849949}
+  isInfected: 0
   markedForRemoval: 0
+  spPrefab: {fileID: 711302346639580099, guid: 242a7ae56ea8ec442aef918faaccb1c1, type: 3}
 --- !u!114 &8339529071733849949
 MonoBehaviour:
   m_ObjectHideFlags: 0

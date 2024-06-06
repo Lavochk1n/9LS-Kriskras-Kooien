@@ -8,7 +8,7 @@ namespace Quarantine
 
     public class CageBehaviour : Interactable
     {
-        [SerializeField] private List<CageBehaviour> AdjCages;
+        public List<CageBehaviour> AdjCages { get; private set; }
         [SerializeField] private LayerMask wallLayer;
         [SerializeField] private float searchDistance =3f;
 
@@ -21,10 +21,18 @@ namespace Quarantine
 
         public bool isInfected; 
 
-        public bool markedForRemoval = false; 
+        public bool markedForRemoval = false;
+
+
+        private SpreadParticlesHandeler particles;
+        public GameObject spPrefab;
+
 
         private void Start()
         {
+            particles = gameObject.AddComponent<SpreadParticlesHandeler>();
+
+
             InitializeCages();
             startSpreadSpeed = QuarentineManager.Instance.spreadSpeed;
 
@@ -199,8 +207,10 @@ namespace Quarantine
 
                     //}
                     //else
+                    if (cage != this)
                     {
                         AdjCages.Add(cage);
+                        //Debug.Log(this.gameObject +" + " + cage.gameObject);
                     }
                 }
             }
@@ -279,19 +289,31 @@ namespace Quarantine
             int multiplier = 0; 
             foreach(CageBehaviour cage in AdjCages)
             {
-                if (cage.IsContagious(myAnimal.type))
+                bool contagious = false;  
+                if (cage.IsContagious(myAnimal))
                 {
+                    if (isInfected && myAnimal.state != SickState.sick)
+                    {
+                        contagious = true;
+                    }
+                   
                     multiplier ++;
-                } 
+                }
+
+                particles.ToggleParticlesForCage(cage, contagious);
+
+                
+
             }
 
             return multiplier;
         }
 
-        private bool IsContagious(AnimalTypes type)
+        private bool IsContagious(Animal type)
         {
+            if (type.state == SickState.sick) return false;
 
-            if (type == AnimalTypes.Bunny)
+            if (type.type == AnimalTypes.Bunny)
             {
                 if (myAnimal.type == AnimalTypes.Bunny && myAnimal.state == SickState.sick)
                 {
@@ -299,7 +321,7 @@ namespace Quarantine
                 }
             }
 
-            if (type == AnimalTypes.parrot)
+            if (type.type == AnimalTypes.parrot)
             {
                 if (myAnimal.type == AnimalTypes.parrot && myAnimal.state == SickState.sick)
                 {
@@ -307,7 +329,7 @@ namespace Quarantine
                 }
             }
 
-            if (type == AnimalTypes.crow)
+            if (type.type == AnimalTypes.crow)
             {
                 if(myAnimal.type == AnimalTypes.parrot || (myAnimal.type == AnimalTypes.crow && myAnimal.state == SickState.sick))
                 {
