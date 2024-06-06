@@ -47,8 +47,8 @@ public class ScenesManager : MonoBehaviour
 
         if (GM.IsTutorial()) 
         {
-            //SceneManager.LoadScene("Tutorial 0");
-            SceneManager.LoadScene("Tutorial 2");
+            SceneManager.LoadScene("Tutorial 0");
+            //SceneManager.LoadScene("Tutorial 2");
 
             
             GM.SetTutorial(false);
