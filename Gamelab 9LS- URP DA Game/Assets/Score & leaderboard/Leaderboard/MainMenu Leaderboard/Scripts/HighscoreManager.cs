@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class HighscoreManager : MonoBehaviour
 {
     public static HighscoreManager Instance;
-    //public HighScores highScores;
     public List<HighScoreEntry> highScoreEntries = new List<HighScoreEntry>();
-    
 
     private void Awake()
     {
@@ -25,24 +22,39 @@ public class HighscoreManager : MonoBehaviour
         LoadHighScores();
     }
 
-    
-
-    public void AddHighScore(string teamName, string player1Name, string player2Name, int score)
+    public void AddHighScore(string teamName, string player1Name, string player2Name, int score, int round)
     {
-        HighScoreEntry entry = new HighScoreEntry(teamName, player1Name, player2Name, score);
+        if (teamName.Length > 15)
+        {
+            teamName = teamName.Substring(0, 15);
+            Debug.Log("Team name truncated to 15 characters.");
+        }
+        if (player1Name.Length > 10)
+        {
+            player1Name = player1Name.Substring(0, 10);
+            Debug.Log("Player 1 name truncated to 10 characters.");
+        }
+        if (player2Name.Length > 10)
+        {
+            player2Name = player2Name.Substring(0, 10);
+            Debug.Log("Player 2 name truncated to 10 characters.");
+        }
+
+        HighScoreEntry entry = new HighScoreEntry(teamName, player1Name, player2Name, score, round);
         highScoreEntries.Add(entry);
         highScoreEntries.Sort((x, y) => y.score.CompareTo(x.score)); // Sort by score descending
         SaveHighScores();
     }
+
     public void ClearHighScores()
     {
         PlayerPrefs.DeleteKey("HighScoreTable");
         PlayerPrefs.Save();
         highScoreEntries.Clear();
     }
-        public void SaveHighScores()
+
+    public void SaveHighScores()
     {
-        //highScores.entries = highScoreEntries;
         string json = JsonUtility.ToJson(this);
         PlayerPrefs.SetString("HighScoreTable", json);
         PlayerPrefs.Save();
@@ -55,14 +67,12 @@ public class HighscoreManager : MonoBehaviour
             string json = PlayerPrefs.GetString("HighScoreTable");
             JsonUtility.FromJsonOverwrite(json, this);
         }
-        //highScoreEntries = highScores.entries;
     }
+
     public void AddTestScore()
     {
-        AddHighScore("testers", "Casper", "Cornee", Mathf.RoundToInt(UnityEngine.Random.Range(2000, 5000)));
-
+        //AddHighScore("testers", "Casper", "Cornee", Mathf.RoundToInt(UnityEngine.Random.Range(2000, 5000)), 5);  // Add a test round number
     }
-
 }
 
 [System.Serializable]
@@ -74,21 +84,15 @@ public class HighScoreEntry
     public string player1Name;
     public string player2Name;
     public int score;
-    public HighScoreEntry(string teamName, string player1Name, string player2Name, int score)
+    public int round;
+
+    public HighScoreEntry(string teamName, string player1Name, string player2Name, int score, int round)
     {
         this.teamName = teamName;
         this.player1Name = player1Name;
         this.player2Name = player2Name;
         this.score = score;
+        this.round = round;
     }
-
-    
-
-
 }
 
-//[System.Serializable]
-//public class HighScores
-//{
-//    public List<HighScoreEntry> entries = new List<HighScoreEntry>();
-//}
