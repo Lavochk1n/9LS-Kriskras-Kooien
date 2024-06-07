@@ -9,8 +9,10 @@ namespace Quarantine
     {
         [Header("Player Movement")]
         public float moveSpeed = 5f;
-        [SerializeField] private float sprintBonus = 3f; 
-        [SerializeField] private float smoothtime = 0.5f, currentVeloctiy;
+        [SerializeField] private float sprintBonus = 3f;
+        [SerializeField] private float smoothtime = 0.5f;
+        [SerializeField] private float currentVeloctiy;
+        private bool isMoving = false; 
 
         private CharacterController CC;
         private Vector2 moveVector;
@@ -45,9 +47,7 @@ namespace Quarantine
         {
             CC = GetComponent<CharacterController>();
             controls = new StandardPlayerInput();
-
         }
-
 
         public void InitializePlayer(PlayerConfig pc)
         {
@@ -194,11 +194,22 @@ namespace Quarantine
             myUI.GetComponent<InventoryUI>().UpdateInventoryUI(heldAnimal); 
         }
 
+        public bool IsMoving()
+        {
+            return isMoving;
+        }
+        public float SprintSpeed()
+        {
+            return sprintSpeed; 
+        }
+
         private void FixedUpdate()
         {
             if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GamePaused()) return;
 
-            if (moveVector.magnitude == 0) { return; }
+            if (moveVector.magnitude == 0) { isMoving = false ; return; }
+
+            isMoving = true; 
 
             Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y);
 
