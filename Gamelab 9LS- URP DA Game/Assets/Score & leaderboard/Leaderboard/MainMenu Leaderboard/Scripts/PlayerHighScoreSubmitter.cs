@@ -46,6 +46,11 @@ public class PlayerHighScoreSubmitter : MonoBehaviour
     public void saveNames()
     {
         GM.playerNames.SaveNames(name1, name2, teamName);
+        if (string.IsNullOrEmpty(name1) || string.IsNullOrEmpty(name2) || string.IsNullOrEmpty(teamName)) return;
+
+        ScenesManager.Instance.NextScene();
+
+
     }
 
     public void Submit()

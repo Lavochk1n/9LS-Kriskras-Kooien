@@ -561,10 +561,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 375611033130063563, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1114982112875951657, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
         type: 3}
       propertyPath: m_Name
       value: ScoreSubmitPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170291895065773910, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2525228373028383255, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3680376496014789049, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
         type: 3}

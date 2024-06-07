@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
     public float GetDifficultyRatio()
     {
         difficulty = maxDif - (maxDif - startDif) * Mathf.Pow(System.MathF.E, -difficultyIncrease * ambulanceDepartures) ;
-        Debug.Log(difficulty);
+        //Debug.Log(difficulty);
         return difficulty;
     }
 

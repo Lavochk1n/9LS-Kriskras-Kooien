@@ -131,6 +131,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4839933128711931827, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5995098929836172317, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -241,10 +246,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7284568430700821359, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8023367287979350925, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
         type: 3}
       propertyPath: m_Name
       value: SubmitPanelScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097236751030889202, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

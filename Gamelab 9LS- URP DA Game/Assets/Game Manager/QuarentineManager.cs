@@ -282,27 +282,6 @@ namespace Quarantine
             return true;
         }
 
-        /// <returns>score based on the share of healthy tutorialCages</returns>
-        private float CalculateScore()
-        {
-            float performance = 0;
-
-            foreach (GameObject cage in Cages)
-            {
-                CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
-
-                if (cageBehaviour.myAnimal.state == SickState.healthy)
-                {
-                    performance += 1;
-                }
-            }
-            float estMin = Cages.Count - cageQuota;
-            float estMax = Cages.Count;
-
-            float addedScore = (performance - estMin) / (estMax - estMin) * 100;
-            
-            return Mathf.RoundToInt(addedScore);
-        }
 
         /// <returns>amount of infected tutorialCages</returns>
         private int CountInfected()
@@ -340,12 +319,21 @@ namespace Quarantine
 
             yield return new WaitForSeconds(AmbulanceManager.Instance.waitTime);
 
+
+
             foreach (GameObject cage in Cages)
             {
                 CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
                 float performance = 0;
-                performance = (100f - cageBehaviour.myAnimal.sickProgression) * (1 + (GameManager.Instance.GetDepartures()/10));
+                float malus = cageBehaviour.myAnimal.sickProgression;
+                float bonus = 1 +  0.1f * GameManager.Instance.GetDepartures();
+                Debug.Log(bonus);
+
+
+                if (cageBehaviour.myAnimal.state == SickState.sick) malus = 100f; 
+
+                performance = (100f - malus) * bonus;
                 int AddedScore = Mathf.RoundToInt(performance);
 
                 Vector3 textPos = cage.transform.position;

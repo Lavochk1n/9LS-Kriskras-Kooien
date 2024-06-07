@@ -71,7 +71,7 @@ public class HighscoresManager : MonoBehaviour
 
     public void AddTestScore()
     {
-        //AddHighScore("testers", "Casper", "Cornee", Mathf.RoundToInt(UnityEngine.Random.Range(2000, 5000)), 5);  // Add a test round number
+        AddHighScore("testers", "Casper", "Cornee", Mathf.RoundToInt(UnityEngine.Random.Range(2000, 5000)), 5);  // Add a test round number
     }
 }
 
