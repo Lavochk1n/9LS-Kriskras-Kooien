@@ -16,12 +16,12 @@ public class FadeOutUI : MonoBehaviour
 
         if (image != null)
         {
-            Debug.Log("Image component found. Starting coroutine.");
+            //Debug.Log("Image component found. Starting coroutine.");
             StartCoroutine(ScaleImageOverTime(targetScale, duration));
         }
         else
         {
-            Debug.LogError("No Image component found on this GameObject.");
+            //Debug.LogError("No Image component found on this GameObject.");
         }
     }
 
@@ -38,10 +38,14 @@ public class FadeOutUI : MonoBehaviour
             float t = time / duration;
             t = 1f - Mathf.Pow(1f - t, 3); // Ease-out interpolation
 
+
+            Color color = image.color;
+            color.a = duration + 0.5f - time;
+            image.color = color;
             // Scale the object
             transform.localScale = Vector3.Lerp(initialScale, targetScale, t);
 
-            Debug.Log($"Scaling... Time: {time}, Scale: {transform.localScale}");
+            //Debug.Log($"Scaling... Time: {time}, Scale: {transform.localScale}");
 
             time += Time.deltaTime;
             yield return null;
@@ -49,10 +53,10 @@ public class FadeOutUI : MonoBehaviour
 
         // Ensure the final scale is set correctly
         transform.localScale = targetScale;
-        Debug.Log("Final Scale applied. Scale: " + transform.localScale);
+        //Debug.Log("Final Scale applied. Scale: " + transform.localScale);
 
         // Destroy the GameObject after scaling is complete
         Destroy(gameObject);
-        Debug.Log("GameObject destroyed.");
+        //Debug.Log("GameObject destroyed.");
     }
 }

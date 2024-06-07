@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
+using static UnityEngine.ParticleSystem;
 
 
 namespace Quarantine { 
@@ -27,9 +28,12 @@ namespace Quarantine {
 
         private float previousProgression;
 
-        
+       
+
+
         private void Start()
         {
+
             previousProgression = progressBar.fillAmount;
             ogMat = GetComponentInChildren<Renderer>().materials[0];
             GetComponentInChildren<Renderer>().materials[0].DisableKeyword("_EMISSION");

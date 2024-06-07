@@ -55,16 +55,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3e0c9013d710d14cbd74471e3b6ae92, type: 2}
   - {fileID: 11400000, guid: 736be7224c34e2549985bb98ca57e5cd, type: 2}
   - {fileID: 11400000, guid: a20f9df7fef79464ca5a13e8233062f2, type: 2}
-  - {fileID: 11400000, guid: 736be7224c34e2549985bb98ca57e5cd, type: 2}
   - {fileID: 11400000, guid: b7fc13fead04ffe47bb4d2d7182eebf7, type: 2}
   - {fileID: 11400000, guid: 4377c81a3ce725f49aeb936c720df1d2, type: 2}
-  - {fileID: 11400000, guid: 736be7224c34e2549985bb98ca57e5cd, type: 2}
   - {fileID: 11400000, guid: 4c29a27066b2efa4b95750ba226afc5d, type: 2}
   - {fileID: 11400000, guid: f6e5b49d956430b45881652bf813d04a, type: 2}
   - {fileID: 11400000, guid: ede3f4927d0d5a148a6f84fad8be7158, type: 2}
   - {fileID: 11400000, guid: f00c0a09d61a17e468aed858c1050414, type: 2}
   - {fileID: 11400000, guid: 7d9c81c5543357b4496891d0e2558099, type: 2}
-  - {fileID: 11400000, guid: 4377c81a3ce725f49aeb936c720df1d2, type: 2}
   - {fileID: 11400000, guid: 23ad7d5f509497a4cb1ebe6ea715e437, type: 2}
   EmptyPanels:
   - {fileID: 0}

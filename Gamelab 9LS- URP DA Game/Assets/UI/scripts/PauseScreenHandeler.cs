@@ -43,4 +43,9 @@ public class PauseScreenHandeler : MonoBehaviour
         ScenesManager.Instance.Quit(); 
     }
 
+    public void MainMenu()
+    {
+        ScenesManager.Instance.GetMainMenu();
+    }
+
 }

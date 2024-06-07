@@ -12,20 +12,14 @@ public class AmbulanceManager : Interactable
     private GameManager GM;
     private QuarentineManager QM;
 
-    //private AmbulanceTimer Timer;
-    //private AmbulancePriority Priority; 
 
     public float waitTime = 3f;
 
     public Animator animator;
     [SerializeField] private GameObject floatText; 
-    List<Animal> storedAnimals = new List<Animal>();
 
     public bool HasArrived = false;
 
-    [SerializeField] private int ambulanceCapacity = 4; 
-
-    private CageBehaviour animalPriority;
 
 
     private void Awake()
@@ -45,7 +39,6 @@ public class AmbulanceManager : Interactable
         GM = GameManager.Instance;
         QM = QuarentineManager.Instance;
 
-        animalPriority = null;
     }
 
 
