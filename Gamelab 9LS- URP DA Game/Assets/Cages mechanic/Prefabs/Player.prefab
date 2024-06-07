@@ -37,7 +37,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4023136308464900721}
-  - {fileID: 1884108824602783420}
   - {fileID: 6663879700246770406}
   - {fileID: 2371628665704248299}
   m_Father: {fileID: 0}
@@ -177,10 +176,11 @@ MonoBehaviour:
   smoothtime: 0.1
   currentVeloctiy: 0
   attachPoint: {fileID: 7494504169655174064}
-  hatPoint: {fileID: 3316258676127197810}
+  hatvisuals: {fileID: 0}
+  hatPoint1: {fileID: 8946582026016039574}
+  hatPoint2: {fileID: 3316258676127197810}
   player1model: {fileID: 6282816060405409884}
   player2model: {fileID: 3144188843253508433}
-  hatvisuals: {fileID: 0}
   maxFlags: 2
   flagAmount: 0
   mostRecentCage: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 1884108824602783420}
   m_Layer: 0
   m_Name: Hatpoint
-  m_TagString: Untagged
+  m_TagString: Hatpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,12 +279,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3316258676127197810}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00000008940697, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.66, y: 0.66, z: 0.66}
+  m_LocalRotation: {x: 0.013975442, y: 0.0009224679, z: -0.0027665496, w: 0.99989814}
+  m_LocalPosition: {x: -0.00018969162, y: -0.022674121, z: -0.0006337271}
+  m_LocalScale: {x: 0.022469794, y: 0.022469796, z: 0.022469796}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 5261058416242712874}
+  m_Father: {fileID: 7303697858954890014}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &7494504169655174064
 GameObject:
@@ -317,6 +317,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5261058416242712874}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &8946582026016039574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9120621930333348895}
+  m_Layer: 0
+  m_Name: Hatpoint
+  m_TagString: Hatpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9120621930333348895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8946582026016039574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.013975442, y: 0.0009224679, z: -0.0027665496, w: 0.99989814}
+  m_LocalPosition: {x: -0.00018969162, y: -0.022674121, z: -0.0006337271}
+  m_LocalScale: {x: 0.022469794, y: 0.022469796, z: 0.022469796}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1857909062587632147}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &2838128449859752960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -420,7 +451,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4771841192660541214, guid: 4188b54bed5eb7a459d01d1dbc78c64a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1884108824602783420}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4188b54bed5eb7a459d01d1dbc78c64a,
         type: 3}
@@ -460,6 +495,12 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &7303697858954890014 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4771841192660541214, guid: 4188b54bed5eb7a459d01d1dbc78c64a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2838128449859752960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6624903055954957581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -550,13 +591,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4771841192660541214, guid: 1c6d7250548178e47a7adc34b5ce4c43,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9120621930333348895}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c6d7250548178e47a7adc34b5ce4c43,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5176653483934990217}
   m_SourcePrefab: {fileID: 100100000, guid: 1c6d7250548178e47a7adc34b5ce4c43, type: 3}
+--- !u!4 &1857909062587632147 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4771841192660541214, guid: 1c6d7250548178e47a7adc34b5ce4c43,
+    type: 3}
+  m_PrefabInstance: {fileID: 6624903055954957581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6282816060405409884 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c6d7250548178e47a7adc34b5ce4c43,
