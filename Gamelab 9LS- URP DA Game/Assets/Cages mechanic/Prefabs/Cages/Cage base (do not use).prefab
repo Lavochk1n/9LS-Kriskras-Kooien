@@ -143,6 +143,8 @@ MonoBehaviour:
   isInfected: 0
   markedForRemoval: 0
   spPrefab: {fileID: 711302346639580099, guid: 242a7ae56ea8ec442aef918faaccb1c1, type: 3}
+  spreadArrow: {fileID: 4310599199906443215, guid: 325449190cdc8ef41a2e7fe2db7fe328,
+    type: 3}
 --- !u!114 &8339529071733849949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 4033865806296517683, guid: 6359858329985bc49a67c8d504d24f6f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.017
       objectReference: {fileID: 0}
     - target: {fileID: 4033865806296517683, guid: 6359858329985bc49a67c8d504d24f6f,
         type: 3}
@@ -276,6 +278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 179.941
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686869697653027636, guid: 6359858329985bc49a67c8d504d24f6f,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7892872802885039651, guid: 6359858329985bc49a67c8d504d24f6f,
         type: 3}
