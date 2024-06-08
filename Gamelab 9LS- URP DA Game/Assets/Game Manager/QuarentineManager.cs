@@ -155,7 +155,11 @@ namespace Quarantine
             if (GameOver() && !isClearing)
             {
 
-                if (TutorialManager.Instance != null) ScenesManager.Instance.GetMainMenu(); 
+                if (TutorialManager.Instance != null)
+                {
+                    ScenesManager.Instance.GetMainMenu();
+                    return;
+                }
 
                 ScenesManager.Instance.GetGameOver();
                 Debug.Log("GetGameOVer");

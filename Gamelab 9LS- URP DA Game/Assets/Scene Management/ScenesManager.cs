@@ -37,7 +37,7 @@ public class ScenesManager : MonoBehaviour
     public void GetTutorial()
     {
         GM.SetTutorial(true);
-        GetPreGame();
+        SceneManager.LoadScene(3);
     }
 
     public void RandomGame()
@@ -69,13 +69,15 @@ public class ScenesManager : MonoBehaviour
         PlayerConfigManager.Instance.ResetConfigs();
         GM.ResetValues();
         Destroy(PlayerConfigManager.Instance.gameObject);
+
         SceneManager.LoadScene(0);
     }
 
     public void GetGameOver()
     {
         ResetPlayer();
-        SceneManager.LoadScene(1);
+        if (TutorialManager.Instance != null) SceneManager.LoadScene(0); 
+        else SceneManager.LoadScene(1);
     }
 
     public void GetPreGame()
