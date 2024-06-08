@@ -226,13 +226,13 @@ namespace Quarantine
 
         private void OnDrawGizmos()
         {
-            foreach (CageBehaviour cageBehaviour in AdjCages)
-            {
-                Gizmos.color = Color.red;
+            //foreach (CageBehaviour cageBehaviour in AdjCages)
+            //{
+            //    Gizmos.color = Color.red;
 
-                Gizmos.DrawLine(transform.position, cageBehaviour.transform.position);
+            //    Gizmos.DrawLine(transform.position, cageBehaviour.transform.position);
 
-            }
+            //}
         }
 
         public void ChangeOccupation(AnimalTypes animal)
