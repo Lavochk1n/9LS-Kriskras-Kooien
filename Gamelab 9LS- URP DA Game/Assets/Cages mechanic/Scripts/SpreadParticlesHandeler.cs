@@ -9,6 +9,8 @@ public class SpreadParticlesHandeler : MonoBehaviour
 
     private GameObject ps_spread, arrow;
 
+    private Transform icon; 
+
     private CageBehaviour CB;
     private List<CageBehaviour> adjCages = new(); 
     private List<GameObject> adjArrows = new();
@@ -23,7 +25,7 @@ public class SpreadParticlesHandeler : MonoBehaviour
 
         ps_spread = CB.spPrefab;
         arrow = CB.spreadArrow; 
-
+        icon = CB.transform.GetChild(0);
 
 
         adjCages = CB.AdjCages;
@@ -45,8 +47,13 @@ public class SpreadParticlesHandeler : MonoBehaviour
 
             Vector3 dir = (pos - m_pos).normalized;
 
+            //Vector3 edgePos = icon.InverseTransformDirection(dir);
+
+            //Vector3 edgePos = edgeDistance; 
+
             Vector3 edgePos = m_pos + dir * edgeDistance;
-            
+            //Vector3 edgePos = CalculateEdgePosition(pos, dir);
+
             GameObject spawnedObject = Instantiate(arrow, edgePos, Quaternion.identity, transform);
 
             //GameObject spawnedObject = Instantiate(arrow, middle, Quaternion.identity, transform);
@@ -77,6 +84,18 @@ public class SpreadParticlesHandeler : MonoBehaviour
     }
 
 
+    private Vector3 CalculateEdgePosition(Vector3 targetPos, Vector3 dir)
+    {
+        Vector3 localTargetPos = icon.InverseTransformPoint(targetPos);
+
+        Vector3 localDirection = localTargetPos.normalized;
+
+        Vector3 localEdgePos = localDirection * edgeDistance;
+
+        Vector3 worldEdgePos = icon.TransformPoint(localEdgePos);
+
+        return worldEdgePos;
+    }
 
 
     public void ToggleParticlesForCage(CageBehaviour targetCage, bool state)

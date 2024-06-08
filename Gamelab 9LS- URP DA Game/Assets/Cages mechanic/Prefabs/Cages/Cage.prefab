@@ -30,8 +30,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 282508173762488170, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 282508173762488170, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 282508173762488170, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.8191521
+      objectReference: {fileID: 0}
+    - target: {fileID: 282508173762488170, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.57357645
+      objectReference: {fileID: 0}
+    - target: {fileID: 282508173762488170, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 282508173762488170, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 282508173762488170, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 282508173762488170, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1467776262586130131, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
         type: 3}
@@ -139,7 +174,8 @@ PrefabInstance:
       value: Cage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6526888790094710535, guid: 1cae8fc32aaae7546a4bbf35714c1bce, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7067636728682078910, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
         type: 3}
