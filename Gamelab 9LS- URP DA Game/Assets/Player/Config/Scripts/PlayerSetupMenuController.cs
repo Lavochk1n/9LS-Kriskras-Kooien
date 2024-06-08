@@ -108,7 +108,8 @@ public class PlayerSetupMenuController : MonoBehaviour
         float horizontalInput = rotationInput.x;
         float movementThreshold = 0.5f;
 
-        Transform player = GameObject.FindGameObjectWithTag("spawn" + (PlayerIndex + 1).ToString()).transform.parent;
+        // the gods will pusnish me for this line 
+        Transform player = GameObject.FindGameObjectWithTag("spawn" + (PlayerIndex + 1).ToString()).transform.parent.parent.parent.parent.parent.parent;
 
         if (Mathf.Abs(horizontalInput) > movementThreshold)
         {

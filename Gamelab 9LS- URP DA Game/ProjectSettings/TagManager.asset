@@ -18,6 +18,7 @@ TagManager:
   - Canvas
   - Leaderboard
   - uiButton
+  - Hatpoint
   layers:
   - Default
   - TransparentFX

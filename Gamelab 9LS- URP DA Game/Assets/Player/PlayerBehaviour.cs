@@ -9,8 +9,10 @@ namespace Quarantine
     {
         [Header("Player Movement")]
         public float moveSpeed = 5f;
-        [SerializeField] private float sprintBonus = 3f; 
-        [SerializeField] private float smoothtime = 0.5f, currentVeloctiy;
+        [SerializeField] private float sprintBonus = 3f;
+        [SerializeField] private float smoothtime = 0.5f;
+        [SerializeField] private float currentVeloctiy;
+        private bool isMoving = false; 
 
         private CharacterController CC;
         private Vector2 moveVector;
@@ -21,9 +23,11 @@ namespace Quarantine
         [SerializeField] private GameObject attachPoint;
 
         [Header("Player Distinction")]
-        [SerializeField] private GameObject hatPoint;
+        public HatVisuals hatvisuals;
+
+        [SerializeField]  private GameObject hatPoint1, hatPoint2;
+
         [SerializeField] private GameObject player1model, player2model;
-        public HatVisuals hatvisuals; 
 
 
         private PlayerConfig playerConfig;
@@ -43,9 +47,7 @@ namespace Quarantine
         {
             CC = GetComponent<CharacterController>();
             controls = new StandardPlayerInput();
-
         }
-
 
         public void InitializePlayer(PlayerConfig pc)
         {
@@ -55,22 +57,23 @@ namespace Quarantine
             hatvisuals = pc.Hat;
 
 
+            GameObject hatPoint; 
 
             if (pc.PlayerIndex == 0)
             {
-               
                 transform.position = GameObject.FindGameObjectWithTag("spawn1").transform.position;
                 GameManager.Instance.playerBehaviour1 = this;
                 player1model.SetActive(true);
                 player2model.SetActive(false);
+                hatPoint = hatPoint1;
             }
             else
             {
-           
                 transform.position = GameObject.FindGameObjectWithTag("spawn2").transform.position;
                 GameManager.Instance.playerBehaviour2 = this;
                 player1model.SetActive(false);
                 player2model.SetActive(true);
+                hatPoint = hatPoint2;
             }
 
 
@@ -191,11 +194,22 @@ namespace Quarantine
             myUI.GetComponent<InventoryUI>().UpdateInventoryUI(heldAnimal); 
         }
 
+        public bool IsMoving()
+        {
+            return isMoving;
+        }
+        public float SprintSpeed()
+        {
+            return sprintSpeed; 
+        }
+
         private void FixedUpdate()
         {
             if (!QuarentineManager.Instance.PlayerSpawned() || QuarentineManager.Instance.GamePaused()) return;
 
-            if (moveVector.magnitude == 0) { return; }
+            if (moveVector.magnitude == 0) { isMoving = false ; return; }
+
+            isMoving = true; 
 
             Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y);
 
