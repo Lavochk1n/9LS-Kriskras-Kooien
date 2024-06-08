@@ -2,31 +2,34 @@ using Quarantine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpreadParticlesHandeler : MonoBehaviour
 {
 
-    private GameObject ps_spread;
+    private GameObject ps_spread, arrow;
 
     private CageBehaviour CB;
-    private List<CageBehaviour> adjCages; 
+    private List<CageBehaviour> adjCages = new(); 
+    private List<GameObject> adjArrows = new();
 
     public List<PSRef> psRefList = new();
+
+    private float edgeDistance = .35f;
 
     void Start()
     {
         CB = GetComponent<CageBehaviour>();
 
         ps_spread = CB.spPrefab;
-        if (ps_spread == null)
-        {
-            Debug.LogError("Prefab not found at Assets/Resources/Shaders/VFX_AntCrawl.prefab");
-        }
+        arrow = CB.spreadArrow; 
+
+
 
         adjCages = CB.AdjCages;
         if (adjCages != null)
         {
-            //InitializeSystems();
+            InitializeSystems();
         }
     }
 
@@ -36,35 +39,63 @@ public class SpreadParticlesHandeler : MonoBehaviour
         foreach (var cage in adjCages)
         {
             Vector3 pos = cage.transform.position;
+            Vector3 m_pos = transform.position;
 
-            //Vector3 dir =  pos - transform.position;
-            //dir = dir.normalized;
+            Vector3 middle = (pos + m_pos) /2.0f  ;
 
-            GameObject spawnedObject = Instantiate(ps_spread, transform.position, Quaternion.identity, transform);
-            psRefList.Add(new PSRef { cage = cage, ps = spawnedObject });
+            Vector3 dir = (pos - m_pos).normalized;
 
-            spawnedObject.transform.LookAt(pos);
+            Vector3 edgePos = m_pos + dir * edgeDistance;
+            
+            GameObject spawnedObject = Instantiate(arrow, edgePos, Quaternion.identity, transform);
 
+            //GameObject spawnedObject = Instantiate(arrow, middle, Quaternion.identity, transform);
+            adjArrows.Add(spawnedObject);
+
+
+            //ParticleSystem ps = spawnedObject.GetComponentInChildren<ParticleSystem>();
+            //psRefList.Add(new PSRef { cage = cage, ps = ps, arrow = spawnedObject });
+
+            
+            spawnedObject.transform.LookAt(transform.position);
+            spawnedObject.SetActive(false);
         }
     }
 
 
+    private void Update()
+    {
+        for (int i = 0; i < adjCages.Count; i ++)
+        {
+            if(adjCages[i].IsContagious(CB.myAnimal))
+            {
+                adjArrows[i].SetActive(true);
+            }
+            else adjArrows[i].SetActive(false);
+        }
+        
+    }
+
+
+
+
     public void ToggleParticlesForCage(CageBehaviour targetCage, bool state)
     {
-        foreach (var psRef in psRefList)
+        foreach (PSRef psRef in psRefList)
         {
             if (psRef.cage == targetCage)
             {
-                var particleSystem = psRef.ps.GetComponentInChildren<ParticleSystem>();
-                if (particleSystem != null)
+                if (psRef.ps != null)
                 {
-                    if (!state)
+                    if (state)
                     {
-                        particleSystem.Stop();
+                        psRef.ps.Play();
+
                     }
                     else
                     {
-                        particleSystem.Play();
+                        psRef.ps.Stop();
+
                     }
                 }
                 break;
@@ -78,7 +109,8 @@ public class SpreadParticlesHandeler : MonoBehaviour
     public class PSRef
     {
         public CageBehaviour cage;
-        public GameObject ps; 
+        public GameObject arrow;
+        public ParticleSystem ps; 
     }
 
 }
