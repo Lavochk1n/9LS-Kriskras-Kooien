@@ -196,6 +196,11 @@ namespace Quarantine
 
         public bool IsMoving()
         {
+            if (QuarentineManager.Instance.GamePaused())
+            {
+                return false; 
+            }
+
             return isMoving;
         }
         public float SprintSpeed()

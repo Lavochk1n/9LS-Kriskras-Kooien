@@ -25,7 +25,7 @@ namespace Quarantine
 
 
         private SpreadParticlesHandeler particles;
-        public GameObject spPrefab;
+        public GameObject spPrefab, spreadArrow;
 
 
         private void Start()
@@ -199,18 +199,9 @@ namespace Quarantine
             {
                 if (col.TryGetComponent<CageBehaviour>(out var cage))
                 {
-                    //Vector3 direction = transform.position - col.transform.position; 
-
-                    //RaycastHit hit;
-                    //if(Physics.Raycast(transform.position, direction.normalized, out hit, searchDistance/*, wallLayer*/))
-                    //{
-
-                    //}
-                    //else
                     if (cage != this)
                     {
                         AdjCages.Add(cage);
-                        //Debug.Log(this.gameObject +" + " + cage.gameObject);
                     }
                 }
             }
@@ -226,13 +217,14 @@ namespace Quarantine
 
         private void OnDrawGizmos()
         {
-            //foreach (CageBehaviour cageBehaviour in AdjCages)
-            //{
-            //    Gizmos.color = Color.red;
+            if (AdjCages != null) return;
+            foreach (CageBehaviour cageBehaviour in AdjCages)
+            {
+                Gizmos.color = Color.red;
 
-            //    Gizmos.DrawLine(transform.position, cageBehaviour.transform.position);
+                Gizmos.DrawLine(transform.position, cageBehaviour.transform.position);
 
-            //}
+            }
         }
 
         public void ChangeOccupation(AnimalTypes animal)
@@ -250,12 +242,13 @@ namespace Quarantine
             myCageVisual.UpdateFlag(myAnimal.priority);
         }
 
-
         private void CheckSpread()
         {
-            if (myAnimal.state == SickState.sick) return;
-
-            int multiplier = AdjDisease();
+            int multiplier = 0;
+            if (myAnimal.state != SickState.sick)
+            {
+                 multiplier = AdjDisease();
+            }
 
             if (multiplier > 0)
             {
@@ -275,13 +268,6 @@ namespace Quarantine
             {
                 isInfected=false;
             }
-            
-            //if(myAnimal.sickProgression > 0)
-            //{
-            //    myAnimal.sickProgression -= spreadSpeed * Time.deltaTime * 0.001f;
-
-            //    if (myAnimal.sickProgression < 0) myAnimal.sickProgression = 0; 
-            //}
         }
 
         public int AdjDisease()
@@ -289,18 +275,18 @@ namespace Quarantine
             int multiplier = 0; 
             foreach(CageBehaviour cage in AdjCages)
             {
-                bool contagious = false;  
+                bool contaminated = false;  
                 if (cage.IsContagious(myAnimal))
                 {
-                    if (isInfected && myAnimal.state != SickState.sick)
+                    if (myAnimal.state != SickState.sick)
                     {
-                        contagious = true;
+                        contaminated = true;
                     }
                    
                     multiplier ++;
                 }
 
-                //particles.ToggleParticlesForCage(cage, contagious);
+                //particles.ToggleParticlesForCage(cage, contaminated);
 
                 
 
@@ -309,7 +295,7 @@ namespace Quarantine
             return multiplier;
         }
 
-        private bool IsContagious(Animal type)
+        public bool IsContagious(Animal type)
         {
             if (type.state == SickState.sick) return false;
 

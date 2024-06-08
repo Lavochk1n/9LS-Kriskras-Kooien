@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerAnimHandeler : MonoBehaviour
 {
-    [SerializeField] private float moveAnimThreshold = 0.1f;
     private PlayerBehaviour PB;
     private CharacterController CC;
     private Animator anim;
