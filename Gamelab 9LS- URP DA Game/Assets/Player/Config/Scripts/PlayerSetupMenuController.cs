@@ -100,10 +100,10 @@ public class PlayerSetupMenuController : MonoBehaviour
         {
             CycleHat(cbc);
         }
-        if (cbc.action.name == controls.Player.Movement.name)
-        {
-            CycleHat(cbc);
-        }
+        //if (cbc.action.name == controls.Player.Movement.name)
+        //{
+        //    CycleHat(cbc);
+        //}
         
 
 

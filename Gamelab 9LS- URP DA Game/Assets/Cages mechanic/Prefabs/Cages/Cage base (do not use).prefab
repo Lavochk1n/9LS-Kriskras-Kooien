@@ -195,7 +195,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a46def39f393a92499565232af31ae86, type: 3}
   - {fileID: 8300000, guid: b22e9243fc4d68d4291d70e463989c97, type: 3}
   - {fileID: 8300000, guid: 52fdd725e96cbe14086fe8bf397f1df7, type: 3}
-  CageRattle: {fileID: 8300000, guid: 783d2bff3f8db1843b6b108a1a7ea8f2, type: 3}
+  CageRattle: {fileID: 8300000, guid: 1728cb1182e053247bb32923c44d49ba, type: 3}
 --- !u!82 &6994647113487075281
 AudioSource:
   m_ObjectHideFlags: 0

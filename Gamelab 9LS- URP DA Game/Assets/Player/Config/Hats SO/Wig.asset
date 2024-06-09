@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6476a4087a7364940834cf10e5b47f38, type: 3}
-  m_Name: Cowboy OBJ
+  m_Name: Wig
   m_EditorClassIdentifier: 
-  model: {fileID: 0}
-  icon: {fileID: 21300000, guid: 56a3d9a2a7ce0ae45843f1333de70053, type: 3}
+  model: {fileID: 8550038997597083254, guid: 5629ef57f1964da4388a6fdd41b0114a, type: 3}
+  icon: {fileID: 21300000, guid: 0914e21cd81de7340bb83f368b02b553, type: 3}

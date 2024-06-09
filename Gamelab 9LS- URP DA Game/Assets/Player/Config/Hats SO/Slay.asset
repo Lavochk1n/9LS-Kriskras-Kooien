@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6476a4087a7364940834cf10e5b47f38, type: 3}
-  m_Name: Wig SPR
+  m_Name: Slay
   m_EditorClassIdentifier: 
-  model: {fileID: 8550038997597083254, guid: 5629ef57f1964da4388a6fdd41b0114a, type: 3}
-  icon: {fileID: 0}
+  model: {fileID: 1631991872714690554, guid: 47e892d86cabacb4faaa019e6146903d, type: 3}
+  icon: {fileID: 21300000, guid: 43f105051ea572b4db3ae192744ba42e, type: 3}

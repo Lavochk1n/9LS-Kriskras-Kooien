@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6476a4087a7364940834cf10e5b47f38, type: 3}
-  m_Name: Slay OBJ
+  m_Name: Cowboy
   m_EditorClassIdentifier: 
-  model: {fileID: 0}
-  icon: {fileID: 21300000, guid: 43f105051ea572b4db3ae192744ba42e, type: 3}
+  model: {fileID: 1631991872714690554, guid: 2be814b0145e2dd4dab2fe3ba5e447f2, type: 3}
+  icon: {fileID: 21300000, guid: 56a3d9a2a7ce0ae45843f1333de70053, type: 3}

@@ -12,7 +12,7 @@ PrefabInstance:
         type: 3}
       propertyPath: CageRattle
       value: 
-      objectReference: {fileID: 8300000, guid: f3ec587f24284cb48b4ebad2275e2308, type: 3}
+      objectReference: {fileID: 8300000, guid: 1728cb1182e053247bb32923c44d49ba, type: 3}
     - target: {fileID: 7067636728682078910, guid: 1cae8fc32aaae7546a4bbf35714c1bce,
         type: 3}
       propertyPath: m_LocalPosition.x
