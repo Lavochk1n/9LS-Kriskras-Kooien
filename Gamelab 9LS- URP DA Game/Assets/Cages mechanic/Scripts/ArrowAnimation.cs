@@ -16,7 +16,7 @@ public class ArrowAnimation : MonoBehaviour
     void Start()
     {
         ogPos = transform.position;
-        arrow = GetComponentInChildren<Image>();
+        arrow = GetComponent<Image>();
 
         timer = bobDistance;
         StartCoroutine(Bob());
@@ -28,12 +28,12 @@ public class ArrowAnimation : MonoBehaviour
     {
         while (true)
         {
-            yield return StartCoroutine(Move(transform.forward, bobDistance));
-            yield return StartCoroutine(Move(-transform.forward, bobDistance));
+            yield return StartCoroutine(Move(transform.right, bobDistance, bobSpeed));
+            yield return StartCoroutine(Move(-transform.right, bobDistance, bobSpeed * 3f));
         }
     }
 
-    private IEnumerator Move(Vector3 direction, float distance)
+    private IEnumerator Move(Vector3 direction, float distance, float  bobspeed)
     {
         Vector3 startPosition = transform.position;
         Vector3 endPosition = startPosition + direction * distance;
@@ -41,7 +41,7 @@ public class ArrowAnimation : MonoBehaviour
 
         while (elapsedTime < distance / bobSpeed)
         {
-            transform.position = Vector3.Lerp(startPosition, endPosition, (elapsedTime * bobSpeed) / distance);
+            transform.position = Vector3.Lerp(startPosition, endPosition, (elapsedTime * bobspeed) / distance);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
