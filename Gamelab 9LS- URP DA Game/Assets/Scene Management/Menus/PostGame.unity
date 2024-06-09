@@ -131,6 +131,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 308237326640151890, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -104
+      objectReference: {fileID: 0}
     - target: {fileID: 684429424460725706, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
         type: 3}
       propertyPath: m_Sprite
@@ -172,22 +177,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 945f0d27e5d0f7742bcc635cf0fb70b3,
+      objectReference: {fileID: 11400000, guid: 1dc6134f32af7dc41b400dabb33bc7c5,
         type: 2}
     - target: {fileID: 5029755072427510678, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
         type: 3}
       propertyPath: m_fontColor.b
-      value: 0.8494571
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5029755072427510678, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
         type: 3}
       propertyPath: m_fontColor.g
-      value: 0.9172957
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5029755072427510678, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
         type: 3}
       propertyPath: m_fontColor.r
-      value: 0.9528302
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5029755072427510678, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
         type: 3}
@@ -198,12 +203,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -3474204196548514913, guid: 945f0d27e5d0f7742bcc635cf0fb70b3,
+      objectReference: {fileID: 7210960807402999499, guid: 1dc6134f32af7dc41b400dabb33bc7c5,
         type: 2}
     - target: {fileID: 5029755072427510678, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4292471539
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5029755072427510678, guid: 62d0d45e41a06c54dbbc0473f928c9dd,
         type: 3}
