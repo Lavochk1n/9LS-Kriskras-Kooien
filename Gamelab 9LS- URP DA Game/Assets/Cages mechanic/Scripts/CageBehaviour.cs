@@ -109,9 +109,12 @@ namespace Quarantine
                         if (TutorialManager.Instance.useGloves) { playerBehaviour.GetComponent<GloveManager>().RemoveGlove(); }
                     }
                     else playerBehaviour.GetComponent<GloveManager>().RemoveGlove();
+                    GetComponent<CageAudioHandeler>().HandleInteractionSound(myAnimal);
                 }
                 else
                 {
+                    GetComponent<CageAudioHandeler>().HandleInteractionSound(heldAnimal);
+
                     PlayerBehaviour player1 = QuarentineManager.Instance.player.GetComponent<PlayerBehaviour>();
                     PlayerBehaviour player2 = QuarentineManager.Instance.player2.GetComponent<PlayerBehaviour>();
 
@@ -255,6 +258,7 @@ namespace Quarantine
                 isInfected = true;
                 if (myAnimal.sickProgression >= 100)
                 {
+                    GetComponent<CageAudioHandeler>().HandleSickSound(myAnimal.type); 
                     myAnimal.state = SickState.sick;
                     myAnimal.sickProgression = 100;
                     UpdateCage();
