@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7093710498040146105}
+  - component: {fileID: 7514958070368114247}
+  - component: {fileID: 6816615025260497112}
   m_Layer: 0
   m_Name: LeaderboardManager
   m_TagString: Untagged
@@ -31,3 +33,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7514958070368114247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6929317747532616116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7585931cf6c7e5b4da8b5cd89e1fb43a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entryTemplate: {fileID: 687491236425509598, guid: 08ec5cd31ef0357409a69c4d3b74d760,
+    type: 3}
+  entryContainer: {fileID: 0}
+--- !u!114 &6816615025260497112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6929317747532616116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ed32041dcb05643b963d78dd6d7cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highScoreEntries: []

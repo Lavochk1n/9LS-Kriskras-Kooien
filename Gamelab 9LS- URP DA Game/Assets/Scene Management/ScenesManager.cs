@@ -66,11 +66,20 @@ public class ScenesManager : MonoBehaviour
 
     public void GetMainMenu()
     {
-        PlayerConfigManager.Instance.ResetConfigs();
-        GM.ResetValues();
-        Destroy(PlayerConfigManager.Instance.gameObject);
+
+        if (PlayerConfigManager.Instance != null) {
+            PlayerConfigManager.Instance.ResetConfigs();
+            GM.ResetValues();
+            Destroy(PlayerConfigManager.Instance.gameObject);
+        }
+        
 
         SceneManager.LoadScene(0);
+    }
+
+    public void GetLeaderBoard()
+    {
+        SceneManager.LoadScene(4); 
     }
 
     public void GetGameOver()
@@ -95,6 +104,7 @@ public class ScenesManager : MonoBehaviour
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
 
     public void ResetScene()
     {

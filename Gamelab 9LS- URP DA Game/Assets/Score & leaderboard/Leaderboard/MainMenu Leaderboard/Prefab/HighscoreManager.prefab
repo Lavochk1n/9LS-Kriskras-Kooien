@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3393596523581712717}
-  - component: {fileID: 2719845938741605430}
+  - component: {fileID: 2770733208133753939}
   m_Layer: 0
   m_Name: HighscoreManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2719845938741605430
+--- !u!114 &2770733208133753939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6407694051395036602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef6c1bd2589b26b469f25564dccdc7e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 46ed32041dcb05643b963d78dd6d7cec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   highScoreEntries: []
