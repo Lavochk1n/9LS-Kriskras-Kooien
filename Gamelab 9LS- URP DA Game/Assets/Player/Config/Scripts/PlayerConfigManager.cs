@@ -126,12 +126,19 @@ public class PlayerConfigManager : MonoBehaviour
 
     public void ReadyPlayer(int playerIndex)
     {
-        playerConfigs[playerIndex].isReady = true; 
+        playerConfigs[playerIndex].isReady = true;
+        
 
         if (playerConfigs.Count == maxPlayers && playerConfigs.All(p => p.isReady == true)) 
         {
             ScenesManager.Instance.RandomGame();
         }
+    }
+
+    public void UnreadyPlayer(int playerIndex)
+    {
+        playerConfigs[playerIndex].isReady = false;
+
     }
 
     public void HandlePlayerJoin(PlayerInput pi)

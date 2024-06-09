@@ -71,7 +71,8 @@ public class PlayerSetupMenuController : MonoBehaviour
         {
             cycleEnabled = true;
         }
-        RotateCharacter();
+        if (!menuPanel.activeInHierarchy || menuPanel == null) return; 
+            RotateCharacter();
     }
 
 
@@ -81,7 +82,14 @@ public class PlayerSetupMenuController : MonoBehaviour
 
         if (!cycleEnabled) { return; }
 
-        if (!menuPanel.activeInHierarchy || menuPanel == null) { return; }
+        if (!menuPanel.activeInHierarchy || menuPanel == null) 
+        {
+            if (cbc.action.name == controls.Player.Return.name)
+            {
+                UnreadyPlayer(cbc);
+            }
+            return;
+        }
 
         if (cbc.action.name == controls.Player.Rotate.name)
         {
@@ -92,8 +100,15 @@ public class PlayerSetupMenuController : MonoBehaviour
         {
             CycleHat(cbc);
         }
-
+        if (cbc.action.name == controls.Player.Movement.name)
+        {
+            CycleHat(cbc);
+        }
         
+
+
+
+
     }
 
     private void RotateChar(InputAction.CallbackContext cbc)
@@ -186,5 +201,20 @@ public class PlayerSetupMenuController : MonoBehaviour
         if(!inputEnabled) { return; }
 
         PlayerConfigManager.Instance.ReadyPlayer(PlayerIndex);
+    }
+
+
+    public void UnreadyPlayer(InputAction.CallbackContext cbc)
+    {
+        if (!inputEnabled) { return; }
+
+        if (cbc.started)
+        {
+            readyPanel.SetActive(false);
+            menuPanel.SetActive(true);
+            PlayerConfigManager.Instance.UnreadyPlayer(PlayerIndex);
+        }
+        
+
     }
 }
