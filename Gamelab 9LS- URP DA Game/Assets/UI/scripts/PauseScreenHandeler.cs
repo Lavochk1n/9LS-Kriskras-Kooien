@@ -40,7 +40,7 @@ public class PauseScreenHandeler : MonoBehaviour
 
     public void Close()
     {
-        ScenesManager.Instance.Quit(); 
+        UnityEngine.Application.Quit();
     }
 
     public void MainMenu()
