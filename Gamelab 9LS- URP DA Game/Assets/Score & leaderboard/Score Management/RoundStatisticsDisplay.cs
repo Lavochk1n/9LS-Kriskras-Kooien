@@ -16,7 +16,7 @@ public class RoundStatisticsDisplay : MonoBehaviour
     {
         score.text = GameManager.Instance.GetScore().ToString();
 
-        quotaCages.text = quota.ToString();
+        quotaCages.text = "/ " + quota.ToString();
 
         sickCages.text = amount.ToString();
         

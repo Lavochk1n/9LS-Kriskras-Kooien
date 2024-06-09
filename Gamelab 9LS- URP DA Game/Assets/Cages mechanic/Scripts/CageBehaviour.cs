@@ -215,17 +215,17 @@ namespace Quarantine
             
         }
 
-        private void OnDrawGizmos()
-        {
-            if (AdjCages != null) return;
-            foreach (CageBehaviour cageBehaviour in AdjCages)
-            {
-                Gizmos.color = Color.red;
+        //private void OnDrawGizmos()
+        //{
+        //    if (AdjCages != null) return;
+        //    foreach (CageBehaviour cageBehaviour in AdjCages)
+        //    {
+        //        Gizmos.color = Color.red;
 
-                Gizmos.DrawLine(transform.position, cageBehaviour.transform.position);
+        //        Gizmos.DrawLine(transform.position, cageBehaviour.transform.position);
 
-            }
-        }
+        //    }
+        //}
 
         public void ChangeOccupation(AnimalTypes animal)
         {

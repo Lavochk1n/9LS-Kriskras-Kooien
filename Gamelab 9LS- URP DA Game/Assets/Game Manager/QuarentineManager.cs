@@ -3,9 +3,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 namespace Quarantine
 {
@@ -65,13 +65,16 @@ namespace Quarantine
         [Header("GamePause")]
         private bool GamePause, delayRunning;
         [SerializeField] float pauseTimeDelay = 8f;
-        public PauseScreenHandeler pauseScreen; 
+        public PauseScreenHandeler pauseScreen;
+        [SerializeField] private GameObject countDownCounter;
+        [SerializeField] private Sprite start, one, two; 
 
         [Header("EndOfGameSequence")]
         private bool clearCompleted = false, isClearing = false;
         [SerializeField] private GameObject floatText;
         [SerializeField] private float floatOffset = 2f;
-
+        [SerializeField] private GameObject EndOfGame;
+        private bool GameOverlayed = false; 
 
         private int infectedAmount, infectedQuota;
         private RoundStatisticsDisplay scoreBox; 
@@ -160,9 +163,15 @@ namespace Quarantine
                     ScenesManager.Instance.GetMainMenu();
                     return;
                 }
+                if (!GameOverlayed)
+                {
+                    GameOverlayed = true;
+                    Instantiate(EndOfGame);
+                }
 
-                ScenesManager.Instance.GetGameOver();
-                Debug.Log("GetGameOVer");
+
+                //ScenesManager.Instance.GetGameOver();
+                //Debug.Log("GetGameOVer");
                 return;
             }
 
@@ -206,6 +215,8 @@ namespace Quarantine
                 if (RoomCleared()) return true;
                 if (isClearing) return true;
             }
+
+            if (GameOverlayed) return true;
            
 
             if (!PlayerSpawned()) return true; 
@@ -229,7 +240,30 @@ namespace Quarantine
             yield return null;       
             GamePause = true;
 
-            yield return new WaitForSeconds(pauseTimeDelay);
+            float ExcessWaittime = pauseTimeDelay - 4; 
+            if (ExcessWaittime <= 0) { ExcessWaittime = 0.1f; }
+
+            yield return new WaitForSeconds(ExcessWaittime);
+            GameObject number  = Instantiate(countDownCounter);
+            Image numberImg = number.GetComponentInChildren<Image>();
+
+            yield return new WaitForSeconds(1);
+            numberImg.sprite = two; 
+            
+            yield return new WaitForSeconds(1);
+            numberImg.sprite = one;
+
+            yield return new WaitForSeconds(1);
+            numberImg.sprite = start;
+            numberImg.SetNativeSize(); 
+
+
+            yield return new WaitForSeconds(1);
+
+
+            Destroy( number );
+
+
             GamePause = false;
             delayRunning = false;
             if (TutorialManager.Instance != null) { PauseGame(); }

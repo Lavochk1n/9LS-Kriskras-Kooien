@@ -59,8 +59,15 @@ MonoBehaviour:
     type: 3}
   pauseTimeDelay: 3
   pauseScreen: {fileID: 0}
+  countDownCounter: {fileID: 6897674616286683755, guid: f9dded89db48ee84491aff348452507d,
+    type: 3}
+  start: {fileID: 21300000, guid: 44c598d064132a241b176558b88c8881, type: 3}
+  one: {fileID: 21300000, guid: 7746e7df03a15e949a43199eb6b0f7a6, type: 3}
+  two: {fileID: 21300000, guid: 0f926a3a14671704c9920783fcdc398f, type: 3}
   floatText: {fileID: 8796936603251092784, guid: e49a70dba021a494b9dade967d94f06f,
     type: 3}
   floatOffset: 1
+  EndOfGame: {fileID: 7407520422815211162, guid: 2599eafcaa287974883b29b151a282c0,
+    type: 3}
   player: {fileID: 0}
   player2: {fileID: 0}

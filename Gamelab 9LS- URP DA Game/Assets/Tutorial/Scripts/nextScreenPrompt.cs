@@ -16,9 +16,13 @@ public class nextScreenPrompt : MonoBehaviour
     private PlayerBehaviour p1, p2;
     void Start()
     {
-        
-        TutorialManager.Instance.holdIcons = this.gameObject;
-        this.gameObject.SetActive(false);
+        if (TutorialManager.Instance != null) 
+        {
+            TutorialManager.Instance.holdIcons = this.gameObject;
+            this.gameObject.SetActive(false);
+
+        }
+
 
     }
 
@@ -63,8 +67,18 @@ public class nextScreenPrompt : MonoBehaviour
 
         if (holdtime1 > holdTimeTarget && holdtime2 > holdTimeTarget) 
         {
-            TutorialManager.Instance.TutorialSequence();
-            Debug.Log("next"); 
+
+            if (TutorialManager.Instance != null)
+            {
+                TutorialManager.Instance.TutorialSequence();
+                Debug.Log("next");
+            }
+            else
+            {
+                ScenesManager.Instance.GetGameOver(); 
+            }
+
+                 
         }
 
     }
