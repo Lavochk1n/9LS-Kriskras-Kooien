@@ -67,6 +67,8 @@ public class PlayerConfigManager : MonoBehaviour
         int hat;
         int othersHat;
 
+        AudioManager.Instance.PlaySFX(0);
+
         if (playerIndex == 0)
         {
             hat = player0Hat;
@@ -126,8 +128,10 @@ public class PlayerConfigManager : MonoBehaviour
 
     public void ReadyPlayer(int playerIndex)
     {
+        AudioManager.Instance.PlaySFX(2);
+
         playerConfigs[playerIndex].isReady = true;
-        
+
 
         if (playerConfigs.Count == maxPlayers && playerConfigs.All(p => p.isReady == true)) 
         {

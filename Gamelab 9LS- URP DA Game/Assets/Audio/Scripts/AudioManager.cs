@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource musicSource,sfxSource;
 
-    [SerializeField] private AudioClip[] musicClips,sfxClips;
+    [SerializeField] private AudioClip[] musicClips,sfxUIClips;
 
     [SerializeField] float globalVolume = 1f; 
 
@@ -36,18 +36,14 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
-    public void PlaySFX(int sfxIndex, AudioSource source = default)
+    public void PlaySFX(int sfxIndex)
     {
 
-        if (sfxIndex < 0 || sfxIndex >= sfxClips.Length) return;
+        if (sfxIndex < 0 || sfxIndex >= sfxUIClips.Length) return;
 
-        if (source == default)
-        {
-            source = sfxSource;
-        }
-        source.volume = globalVolume;
+        sfxSource.volume = globalVolume;
 
-        source.PlayOneShot(sfxClips[sfxIndex]);
+        sfxSource.PlayOneShot(sfxUIClips[sfxIndex]);
     }
 
 

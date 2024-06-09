@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SinkBehavior : Interactable
@@ -10,10 +11,13 @@ public class SinkBehavior : Interactable
     {
         glovemanager = interactor.GetComponent<GloveManager>();
         glovemanager.AddGloves();
+        GetComponent<SinkAudioHandeler>().HandlesinkAudio(); 
+        
 
     }
 
-    // Sorry felix, I put this function in to make it work. 
+
+
     public override void Interact_Secondairy(Interactor interactor)
     {
         throw new System.NotImplementedException();
@@ -21,7 +25,11 @@ public class SinkBehavior : Interactable
 
     public override string GetDescription()
     {
-        return null;
+        if (Isheld())
+        {
+            GetComponent<SinkAudioHandeler>().HandleHeldAudio();
+        }
+        return null; 
     }
     
 }

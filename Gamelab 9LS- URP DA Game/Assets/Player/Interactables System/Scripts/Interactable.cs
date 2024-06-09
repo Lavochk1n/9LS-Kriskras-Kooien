@@ -11,6 +11,8 @@ public abstract class Interactable : MonoBehaviour
         Minigame,
     }
 
+    bool heldDown;
+
     float holdTime;
 
     public InteractionType interactionType;
@@ -22,7 +24,22 @@ public abstract class Interactable : MonoBehaviour
     public abstract void Interact_Secondairy(Interactor interactor);
 
 
-    public void IncreaseHoldTime() => holdTime += Time.deltaTime;
-    public void ResetHoldTime() => holdTime = 0f;
+    public void IncreaseHoldTime()
+    {     
+    holdTime += Time.deltaTime;
+    heldDown = true;
+    }
+
+public void ResetHoldTime() => holdTime = 0f;
     public float GetHoldTime() => holdTime;
+
+    private void LateUpdate()
+    {
+        heldDown = false;
+    }
+
+    public bool Isheld()
+    {
+        return heldDown;
+    }
 }

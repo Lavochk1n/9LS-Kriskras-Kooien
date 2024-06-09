@@ -49,8 +49,17 @@ MonoBehaviour:
   musicSource: {fileID: 2868626957399436182}
   sfxSource: {fileID: 818386156044930190}
   musicClips: []
-  sfxClips: []
-  globalVolume: 0
+  sfxUIClips:
+  - {fileID: 8300000, guid: bbc97c6298e9b454d9bfaf95ff2bffd9, type: 3}
+  - {fileID: 8300000, guid: dddad3b00d08e16469e79b92e4301920, type: 3}
+  - {fileID: 8300000, guid: b09f097285369194c808bc85fa856983, type: 3}
+  - {fileID: 8300000, guid: 0c52b639269e73744abe1298bd189d53, type: 3}
+  - {fileID: 8300000, guid: 91fdae8c16204d6478339c8eb7fcd505, type: 3}
+  - {fileID: 8300000, guid: d68520ae8df55e34a8c9bccc8423d3a0, type: 3}
+  - {fileID: 8300000, guid: 35bc8610e823c9b4cad5b78fe118882b, type: 3}
+  - {fileID: 8300000, guid: 0c52b639269e73744abe1298bd189d53, type: 3}
+  - {fileID: 8300000, guid: 1142a049cfda0e2408823294f09bea52, type: 3}
+  globalVolume: 1
 --- !u!1 &4626951785221819734
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +103,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
