@@ -17,7 +17,7 @@ public class SpreadParticlesHandeler : MonoBehaviour
 
     public List<PSRef> psRefList = new();
 
-    private float edgeDistance = .5f;
+    private float edgeDistance = .4f;
 
     void Start()
     {
