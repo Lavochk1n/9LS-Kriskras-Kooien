@@ -13,11 +13,16 @@ public class LeaderboardManager : MonoBehaviour
         HM = HighscoresManager.Instance;
         HM.LoadHighScores();
         DisplayTopScores();
+
+        
     }
 
     private void DisplayTopScores()
     {
         List<HighScoreEntry> highScoreEntries = HM.highScoreEntries;
+
+        Debug.Log(highScoreEntries.Count);
+
         int numberOfEntries = Mathf.Min(highScoreEntries.Count, 100);
 
         for (int i = 0; i < numberOfEntries; i++)
