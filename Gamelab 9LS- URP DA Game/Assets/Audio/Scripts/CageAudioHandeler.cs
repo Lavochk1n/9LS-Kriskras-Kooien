@@ -22,6 +22,7 @@ public class CageAudioHandeler : AudioHandeler
         audioSourceRattle = gameObject.AddComponent<AudioSource>();
 
         audioSource.volume = AM.GlobalVolume();
+        audioSourceRattle.volume = AM.GlobalVolume()/2f;
     }
 
     private void Update()
@@ -77,7 +78,8 @@ public class CageAudioHandeler : AudioHandeler
                 break;
             default: Debug.LogError("Uknown type"); break;
         }
-        //audioSourceRattle.PlayOneShot(CageRattle); 
+        
+        audioSourceRattle.PlayOneShot(CageRattle); 
         timer = cooldown;
 
     }
