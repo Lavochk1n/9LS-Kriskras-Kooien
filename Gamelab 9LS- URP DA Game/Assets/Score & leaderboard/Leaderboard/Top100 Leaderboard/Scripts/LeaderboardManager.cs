@@ -38,5 +38,20 @@ public class LeaderboardManager : MonoBehaviour
             entryTransform.Find("Score").GetComponent<TextMeshProUGUI>().text = entry.score.ToString();
             entryTransform.Find("Round").GetComponent<TextMeshProUGUI>().text = "# " + entry.round.ToString();
         }
+
+        for (int i = 0; i < 100 - numberOfEntries; i++)
+        {
+            //HighScoreEntry entry = highScoreEntries[i];
+            Transform entryTransform = Instantiate(entryTemplate, entryContainer).transform;
+            entryTransform.gameObject.SetActive(true);
+
+            entryTransform.Find("Position").GetComponent<TextMeshProUGUI>().text = (i + highScoreEntries.Count + 1).ToString();
+            entryTransform.Find("TeamName").GetComponent<TextMeshProUGUI>().text = "";
+            entryTransform.Find("Player1").GetComponent<TextMeshProUGUI>().text = "";
+            entryTransform.Find("Player2").GetComponent<TextMeshProUGUI>().text = "";
+            entryTransform.Find("Score").GetComponent<TextMeshProUGUI>().text = "";
+            entryTransform.Find("Round").GetComponent<TextMeshProUGUI>().text = "";
+        }
+
     }
 }
