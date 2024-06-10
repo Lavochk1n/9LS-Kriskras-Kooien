@@ -714,18 +714,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d080b369212ef147a7dc31be9093a03, type: 3}
---- !u!114 &1118226751 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2770733208133753939, guid: 6d080b369212ef147a7dc31be9093a03,
-    type: 3}
-  m_PrefabInstance: {fileID: 1118226750}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ed32041dcb05643b963d78dd6d7cec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1197390986
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +847,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197390986}
   m_CullTransparentMesh: 1
+--- !u!1 &1350126995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1350126997}
+  - component: {fileID: 1350126996}
+  m_Layer: 0
+  m_Name: Clear Highscores?
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1350126996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350126995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6bb1866d4151e45a77801ecc0f6d45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1350126997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350126995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1314.1946, y: 875.1999, z: -0.88247037}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1446827118 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6132645985196687717, guid: fd514d266a59b9a47981ffb03721aa80,
@@ -979,7 +1011,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1118226751}
+      objectReference: {fileID: 1350126996}
     - target: {fileID: 8102692213139814044, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -993,7 +1025,7 @@ PrefabInstance:
     - target: {fileID: 8102692213139814044, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ClearHighScores
+      value: Clear
       objectReference: {fileID: 0}
     - target: {fileID: 8102692213139814044, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
         type: 3}
@@ -1003,7 +1035,7 @@ PrefabInstance:
     - target: {fileID: 8102692213139814044, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HighscoresManager, Assembly-CSharp
+      value: ForcedClear, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8102692213139814044, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
         type: 3}
@@ -1130,6 +1162,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size
       value: 0.10119501
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278071013254917136, guid: 6f1fc02b7e802674e96d81dc6f96fcbb,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278071013254917136, guid: 6f1fc02b7e802674e96d81dc6f96fcbb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278071013254917136, guid: 6f1fc02b7e802674e96d81dc6f96fcbb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1615824831616655234, guid: 6f1fc02b7e802674e96d81dc6f96fcbb,
         type: 3}
@@ -1422,3 +1469,4 @@ SceneRoots:
   - {fileID: 769471693}
   - {fileID: 1535697205}
   - {fileID: 1118226750}
+  - {fileID: 1350126997}
