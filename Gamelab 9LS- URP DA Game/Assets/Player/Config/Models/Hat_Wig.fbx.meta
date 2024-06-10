@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: WigBlond
-    second: {fileID: 2100000, guid: 41b1dce0d82e88a41b7f3a660b61fe33, type: 2}
+    second: {fileID: 2100000, guid: febb871e9afb5f0408ed52b9115e9f56, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
