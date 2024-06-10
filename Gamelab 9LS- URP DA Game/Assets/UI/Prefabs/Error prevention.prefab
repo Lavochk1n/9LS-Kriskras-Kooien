@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: insert whatever the error is preventing
+  m_text: Terug naar hoofdmenu?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c008909aef95a74b9d26ecb4393cf3e, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 55190a5e9fad2d74586e096ce2c0ee2c, type: 2}

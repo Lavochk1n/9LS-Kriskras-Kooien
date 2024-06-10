@@ -760,9 +760,9 @@ RectTransform:
   - {fileID: 161332898}
   m_Father: {fileID: 586945019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 431.28067, y: -540.3998}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -528.71936, y: 59.60022}
   m_SizeDelta: {x: 426, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1197390988
@@ -939,6 +939,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2764581706977398584, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
+        type: 3}
+      propertyPath: m_text
+      value: 'Weet je zeker dat je alle gegevens wilt wissen en het scorebord wilt
+        resetten? '
+      objectReference: {fileID: 0}
     - target: {fileID: 3259047584442828660, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -949,6 +955,11 @@ PrefabInstance:
       propertyPath: ObjectToBackOn
       value: 
       objectReference: {fileID: 7682903}
+    - target: {fileID: 6381988433257012987, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8102692213139814044, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -1016,7 +1027,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1535697205}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1028,7 +1039,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1535697205}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1130,6 +1141,36 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 896903691}
+    - target: {fileID: 2637795056133211768, guid: 6f1fc02b7e802674e96d81dc6f96fcbb,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2637795056133211768, guid: 6f1fc02b7e802674e96d81dc6f96fcbb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2637795056133211768, guid: 6f1fc02b7e802674e96d81dc6f96fcbb,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2637795056133211768, guid: 6f1fc02b7e802674e96d81dc6f96fcbb,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2637795056133211768, guid: 6f1fc02b7e802674e96d81dc6f96fcbb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -154.59656
+      objectReference: {fileID: 0}
+    - target: {fileID: 2637795056133211768, guid: 6f1fc02b7e802674e96d81dc6f96fcbb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 59.60022
+      objectReference: {fileID: 0}
     - target: {fileID: 3914212820164137784, guid: 6f1fc02b7e802674e96d81dc6f96fcbb,
         type: 3}
       propertyPath: m_Name

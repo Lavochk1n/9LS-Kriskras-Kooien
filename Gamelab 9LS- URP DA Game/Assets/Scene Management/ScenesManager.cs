@@ -91,7 +91,7 @@ public class ScenesManager : MonoBehaviour
         AudioManager.Instance.PlayMusic(0);
 
         ResetPlayer();
-        if (TutorialManager.Instance != null) SceneManager.LoadScene(0); 
+        if (TutorialManager.Instance != null) GetMainMenu(); 
         else SceneManager.LoadScene(1);
     }
 

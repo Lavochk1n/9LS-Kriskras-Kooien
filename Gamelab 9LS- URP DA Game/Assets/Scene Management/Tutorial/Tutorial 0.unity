@@ -4409,6 +4409,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseScreen Tutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 5562554237850786769, guid: 034c1c9617a5a954791a0cbc47041ce6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455468510063798972, guid: 034c1c9617a5a954791a0cbc47041ce6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8452408247080239826, guid: 034c1c9617a5a954791a0cbc47041ce6,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -246,15 +246,19 @@ namespace Quarantine
             yield return new WaitForSeconds(ExcessWaittime);
             GameObject number  = Instantiate(countDownCounter);
             Image numberImg = number.GetComponentInChildren<Image>();
+            AudioManager.Instance.PlaySFX(0);
+            yield return new WaitForSeconds(1);
+            numberImg.sprite = two;
+            AudioManager.Instance.PlaySFX(0);
 
             yield return new WaitForSeconds(1);
-            numberImg.sprite = two; 
-            
-            yield return new WaitForSeconds(1);
             numberImg.sprite = one;
+            AudioManager.Instance.PlaySFX(0);
 
             yield return new WaitForSeconds(1);
             numberImg.sprite = start;
+            AudioManager.Instance.PlaySFX(2);
+
             numberImg.SetNativeSize(); 
 
 
@@ -366,7 +370,7 @@ namespace Quarantine
                 float performance = 0;
                 float malus = cageBehaviour.myAnimal.sickProgression;
                 float bonus = 1 +  0.1f * GameManager.Instance.GetDepartures();
-                Debug.Log(bonus);
+                //Debug.Log(bonus);
 
 
                 if (cageBehaviour.myAnimal.state == SickState.sick) malus = 100f; 

@@ -45,7 +45,7 @@ public class PauseScreenHandeler : MonoBehaviour
 
     public void MainMenu()
     {
-        ScenesManager.Instance.GetMainMenu();
+        ScenesManager.Instance.GetGameOver();
     }
 
 }
