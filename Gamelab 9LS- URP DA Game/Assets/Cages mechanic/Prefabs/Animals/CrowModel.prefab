@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1098137832696547117}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CrowModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,6 +94,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Crow_Textured
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 28df6fd2d59b7544d9e9ccb2fc115d03,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
