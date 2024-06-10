@@ -50,8 +50,8 @@ MonoBehaviour:
   crowWeight: 8
   parrotWeight: 4
   healthyWeight: 4
-  baseSickAmount: 3
-  spreadSpeed: 0.8
+  baseSickAmount: 4
+  spreadSpeed: 0.9
   cageQuota: 55
   playerOneSpawned: 0
   playerOneUISpawned: 0
