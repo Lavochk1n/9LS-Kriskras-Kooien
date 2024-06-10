@@ -160,22 +160,27 @@ PrefabInstance:
     - target: {fileID: 76859956352778197, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 346
+      value: 331.9479
       objectReference: {fileID: 0}
     - target: {fileID: 76859956352778197, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 96
+      value: 123.8002
       objectReference: {fileID: 0}
     - target: {fileID: 76859956352778197, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -189
+      value: -197.97388
       objectReference: {fileID: 0}
     - target: {fileID: 76859956352778197, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 67
+      value: 80.40015
+      objectReference: {fileID: 0}
+    - target: {fileID: 375611033130063563, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 718560803727740660, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
         type: 3}
@@ -228,10 +233,52 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubmitPanelScore
       objectReference: {fileID: 0}
+    - target: {fileID: 2170291895065773910, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2525228373028383255, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2732783150972266034, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
         type: 3}
       propertyPath: m_text
       value: Terug naar hoofdmenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732783150972266034, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 20.067734
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732783150972266034, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1dc6134f32af7dc41b400dabb33bc7c5,
+        type: 2}
+    - target: {fileID: 2732783150972266034, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732783150972266034, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732783150972266034, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7210960807402999499, guid: 1dc6134f32af7dc41b400dabb33bc7c5,
+        type: 2}
+    - target: {fileID: 2732783150972266034, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2817918049314411918, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
         type: 3}
@@ -357,13 +404,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4f05549e0107be442b9f379261271153,
+      objectReference: {fileID: 21300000, guid: e8223ad766f91cb43bb0bd764eede73c,
         type: 3}
+    - target: {fileID: 7234637448666140918, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -104
+      objectReference: {fileID: 0}
     - target: {fileID: 7592533189614325870, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 45402d9d90133d644a1d2355206b88fe,
+      objectReference: {fileID: 21300000, guid: fe9a4a65795fb274ab39a958d4286b1b,
         type: 3}
     - target: {fileID: 7853443324205436099, guid: 7c8bc661297bcf84cb1878cc8f20eef3,
         type: 3}
