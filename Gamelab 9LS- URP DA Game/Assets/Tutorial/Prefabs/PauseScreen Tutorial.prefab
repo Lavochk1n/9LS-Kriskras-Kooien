@@ -17,7 +17,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ObjectToBackOn
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8989567232992847932}
     - target: {fileID: 4761583892152670765, guid: bf2b0d257884099468280df7ca126d33,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -93,6 +93,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7365088223584661530, guid: bf2b0d257884099468280df7ca126d33,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 8293406248721369054, guid: bf2b0d257884099468280df7ca126d33,
         type: 3}
       propertyPath: m_Name
@@ -112,6 +117,12 @@ PrefabInstance:
 --- !u!1 &19794086229875269 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3971652926150345402, guid: bf2b0d257884099468280df7ca126d33,
+    type: 3}
+  m_PrefabInstance: {fileID: 3988069235274782975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8989567232992847932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5447433688611565763, guid: bf2b0d257884099468280df7ca126d33,
     type: 3}
   m_PrefabInstance: {fileID: 3988069235274782975}
   m_PrefabAsset: {fileID: 0}
