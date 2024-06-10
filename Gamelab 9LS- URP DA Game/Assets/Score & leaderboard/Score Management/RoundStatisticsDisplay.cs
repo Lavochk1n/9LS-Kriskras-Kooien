@@ -20,7 +20,7 @@ public class RoundStatisticsDisplay : MonoBehaviour
 
         sickCages.text = amount.ToString();
         
-        rounds.text = "#" +GameManager.Instance.GetDepartures().ToString();
+        rounds.text = GameManager.Instance.GetDepartures().ToString();
 
     }
 
