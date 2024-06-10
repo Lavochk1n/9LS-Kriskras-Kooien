@@ -3,7 +3,42 @@ guid: 1c6d7250548178e47a7adc34b5ce4c43
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P1DBlue
+    second: {fileID: 2100000, guid: cb3be5d947fe21c4fa30ec33bb42392e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P1DBlueInside
+    second: {fileID: 2100000, guid: dca6de6f7df7b0a49b515c89879482c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P1GreyHoodie
+    second: {fileID: 2100000, guid: dba566be67b550741a074c8240cff430, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P1Head
+    second: {fileID: 2100000, guid: d25aaa56075506541ae85788c4c5ca84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P1Shadow
+    second: {fileID: 2100000, guid: 4c658a5627d9fd14ebffffae2c8aa919, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P1Skin
+    second: {fileID: 2100000, guid: 3d4c9e68fba55f54cadeef9129f32992, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P1YellowHoodie
+    second: {fileID: 2100000, guid: 4a164cc1f478db941a5bbd3f4a43f478, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
