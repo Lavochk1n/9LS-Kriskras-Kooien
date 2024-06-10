@@ -3,7 +3,37 @@ guid: 4188b54bed5eb7a459d01d1dbc78c64a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P2BlueHoodie
+    second: {fileID: 2100000, guid: 144ce1f25b555a64087a458833d40f6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P2DBlue
+    second: {fileID: 2100000, guid: b1b38a5fcae63ff4eb2cbf81f8c5a94d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P2Head
+    second: {fileID: 2100000, guid: 0f618a8e10e9e67459a5be00d9718876, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P2LBlueHoodie
+    second: {fileID: 2100000, guid: a24998c8053d8574eb6a9620e1a6644b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P2Shadow
+    second: {fileID: 2100000, guid: 2f4fc7eb6f72eff4480ef8d0f0ba217b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P2Skin
+    second: {fileID: 2100000, guid: 50dbd6ad3697a8d45b6bd669d69dab6b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
