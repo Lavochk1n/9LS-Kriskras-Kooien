@@ -440,7 +440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Team naam invullen
+  m_text: Teamnaam invullen
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 46e0d25517ddf74489d7ce3982c958ed, type: 2}
   m_sharedMaterial: {fileID: -4589394816535693679, guid: 46e0d25517ddf74489d7ce3982c958ed,
