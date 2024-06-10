@@ -1520,6 +1520,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2764581706977398584, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
+        type: 3}
+      propertyPath: m_text
+      value: 'Spel afsluiten?
+
+        (Je score wordt niet opgeslagen).'
+      objectReference: {fileID: 0}
     - target: {fileID: 3259047584442828660, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -1569,7 +1576,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1604555891425183366}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1581,7 +1588,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1604555891425183366}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1654,6 +1661,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2764581706977398584, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
+        type: 3}
+      propertyPath: m_text
+      value: "Spel opgeven en naar scoremenu? \n(je score wordt verzonden.)"
+      objectReference: {fileID: 0}
     - target: {fileID: 3259047584442828660, guid: 5607e0346572aae4c8e3bb6ff95cfa06,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -1703,7 +1715,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4426457766691290732}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1715,7 +1727,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4426457766691290732}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
