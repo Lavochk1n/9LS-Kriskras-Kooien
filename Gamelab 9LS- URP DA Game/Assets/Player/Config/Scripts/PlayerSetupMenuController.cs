@@ -129,7 +129,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         if (Mathf.Abs(horizontalInput) > movementThreshold)
         {
             Vector3 rotation = Vector3.up * horizontalInput * rotSpeed * Time.deltaTime;
-            player.Rotate(rotation);
+            player.Rotate(-rotation);
         }
     }
 
