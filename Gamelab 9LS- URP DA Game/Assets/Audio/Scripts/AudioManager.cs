@@ -10,7 +10,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioClip[] musicClips,sfxUIClips;
 
-    [SerializeField] float globalVolume = 1f; 
+    [SerializeField] float globalVolume = 1f;
+    [SerializeField] float musicStartVolume = .4f;
 
     void Awake()
     {
@@ -23,8 +24,8 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        //PlayMusic(0);
+        SetMusicVolume(musicStartVolume); 
+        PlayMusic(0);
     }
 
 

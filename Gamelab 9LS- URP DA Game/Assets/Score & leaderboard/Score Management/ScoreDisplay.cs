@@ -5,20 +5,18 @@ using TMPro;
 
 public class ScoreDisplay : MonoBehaviour
 {
-     private TextMeshProUGUI textBox;
+     [SerializeField ]private TextMeshProUGUI scoreTextBox, roundTextBox;
 
     private string m_text;
 
     void Start()
     {
-        textBox = GetComponentInChildren<TextMeshProUGUI>();  
-        m_text =  GameManager.Instance.GetScore().ToString(); 
-        
+        scoreTextBox = GetComponentInChildren<TextMeshProUGUI>();  
+       
+        scoreTextBox.text = GameManager.Instance.GetScore().ToString();
+        roundTextBox.text = GameManager.Instance.GetDepartures().ToString();
+
+
     }
 
-    private void Update()
-    {
-        m_text = GameManager.Instance.GetScore().ToString();
-        textBox.text = m_text;
-    }
 }

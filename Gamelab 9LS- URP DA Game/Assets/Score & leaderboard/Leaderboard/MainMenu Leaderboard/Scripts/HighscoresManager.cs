@@ -51,6 +51,7 @@ public class HighscoresManager : MonoBehaviour
         PlayerPrefs.DeleteKey("HighScoreTable");
         PlayerPrefs.Save();
         highScoreEntries.Clear();
+        ScenesManager.Instance.ResetScene();
     }
 
     public void SaveHighScores()

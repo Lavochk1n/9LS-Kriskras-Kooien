@@ -1,6 +1,7 @@
 using Quarantine;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Device;
 using UnityEngine.SceneManagement; 
@@ -12,7 +13,8 @@ public class ScenesManager : MonoBehaviour
 
     public List<string> miniGames = new List<string>();
 
-    private GameManager GM; 
+    private GameManager GM;
+
     
     private void Awake()
     {
@@ -21,6 +23,7 @@ public class ScenesManager : MonoBehaviour
             Instance = this;
             //DontDestroyOnLoad(gameObject);
         }
+
     }
 
     private void Start()
@@ -44,6 +47,7 @@ public class ScenesManager : MonoBehaviour
     {
         ResetPlayer();
 
+        AudioManager.Instance.PlayMusic(1); 
 
         if (GM.IsTutorial()) 
         {
@@ -72,7 +76,7 @@ public class ScenesManager : MonoBehaviour
             GM.ResetValues();
             Destroy(PlayerConfigManager.Instance.gameObject);
         }
-        
+
 
         SceneManager.LoadScene(0);
     }
@@ -84,6 +88,8 @@ public class ScenesManager : MonoBehaviour
 
     public void GetGameOver()
     {
+        AudioManager.Instance.PlayMusic(0);
+
         ResetPlayer();
         if (TutorialManager.Instance != null) SceneManager.LoadScene(0); 
         else SceneManager.LoadScene(1);
