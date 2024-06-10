@@ -3,7 +3,17 @@ guid: 6a117cb1a5a759644a084615d7c39635
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hat band
+    second: {fileID: 2100000, guid: 904ec2d436332ae4c93881d352fabf9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hat normal
+    second: {fileID: 2100000, guid: 6e9cb7d250f5e444da5c96622ab62b9d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

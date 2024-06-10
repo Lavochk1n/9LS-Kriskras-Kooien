@@ -3,7 +3,17 @@ guid: 15f629e136ede0d43b6e8ca616e87fb8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Serious Hat band
+    second: {fileID: 2100000, guid: 41d614282cac033458d27975eb23041e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Serious Hat normal
+    second: {fileID: 2100000, guid: f187e9b0a03574548be1d93db698c058, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

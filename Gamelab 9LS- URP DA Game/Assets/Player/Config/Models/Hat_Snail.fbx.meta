@@ -3,7 +3,22 @@ guid: b07ef06ab26aca746bc49fd2e82b8081
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AlienBlack
+    second: {fileID: 2100000, guid: 27d4885d6d8677a499d5f9983c5aca4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SnailShell
+    second: {fileID: 2100000, guid: 37315be9f12d8164ea12940543ae1b5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SnailYellow
+    second: {fileID: 2100000, guid: 58acd010b84d18d49a88740c27d68841, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

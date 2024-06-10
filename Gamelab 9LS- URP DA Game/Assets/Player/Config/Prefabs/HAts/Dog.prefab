@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3277105391302819937}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,6 +90,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5713729167588645943, guid: c1cf1af2e4f8b53478cd605e097ece81,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -2960551428746355833, guid: c1cf1af2e4f8b53478cd605e097ece81,
         type: 3}
       propertyPath: m_Layer
@@ -104,6 +109,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038669439360139591, guid: c1cf1af2e4f8b53478cd605e097ece81,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2865460325866751237, guid: c1cf1af2e4f8b53478cd605e097ece81,
         type: 3}

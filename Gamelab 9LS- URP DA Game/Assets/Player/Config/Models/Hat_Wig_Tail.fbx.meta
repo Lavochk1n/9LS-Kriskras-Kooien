@@ -3,7 +3,17 @@ guid: 8634374b3ac5ee84087d6a8fcbcc9bf8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WigBrown
+    second: {fileID: 2100000, guid: 2d4eeb6cc71047a489366b162df3e73f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WigPurple
+    second: {fileID: 2100000, guid: 706f73ee49352c34bb6719ec2d358443, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

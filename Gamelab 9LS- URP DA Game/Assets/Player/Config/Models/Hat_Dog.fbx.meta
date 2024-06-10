@@ -3,7 +3,17 @@ guid: c1cf1af2e4f8b53478cd605e097ece81
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DogDarkOrange
+    second: {fileID: 2100000, guid: 20c0ac093a76594409d59883fa52bbb9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DogOrange
+    second: {fileID: 2100000, guid: 7ae974ff164b5a346bf3916cadf3e6ae, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

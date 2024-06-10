@@ -170,7 +170,7 @@ MonoBehaviour:
     type: 3}
   backgroundHealthy: {fileID: 21300000, guid: 81b148c5a69c1864db380a27c04269e8, type: 3}
   barSickColor: {r: 0.7764706, g: 0.50980395, b: 0.7176471, a: 1}
-  barHealthyColor: {r: 0.40392157, g: 0.85882354, b: 0.88235295, a: 1}
+  barHealthyColor: {r: 0.29803923, g: 0.7490196, b: 0.28235295, a: 1}
   resetTime: 0.05
   lookedAtMAt: {fileID: 2100000, guid: dddf3e030796918498f96933346f5eb3, type: 2}
 --- !u!114 &2195066599314372516

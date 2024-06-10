@@ -3,7 +3,37 @@ guid: 8910d3c3d555a004ca5d3c2af43071e4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DuckBlack
+    second: {fileID: 2100000, guid: c33317c5e78a48749822913f1cc429f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DuckBlue
+    second: {fileID: 2100000, guid: f28cfe6b74eca0b4cb5ee7215c9b7ccc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DuckBrown
+    second: {fileID: 2100000, guid: b588ccc2b2f99824f87c09dacda1f11a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DuckGreen
+    second: {fileID: 2100000, guid: c13aa28c4d4e0f84ca588e65184fa8d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DuckYellow
+    second: {fileID: 2100000, guid: 3254022e5a1d0764ebaf4c51b66bd5fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PigeonPurple
+    second: {fileID: 2100000, guid: 24c49f216ba385348bbe017ea61994bc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

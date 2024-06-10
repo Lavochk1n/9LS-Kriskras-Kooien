@@ -100,6 +100,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: -4222660152652170070, guid: 0eb7814e957cc0b45bdf5a8870333ba2,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0eb7814e957cc0b45bdf5a8870333ba2,
         type: 3}
       propertyPath: m_Name
@@ -109,6 +114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331878673122416695, guid: 0eb7814e957cc0b45bdf5a8870333ba2,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

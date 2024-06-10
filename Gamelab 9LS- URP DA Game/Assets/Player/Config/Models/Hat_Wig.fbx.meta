@@ -3,7 +3,12 @@ guid: 122244d0101ab50409b44250f9c1978b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WigBlond
+    second: {fileID: 2100000, guid: 41b1dce0d82e88a41b7f3a660b61fe33, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

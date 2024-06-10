@@ -90,6 +90,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6629908872467856561, guid: 56049206b116a8c4d88fd3df7a1ee616,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5043919393757661707, guid: 56049206b116a8c4d88fd3df7a1ee616,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2780544542915504061, guid: 56049206b116a8c4d88fd3df7a1ee616,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 197832886189151307, guid: 56049206b116a8c4d88fd3df7a1ee616,
         type: 3}
       propertyPath: m_Layer
@@ -109,6 +124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780718868417068168, guid: 56049206b116a8c4d88fd3df7a1ee616,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5836115696440915166, guid: 56049206b116a8c4d88fd3df7a1ee616,
         type: 3}

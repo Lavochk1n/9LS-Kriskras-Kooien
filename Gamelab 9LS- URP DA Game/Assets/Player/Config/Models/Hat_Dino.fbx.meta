@@ -3,7 +3,17 @@ guid: cc32ef5df5cb8c24baab30ab6f82e910
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DinoGreen
+    second: {fileID: 2100000, guid: a87d666b2a8401e4ba8db5a3e9b599a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DinoYellow
+    second: {fileID: 2100000, guid: 7b98a735e54f8924b942298582dc57d7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
