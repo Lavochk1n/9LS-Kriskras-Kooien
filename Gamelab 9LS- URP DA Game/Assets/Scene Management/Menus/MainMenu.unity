@@ -2409,8 +2409,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -220, y: 126}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 88, y: 162}
+  m_SizeDelta: {x: 97.718, y: 97.718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1100590693
 MonoBehaviour:
@@ -2425,7 +2425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.00071199884, b: 0.00071199884, a: 1}
+  m_Color: {r: 0.09411766, g: 0.23137257, b: 0.5686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2938,8 +2938,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 71, y: 50}
-  m_SizeDelta: {x: 422.37378, y: 422.3738}
+  m_AnchoredPosition: {x: 60.4929, y: 39}
+  m_SizeDelta: {x: 319.7964, y: 319.7964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1462309451
 MonoBehaviour:
@@ -3038,7 +3038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.00071199884, b: 0.00071199884, a: 1}
+  m_Color: {r: 0.09411766, g: 0.23137257, b: 0.5686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3826,8 +3826,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 174, y: 50}
-  m_SizeDelta: {x: 422.37378, y: 422.3738}
+  m_AnchoredPosition: {x: 130.46, y: 39}
+  m_SizeDelta: {x: 319.7964, y: 319.7964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1948984723
 MonoBehaviour:
@@ -3926,7 +3926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.00071199884, b: 0.00071199884, a: 1}
+  m_Color: {r: 0.09411766, g: 0.23137257, b: 0.5686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
