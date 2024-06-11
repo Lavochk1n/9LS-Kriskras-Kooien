@@ -56,7 +56,7 @@ public class AudioManager : MonoBehaviour
     public void SetVolume(float volume)
     {
         globalVolume = volume;
-        SetMusicVolume(globalVolume);
+        SetMusicVolume(globalVolume * musicSource.volume);
     }
 
     public void MuteAllAudio(bool isMuted)
