@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBehaviour1: {fileID: 0}
   playerBehaviour2: {fileID: 0}
-  maxDif: 3
-  difficultyIncrease: 0.1
+  maxDif: 5
+  difficultyIncrease: 0.08
   maxGloves: 5
   randomGame: 0
   gameRoom: 3

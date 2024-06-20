@@ -54,6 +54,8 @@ MonoBehaviour:
   SpawnOffSet: 80
   fadeOutGlove: {fileID: 4718162730525974350, guid: 8c73be4f00ae70d4ea7bd2984abb7427,
     type: 3}
+  fadeOutGlovePlayer: {fileID: 113983542908483159, guid: f920d973c69588441b7e8e20235aea1d,
+    type: 3}
 --- !u!1 &2933585077269848085
 GameObject:
   m_ObjectHideFlags: 0

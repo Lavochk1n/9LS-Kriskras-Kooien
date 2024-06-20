@@ -51,7 +51,7 @@ public class GloveManager : MonoBehaviour
     {
         if (gloves <= 0)
         {
-            gloveUI.spawnFadeOut();
+            gloveUI.spawnFadeOut(transform.position);
             return false;
             
         }

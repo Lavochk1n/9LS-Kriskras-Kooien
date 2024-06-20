@@ -7,12 +7,9 @@ public class GloveUI : MonoBehaviour
     public GameObject uiGlove;
     public GameObject myCanvas;
     public float SpawnOffSet = 100;
-    public GameObject fadeOutGlove;
+    public GameObject fadeOutGlove, fadeOutGlovePlayer; 
 
 
-    private void Start()
-    {
-    }
 
     public void updateUIGlove(int gloves)
     {
@@ -32,11 +29,21 @@ public class GloveUI : MonoBehaviour
         }
     }
 
-    public void spawnFadeOut()
+    public void spawnFadeOut(Vector3 pos = default)
     {
-        Vector3 spawnPos = myCanvas.transform.position;
-        Instantiate(fadeOutGlove, spawnPos, Quaternion.identity, myCanvas.transform);
-        spawnPos.y -= SpawnOffSet;
+        if (pos == default)
+        {
+            Vector3 spawnPos = myCanvas.transform.position;
+            Instantiate(fadeOutGlove, spawnPos, Quaternion.identity, myCanvas.transform);
+            spawnPos.y -= SpawnOffSet;
+        }
+        else
+        {
+            Vector3 spawnpos = Camera.main.WorldToScreenPoint(pos);
+            spawnpos.y += SpawnOffSet;
+            Instantiate(fadeOutGlovePlayer, spawnpos, Quaternion.identity, myCanvas.transform);
+        }
+
     }
     void HideUIGlove()
     {
