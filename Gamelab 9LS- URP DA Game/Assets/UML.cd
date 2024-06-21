@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Interactable">
+    <Position X="4.25" Y="3" Width="2" />
+    <Members>
+      <Method Name="GetHoldTime" Hidden="true" />
+      <Field Name="heldDown" Hidden="true" />
+      <Field Name="holdTime" Hidden="true" />
+      <Method Name="IncreaseHoldTime" Hidden="true" />
+      <Method Name="LateUpdate" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Interactable.InteractionType">
+        <Members>
+          <Field Name="Minigame" Hidden="true" />
+        </Members>
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Player\Interactables System\Scripts\Interactable.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAIAAAIgAAIAAACACAAAgBAAAAAAA=</HashCode>
+      <FileName>Assets\Player\Interactables System\Scripts\Interactable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Interactor">
+    <Position X="2" Y="3" Width="2" />
+    <Members>
+      <Field Name="currentPrompt" Hidden="true" />
+      <Field Name="interactionProgress" Hidden="true" />
+      <Field Name="interactionPrompt" Hidden="true" />
+      <Field Name="offset" Hidden="true" />
+      <Field Name="requestRemove" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACCAAkAACAAAAAAAAAAIIAAAACCACAACABAAAAAQAA=</HashCode>
+      <FileName>Assets\Player\Interactables System\Scripts\Interactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Quarantine.PlayerBehaviour">
+    <Position X="2" Y="6.25" Width="2" />
+    <Members>
+      <Field Name="attachPoint" Hidden="true" />
+      <Method Name="Awake" Hidden="true" />
+      <Field Name="CC" Hidden="true" />
+      <Field Name="controls" Hidden="true" />
+      <Field Name="currentVeloctiy" Hidden="true" />
+      <Method Name="FixedUpdate" Hidden="true" />
+      <Field Name="flagAmount" Hidden="true" />
+      <Field Name="hatPoint1" Hidden="true" />
+      <Field Name="hatPoint2" Hidden="true" />
+      <Field Name="hatvisuals" Hidden="true" />
+      <Method Name="InitializePlayer" Hidden="true" />
+      <Method Name="Input_onActionTriggered" Hidden="true" />
+      <Field Name="isHolding" Hidden="true" />
+      <Field Name="isMoving" Hidden="true" />
+      <Method Name="IsMoving" Hidden="true" />
+      <Field Name="maxFlags" Hidden="true" />
+      <Field Name="mostRecentCage" Hidden="true" />
+      <Field Name="moveSpeed" Hidden="true" />
+      <Field Name="moveVector" Hidden="true" />
+      <Field Name="myUI" Hidden="true" />
+      <Method Name="OnDestroy" Hidden="true" />
+      <Method Name="OnPause" Hidden="true" />
+      <Method Name="OnReturn" Hidden="true" />
+      <Method Name="OnSecondairyInteract" Hidden="true" />
+      <Field Name="player1model" Hidden="true" />
+      <Field Name="player2model" Hidden="true" />
+      <Field Name="playerConfig" Hidden="true" />
+      <Field Name="smoothtime" Hidden="true" />
+      <Field Name="sprintBonus" Hidden="true" />
+      <Field Name="sprintSpeed" Hidden="true" />
+      <Method Name="SprintSpeed" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+      <Method Name="UpdateHeldAnimal" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AdQBEQAgEiIACAARgBgAAwAAAAAAUC0AAAABCBAgA0A=</HashCode>
+      <FileName>Assets\Player\PlayerBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AmbulanceManager">
+    <Position X="2.75" Y="8.75" Width="1.5" />
+    <Members>
+      <Field Name="animator" Hidden="true" />
+      <Method Name="Awake" Hidden="true" />
+      <Field Name="floatText" Hidden="true" />
+      <Method Name="GetDescription" Hidden="true" />
+      <Field Name="GM" Hidden="true" />
+      <Field Name="Instance" Hidden="true" />
+      <Field Name="QM" Hidden="true" />
+      <Method Name="ShowScoreFloat" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+      <Field Name="waitTime" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>BAAABAAAACAAAAAAIAwQEAAAIAAAAAgAQAAAgAEAAEA=</HashCode>
+      <FileName>Assets\Ambulance Mechanic\Scripts\AmbulanceManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Quarantine.CageBehaviour">
+    <Position X="4.5" Y="8.75" Width="1.5" />
+    <Members>
+      <Property Name="AdjCages" Hidden="true" />
+      <Method Name="ChangeOccupation" Hidden="true" />
+      <Method Name="ChangeSickstate" Hidden="true" />
+      <Method Name="CheckSpread" Hidden="true" />
+      <Method Name="ForcedSpreadTick" Hidden="true" />
+      <Method Name="InitializeCages" Hidden="true" />
+      <Field Name="isInfected" Hidden="true" />
+      <Field Name="markedForRemoval" Hidden="true" />
+      <Field Name="myCageVisual" Hidden="true" />
+      <Method Name="OnDrawGizmosSelected" Hidden="true" />
+      <Field Name="searchDistance" Hidden="true" />
+      <Field Name="spPrefab" Hidden="true" />
+      <Field Name="spreadArrow" Hidden="true" />
+      <Field Name="spreadSpeed" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+      <Method Name="UpdateCage" Hidden="true" />
+      <Method Name="UpdateSpreadSpeed" Hidden="true" />
+      <Field Name="wallLayer" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>IgQAgCAAACIAQAAAMAAACAgBqAiQQACBAAKAAAAAABA=</HashCode>
+      <FileName>Assets\Cages mechanic\Scripts\CageBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SinkBehavior">
+    <Position X="6.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAIAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Hygiene Mechanic\Scripts\SinkBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Quarantine.Animal" Collapsed="true">
+    <Position X="6.5" Y="6.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAgAAAAAAAAABAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Game Manager\QuarentineManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Quarantine.QuarentineManager">
+    <Position X="6.5" Y="3" Width="2" />
+    <Members>
+      <Field Name="animalWeights" Hidden="true" />
+      <Method Name="Awake" Hidden="true" />
+      <Field Name="baseSickAmount" Hidden="true" />
+      <Field Name="bunnyWeight" Hidden="true" />
+      <Field Name="cageQuota" Hidden="true" />
+      <Field Name="cagesParent" Hidden="true" />
+      <Field Name="clearCompleted" Hidden="true" />
+      <Field Name="countDownCounter" Hidden="true" />
+      <Field Name="crowWeight" Hidden="true" />
+      <Method Name="DelayedUnpause" Hidden="true" />
+      <Field Name="delayRunning" Hidden="true" />
+      <Field Name="EndOfGame" Hidden="true" />
+      <Field Name="floatOffset" Hidden="true" />
+      <Field Name="floatText" Hidden="true" />
+      <Method Name="GameOver" Hidden="true" />
+      <Field Name="GameOverlayed" Hidden="true" />
+      <Field Name="GamePause" Hidden="true" />
+      <Method Name="GamePaused" Hidden="true" />
+      <Method Name="GetWeightedRandomAnimal" Hidden="true" />
+      <Method Name="GetWeightedRandomState" Hidden="true" />
+      <Field Name="healthyWeight" Hidden="true" />
+      <Field Name="infectedAmount" Hidden="true" />
+      <Field Name="infectedQuota" Hidden="true" />
+      <Method Name="InitializePlayers" Hidden="true" />
+      <Field Name="isClearing" Hidden="true" />
+      <Field Name="one" Hidden="true" />
+      <Field Name="parrotWeight" Hidden="true" />
+      <Field Name="pauseScreen" Hidden="true" />
+      <Field Name="pauseTimeDelay" Hidden="true" />
+      <Field Name="player" Hidden="true" />
+      <Field Name="player2" Hidden="true" />
+      <Field Name="playerOneSpawned" Hidden="true" />
+      <Field Name="playerOneUISpawned" Hidden="true" />
+      <Field Name="playerPrefab" Hidden="true" />
+      <Method Name="PlayerSpawned" Hidden="true" />
+      <Field Name="scoreBox" Hidden="true" />
+      <Field Name="start" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+      <Field Name="two" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>QIcA7ogCACIARAQkAMAIAIAMEAoCuCIBQAAEACEAIMA=</HashCode>
+      <FileName>Assets\Game Manager\QuarentineManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Quarantine.AnimalTypes" Collapsed="true">
+    <Position X="6.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAIAAAAAAAAAAAAAEAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Game Manager\QuarentineManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Quarantine.SickState" Collapsed="true">
+    <Position X="6.5" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Game Manager\QuarentineManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -109,7 +109,7 @@ public class Interactor : MonoBehaviour
 
                 if (requestRemove)
                 {
-                    interactable.Interact_Secondairy(this);
+                    //interactable.Interact_Secondairy(this);
                 }
                 break;
 

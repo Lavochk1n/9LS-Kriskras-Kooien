@@ -5,69 +5,49 @@ using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 using static UnityEngine.ParticleSystem;
 
-
 namespace Quarantine { 
 
     public class CageVisual : MonoBehaviour
     {
         [SerializeField] private CageBehaviour myCage;
-
         [SerializeField] private GameObject attachPoint, flag;
-
         [SerializeField] private Image panel, progressBar, background;
-
         [SerializeField] private Sprite backgroundSick, backgroundSickening, backgroundHealthy; 
-
         [SerializeField] private Color barSickColor, barHealthyColor;
 
         private bool isLookedAt = false;
         private float lightTimer = 0f;
         [SerializeField] private float resetTime = 0.1f;
-        private Material ogMat;
         [SerializeField] private Material lookedAtMAt;
 
         private float previousProgression;
 
-       
-
-
         private void Start()
         {
-
             previousProgression = progressBar.fillAmount;
-            ogMat = GetComponentInChildren<Renderer>().materials[0];
             GetComponentInChildren<Renderer>().materials[0].DisableKeyword("_EMISSION");
-
         }
 
         private void Update()
         {
-
-
             if(isLookedAt)
             {
-                //Debug.Log(isLookedAt);
-
                 GetComponentInChildren<Renderer>().materials[0].EnableKeyword("_EMISSION");
 
                 if (lightTimer > 0f)
                 {
                     lightTimer -= Time.deltaTime;
                 }
-                else //if (mat.IsKeywordEnabled("_EMISSION"))
+                else 
                 {
-                    //GetComponentInChildren<Renderer>().materials[0] = ogMat;
                     GetComponentInChildren<Renderer>().materials[0].DisableKeyword("_EMISSION");
-
                     isLookedAt = false;
                 }
             }
-            
         }
 
         public void ToggleIcon(bool state)
-        {
-            
+        {   
             panel.transform.parent.gameObject.SetActive(state);
         }
 
@@ -139,7 +119,6 @@ namespace Quarantine {
                 progressBar.gameObject.SetActive(true);
             }
 
-            //if (isSickening())
             if (GetComponent<CageBehaviour>().isInfected)
             {   
                 panel.sprite = visuals.iconTypeSickening;
@@ -157,7 +136,6 @@ namespace Quarantine {
 
         public void IsLookedAt()
         {
-            //Debug.Log("register looking");
             isLookedAt = true;
             lightTimer = resetTime;
         }

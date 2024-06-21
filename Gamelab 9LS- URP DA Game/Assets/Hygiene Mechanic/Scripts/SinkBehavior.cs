@@ -17,12 +17,6 @@ public class SinkBehavior : Interactable
     }
 
 
-
-    public override void Interact_Secondairy(Interactor interactor)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override string GetDescription()
     {
         if (Isheld())

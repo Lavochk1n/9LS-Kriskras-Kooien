@@ -21,7 +21,6 @@ public abstract class Interactable : MonoBehaviour
 
     public abstract void Interact(Interactor interactor);
 
-    public abstract void Interact_Secondairy(Interactor interactor);
 
 
     public void IncreaseHoldTime()

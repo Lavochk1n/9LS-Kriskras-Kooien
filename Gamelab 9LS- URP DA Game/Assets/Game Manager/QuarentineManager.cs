@@ -24,6 +24,12 @@ namespace Quarantine
         sick
     }
 
+    public enum CopyOfSickState
+    {
+        healthy,
+        sick
+    }
+
     public class Animal
     {
         public AnimalTypes type;

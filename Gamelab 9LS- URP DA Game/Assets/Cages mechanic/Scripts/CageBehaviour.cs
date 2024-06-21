@@ -2,41 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace Quarantine
 {
-
     public class CageBehaviour : Interactable
     {
         public List<CageBehaviour> AdjCages { get; private set; }
-        [SerializeField] private LayerMask wallLayer;
-        [SerializeField] private float searchDistance =3f;
-
-        private float startSpreadSpeed; 
-        private float spreadSpeed;
-
+        public Animal myAnimal = new();
         [SerializeField] private CageVisual myCageVisual;
 
-        public Animal myAnimal = new();
+        [SerializeField] private LayerMask wallLayer;
+        [SerializeField] private float searchDistance =3f;
+        private float spreadSpeed;
 
         public bool isInfected; 
-
         public bool markedForRemoval = false;
 
-
-        private SpreadParticlesHandeler particles;
         public GameObject spPrefab, spreadArrow;
-
 
         private void Start()
         {
-            particles = gameObject.AddComponent<SpreadParticlesHandeler>();
-
+            gameObject.AddComponent<SpreadParticlesHandeler>();
 
             InitializeCages();
-            startSpreadSpeed = QuarentineManager.Instance.spreadSpeed;
-
             UpdateSpreadSpeed();
+
             if (myAnimal.state == SickState.sick)
             {
                 myAnimal.sickProgression = 100f;
@@ -50,13 +39,12 @@ namespace Quarantine
             }
 
             UpdateCage();
-
             StartCoroutine(UpdateVisuals());
         }
 
         public void UpdateSpreadSpeed()
         {
-            spreadSpeed = startSpreadSpeed * Random.Range(.98f, 1.02f) * GameManager.Instance.GetDifficultyRatio();
+            spreadSpeed = QuarentineManager.Instance.spreadSpeed * Random.Range(.98f, 1.02f) * GameManager.Instance.GetDifficultyRatio();
         }
 
         private void Update()
@@ -80,7 +68,6 @@ namespace Quarantine
             {
                 yield return new WaitForSeconds(.1f);
                 myCageVisual.UpdateProgressbar(myAnimal);
-                //myCageVisual.UpdateIcon(myAnimal);
             }
         }
 
@@ -124,7 +111,6 @@ namespace Quarantine
 
                     }
 
-
                     if (playerBehaviour ==  player1)
                     {
                         if(player2.mostRecentCage == this)
@@ -140,14 +126,10 @@ namespace Quarantine
 
                         }
                     }
-                    
-
                 }
 
                 playerBehaviour.heldAnimal = myAnimal;
-
                 playerBehaviour.mostRecentCage = this; 
-
                 myAnimal = heldAnimal;
 
                 UpdateCage();
@@ -155,35 +137,6 @@ namespace Quarantine
             }
         }
 
-        public override void Interact_Secondairy(Interactor interactor)
-        {
-            if (myAnimal.type == AnimalTypes.Empty) { return; }
-
-
-            if(interactor != null)
-            {
-
-                PlayerBehaviour pb = interactor.GetComponent<PlayerBehaviour>();
-                if(markedForRemoval)
-                {
-                    pb.flagAmount++;
-                    markedForRemoval = !markedForRemoval;
-                }
-                else
-                {
-                    if (pb.flagAmount > 0 )
-                    {
-                        pb.flagAmount--;
-                        markedForRemoval = !markedForRemoval;
-                    }
-                }
-            }
-            else
-            {
-                markedForRemoval = !markedForRemoval;
-            }
-            myCageVisual.UpdateFlag(markedForRemoval);
-        }
 
         public override string GetDescription()
         {
@@ -214,21 +167,7 @@ namespace Quarantine
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, searchDistance);
-            
-            
         }
-
-        //private void OnDrawGizmos()
-        //{
-        //    if (AdjCages != null) return;
-        //    foreach (CageBehaviour cageBehaviour in AdjCages)
-        //    {
-        //        Gizmos.color = Color.red;
-
-        //        Gizmos.DrawLine(transform.position, cageBehaviour.transform.position);
-
-        //    }
-        //}
 
         public void ChangeOccupation(AnimalTypes animal)
         {
@@ -274,6 +213,7 @@ namespace Quarantine
             }
         }
 
+        /// <returns>multiplier based on the amount of contagious cage </returns>
         public int AdjDisease()
         {
             int multiplier = 0; 
@@ -286,19 +226,14 @@ namespace Quarantine
                     {
                         contaminated = true;
                     }
-                   
                     multiplier ++;
                 }
-
-                //particles.ToggleParticlesForCage(cage, contaminated);
-
-                
-
             }
-
             return multiplier;
         }
 
+
+        /// <returns>Boolean state based on whether the submitted type is suceptible to the occupying animal</returns>
         public bool IsContagious(Animal type)
         {
             if (type.state == SickState.sick) return false;

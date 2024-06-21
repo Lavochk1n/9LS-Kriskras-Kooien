@@ -53,10 +53,7 @@ public class AmbulanceManager : Interactable
         return null;
     }
 
-    public override void Interact_Secondairy(Interactor interactor)
-    {
-        throw new System.NotImplementedException();
-    }
+ 
 
     public void Arrival()
     {
