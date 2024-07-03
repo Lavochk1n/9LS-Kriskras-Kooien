@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Interactable">
-    <Position X="4.25" Y="3" Width="2" />
+    <Position X="4.25" Y="6" Width="2" />
     <Members>
       <Method Name="GetHoldTime" Hidden="true" />
       <Field Name="heldDown" Hidden="true" />
@@ -28,7 +28,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Interactor">
-    <Position X="2" Y="3" Width="2" />
+    <Position X="6.5" Y="6" Width="2" />
     <Members>
       <Field Name="currentPrompt" Hidden="true" />
       <Field Name="interactionProgress" Hidden="true" />
@@ -42,7 +42,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Quarantine.PlayerBehaviour">
-    <Position X="2" Y="6.25" Width="2" />
+    <Position X="6.5" Y="9.25" Width="2" />
     <Members>
       <Field Name="attachPoint" Hidden="true" />
       <Method Name="Awake" Hidden="true" />
@@ -84,27 +84,8 @@
       <FileName>Assets\Player\PlayerBehaviour.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AmbulanceManager">
-    <Position X="2.75" Y="8.75" Width="1.5" />
-    <Members>
-      <Field Name="animator" Hidden="true" />
-      <Method Name="Awake" Hidden="true" />
-      <Field Name="floatText" Hidden="true" />
-      <Method Name="GetDescription" Hidden="true" />
-      <Field Name="GM" Hidden="true" />
-      <Field Name="Instance" Hidden="true" />
-      <Field Name="QM" Hidden="true" />
-      <Method Name="ShowScoreFloat" Hidden="true" />
-      <Method Name="Start" Hidden="true" />
-      <Field Name="waitTime" Hidden="true" />
-    </Members>
-    <TypeIdentifier>
-      <HashCode>BAAABAAAACAAAAAAIAwQEAAAIAAAAAgAQAAAgAEAAEA=</HashCode>
-      <FileName>Assets\Ambulance Mechanic\Scripts\AmbulanceManager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Quarantine.CageBehaviour">
-    <Position X="4.5" Y="8.75" Width="1.5" />
+    <Position X="4.5" Y="11.75" Width="1.5" />
     <Members>
       <Property Name="AdjCages" Hidden="true" />
       <Method Name="ChangeOccupation" Hidden="true" />
@@ -132,21 +113,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SinkBehavior">
-    <Position X="6.25" Y="8.75" Width="1.5" />
+    <Position X="6.25" Y="11.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAAAAAIAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Hygiene Mechanic\Scripts\SinkBehavior.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Quarantine.Animal" Collapsed="true">
-    <Position X="6.5" Y="6.25" Width="2" />
+    <Position X="6.5" Y="2.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAQAAAAAAgAAAAAAAAABAAAEAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Game Manager\QuarentineManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Quarantine.QuarentineManager">
-    <Position X="6.5" Y="3" Width="2" />
+    <Position X="4.25" Y="2.75" Width="2" />
     <Members>
       <Field Name="animalWeights" Hidden="true" />
       <Method Name="Awake" Hidden="true" />
@@ -195,14 +176,14 @@
     </TypeIdentifier>
   </Class>
   <Enum Name="Quarantine.AnimalTypes" Collapsed="true">
-    <Position X="6.5" Y="7" Width="2" />
+    <Position X="6.5" Y="3.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAAAAIAAAAAAAAAAAAAEAAAAAAAAEA=</HashCode>
       <FileName>Assets\Game Manager\QuarentineManager.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Quarantine.SickState" Collapsed="true">
-    <Position X="6.5" Y="7.75" Width="2" />
+    <Position X="6.5" Y="4.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Game Manager\QuarentineManager.cs</FileName>

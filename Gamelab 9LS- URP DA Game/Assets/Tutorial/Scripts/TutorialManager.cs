@@ -11,6 +11,8 @@ public class TutorialManager : MonoBehaviour
     public bool randomCages = false;
     public bool useGloves = true;
 
+    public bool isShowingPopUp = false; 
+    public bool didFirstRound = false;
 
     public int swapTarget = 3;
 
@@ -19,10 +21,12 @@ public class TutorialManager : MonoBehaviour
     //[Header("Tutorial Cages")]
     //public List<TutorialCages> tutorialCages = new();
 
+    [SerializeField] private GameObject sequence, sequence2; 
+
 
     private void Start()
     {
-        QuarentineManager.Instance.PauseGame();
+        //QuarentineManager.Instance.PauseGame();
     }
 
     private void Update()
@@ -60,6 +64,14 @@ public class TutorialManager : MonoBehaviour
         else { Instance = this; }
 
        
+    }
+
+    public void ShowTutorialPopups(int sequenceIndex)
+    {
+        if (sequenceIndex == 0) Instantiate(sequence);
+        else Instantiate(sequence2);
+
+        isShowingPopUp= true;
     }
 
     

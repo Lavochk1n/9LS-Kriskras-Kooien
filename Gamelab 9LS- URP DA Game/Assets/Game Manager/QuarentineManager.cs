@@ -15,7 +15,6 @@ namespace Quarantine
         crow,
         parrot,
         Empty
-         
     }
 
     public enum SickState
@@ -118,8 +117,14 @@ namespace Quarantine
             infectedQuota = Mathf.RoundToInt(cageQuota * Cages.Count / 100);
             if (infectedQuota == 0) { infectedQuota = 10; }
 
-
-            StartCoroutine(DelayedUnpause());
+            if (TutorialManager.Instance == null)
+            {
+                StartCoroutine(DelayedUnpause());
+            }
+            else
+            {
+                TutorialManager.Instance.ShowTutorialPopups(0);
+            }
 
             scoreBox = GameObject.FindGameObjectWithTag("ScoreBox").GetComponent<RoundStatisticsDisplay>();
             if (scoreBox != null) scoreBox.RefreshStats(infectedAmount, infectedQuota);
@@ -210,6 +215,8 @@ namespace Quarantine
 
             if (TutorialManager.Instance != null)
             {
+                if(TutorialManager.Instance.isShowingPopUp) return true;
+
                 if (!TutorialManager.Instance.randomCages)
                 {
                     if (RoomCleared()) return true;
@@ -250,6 +257,19 @@ namespace Quarantine
             if (ExcessWaittime <= 0) { ExcessWaittime = 0.1f; }
 
             yield return new WaitForSeconds(ExcessWaittime);
+
+            if (TutorialManager.Instance != null)
+            {
+
+                TutorialManager.Instance.ShowTutorialPopups(1);
+                TutorialManager.Instance.didFirstRound = true;
+            }
+
+            while (TutorialManager.Instance != null && TutorialManager.Instance.isShowingPopUp)
+            {
+                yield return null; 
+            }
+
             GameObject number  = Instantiate(countDownCounter);
             Image numberImg = number.GetComponentInChildren<Image>();
             AudioManager.Instance.PlaySFX(0);
@@ -276,7 +296,7 @@ namespace Quarantine
 
             GamePause = false;
             delayRunning = false;
-            if (TutorialManager.Instance != null) { PauseGame(); }
+            
         }
 
         /// <returns>true if one of the game-over conditions are met</returns>
@@ -319,6 +339,15 @@ namespace Quarantine
 
 
             if (infectedAmount >= infectedQuota) return true;
+
+            if (TutorialManager.Instance != null)
+            {
+                if (TutorialManager.Instance.didFirstRound && RoomCleared())
+                {
+                    return true;
+                }
+            }
+
             return false; 
         }
 
