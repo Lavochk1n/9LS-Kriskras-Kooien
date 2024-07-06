@@ -11,13 +11,14 @@ PrefabInstance:
     - target: {fileID: 595751530361822685, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_Name
-      value: PopUp Interact
+      value: 1 Movement
       objectReference: {fileID: 0}
     - target: {fileID: 2204419279025642588, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_text
-      value: '''A'' indrukken voor een kooi zorgt ervoor dat je het dier oppakt als
-        je lege handen hebt of een vastgehouden dier erin zet als de kooi leeg is. '
+      value: 'Beweeg je speler met de linker stick.
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}

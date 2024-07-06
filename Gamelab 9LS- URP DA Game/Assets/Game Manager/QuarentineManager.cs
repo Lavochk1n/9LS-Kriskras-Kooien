@@ -123,6 +123,10 @@ namespace Quarantine
             }
             else
             {
+                //foreach (GameObject cage in Cages)
+                //{
+                //    cage.GetComponent<CageBehaviour>().ForcedSpreadTick();
+                //}
                 TutorialManager.Instance.ShowTutorialPopups(0);
             }
 
@@ -304,11 +308,14 @@ namespace Quarantine
         public bool RoomCleared()
         {
             if (delayRunning) return false;
+
+            if(TutorialManager.Instance != null && TutorialManager.Instance.isShowingPopUp) return false;
   
             foreach (GameObject cage in Cages)
             {
                 CageBehaviour cageBehaviour = cage.GetComponent<CageBehaviour>();
 
+                // This should be where the bug is NLS324
                 if (cageBehaviour.AdjDisease() > 0 && cageBehaviour.myAnimal.state == SickState.healthy)
                 {
                     return false;
@@ -317,11 +324,15 @@ namespace Quarantine
                 {
                     return false;
                 }
-                if (GameManager.Instance.playerBehaviour1.heldAnimal.type != AnimalTypes.Empty ||
+                //if (GameManager.Instance.playerBehaviour1 != null && GameManager.Instance.playerBehaviour2 != null)
+                //{
+                    if (GameManager.Instance.playerBehaviour1.heldAnimal.type != AnimalTypes.Empty ||
                     GameManager.Instance.playerBehaviour2.heldAnimal.type != AnimalTypes.Empty)
-                {
-                    return false;
-                }
+                    {
+                        return false;
+                    }
+                //}
+                
             }
 
             return true;
@@ -343,9 +354,9 @@ namespace Quarantine
 
             if (TutorialManager.Instance != null)
             {
-                if (TutorialManager.Instance.didFirstRound && RoomCleared())
+                if (TutorialManager.Instance.didFirstRound )
                 {
-                    return true;
+                    if (RoomCleared())return true;
                 }
             }
 

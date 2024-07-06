@@ -11,12 +11,12 @@ PrefabInstance:
     - target: {fileID: 595751530361822685, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_Name
-      value: PopUp Dash
+      value: 2 Interact
       objectReference: {fileID: 0}
     - target: {fileID: 2204419279025642588, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_text
-      value: '''B'' indrukken zorgt voor een korte sprint'
+      value: Druk op A om dieren op te pakken en neer te zetten.
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}

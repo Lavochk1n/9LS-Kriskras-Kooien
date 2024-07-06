@@ -11,12 +11,13 @@ PrefabInstance:
     - target: {fileID: 595751530361822685, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_Name
-      value: PopUp Teamwork
+      value: 14 GameOver
       objectReference: {fileID: 0}
     - target: {fileID: 2204419279025642588, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_text
-      value: 'samenwerken
+      value: 'Probeer zo lang mogelijk zoveel dieren gezond te houden. Bij 16 zieke
+        dieren is het Game Over!
 
 '
       objectReference: {fileID: 0}

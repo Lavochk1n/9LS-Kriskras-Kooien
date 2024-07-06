@@ -58,10 +58,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4139831762603306164, guid: b07b680281e9a834bb48a046c4defb5c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139831762603306164, guid: b07b680281e9a834bb48a046c4defb5c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139831762603306164, guid: b07b680281e9a834bb48a046c4defb5c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486610963439146234, guid: b07b680281e9a834bb48a046c4defb5c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486610963439146234, guid: b07b680281e9a834bb48a046c4defb5c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486610963439146234, guid: b07b680281e9a834bb48a046c4defb5c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -475
+      objectReference: {fileID: 0}
     - target: {fileID: 7634738137571578620, guid: b07b680281e9a834bb48a046c4defb5c,
         type: 3}
       propertyPath: m_Name
       value: Popups Spread
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890822682401652196, guid: b07b680281e9a834bb48a046c4defb5c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890822682401652196, guid: b07b680281e9a834bb48a046c4defb5c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890822682401652196, guid: b07b680281e9a834bb48a046c4defb5c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 8703900855249455457, guid: b07b680281e9a834bb48a046c4defb5c,
         type: 3}

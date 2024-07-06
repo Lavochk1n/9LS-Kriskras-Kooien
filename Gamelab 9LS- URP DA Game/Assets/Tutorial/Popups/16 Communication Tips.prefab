@@ -11,14 +11,12 @@ PrefabInstance:
     - target: {fileID: 595751530361822685, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_Name
-      value: PopUp spread Parrot
+      value: 15 Tips
       objectReference: {fileID: 0}
     - target: {fileID: 2204419279025642588, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_text
-      value: 'Parrot Text
-
-'
+      value: "Overleg effectief, plan consequent \n"
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}

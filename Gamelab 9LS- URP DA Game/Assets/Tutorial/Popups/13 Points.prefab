@@ -11,13 +11,13 @@ PrefabInstance:
     - target: {fileID: 595751530361822685, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_Name
-      value: PopUp spread Bunny
+      value: 13 Points
       objectReference: {fileID: 0}
     - target: {fileID: 2204419279025642588, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_text
-      value: 'Bunny Text
-
+      value: 'Aan het einde van elke ronde, krijgen jullie punten voor het aantal
+        gezonde dieren.
 
 '
       objectReference: {fileID: 0}

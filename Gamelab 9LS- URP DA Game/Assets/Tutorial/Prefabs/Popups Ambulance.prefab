@@ -58,6 +58,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3694879912563502901, guid: b07b680281e9a834bb48a046c4defb5c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478065596767324811, guid: b07b680281e9a834bb48a046c4defb5c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7634738137571578620, guid: b07b680281e9a834bb48a046c4defb5c,
         type: 3}
       propertyPath: m_Name
@@ -66,7 +76,7 @@ PrefabInstance:
     - target: {fileID: 8703900855249455457, guid: b07b680281e9a834bb48a046c4defb5c,
         type: 3}
       propertyPath: popUps.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8703900855249455457, guid: b07b680281e9a834bb48a046c4defb5c,
         type: 3}
@@ -79,6 +89,12 @@ PrefabInstance:
       propertyPath: popUps.Array.data[1]
       value: 
       objectReference: {fileID: 1134784305153859363, guid: ca97ade01e319f64d9e25369d84850d3,
+        type: 3}
+    - target: {fileID: 8703900855249455457, guid: b07b680281e9a834bb48a046c4defb5c,
+        type: 3}
+      propertyPath: popUps.Array.data[2]
+      value: 
+      objectReference: {fileID: 1134784305153859363, guid: f07299d488e268c43915101fe196d23f,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

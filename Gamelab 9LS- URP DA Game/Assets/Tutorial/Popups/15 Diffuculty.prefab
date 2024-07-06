@@ -11,12 +11,13 @@ PrefabInstance:
     - target: {fileID: 595751530361822685, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_Name
-      value: PopUp Movement
+      value: 15 Diffuculty
       objectReference: {fileID: 0}
     - target: {fileID: 2204419279025642588, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_text
-      value: "Je beweegt je character met de linker stick. \n"
+      value: "Naast dat het aantal zieke dieren iedere ronde over brengt, verspreid
+        ziekte zich iedere ronde iets sneller. \n"
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}

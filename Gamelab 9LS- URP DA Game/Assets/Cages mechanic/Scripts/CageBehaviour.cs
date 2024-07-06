@@ -37,7 +37,6 @@ namespace Quarantine
                     myAnimal.sickProgression = 0f;
                 }
             }
-
             UpdateCage();
             StartCoroutine(UpdateVisuals());
         }
