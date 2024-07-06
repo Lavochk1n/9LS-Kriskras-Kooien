@@ -19,7 +19,7 @@ public class nextScreenPrompt : MonoBehaviour
         if (TutorialManager.Instance != null) 
         {
             TutorialManager.Instance.holdIcons = this.gameObject;
-            this.gameObject.SetActive(false);
+            if (!TutorialManager.Instance.lastTutorial) this.gameObject.SetActive(false);
 
         }
 

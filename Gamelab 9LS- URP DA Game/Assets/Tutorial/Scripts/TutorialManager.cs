@@ -44,8 +44,15 @@ public class TutorialManager : MonoBehaviour
 
     public void TutorialSequence()
     {
-        ScenesManager.Instance.NextScene();
+        if(!lastTutorial)
+        {
+            ScenesManager.Instance.NextScene();
 
+        }
+        else
+        {
+            ScenesManager.Instance.GetMainMenu();
+        }
     }
 
 

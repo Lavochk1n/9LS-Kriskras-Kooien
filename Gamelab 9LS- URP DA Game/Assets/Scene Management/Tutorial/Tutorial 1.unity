@@ -2564,6 +2564,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HoldOverlay
       objectReference: {fileID: 0}
+    - target: {fileID: 5192660058685531232, guid: e3fe9e03f03f944478d1d122f714f78a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6757979173219763176, guid: e3fe9e03f03f944478d1d122f714f78a,
         type: 3}
       propertyPath: m_AnchorMax.y

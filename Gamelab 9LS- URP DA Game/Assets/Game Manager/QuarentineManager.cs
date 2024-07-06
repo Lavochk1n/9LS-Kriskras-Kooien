@@ -169,15 +169,16 @@ namespace Quarantine
             if (GameOver() && !isClearing)
             {
 
-                if (TutorialManager.Instance != null)
-                {
-                    ScenesManager.Instance.GetMainMenu();
-                    return;
-                }
+                //if (TutorialManager.Instance != null )
+                //{
+                //    GameOverlayed = true;
+                //    Instantiate(EndOfGame);
+                //}
                 if (!GameOverlayed)
                 {
                     GameOverlayed = true;
-                    Instantiate(EndOfGame);
+                    GameObject overlay = Instantiate(EndOfGame);
+                    overlay.SetActive(true);
                 }
 
 
