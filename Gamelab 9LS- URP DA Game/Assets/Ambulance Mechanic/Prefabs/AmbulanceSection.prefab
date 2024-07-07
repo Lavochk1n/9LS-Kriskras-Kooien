@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 3764319750905796761}
   - component: {fileID: 2835111561136252208}
   - component: {fileID: 4945534127287416779}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 6846621248817667138}
   - component: {fileID: 7487686896472323750}
   - component: {fileID: 5298308637507217724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 8747771711480876512}
   - component: {fileID: 3641069565193292506}
   - component: {fileID: 4060178416716317796}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ambulance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 7665642387159992803}
   - component: {fileID: 897518029269908760}
   - component: {fileID: 5324239873428821421}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,7 +737,7 @@ GameObject:
   - component: {fileID: 3846267889641025228}
   - component: {fileID: 92018214320926043}
   - component: {fileID: 2424235814581693015}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +822,7 @@ GameObject:
   - component: {fileID: 5448868048334527154}
   - component: {fileID: 4177423930798250828}
   - component: {fileID: 2975813691743895717}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pallet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,7 +1016,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8415728605032092911}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ambulance_cages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1123,6 +1123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 12b8a7e968be2b546b19243b76c31899,
         type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 12b8a7e968be2b546b19243b76c31899,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1219,6 +1224,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ambulance_LeftDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a4a724eaf36840741986131d589616d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a4a724eaf36840741986131d589616d0,
         type: 3}
