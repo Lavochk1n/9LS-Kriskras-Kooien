@@ -240,10 +240,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7764182452658881667, guid: 31308551793e7424fa7f1bb332e59d30,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1001281382438128537, guid: 31308551793e7424fa7f1bb332e59d30,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 31308551793e7424fa7f1bb332e59d30,
         type: 3}
       propertyPath: m_Name
       value: J_Sink
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309844233001029331, guid: 31308551793e7424fa7f1bb332e59d30,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
