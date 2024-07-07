@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6330268350251814807
+--- !u!1 &3692599122403233106
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2874334815831662011}
-  - component: {fileID: 2693256247386007941}
-  - component: {fileID: 2364639831181881345}
+  - component: {fileID: 2348552179743764038}
+  - component: {fileID: 7789662046412589456}
+  - component: {fileID: 114595948425041026}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2874334815831662011
+--- !u!224 &2348552179743764038
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6330268350251814807}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 3692599122403233106}
+  m_LocalRotation: {x: -0, y: -0, z: 0.019459186, w: 0.9998107}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 0.72, y: 0.72, z: 0.72}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5725667988586306570}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.23}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16, y: -135}
-  m_SizeDelta: {x: 313, y: 205}
+  m_AnchoredPosition: {x: 296, y: -135}
+  m_SizeDelta: {x: 1081, y: 346}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2693256247386007941
+--- !u!222 &7789662046412589456
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6330268350251814807}
+  m_GameObject: {fileID: 3692599122403233106}
   m_CullTransparentMesh: 1
---- !u!114 &2364639831181881345
+--- !u!114 &114595948425041026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6330268350251814807}
+  m_GameObject: {fileID: 3692599122403233106}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8ba20c86c2be1494a91f2ba12642aad7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5471f64f65910f459d61a0586ede5cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -86,27 +86,34 @@ PrefabInstance:
     - target: {fileID: 595751530361822685, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_Name
-      value: 3 Dash
+      value: 10 spread Crow
       objectReference: {fileID: 0}
     - target: {fileID: 701794500155403090, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 1121.2432
       objectReference: {fileID: 0}
     - target: {fileID: 701794500155403090, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 400
+      value: 201.7541
       objectReference: {fileID: 0}
     - target: {fileID: 701794500155403090, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -34.7808
+      objectReference: {fileID: 0}
+    - target: {fileID: 701794500155403090, guid: cd3a84115cbb1394fbc795fd7ff35d91,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.6519
       objectReference: {fileID: 0}
     - target: {fileID: 2204419279025642588, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_text
-      value: Druk op B om een sprintje te nemen.
+      value: 'Zieke kraaien besmetten gezonde kraaien in de nabijheid.
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
@@ -126,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
@@ -136,17 +143,17 @@ PrefabInstance:
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 552
+      value: 1305
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 672
+      value: 377
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
@@ -191,7 +198,7 @@ PrefabInstance:
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 152
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
@@ -212,7 +219,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e381550734414544792cf24f0f2062ca,
+      objectReference: {fileID: 21300000, guid: 38d33df2c6de3d74bae076b227ba3bab,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -220,7 +227,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       insertIndex: 0
-      addedObject: {fileID: 2874334815831662011}
+      addedObject: {fileID: 2348552179743764038}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd3a84115cbb1394fbc795fd7ff35d91, type: 3}
 --- !u!224 &5725667988586306570 stripped

@@ -11,17 +11,28 @@ PrefabInstance:
     - target: {fileID: 595751530361822685, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_Name
-      value: 12 Ambulance
+      value: 17 Communication Tips
+      objectReference: {fileID: 0}
+    - target: {fileID: 701794500155403090, guid: cd3a84115cbb1394fbc795fd7ff35d91,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 701794500155403090, guid: cd3a84115cbb1394fbc795fd7ff35d91,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 701794500155403090, guid: cd3a84115cbb1394fbc795fd7ff35d91,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2204419279025642588, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_text
-      value: 'Je hebt de ziekte spreiding gestopt! De ambulance brengt nieuwe dieren.
-        Waarvan evenveel ziek zijn als voorgaand overgebleven. Zorg ervoor dat ze
-        niet ziek worden!
-
-
-'
+      value: "Overleg effectief, plan vooruit en werk zo goed mogelijk samen om de
+        hoogste score te zetten! \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
@@ -123,6 +134,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8733299410066149926, guid: cd3a84115cbb1394fbc795fd7ff35d91,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e381550734414544792cf24f0f2062ca,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -11,12 +11,33 @@ PrefabInstance:
     - target: {fileID: 595751530361822685, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_Name
-      value: 15 Tips
+      value: 8a spread
+      objectReference: {fileID: 0}
+    - target: {fileID: 701794500155403090, guid: cd3a84115cbb1394fbc795fd7ff35d91,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1121.2432
+      objectReference: {fileID: 0}
+    - target: {fileID: 701794500155403090, guid: cd3a84115cbb1394fbc795fd7ff35d91,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 201.7541
+      objectReference: {fileID: 0}
+    - target: {fileID: 701794500155403090, guid: cd3a84115cbb1394fbc795fd7ff35d91,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -34.7808
+      objectReference: {fileID: 0}
+    - target: {fileID: 701794500155403090, guid: cd3a84115cbb1394fbc795fd7ff35d91,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.6519
       objectReference: {fileID: 0}
     - target: {fileID: 2204419279025642588, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_text
-      value: "Overleg effectief, plan consequent \n"
+      value: "Het doel van het spel is ervoor zorgen dat zo min mogelijk dieren ziek
+        worden. \n"
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
@@ -36,7 +57,7 @@ PrefabInstance:
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
@@ -46,17 +67,17 @@ PrefabInstance:
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 552
+      value: 1305
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 672
+      value: 377
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
@@ -101,7 +122,7 @@ PrefabInstance:
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 152
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 5228310003286138612, guid: cd3a84115cbb1394fbc795fd7ff35d91,
         type: 3}
@@ -118,6 +139,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8733299410066149926, guid: cd3a84115cbb1394fbc795fd7ff35d91,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 38d33df2c6de3d74bae076b227ba3bab,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

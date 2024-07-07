@@ -14,26 +14,25 @@ public class RemoveSomeGloves : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!foundPlayers)
+        if (foundPlayers)
         {
-            p1 = QuarentineManager.Instance.player.GetComponent<GloveManager>();
-            p2 = QuarentineManager.Instance.player2.GetComponent<GloveManager>();
+            return; 
+        }
+        p1 = QuarentineManager.Instance.player.GetComponent<GloveManager>();
+        p2 = QuarentineManager.Instance.player2.GetComponent<GloveManager>();
 
-            if (p1 != null && p2 != null)
-            {
-                foundPlayers = true;
-
-                for (int i = 0; i < glovesToRemove; i++)
-                {
-                    p1.RemoveGlove();
-                    p2.RemoveGlove();
-                }
-                
-            }
-            else return;
+        if (p1 == null || p2 == null)
+        {
+            return; 
         }
 
-        
+        foundPlayers = true;
 
+        for (int i = 0; i < glovesToRemove; i++)
+        {
+            p1.RemoveGlove();
+            p2.RemoveGlove();
+        }
+        
     }
 }

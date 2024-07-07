@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 152}
-  m_SizeDelta: {x: 552, y: 672}
+  m_SizeDelta: {x: 1305, y: 377}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7337416503496582781
 CanvasRenderer:
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e381550734414544792cf24f0f2062ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38d33df2c6de3d74bae076b227ba3bab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -110,8 +110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 16.653809}
-  m_SizeDelta: {x: 400, y: 494.6448}
+  m_AnchoredPosition: {x: -30.2139, y: 31.3239}
+  m_SizeDelta: {x: 1134.9535, y: 186.7223}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8552792487884387383
 CanvasRenderer:
@@ -141,17 +141,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem Ipsum Tutorial Text
+  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 812a9999b58a0ca4bb80fb921cc01b62, type: 2}
+  m_sharedMaterial: {fileID: -3528164220332010801, guid: 812a9999b58a0ca4bb80fb921cc01b62,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281546817
-  m_fontColor: {r: 0.254717, g: 0.2198985, b: 0.19824672, a: 1}
+    rgba: 4282323988
+  m_fontColor: {r: 0.078431375, g: 0.078431375, b: 0.24705882, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -180,7 +183,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 55.8
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
